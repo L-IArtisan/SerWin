@@ -1,0 +1,34 @@
+{
+  "name": "windows-configuration",
+  "patterns": [ "settings-win.data.microsoft.com", "settings.data.microsoft.com", "*.settings-win.data.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Configuration et essais de fonctionnalités Windows", "en": "Windows configuration and feature trials" },
+  "category": "diagnostics",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Télécharge des réglages de configuration et décide quelles fonctionnalités en essai sont activées sur ce PC.",
+    "en": "Downloads configuration settings and decides which trial features are turned on for this PC."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Windows y récupère des réglages à distance, par exemple pour activer progressivement une nouveauté. Rien d'essentiel ne dépend de ces échanges.",
+      "en": "Windows fetches remote settings there, for example to gradually turn on a new feature. Nothing essential depends on these exchanges."
+    },
+    "avance": {
+      "fr": "Service « OneSettings » : utilisé par la télémétrie (réglage des collectes), par le déploiement progressif de fonctionnalités et par plusieurs composants. Le bloquer peut retarder l'apparition de certaines nouveautés.",
+      "en": "“OneSettings” service: used by telemetry (collection settings), by gradual feature rollouts and by several components. Blocking it can delay some new features."
+    },
+    "expert": {
+      "fr": "HTTPS 443. Interrogé par DiagTrack et par divers processus svchost ; les réponses pilotent aussi les essais A/B (« flighting »).",
+      "en": "HTTPS 443. Queried by DiagTrack and various svchost processes; responses also drive A/B trials (“flighting”)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Certaines nouveautés de Windows peuvent arriver plus tard", "en": "Some new Windows features may arrive later" }
+  ],
+  "senders": [ "DiagTrack", "svchost.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

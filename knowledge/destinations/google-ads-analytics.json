@@ -1,0 +1,34 @@
+{
+  "name": "google-ads-analytics",
+  "patterns": [ "*.doubleclick.net", "*.google-analytics.com", "*.googletagmanager.com", "*.googlesyndication.com", "*.googleadservices.com", "*.app-measurement.com" ],
+  "owner": "Google",
+  "displayName": { "fr": "Publicité et mesure d'audience Google", "en": "Google advertising and analytics" },
+  "category": "advertising",
+  "need": "indesirable",
+  "privacy": true,
+  "summary": {
+    "fr": "Régie publicitaire et statistiques de visite de Google, présentes sur une grande partie du web.",
+    "en": "Google's ad network and visit statistics, present on a large part of the web."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à te suivre de site en site pour la publicité et les statistiques. Rien d'utile pour toi ne dépend de ces échanges.",
+      "en": "Used to follow you from site to site for ads and statistics. Nothing useful to you depends on these exchanges."
+    },
+    "avance": {
+      "fr": "Appelé par les pages web et certaines applications. Un bloqueur de publicité dans le navigateur les coupe déjà.",
+      "en": "Called by web pages and some apps. A browser ad blocker already cuts them."
+    },
+    "expert": {
+      "fr": "DoubleClick / Google Ads, Google Analytics, Tag Manager, AdSense (googlesyndication), Firebase Analytics (app-measurement).",
+      "en": "DoubleClick / Google Ads, Google Analytics, Tag Manager, AdSense (googlesyndication), Firebase Analytics (app-measurement)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Aucune fonction perdue (quelques sites peuvent mal s'afficher)", "en": "No feature lost (a few sites may display badly)" }
+  ],
+  "senders": [ "chrome.exe", "msedge.exe", "brave.exe", "firefox.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

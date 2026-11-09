@@ -54,6 +54,21 @@ internal sealed class FakeServiceControl : IServiceControl
         Services[name] = Services[name] with { RegistryKeySddl = sddl };
     }
 
+    // ── v1.1 ─────────────────────────────────────────────────
+    public Dictionary<string, string> EventLogs { get; } = new(StringComparer.OrdinalIgnoreCase);
+    /// <summary>Simule l'arrondi de Windows : la taille d'un journal est un multiple de 64 Ko.</summary>
+    public bool RoundLogSize { get; set; }
+
+    public string? GetEventLog(string log) => EventLogs.GetValueOrDefault(log);
+
+    public void SetEventLog(string log, string setting)
+    {
+        Calls.Add($"eventlog {log} {setting}");
+        var s = SerWin.Core.Network.EventLogSetting.Parse(setting)!;
+        if (RoundLogSize) s = s with { MaxSize = (s.MaxSize + 65535) / 65536 * 65536 };
+        EventLogs[log] = s.Encode();
+    }
+
     public void SetStartMode(string name, ServiceStartMode mode)
     {
         Calls.Add($"mode {name} {mode}");

@@ -1,0 +1,34 @@
+{
+  "name": "intel",
+  "patterns": [ "*.intel.com" ],
+  "owner": "Intel",
+  "displayName": { "fr": "Services Intel", "en": "Intel services" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Assistant de pilotes Intel (Driver & Support Assistant) et télémétrie Intel.",
+    "en": "Intel Driver & Support Assistant and Intel telemetry."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert surtout à proposer des mises à jour de pilotes Intel. Les pilotes fonctionnent sans ces échanges.",
+      "en": "Mostly used to offer Intel driver updates. Drivers work without these exchanges."
+    },
+    "avance": {
+      "fr": "Contacté par Intel Driver & Support Assistant et certains services Intel installés avec les pilotes.",
+      "en": "Contacted by Intel Driver & Support Assistant and some Intel services installed with drivers."
+    },
+    "expert": {
+      "fr": "Fiche générique Intel.",
+      "en": "Generic Intel entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Plus de proposition de mise à jour des pilotes Intel", "en": "No more Intel driver update offers" }
+  ],
+  "senders": [ "DSAService.exe", "DSATray.exe", "esrv_svc.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

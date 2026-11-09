@@ -1,0 +1,34 @@
+{
+  "name": "copilot",
+  "patterns": [ "copilot.microsoft.com", "*.copilot.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Copilot", "en": "Copilot" },
+  "category": "content",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Assistant d'intelligence artificielle de Microsoft intégré à Windows et Edge.",
+    "en": "Microsoft's AI assistant built into Windows and Edge."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne sert que si tu utilises Copilot. Les questions que tu lui poses sont envoyées à Microsoft.",
+      "en": "Only used if you use Copilot. The questions you ask are sent to Microsoft."
+    },
+    "avance": {
+      "fr": "Contacté par l'application Copilot et par Edge. L'application peut se lancer au démarrage de Windows.",
+      "en": "Contacted by the Copilot app and by Edge. The app may start with Windows."
+    },
+    "expert": {
+      "fr": "L'application Copilot est une application du Store (WebView2) ; elle se désinstalle depuis Paramètres > Applications.",
+      "en": "The Copilot app is a Store app (WebView2); it can be uninstalled from Settings > Apps."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Copilot inutilisable", "en": "Copilot unusable" }
+  ],
+  "senders": [ "msedgewebview2.exe", "msedge.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

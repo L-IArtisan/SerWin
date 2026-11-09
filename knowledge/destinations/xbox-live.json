@@ -1,0 +1,35 @@
+{
+  "name": "xbox-live",
+  "patterns": [ "*.xboxlive.com", "*.xbox.com", "*.xboxservices.com", "*.gamepass.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Xbox network", "en": "Xbox network" },
+  "category": "gaming",
+  "need": "optionnel",
+  "privacy": false,
+  "summary": {
+    "fr": "Services Xbox : compte, succès, sauvegardes de jeux, Game Pass.",
+    "en": "Xbox services: account, achievements, game saves, Game Pass."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu joues avec l'application Xbox ou des jeux Microsoft. Sans jeu Xbox, ce trafic n'a pas d'intérêt.",
+      "en": "Useful if you play with the Xbox app or Microsoft games. Without Xbox games, this traffic is pointless."
+    },
+    "avance": {
+      "fr": "Contacté par les services Xbox (XblAuthManager, XblGameSave), l'application Xbox et Gaming Services.",
+      "en": "Contacted by the Xbox services (XblAuthManager, XblGameSave), the Xbox app and Gaming Services."
+    },
+    "expert": {
+      "fr": "user.auth.xboxlive.com / xsts.auth.xboxlive.com : authentification ; titlestorage.xboxlive.com : sauvegardes dans le cloud.",
+      "en": "user.auth.xboxlive.com / xsts.auth.xboxlive.com: authentication; titlestorage.xboxlive.com: cloud saves."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Connexion Xbox, succès et sauvegardes cloud indisponibles", "en": "Xbox sign-in, achievements and cloud saves unavailable" }
+  ],
+  "senders": [ "XblAuthManager", "XblGameSave", "GamingServices.exe", "XboxPcApp.exe" ],
+  "usefulIf": { "xboxApps": "installed" },
+  "verdictIfNot": { "fr": "Aucune application ou jeu Xbox détecté.", "en": "No Xbox app or game detected." },
+  "verification": { "status": "draft" },
+  "sources": []
+}

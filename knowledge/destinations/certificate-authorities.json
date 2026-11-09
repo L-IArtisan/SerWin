@@ -1,0 +1,34 @@
+{
+  "name": "certificate-authorities",
+  "patterns": [ "*.digicert.com", "*.sectigo.com", "*.globalsign.com", "*.lencr.org", "*.entrust.net", "ocsp.pki.goog", "*.amazontrust.com", "*.usertrust.com", "*.comodoca.com" ],
+  "owner": "Autorités de certification",
+  "displayName": { "fr": "Autorités de certification (révocation)", "en": "Certificate authorities (revocation)" },
+  "category": "certificates",
+  "need": "essentiel",
+  "privacy": false,
+  "summary": {
+    "fr": "Vérifications de révocation (OCSP, CRL) auprès des autorités qui délivrent les certificats des sites et logiciels.",
+    "en": "Revocation checks (OCSP, CRL) with the authorities that issue site and software certificates."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Quand un programme ou un site présente un certificat, Windows vérifie auprès de l'autorité qui l'a délivré qu'il est toujours valide. Ces échanges protègent ta sécurité.",
+      "en": "When a program or site presents a certificate, Windows checks with the issuing authority that it is still valid. These exchanges protect your security."
+    },
+    "avance": {
+      "fr": "DigiCert, Sectigo, GlobalSign, Let's Encrypt (lencr.org), Google Trust Services… Les requêtes ne contiennent que le numéro du certificat vérifié.",
+      "en": "DigiCert, Sectigo, GlobalSign, Let's Encrypt (lencr.org), Google Trust Services… Requests only contain the serial number of the certificate being checked."
+    },
+    "expert": {
+      "fr": "OCSP (ocsp.digicert.com, r3.o.lencr.org…) et CRL (crl3.digicert.com…), le plus souvent en HTTP 80 : les réponses sont signées, le chiffrement n'est pas nécessaire.",
+      "en": "OCSP (ocsp.digicert.com, r3.o.lencr.org…) and CRL (crl3.digicert.com…), mostly over HTTP 80: responses are signed, encryption is not needed."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Vérification de révocation impossible : connexions plus lentes ou refusées", "en": "Revocation checks impossible: slower or refused connections" }
+  ],
+  "senders": [ "CryptSvc", "svchost.exe", "msedge.exe", "lsass.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

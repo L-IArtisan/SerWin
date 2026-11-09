@@ -1,0 +1,35 @@
+{
+  "name": "mozilla-telemetry",
+  "patterns": [ "incoming.telemetry.mozilla.org", "*.telemetry.mozilla.org" ],
+  "owner": "Mozilla",
+  "displayName": { "fr": "Télémétrie de Firefox", "en": "Firefox telemetry" },
+  "category": "telemetry",
+  "need": "indesirable",
+  "privacy": true,
+  "summary": {
+    "fr": "Données d'usage et de performance envoyées par Firefox et Thunderbird.",
+    "en": "Usage and performance data sent by Firefox and Thunderbird."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Firefox envoie des statistiques d'utilisation à Mozilla. Rien ne casse si ces envois s'arrêtent.",
+      "en": "Firefox sends usage statistics to Mozilla. Nothing breaks if these uploads stop."
+    },
+    "avance": {
+      "fr": "Désactivable dans Firefox : Paramètres > Vie privée et sécurité > Collecte de données par Firefox.",
+      "en": "Can be turned off in Firefox: Settings > Privacy & Security > Firefox Data Collection."
+    },
+    "expert": {
+      "fr": "Glean / Telemetry vers incoming.telemetry.mozilla.org ; une tâche planifiée « Firefox Default Browser Agent » peut aussi en envoyer.",
+      "en": "Glean / Telemetry to incoming.telemetry.mozilla.org; a “Firefox Default Browser Agent” scheduled task may also send some."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Aucune fonction perdue", "en": "No feature lost" }
+  ],
+  "senders": [ "firefox.exe", "default-browser-agent.exe", "thunderbird.exe" ],
+  "control": { "fr": "Firefox > Paramètres > Vie privée et sécurité > Collecte de données par Firefox : tout décocher.", "en": "Firefox > Settings > Privacy & Security > Firefox Data Collection: uncheck everything." },
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

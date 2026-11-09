@@ -1,0 +1,34 @@
+{
+  "name": "microsoft-links",
+  "patterns": [ "go.microsoft.com", "aka.ms", "fwlink.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Liens de redirection Microsoft", "en": "Microsoft redirect links" },
+  "category": "cdn",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Liens courts qui redirigent vers des pages d'aide, des téléchargements ou des services.",
+    "en": "Short links redirecting to help pages, downloads or services."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Des liens « raccourcis » utilisés partout dans Windows (aide, téléchargements). Ils ne transportent pas de données, ils redirigent.",
+      "en": "“Shortcut” links used throughout Windows (help, downloads). They carry no data, they redirect."
+    },
+    "avance": {
+      "fr": "go.microsoft.com/fwlink/?linkid=… et aka.ms/… pointent vers la vraie destination. Les bloquer casse des liens d'aide et certains téléchargements.",
+      "en": "go.microsoft.com/fwlink/?linkid=… and aka.ms/… point to the real destination. Blocking them breaks help links and some downloads."
+    },
+    "expert": {
+      "fr": "Redirections HTTP 301/302 ; la destination finale apparaît comme un échange séparé.",
+      "en": "HTTP 301/302 redirects; the final destination shows up as a separate exchange."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Liens d'aide et certains téléchargements cassés", "en": "Help links and some downloads broken" }
+  ],
+  "senders": [],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -121,6 +121,12 @@
                     </ListBoxItem>
                     <ListBoxItem>
                         <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="Globe24" Margin="0,0,10,0" />
+                            <TextBlock Text="{loc:T Nav_Network}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
                             <ui:SymbolIcon Symbol="Lightbulb24" Margin="0,0,10,0" />
                             <TextBlock Text="{Binding SuggestionsNavLabel}" VerticalAlignment="Center" />
                         </StackPanel>
@@ -836,6 +842,211 @@
                                 </StackPanel>
                                 <TextBlock Style="{StaticResource Secondary}" Margin="0,8,0,0" Text="{loc:T Proc_TerminateHelp}" />
                             </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Réseau : destinations ───── -->
+            <Border Grid.Column="1" Margin="0,0,8,0" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsNetworkPage, Converter={StaticResource BoolToVis}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Journal DNS : sans lui, les destinations n'apparaissent que par leur adresse IP -->
+                    <Border Grid.Row="0" Margin="10,10,10,4" Padding="10,8" CornerRadius="6"
+                            Background="#262B88D8">
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource Body}" FontSize="12" Text="{Binding DnsLogText}" />
+                            <StackPanel Orientation="Horizontal" Margin="0,6,0,0"
+                                        Visibility="{Binding DnsLogDisabled, Converter={StaticResource BoolToVis}}">
+                                <ui:Button Padding="8,3" Appearance="Primary" Icon="{ui:SymbolIcon Book24}" Content="{loc:T Net_EnableDnsLog}"
+                                           Command="{Binding EnableDnsLogCommand}"
+                                           Visibility="{Binding IsElevated, Converter={StaticResource BoolToVis}}" />
+                                <ui:Button Padding="8,3" Icon="{ui:SymbolIcon Shield24}" Content="{loc:T Action_Elevate}"
+                                           Command="{Binding ElevateCommand}"
+                                           Visibility="{Binding ShowElevationBanner, Converter={StaticResource BoolToVis}}" />
+                            </StackPanel>
+                            <ui:Button Margin="0,6,0,0" Padding="8,3" Content="{loc:T Net_DisableDnsLog}"
+                                       Command="{Binding DisableDnsLogCommand}"
+                                       Visibility="{Binding ShowDnsLogDisable, Converter={StaticResource BoolToVis}}" />
+                        </StackPanel>
+                    </Border>
+
+                    <DockPanel Grid.Row="1" Margin="10,6,10,6">
+                        <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,0,8,0" Text="{loc:T Filter_Label}" />
+                        <ComboBox ItemsSource="{Binding NetworkFilters}" SelectedItem="{Binding SelectedNetworkFilter}" DisplayMemberPath="Label" />
+                    </DockPanel>
+
+                    <ListBox Grid.Row="2" Margin="4,0" ItemsSource="{Binding NetworkItems}" SelectedItem="{Binding SelectedNetworkItem}"
+                             VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="{x:Type vm:NetworkItemViewModel}">
+                                <Grid Margin="0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="16" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Ellipse Width="8" Height="8" VerticalAlignment="Center" Fill="{Binding NeedBrush}" ToolTip="{Binding NeedLabel}" />
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock FontSize="13" TextTrimming="CharacterEllipsis" Text="{Binding Title}" />
+                                        <TextBlock Style="{StaticResource Secondary}" FontSize="11" TextTrimming="CharacterEllipsis" Text="{Binding Subtitle}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Margin="8,0,2,0" VerticalAlignment="Center">
+                                        <TextBlock HorizontalAlignment="Right" FontSize="11" Foreground="#2B88D8" Text="● "
+                                                   ToolTip="{loc:T Net_ActiveNow}"
+                                                   Visibility="{Binding IsActive, Converter={StaticResource BoolToVis}}" />
+                                        <TextBlock HorizontalAlignment="Right" Style="{StaticResource Secondary}" FontSize="11" Text="{Binding LastSeenText}" />
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <TextBlock Grid.Row="3" Margin="12,6,12,8" Style="{StaticResource Secondary}" TextWrapping="Wrap" Text="{Binding NetworkCountText}" />
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Réseau : fiche destination ───── -->
+            <Border Grid.Column="2" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsNetworkPage, Converter={StaticResource BoolToVis}}">
+                <Grid>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="460"
+                                Visibility="{Binding HasSelectedNetworkItem, Converter={StaticResource BoolToVis}, ConverterParameter=invert}">
+                        <TextBlock FontSize="18" FontWeight="SemiBold" HorizontalAlignment="Center" Text="{loc:T Net_Title}" />
+                        <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0" TextAlignment="Center" Text="{loc:T Net_Intro}" />
+                        <TextBlock Style="{StaticResource Secondary}" Margin="0,12,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="{loc:T Net_Privacy}" />
+                    </StackPanel>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                  Visibility="{Binding HasSelectedNetworkItem, Converter={StaticResource BoolToVis}}">
+                        <StackPanel Margin="20,16,20,16" DataContext="{Binding SelectedNetworkItem}">
+                            <TextBlock FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="{Binding Title}" />
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,2,0,0" TextWrapping="Wrap" Text="{Binding Destination}"
+                                       Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}" />
+                            <Border Height="10" />
+                            <WrapPanel>
+                                <Border Style="{StaticResource Badge}" Background="{Binding NeedBrush}" BorderThickness="0">
+                                    <TextBlock Text="{Binding NeedLabel}" Foreground="White" FontWeight="SemiBold" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{Binding CategoryLabel}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding HasOwner, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{Binding Owner}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Background="#26E88A1A" Visibility="{Binding IsPrivacy, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Badge_Privacy}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsLocalNetwork, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Net_LocalBadge}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsDraft, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Verification_Draft}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}, ConverterParameter=invert}">
+                                    <TextBlock Text="{loc:T Badge_Undocumented}" FontSize="12" />
+                                </Border>
+                            </WrapPanel>
+
+                            <Border Margin="0,10,0,0" Padding="10,8" CornerRadius="6" Background="#26E88A1A"
+                                    Visibility="{Binding IsNotUsefulHere, Converter={StaticResource BoolToVis}}">
+                                <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding VerdictText}" />
+                            </Border>
+
+                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_WhatFor}" />
+                            <TextBlock Style="{StaticResource Body}" Text="{Binding Summary}" />
+                            <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0" Text="{Binding LevelText}"
+                                       Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}" />
+
+                            <StackPanel Visibility="{Binding HasIfBlocked, Converter={StaticResource BoolToVis}}">
+                                <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Net_IfBlocked}" />
+                                <ItemsControl ItemsSource="{Binding IfBlocked}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel Margin="4,2">
+                                                <TextBlock DockPanel.Dock="Left" Width="18" Text="•" />
+                                                <TextBlock Style="{StaticResource Body}" Text="{Binding}" />
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+
+                            <StackPanel Visibility="{Binding HasControl, Converter={StaticResource BoolToVis}}">
+                                <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Net_HowToReduce}" />
+                                <TextBlock Style="{StaticResource Body}" Text="{Binding ControlText}" />
+                            </StackPanel>
+
+                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Net_Senders}" />
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,0,0,6" Text="{loc:T Net_UnexpectedSender}"
+                                       Visibility="{Binding HasUnexpectedSender, Converter={StaticResource BoolToVis}}" />
+                            <ItemsControl ItemsSource="{Binding Senders}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:NetworkSenderItem}">
+                                        <DockPanel Margin="0,3">
+                                            <ui:Button DockPanel.Dock="Right" Padding="8,3" Content="{loc:T Proc_OpenService}"
+                                                       Command="{Binding DataContext.ShowServiceCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                       CommandParameter="{Binding ServiceName}"
+                                                       Visibility="{Binding HasService, Converter={StaticResource BoolToVis}}" />
+                                            <StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding Label}" />
+                                                    <TextBlock Margin="6,0,0,0" FontSize="11" VerticalAlignment="Center" Foreground="#2B88D8" Text="●"
+                                                               ToolTip="{loc:T Net_ActiveNow}"
+                                                               Visibility="{Binding Active, Converter={StaticResource BoolToVis}}" />
+                                                </StackPanel>
+                                                <TextBlock Style="{StaticResource Secondary}" FontSize="11" TextWrapping="Wrap" Text="{Binding Detail}"
+                                                           Visibility="{Binding HasDetail, Converter={StaticResource BoolToVis}}" />
+                                            </StackPanel>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <StackPanel Visibility="{Binding ShowTechnical, Converter={StaticResource BoolToVis}}">
+                                <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Tab_Technical}" />
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Net_Addresses}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding AddressesText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}" Visibility="{Binding HasPorts, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Net_Ports}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding PortsText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}" Visibility="{Binding HasAliases, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Net_Aliases}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding AliasesText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Net_FirstSeen}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding FirstSeenText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Net_LastSeen}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding LastSeenText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Net_ActivityLabel}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding ActivityText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}" Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Net_Patterns}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding PatternsText}" />
+                                </DockPanel>
+                            </StackPanel>
+
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,16,0,0" TextWrapping="Wrap" Text="{loc:T Net_ObserveOnly}" />
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>

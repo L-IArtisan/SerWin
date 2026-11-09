@@ -1,0 +1,37 @@
+{
+  "name": "microsoft-defender",
+  "patterns": [ "*.wdcp.microsoft.com", "*.wdcpalt.microsoft.com", "*.wd.microsoft.com", "definitionupdates.microsoft.com", "*.endpoint.security.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Microsoft Defender : protection cloud et définitions", "en": "Microsoft Defender: cloud protection and definitions" },
+  "category": "security",
+  "need": "essentiel",
+  "privacy": true,
+  "summary": {
+    "fr": "Mises à jour des définitions de virus et analyse dans le cloud des fichiers suspects.",
+    "en": "Virus definition updates and cloud analysis of suspicious files."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde l'antivirus de Windows à jour et lui permet de vérifier un fichier suspect auprès de Microsoft. Le bloquer affaiblit nettement ta protection.",
+      "en": "Keeps Windows' antivirus up to date and lets it check a suspicious file with Microsoft. Blocking it clearly weakens your protection."
+    },
+    "avance": {
+      "fr": "Contacté par l'antivirus (MsMpEng.exe) et ses outils. La « protection dans le cloud » envoie des informations sur les fichiers suspects, et parfois des échantillons (réglable dans Sécurité Windows).",
+      "en": "Contacted by the antivirus (MsMpEng.exe) and its tools. “Cloud-delivered protection” sends information about suspicious files, and sometimes samples (configurable in Windows Security)."
+    },
+    "expert": {
+      "fr": "MAPS (Microsoft Active Protection Service) : wdcp.microsoft.com, wdcpalt.microsoft.com ; envoi d'échantillons : *.blob.core.windows.net ; définitions : definitionupdates.microsoft.com et Windows Update.",
+      "en": "MAPS (Microsoft Active Protection Service): wdcp.microsoft.com, wdcpalt.microsoft.com; sample submission: *.blob.core.windows.net; definitions: definitionupdates.microsoft.com and Windows Update."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Définitions de virus périmées", "en": "Outdated virus definitions" },
+    { "fr": "Plus de vérification dans le cloud des fichiers suspects", "en": "No more cloud checks of suspicious files" }
+  ],
+  "senders": [ "MsMpEng.exe", "MpCmdRun.exe", "WinDefend", "NisSrv.exe" ],
+  "control": { "fr": "Sécurité Windows > Protection contre les virus et menaces > Paramètres : « Envoi automatique d'échantillons » peut être désactivé sans couper la protection.", "en": "Windows Security > Virus & threat protection > Settings: “Automatic sample submission” can be turned off without disabling protection." },
+  "usefulIf": { "thirdPartyAntivirus": "none" },
+  "verdictIfNot": { "fr": "Un autre antivirus est actif : Defender est en retrait et ces échanges sont réduits.", "en": "Another antivirus is active: Defender steps back and these exchanges are reduced." },
+  "verification": { "status": "draft" },
+  "sources": []
+}

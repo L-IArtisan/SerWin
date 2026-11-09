@@ -1,0 +1,34 @@
+{
+  "name": "microsoft-tracking",
+  "patterns": [ "c.msn.com", "c.bing.com", "*.clarity.ms", "*.adnxs.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Mesure d'audience et publicité Microsoft", "en": "Microsoft audience measurement and advertising" },
+  "category": "advertising",
+  "need": "indesirable",
+  "privacy": true,
+  "summary": {
+    "fr": "Pixels de suivi, mesure d'audience (Clarity) et régie publicitaire (Xandr).",
+    "en": "Tracking pixels, audience measurement (Clarity) and ad exchange (Xandr)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à mesurer ce que tu regardes et à afficher de la publicité ciblée. Rien d'utile pour toi ne dépend de ces échanges.",
+      "en": "Used to measure what you look at and to show targeted ads. Nothing useful to you depends on these exchanges."
+    },
+    "avance": {
+      "fr": "Appelé depuis les pages MSN, Bing, les Widgets et de nombreux sites web. Les bloqueurs de publicité des navigateurs les coupent déjà en grande partie.",
+      "en": "Called from MSN and Bing pages, Widgets and many websites. Browser ad blockers already cut most of them."
+    },
+    "expert": {
+      "fr": "c.msn.com / c.bing.com : balises de mesure ; *.clarity.ms : enregistrement de sessions ; *.adnxs.com : enchères publicitaires (Xandr, racheté par Microsoft).",
+      "en": "c.msn.com / c.bing.com: measurement beacons; *.clarity.ms: session recording; *.adnxs.com: ad auctions (Xandr, acquired by Microsoft)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Aucune fonction perdue", "en": "No feature lost" }
+  ],
+  "senders": [ "msedge.exe", "msedgewebview2.exe", "Widgets.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

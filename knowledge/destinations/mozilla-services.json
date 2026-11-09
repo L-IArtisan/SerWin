@@ -1,0 +1,34 @@
+{
+  "name": "mozilla-services",
+  "patterns": [ "*.mozilla.org", "*.mozilla.net", "*.mozilla.com", "*.services.mozilla.com", "*.firefox.com" ],
+  "owner": "Mozilla",
+  "displayName": { "fr": "Services Mozilla (Firefox)", "en": "Mozilla services (Firefox)" },
+  "category": "browser",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Mises à jour, extensions, synchronisation et protections de Firefox.",
+    "en": "Firefox updates, add-ons, sync and protections."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde Firefox à jour et fait fonctionner la synchronisation et les extensions.",
+      "en": "Keeps Firefox up to date and powers sync and add-ons."
+    },
+    "avance": {
+      "fr": "aus5.mozilla.org : mises à jour ; firefox.settings.services.mozilla.com : réglages et listes de blocage ; addons.mozilla.org : extensions.",
+      "en": "aus5.mozilla.org: updates; firefox.settings.services.mozilla.com: settings and block lists; addons.mozilla.org: add-ons."
+    },
+    "expert": {
+      "fr": "Le service de maintenance Mozilla (MozillaMaintenance) installe les mises à jour sans demande d'élévation.",
+      "en": "The Mozilla Maintenance Service (MozillaMaintenance) installs updates without an elevation prompt."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Firefox plus mis à jour, synchronisation hors service", "en": "Firefox no longer updated, sync broken" }
+  ],
+  "senders": [ "firefox.exe", "maintenanceservice.exe", "updater.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

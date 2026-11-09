@@ -1,0 +1,34 @@
+{
+  "name": "edge-update",
+  "patterns": [ "msedge.api.cdp.microsoft.com", "*.msedge.api.cdp.microsoft.com", "edge.microsoft.com", "*.edge.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Microsoft Edge : services et mises à jour", "en": "Microsoft Edge: services and updates" },
+  "category": "browser",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Mises à jour d'Edge et de WebView2, et services du navigateur (synchronisation, traduction, protection).",
+    "en": "Edge and WebView2 updates, and browser services (sync, translation, protection)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde Edge à jour, mais aussi WebView2, le moteur utilisé par de nombreuses applis (Widgets, Teams, Outlook…). À laisser fonctionner même si tu n'utilises pas Edge.",
+      "en": "Keeps Edge up to date, and also WebView2, the engine used by many apps (Widgets, Teams, Outlook…). Leave it working even if you do not use Edge."
+    },
+    "avance": {
+      "fr": "Le programme de mise à jour (MicrosoftEdgeUpdate.exe, services edgeupdate / edgeupdatem) vérifie les versions plusieurs fois par jour via des tâches planifiées. edge.microsoft.com sert aussi la synchronisation et d'autres services d'Edge.",
+      "en": "The updater (MicrosoftEdgeUpdate.exe, edgeupdate / edgeupdatem services) checks versions several times a day through scheduled tasks. edge.microsoft.com also serves sync and other Edge services."
+    },
+    "expert": {
+      "fr": "msedge.api.cdp.microsoft.com : API de mise à jour ; les paquets viennent ensuite de *.dl.delivery.mp.microsoft.com ou d'un CDN.",
+      "en": "msedge.api.cdp.microsoft.com: update API; packages then come from *.dl.delivery.mp.microsoft.com or a CDN."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Edge et WebView2 plus mis à jour (failles de sécurité non corrigées)", "en": "Edge and WebView2 no longer updated (security flaws left unfixed)" }
+  ],
+  "senders": [ "MicrosoftEdgeUpdate.exe", "edgeupdate", "edgeupdatem", "msedge.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

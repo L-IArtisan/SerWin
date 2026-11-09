@@ -1,0 +1,34 @@
+{
+  "name": "cloud-hosting",
+  "patterns": [ "*.amazonaws.com", "*.azurewebsites.net", "*.herokuapp.com", "*.digitaloceanspaces.com", "*.ovh.net" ],
+  "owner": "Hébergeurs cloud",
+  "displayName": { "fr": "Hébergement cloud (AWS, Azure, OVH…)", "en": "Cloud hosting (AWS, Azure, OVH…)" },
+  "category": "cdn",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Serveurs loués par des éditeurs de logiciels chez de grands hébergeurs.",
+    "en": "Servers rented by software publishers from large hosting providers."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Beaucoup de logiciels hébergent leurs services chez Amazon, Microsoft Azure ou OVH. Le nom de l'hébergeur ne dit pas à quoi sert l'échange : regarde le programme qui le fait.",
+      "en": "Many programs host their services at Amazon, Microsoft Azure or OVH. The host name does not say what the exchange is for: look at the program making it."
+    },
+    "avance": {
+      "fr": "Fiche générique : à juger selon le programme émetteur.",
+      "en": "Generic entry: judge it by the sending program."
+    },
+    "expert": {
+      "fr": "*.amazonaws.com (AWS), *.azurewebsites.net (Azure App Service), *.ovh.net…",
+      "en": "*.amazonaws.com (AWS), *.azurewebsites.net (Azure App Service), *.ovh.net…"
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Dépend du logiciel concerné", "en": "Depends on the software involved" }
+  ],
+  "senders": [],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -19,6 +19,8 @@ public enum ChangeKind
     TaskEnabled,
     /// <summary>Sécurité de la clé de registre du service (v0.6, verrouillage) : Before/After = SDDL (section Access).</summary>
     RegistryAcl,
+    /// <summary>Réglage d'un journal d'événements (v1.1, journal DNS) : Target = nom du journal, Before/After = EventLogSetting encodé.</summary>
+    EventLog,
 }
 
 /// <summary>
@@ -48,6 +50,8 @@ public enum ActionKind
     LockAcl,
     /// <summary>Déverrouillage ACL.</summary>
     UnlockAcl,
+    /// <summary>Activation ou désactivation du journal DNS (v1.1, page Réseau).</summary>
+    ConfigureDnsLog,
 }
 
 public sealed record ActionRequest(string Service, ActionKind Kind, ServiceStartMode? StartMode = null);

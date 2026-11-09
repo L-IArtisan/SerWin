@@ -1,0 +1,35 @@
+{
+  "name": "msn-content",
+  "patterns": [ "*.msn.com", "*.msn.cn" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "MSN : actualités, météo et Widgets", "en": "MSN: news, weather and Widgets" },
+  "category": "content",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Contenus du panneau Widgets, de la page d'accueil d'Edge et de la météo de la barre des tâches.",
+    "en": "Content for the Widgets board, the Edge start page and the taskbar weather."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est d'ici que viennent la météo de la barre des tâches, les actualités des Widgets et la page d'accueil d'Edge. Si tu n'utilises pas ces fonctions, ces échanges sont inutiles.",
+      "en": "This is where the taskbar weather, the Widgets news and the Edge start page come from. If you do not use these features, these exchanges are useless."
+    },
+    "avance": {
+      "fr": "Contacté par le panneau Widgets (Widgets.exe, via WebView2) et par Edge. Les contenus sont personnalisés et accompagnés de publicités.",
+      "en": "Contacted by the Widgets board (Widgets.exe, through WebView2) and by Edge. Content is personalized and comes with ads."
+    },
+    "expert": {
+      "fr": "assets.msn.com, api.msn.com, ntp.msn.com… Les Widgets se désactivent par la stratégie AllowNewsAndInterests = 0 (HKLM\\SOFTWARE\\Policies\\Microsoft\\Dsh).",
+      "en": "assets.msn.com, api.msn.com, ntp.msn.com… Widgets can be turned off with the AllowNewsAndInterests = 0 policy (HKLM\\SOFTWARE\\Policies\\Microsoft\\Dsh)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Widgets, météo de la barre des tâches et page d'accueil d'Edge vides", "en": "Empty Widgets, taskbar weather and Edge start page" }
+  ],
+  "senders": [ "Widgets.exe", "WidgetService.exe", "msedgewebview2.exe", "msedge.exe" ],
+  "control": { "fr": "Paramètres > Personnalisation > Barre des tâches : désactiver « Widgets ».", "en": "Settings > Personalization > Taskbar: turn off “Widgets”." },
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

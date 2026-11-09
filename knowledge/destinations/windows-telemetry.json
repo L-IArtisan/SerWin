@@ -1,0 +1,36 @@
+{
+  "name": "windows-telemetry",
+  "patterns": [ "*.events.data.microsoft.com", "*.vortex.data.microsoft.com", "*.vortex-win.data.microsoft.com", "*.telemetry.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Télémétrie de Windows (données de diagnostic)", "en": "Windows telemetry (diagnostic data)" },
+  "category": "telemetry",
+  "need": "indesirable",
+  "privacy": true,
+  "summary": {
+    "fr": "Envoi des données de diagnostic de Windows à Microsoft : état du système, plantages, usage des fonctionnalités.",
+    "en": "Sends Windows diagnostic data to Microsoft: system health, crashes, feature usage."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Windows envoie régulièrement à Microsoft des informations sur l'utilisation et l'état de ton PC. Ça ne te sert pas directement : rien ne casse si ces envois s'arrêtent.",
+      "en": "Windows regularly sends Microsoft information about how your PC is used and how it is doing. It does not help you directly: nothing breaks if these uploads stop."
+    },
+    "avance": {
+      "fr": "Émis principalement par le service « Expériences des utilisateurs connectés et télémétrie » (DiagTrack), mais aussi par d'autres composants et applications (Office, Edge, Teams utilisent les mêmes serveurs). Le volume dépend du niveau choisi : « Données requises » (minimum sur Famille et Pro) ou « facultatives ».",
+      "en": "Mostly sent by the “Connected User Experiences and Telemetry” service (DiagTrack), but also by other components and apps (Office, Edge and Teams use the same servers). The volume depends on the level: “Required data” (minimum on Home and Pro) or “optional”."
+    },
+    "expert": {
+      "fr": "Point d'entrée « OneCollector » : v10.events.data.microsoft.com, self.events.data.microsoft.com… (HTTPS, port 443). Le niveau se règle par la stratégie AllowTelemetry (HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection) ; la valeur 0 « Sécurité » n'est appliquée que sur les éditions Entreprise et Éducation.",
+      "en": "“OneCollector” endpoint: v10.events.data.microsoft.com, self.events.data.microsoft.com… (HTTPS, port 443). The level is set with the AllowTelemetry policy (HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection); value 0 “Security” is only honored on Enterprise and Education editions."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Microsoft ne reçoit plus de diagnostic de ce PC (aucun effet visible pour toi)", "en": "Microsoft no longer receives diagnostics from this PC (no visible effect for you)" },
+    { "fr": "Le programme Windows Insider exige les données facultatives", "en": "The Windows Insider Program requires optional data" }
+  ],
+  "senders": [ "DiagTrack", "svchost.exe", "CompatTelRunner.exe", "msedge.exe", "OfficeClickToRun.exe" ],
+  "control": { "fr": "Paramètres > Confidentialité et sécurité > Diagnostics et commentaires : désactiver « Envoyer des données de diagnostic facultatives ».", "en": "Settings > Privacy & security > Diagnostics & feedback: turn off “Send optional diagnostic data”." },
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization" ]
+}

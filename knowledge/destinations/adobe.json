@@ -1,0 +1,34 @@
+{
+  "name": "adobe",
+  "patterns": [ "*.adobe.com", "*.adobe.io", "*.adobelogin.com", "*.adobedtm.com" ],
+  "owner": "Adobe",
+  "displayName": { "fr": "Services Adobe", "en": "Adobe services" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Licences, mises à jour et télémétrie des logiciels Adobe (Acrobat, Creative Cloud).",
+    "en": "Licensing, updates and telemetry for Adobe software (Acrobat, Creative Cloud)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Contacté par Acrobat Reader et Creative Cloud, y compris en arrière-plan. Nécessaire pour les mises à jour et l'activation des logiciels payants.",
+      "en": "Contacted by Acrobat Reader and Creative Cloud, including in the background. Needed for updates and activation of paid software."
+    },
+    "avance": {
+      "fr": "Plusieurs services Adobe (mise à jour, Creative Cloud) démarrent avec Windows. *.adobedtm.com relève de la mesure d'audience.",
+      "en": "Several Adobe services (updater, Creative Cloud) start with Windows. *.adobedtm.com is analytics."
+    },
+    "expert": {
+      "fr": "Fiche générique Adobe ; les domaines de licence (adobelogin.com) sont indispensables aux abonnements.",
+      "en": "Generic Adobe entry; licensing domains (adobelogin.com) are required for subscriptions."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Mises à jour et activation des logiciels Adobe en échec", "en": "Adobe software updates and activation fail" }
+  ],
+  "senders": [ "AdobeARM.exe", "Acrobat.exe", "Creative Cloud.exe", "AdobeIPCBroker.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -25,6 +25,11 @@ public interface IServiceControl
     void SetTaskEnabled(string path, bool enabled);
     /// <summary>Applique la section Access d'un SDDL à la clé HKLM\SYSTEM\CurrentControlSet\Services\&lt;nom&gt;.</summary>
     void SetRegistryAcl(string name, string sddl);
+
+    // ── v1.1 : journal DNS ───────────────────────────────────
+    /// <summary>Réglage encodé (EventLogSetting) d'un journal d'événements, null si illisible.</summary>
+    string? GetEventLog(string log);
+    void SetEventLog(string log, string setting);
 }
 
 /// <summary>Implémentation réelle (advapi32 + ServiceController). Requiert les droits administrateur.</summary>
@@ -276,6 +281,23 @@ public sealed class WindowsServiceControl : IServiceControl
         catch (Exception ex) when (ex is UnauthorizedAccessException or System.Security.SecurityException)
         {
             throw new ServiceActionException(name, ServiceActionError.AccessDenied, 5, ex.Message);
+        }
+    }
+
+    public string? GetEventLog(string log) =>
+        log == Network.DnsLog.LogName ? Network.DnsLog.ReadSetting()?.Encode() : null;
+
+    public void SetEventLog(string log, string setting)
+    {
+        if (log != Network.DnsLog.LogName || Network.EventLogSetting.Parse(setting) is not { } s)
+            throw new ServiceActionException(log, ServiceActionError.NotFound, 2, "Journal non pris en charge");
+        try
+        {
+            Network.DnsLog.WriteSetting(s);
+        }
+        catch (Exception ex) when (ex is UnauthorizedAccessException or System.Diagnostics.Eventing.Reader.EventLogException)
+        {
+            throw new ServiceActionException(log, ServiceActionError.AccessDenied, 5, ex.Message);
         }
     }
 

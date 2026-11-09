@@ -1,0 +1,34 @@
+{
+  "name": "microsoft-teams",
+  "patterns": [ "teams.microsoft.com", "*.teams.microsoft.com", "*.skype.com", "*.teams.live.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Microsoft Teams et Skype", "en": "Microsoft Teams and Skype" },
+  "category": "office",
+  "need": "optionnel",
+  "privacy": false,
+  "summary": {
+    "fr": "Messagerie, appels et réunions Teams (et Skype).",
+    "en": "Teams (and Skype) messaging, calls and meetings."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire seulement si tu utilises Teams. L'application peut se lancer au démarrage et garder une connexion ouverte.",
+      "en": "Only needed if you use Teams. The app may start with Windows and keep a connection open."
+    },
+    "avance": {
+      "fr": "L'application Teams (ms-teams.exe) maintient une connexion pour recevoir messages et appels. L'application « Teams gratuit » est préinstallée sur certaines éditions.",
+      "en": "The Teams app (ms-teams.exe) keeps a connection to receive messages and calls. The free “Teams” app is preinstalled on some editions."
+    },
+    "expert": {
+      "fr": "Les médias (audio, vidéo) passent souvent en UDP 3478-3481 : invisibles pour SerWin, qui ne voit que le TCP.",
+      "en": "Media (audio, video) often uses UDP 3478-3481: invisible to SerWin, which only sees TCP."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Teams hors ligne", "en": "Teams offline" }
+  ],
+  "senders": [ "ms-teams.exe", "msedgewebview2.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

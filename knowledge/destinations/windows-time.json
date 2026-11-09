@@ -1,0 +1,34 @@
+{
+  "name": "windows-time",
+  "patterns": [ "time.windows.com", "*.time.windows.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Synchronisation de l'heure", "en": "Time synchronization" },
+  "category": "time",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Serveur de temps utilisé par Windows pour garder l'horloge exacte.",
+    "en": "Time server used by Windows to keep the clock accurate."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde l'heure de ton PC exacte. Une horloge fausse provoque des erreurs sur les sites sécurisés.",
+      "en": "Keeps your PC's clock accurate. A wrong clock causes errors on secure websites."
+    },
+    "avance": {
+      "fr": "Le service Temps Windows (W32Time) l'interroge périodiquement. Tu peux choisir un autre serveur (par exemple pool.ntp.org) dans les réglages de date et d'heure.",
+      "en": "The Windows Time service (W32Time) queries it periodically. You can choose another server (for example pool.ntp.org) in date and time settings."
+    },
+    "expert": {
+      "fr": "NTP, UDP 123 : comme SerWin ne voit que les connexions TCP, ces échanges n'apparaissent que via le journal DNS.",
+      "en": "NTP, UDP 123: since SerWin only sees TCP connections, these exchanges only show up through the DNS log."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "L'horloge dérive au fil des semaines", "en": "The clock drifts over weeks" }
+  ],
+  "senders": [ "W32Time", "svchost.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

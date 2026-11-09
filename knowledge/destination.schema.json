@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/L-IArtisan/SerWin/blob/main/knowledge/destination.schema.json",
+  "title": "Fiche « destination réseau » SerWin (v1.1)",
+  "description": "Un fichier par service en ligne : knowledge/destinations/<nom>.json. Décrit de façon générale (valable pour tout PC) un serveur contacté automatiquement par Windows ou un logiciel courant. Le français est la langue source et est obligatoire.",
+  "type": "object",
+  "required": ["name", "patterns", "owner", "displayName", "category", "need", "summary", "levels", "verification"],
+  "additionalProperties": false,
+  "$defs": {
+    "text": {
+      "type": "object",
+      "required": ["fr"],
+      "properties": {
+        "fr": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "name": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Identifiant, identique au nom du fichier." },
+    "patterns": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "string", "pattern": "^(\\*\\.)?([a-z0-9]([a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9-]{2,}$" },
+      "description": "Noms d'hôtes : exact (« login.live.com ») ou suffixe (« *.events.data.microsoft.com », qui couvre aussi le domaine lui-même). Le motif le plus long l'emporte entre fiches."
+    },
+    "owner": { "type": "string", "description": "Éditeur du service en ligne (« Microsoft », « Google »…)." },
+    "displayName": { "$ref": "#/$defs/text" },
+    "category": {
+      "enum": ["telemetry", "advertising", "content", "updates", "security", "certificates", "connectivity", "time", "account", "store",
+               "licensing", "cloud", "search", "browser", "office", "gaming", "maps", "sync", "diagnostics", "cdn", "location",
+               "notifications", "third-party"]
+    },
+    "need": { "enum": ["essentiel", "utile", "optionnel", "indesirable"], "description": "Utilité pour le fonctionnement du PC." },
+    "privacy": { "type": "boolean", "description": "Les échanges concernent la vie privée (usage, contenus, position…)." },
+    "summary": { "$ref": "#/$defs/text" },
+    "levels": {
+      "type": "object",
+      "required": ["simple", "avance", "expert"],
+      "properties": {
+        "simple": { "$ref": "#/$defs/text" },
+        "avance": { "$ref": "#/$defs/text" },
+        "expert": { "$ref": "#/$defs/text" }
+      },
+      "additionalProperties": false
+    },
+    "ifBlocked": { "type": "array", "items": { "$ref": "#/$defs/text" }, "description": "Ce qui cesse de fonctionner si la destination est bloquée." },
+    "senders": { "type": "array", "items": { "type": "string" }, "description": "Services ou exécutables qui la contactent habituellement." },
+    "control": { "$ref": "#/$defs/text", "description": "Réglage officiel de Windows ou du logiciel qui réduit ces échanges." },
+    "usefulIf": { "type": "object", "additionalProperties": { "type": "string" }, "description": "Règles de contexte (mêmes clés que les fiches services)." },
+    "verdictIfNot": { "$ref": "#/$defs/text" },
+    "verification": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["draft", "config-verified", "behavior-observed"] },
+        "build": { "type": "string" },
+        "edition": { "type": "string" },
+        "date": { "type": "string", "format": "date" }
+      },
+      "additionalProperties": false
+    },
+    "sources": { "type": "array", "items": { "type": "string", "format": "uri" } }
+  }
+}

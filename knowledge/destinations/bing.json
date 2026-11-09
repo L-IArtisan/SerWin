@@ -1,0 +1,36 @@
+{
+  "name": "bing",
+  "patterns": [ "*.bing.com", "*.bing.net" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Bing (recherche web du menu Démarrer)", "en": "Bing (Start menu web search)" },
+  "category": "search",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Résultats web de la recherche Windows, suggestions de recherche, Copilot et images.",
+    "en": "Web results in Windows search, search suggestions, Copilot and images."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Quand tu tapes dans la recherche du menu Démarrer, Windows envoie aussi ta saisie à Bing pour proposer des résultats web. Si tu ne cherches que tes fichiers et applis, ce n'est pas nécessaire.",
+      "en": "When you type in Start menu search, Windows also sends what you type to Bing to suggest web results. If you only search your files and apps, it is not needed."
+    },
+    "avance": {
+      "fr": "Contacté par la recherche Windows (SearchHost.exe), Edge, les Widgets et Copilot. Les résultats locaux (fichiers, applis, paramètres) n'en dépendent pas.",
+      "en": "Contacted by Windows search (SearchHost.exe), Edge, Widgets and Copilot. Local results (files, apps, settings) do not depend on it."
+    },
+    "expert": {
+      "fr": "www.bing.com, th.bing.com (vignettes), *.mm.bing.net (images). Stratégie : DisableSearchBoxSuggestions = 1 (HKCU\\Software\\Policies\\Microsoft\\Windows\\Explorer) supprime les résultats web du menu Démarrer.",
+      "en": "www.bing.com, th.bing.com (thumbnails), *.mm.bing.net (images). Policy: DisableSearchBoxSuggestions = 1 (HKCU\\Software\\Policies\\Microsoft\\Windows\\Explorer) removes web results from the Start menu."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Plus de résultats web dans la recherche Windows", "en": "No more web results in Windows search" },
+    { "fr": "Copilot et la recherche Bing d'Edge hors service", "en": "Copilot and Edge's Bing search broken" }
+  ],
+  "senders": [ "SearchHost.exe", "msedge.exe", "msedgewebview2.exe", "Widgets.exe" ],
+  "control": { "fr": "Paramètres > Confidentialité et sécurité > Autorisations de recherche : désactiver les contenus web et l'historique de recherche.", "en": "Settings > Privacy & security > Search permissions: turn off web content and search history." },
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

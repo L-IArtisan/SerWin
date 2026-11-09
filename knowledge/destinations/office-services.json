@@ -1,0 +1,34 @@
+{
+  "name": "office-services",
+  "patterns": [ "*.officeapps.live.com", "*.office.com", "officecdn.microsoft.com", "*.officecdn.microsoft.com", "*.officeclient.microsoft.com", "*.cdn.office.net" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Microsoft Office : services et mises à jour", "en": "Microsoft Office: services and updates" },
+  "category": "office",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Activation, mises à jour et services en ligne de Microsoft 365 / Office.",
+    "en": "Activation, updates and online services for Microsoft 365 / Office."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire si tu utilises Office : activation, mises à jour de sécurité, modèles, enregistrement en ligne.",
+      "en": "Needed if you use Office: activation, security updates, templates, online saving."
+    },
+    "avance": {
+      "fr": "Le service Démarrer en un clic (ClickToRunSvc) télécharge les mises à jour depuis officecdn.microsoft.com ; les applications contactent *.officeapps.live.com et *.office.com pour les services en ligne.",
+      "en": "The Click-to-Run service (ClickToRunSvc) downloads updates from officecdn.microsoft.com; the apps contact *.officeapps.live.com and *.office.com for online services."
+    },
+    "expert": {
+      "fr": "officeclient.microsoft.com : configuration et licences ; officecdn.microsoft.com : canaux de mise à jour.",
+      "en": "officeclient.microsoft.com: configuration and licensing; officecdn.microsoft.com: update channels."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Office plus mis à jour, activation et services en ligne en échec", "en": "Office no longer updated, activation and online services fail" }
+  ],
+  "senders": [ "OfficeClickToRun.exe", "ClickToRunSvc", "WINWORD.EXE", "EXCEL.EXE", "OUTLOOK.EXE" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "google-update",
+  "patterns": [ "update.googleapis.com", "*.gvt1.com", "*.gvt2.com", "tools.google.com", "dl.google.com" ],
+  "owner": "Google",
+  "displayName": { "fr": "Mises à jour Google (Chrome et autres)", "en": "Google updates (Chrome and others)" },
+  "category": "updates",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Mises à jour de Chrome et des autres logiciels Google installés.",
+    "en": "Updates for Chrome and other installed Google software."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde Chrome (et les autres logiciels Google) à jour. À laisser fonctionner si tu utilises Chrome.",
+      "en": "Keeps Chrome (and other Google software) up to date. Leave it working if you use Chrome."
+    },
+    "avance": {
+      "fr": "Le programme GoogleUpdater vérifie les versions via des tâches planifiées et un service, même navigateur fermé.",
+      "en": "The GoogleUpdater program checks versions through scheduled tasks and a service, even with the browser closed."
+    },
+    "expert": {
+      "fr": "update.googleapis.com (protocole Omaha) ; paquets depuis *.gvt1.com / dl.google.com.",
+      "en": "update.googleapis.com (Omaha protocol); packages from *.gvt1.com / dl.google.com."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Chrome plus mis à jour (failles de sécurité non corrigées)", "en": "Chrome no longer updated (security flaws left unfixed)" }
+  ],
+  "senders": [ "updater.exe", "GoogleUpdate.exe", "chrome.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

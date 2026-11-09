@@ -1,0 +1,34 @@
+{
+  "name": "dns-over-https",
+  "patterns": [ "cloudflare-dns.com", "*.cloudflare-dns.com", "dns.google", "dns.quad9.net", "*.nextdns.io", "dns.adguard-dns.com", "*.dns.adguard-dns.com", "doh.opendns.com" ],
+  "owner": "Résolveurs DNS publics",
+  "displayName": { "fr": "DNS chiffré (DNS over HTTPS)", "en": "Encrypted DNS (DNS over HTTPS)" },
+  "category": "connectivity",
+  "need": "utile",
+  "privacy": true,
+  "summary": {
+    "fr": "Résolution des noms de domaine par un serveur DNS public, de façon chiffrée.",
+    "en": "Domain name resolution through a public DNS server, encrypted."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ton navigateur (ou Windows) demande l'adresse des sites à un service DNS public de façon chiffrée. C'est plutôt bon pour la confidentialité, mais ces requêtes échappent au journal DNS de Windows : SerWin ne peut alors pas nommer les sites contactés.",
+      "en": "Your browser (or Windows) asks a public DNS service for site addresses, encrypted. Rather good for privacy, but these requests bypass the Windows DNS log: SerWin then cannot name the sites contacted."
+    },
+    "avance": {
+      "fr": "Cloudflare (1.1.1.1), Google (8.8.8.8), Quad9, NextDNS, AdGuard, OpenDNS. Activé dans le navigateur (« DNS sécurisé ») ou dans Windows (Paramètres réseau > Attribution du serveur DNS).",
+      "en": "Cloudflare (1.1.1.1), Google (8.8.8.8), Quad9, NextDNS, AdGuard, OpenDNS. Turned on in the browser (“Secure DNS”) or in Windows (Network settings > DNS server assignment)."
+    },
+    "expert": {
+      "fr": "HTTPS 443 vers /dns-query (RFC 8484). Les requêtes DoH faites par le navigateur n'apparaissent pas dans le journal Microsoft-Windows-DNS-Client.",
+      "en": "HTTPS 443 to /dns-query (RFC 8484). DoH requests made by the browser do not appear in the Microsoft-Windows-DNS-Client log."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Le navigateur revient au DNS classique (ou n'arrive plus à résoudre les noms en mode strict)", "en": "The browser falls back to regular DNS (or cannot resolve names in strict mode)" }
+  ],
+  "senders": [ "brave.exe", "chrome.exe", "msedge.exe", "firefox.exe", "Dnscache" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

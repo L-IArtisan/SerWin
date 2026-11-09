@@ -1,0 +1,34 @@
+{
+  "name": "dropbox",
+  "patterns": [ "*.dropbox.com", "*.dropboxapi.com", "*.dropboxusercontent.com", "*.dropboxstatic.com" ],
+  "owner": "Dropbox",
+  "displayName": { "fr": "Dropbox", "en": "Dropbox" },
+  "category": "cloud",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Synchronisation de fichiers Dropbox.",
+    "en": "Dropbox file sync."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Normal si tu utilises Dropbox pour synchroniser tes fichiers.",
+      "en": "Normal if you use Dropbox to sync your files."
+    },
+    "avance": {
+      "fr": "Le client Dropbox se lance au démarrage et garde une connexion ouverte.",
+      "en": "The Dropbox client starts with Windows and keeps a connection open."
+    },
+    "expert": {
+      "fr": "Fiche générique Dropbox.",
+      "en": "Generic Dropbox entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Fichiers Dropbox non synchronisés", "en": "Dropbox files not synced" }
+  ],
+  "senders": [ "Dropbox.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

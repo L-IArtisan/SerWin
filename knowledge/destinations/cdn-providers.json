@@ -1,0 +1,34 @@
+{
+  "name": "cdn-providers",
+  "patterns": [ "*.akamaized.net", "*.akamaiedge.net", "*.akamai.net", "*.akamaihd.net", "*.edgekey.net", "*.edgesuite.net", "*.cloudflare.com", "*.cloudflare.net", "*.cdn.cloudflare.net", "*.fastly.net", "*.fastly.com", "*.cloudfront.net", "*.llnwd.net" ],
+  "owner": "Akamai, Cloudflare, Fastly, Amazon…",
+  "displayName": { "fr": "Réseaux de distribution de contenu (CDN)", "en": "Content delivery networks (CDN)" },
+  "category": "cdn",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Hébergeurs relais qui distribuent le contenu d'innombrables sites et logiciels.",
+    "en": "Relay hosts delivering content for countless sites and software."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ces serveurs ne sont pas un service en soi : ils livrent les fichiers d'autres entreprises (mises à jour, images, vidéos). Le programme qui les contacte en dit plus que leur nom.",
+      "en": "These servers are not a service in themselves: they deliver files for other companies (updates, images, videos). The program contacting them tells more than their name."
+    },
+    "avance": {
+      "fr": "Akamai, Cloudflare, Fastly, Amazon CloudFront, Edgio (Limelight). Ils apparaissent souvent comme alias (CNAME) du vrai nom de service.",
+      "en": "Akamai, Cloudflare, Fastly, Amazon CloudFront, Edgio (Limelight). They often appear as aliases (CNAME) of the real service name."
+    },
+    "expert": {
+      "fr": "Bloquer un CDN casse en même temps des services sans rapport ; c'est le nom demandé (pas l'hébergeur) qu'il faut juger.",
+      "en": "Blocking a CDN breaks unrelated services at the same time; judge the requested name, not the host."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Sites, mises à jour et applications sans rapport entre eux en échec", "en": "Unrelated sites, updates and apps fail" }
+  ],
+  "senders": [],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

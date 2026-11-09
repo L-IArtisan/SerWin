@@ -95,6 +95,7 @@ public sealed partial class MainViewModel : ObservableObject
         InitProcesses();
         InitSuggestions();
         InitExpert();
+        InitNetwork();
     }
 
     // ── Données ──────────────────────────────────────────────
@@ -129,10 +130,10 @@ public sealed partial class MainViewModel : ObservableObject
     /// <summary>Index dans la barre de navigation : 0 = Services, 5 = Réglages (1-4 : versions futures).</summary>
     public int NavIndex
     {
-        get => CurrentPage switch { "settings" => 5, "history" => 4, "alerts" => 3, "suggestions" => 2, "processes" => 1, _ => 0 };
+        get => CurrentPage switch { "settings" => 6, "history" => 5, "alerts" => 4, "suggestions" => 3, "network" => 2, "processes" => 1, _ => 0 };
         set
         {
-            CurrentPage = value switch { 5 => "settings", 4 => "history", 3 => "alerts", 2 => "suggestions", 1 => "processes", _ => "services" };
+            CurrentPage = value switch { 6 => "settings", 5 => "history", 4 => "alerts", 3 => "suggestions", 2 => "network", 1 => "processes", _ => "services" };
             Raise();
         }
     }
@@ -154,6 +155,8 @@ public sealed partial class MainViewModel : ObservableObject
                 Raise(nameof(IsAlertsPage));
                 Raise(nameof(IsProcessesPage));
                 Raise(nameof(IsSuggestionsPage));
+                Raise(nameof(IsNetworkPage));
+                if (IsNetworkPage) StartNetwork();
                 if (IsHistoryPage) _ = RefreshHistoryAsync();
             }
         }
@@ -174,6 +177,7 @@ public sealed partial class MainViewModel : ObservableObject
             {
                 ApplyFilter();
                 RebuildProcessView();
+                RebuildNetworkView();
             }
         }
     }
@@ -234,6 +238,8 @@ public sealed partial class MainViewModel : ObservableObject
             _settings.Level = value.Value;
             _settings.Save();
             foreach (var s in Services) s.Refresh();
+            foreach (var n in _networkItems.Values) n.Refresh();
+            Raise(nameof(ShowDnsLogDisable));
             RebuildStartModeOptions();
             RefreshExpertLabels();
             // L'onglet Technique disparaît en mode Simple : on revient sur « Comprendre ».
@@ -275,6 +281,7 @@ public sealed partial class MainViewModel : ObservableObject
         Raise(nameof(AppVersionText));
         Raise(nameof(TitleBarText));
         RefreshActionLabels();
+        RefreshNetworkLabels();
         RecomputeAlerts();
         _ = AnalyzeSelectedAsync();
         Raise(nameof(TaskInventoryText));
@@ -340,6 +347,7 @@ public sealed partial class MainViewModel : ObservableObject
             await RefreshHistoryAsync();
             _ = LoadReviverDataAsync();
             StartSampling();
+            if (_observer is not null) _ = SampleNetworkAsync(forceDns: true);
             _ = LoadContextAsync();
         }
         catch (Exception ex)

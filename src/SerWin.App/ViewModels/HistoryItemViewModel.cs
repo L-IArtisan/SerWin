@@ -27,6 +27,7 @@ public sealed class HistoryItemViewModel(HistoryEntry entry, Func<string, string
         ActionKind.Neutralize => L.Format("History_Neutralize", displayName(Entry.Service)),
         ActionKind.LockAcl => L.Format("History_LockAcl", displayName(Entry.Service)),
         ActionKind.UnlockAcl => L.Format("History_UnlockAcl", displayName(Entry.Service)),
+        ActionKind.ConfigureDnsLog => L[Entry.Changes.Any(c => SerWin.Core.Network.EventLogSetting.Parse(c.After)?.Enabled == true) ? "History_DnsLogOn" : "History_DnsLogOff"],
         _ => Entry.Action.ToString(),
     };
 
@@ -59,6 +60,9 @@ public sealed class HistoryItemViewModel(HistoryEntry entry, Func<string, string
         ChangeKind.TaskEnabled => L.Format("Change_TaskEnabled", c.Target),
         ChangeKind.RegistryAcl when AclLock.IsLocked(c.After) => L.Format("Change_AclLocked", displayName(c.Service)),
         ChangeKind.RegistryAcl => L.Format("Change_AclUnlocked", displayName(c.Service)),
+        ChangeKind.EventLog => SerWin.Core.Network.EventLogSetting.Parse(c.After) is { Enabled: true } on
+            ? L.Format("Change_DnsLogOn", on.MaxSize / (1024 * 1024))
+            : L["Change_DnsLogOff"],
         _ => c.Kind.ToString(),
     };
 

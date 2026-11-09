@@ -1,0 +1,34 @@
+{
+  "name": "bitdefender",
+  "patterns": [ "*.bitdefender.com", "*.bitdefender.net", "*.bitdefender.org" ],
+  "owner": "Bitdefender",
+  "displayName": { "fr": "Bitdefender", "en": "Bitdefender" },
+  "category": "security",
+  "need": "essentiel",
+  "privacy": false,
+  "summary": {
+    "fr": "Mises à jour des signatures et analyse dans le cloud de l'antivirus Bitdefender.",
+    "en": "Signature updates and cloud scanning for the Bitdefender antivirus."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable au bon fonctionnement de l'antivirus Bitdefender, s'il est installé.",
+      "en": "Essential for the Bitdefender antivirus to work, if installed."
+    },
+    "avance": {
+      "fr": "Les services de Bitdefender (VSSERV, BDProtSrv, mise à jour…) échangent en permanence avec le cloud de l'éditeur pour vérifier fichiers et sites.",
+      "en": "Bitdefender's services (VSSERV, BDProtSrv, updater…) constantly exchange with the vendor's cloud to check files and sites."
+    },
+    "expert": {
+      "fr": "Une partie du trafic passe par des hébergeurs cloud (Google Cloud, Amazon) : il apparaît alors sous d'autres noms.",
+      "en": "Part of the traffic goes through cloud hosts (Google Cloud, Amazon): it then shows up under other names."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Antivirus non mis à jour : protection affaiblie", "en": "Antivirus not updated: weaker protection" }
+  ],
+  "senders": [ "VSSERV", "bdservicehost.exe", "BDProtSrv", "UPDATESRV", "bdagent.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

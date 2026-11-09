@@ -1,0 +1,35 @@
+{
+  "name": "office-telemetry",
+  "patterns": [ "*.aria.microsoft.com", "nexus.officeapps.live.com", "nexusrules.officeapps.live.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Télémétrie d'Office et des applications Microsoft", "en": "Office and Microsoft apps telemetry" },
+  "category": "telemetry",
+  "need": "indesirable",
+  "privacy": true,
+  "summary": {
+    "fr": "Données de diagnostic d'Office, de Teams et d'autres applications Microsoft.",
+    "en": "Diagnostic data from Office, Teams and other Microsoft apps."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Office et d'autres applications Microsoft envoient des informations d'usage. Rien ne casse si ces envois s'arrêtent.",
+      "en": "Office and other Microsoft apps send usage information. Nothing breaks if these uploads stop."
+    },
+    "avance": {
+      "fr": "Plateforme « Aria » / « Nexus ». Le niveau se règle dans chaque application Office (Fichier > Compte > Confidentialité du compte).",
+      "en": "“Aria” / “Nexus” platform. The level is set in each Office app (File > Account > Account Privacy)."
+    },
+    "expert": {
+      "fr": "browser.pipe.aria.microsoft.com, mobile.pipe.aria.microsoft.com, nexus.officeapps.live.com. Stratégie : SendTelemetry (HKCU\\Software\\Policies\\Microsoft\\Office\\Common\\ClientTelemetry).",
+      "en": "browser.pipe.aria.microsoft.com, mobile.pipe.aria.microsoft.com, nexus.officeapps.live.com. Policy: SendTelemetry (HKCU\\Software\\Policies\\Microsoft\\Office\\Common\\ClientTelemetry)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Aucune fonction perdue", "en": "No feature lost" }
+  ],
+  "senders": [ "OfficeClickToRun.exe", "WINWORD.EXE", "EXCEL.EXE", "OUTLOOK.EXE", "ms-teams.exe" ],
+  "control": { "fr": "Dans Word ou Excel : Fichier > Compte > Confidentialité du compte > Gérer les paramètres : données de diagnostic « Requises » seulement.", "en": "In Word or Excel: File > Account > Account Privacy > Manage Settings: “Required” diagnostic data only." },
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

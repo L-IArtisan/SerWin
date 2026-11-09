@@ -1,0 +1,35 @@
+{
+  "name": "activity-history",
+  "patterns": [ "activity.windows.com", "*.activity.windows.com", "cdpcs.access.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Historique d'activité et appareils connectés", "en": "Activity history and connected devices" },
+  "category": "sync",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Synchronisation de l'historique d'activité et des échanges entre tes appareils (presse-papiers cloud, partage).",
+    "en": "Syncs activity history and exchanges between your devices (cloud clipboard, sharing)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à reprendre une activité sur un autre appareil et à synchroniser le presse-papiers. Si tu n'utilises pas ces fonctions, ce n'est pas nécessaire.",
+      "en": "Used to resume an activity on another device and to sync the clipboard. If you do not use these features, it is not needed."
+    },
+    "avance": {
+      "fr": "Émis par la plateforme des appareils connectés (CDPSvc, CDPUserSvc). L'historique d'activité contient la liste des applications et documents utilisés.",
+      "en": "Sent by the Connected Devices Platform (CDPSvc, CDPUserSvc). Activity history contains the list of apps and documents used."
+    },
+    "expert": {
+      "fr": "Stratégies : PublishUserActivities et UploadUserActivities = 0 (HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System).",
+      "en": "Policies: PublishUserActivities and UploadUserActivities = 0 (HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Presse-papiers cloud et reprise sur un autre appareil indisponibles", "en": "Cloud clipboard and resume on another device unavailable" }
+  ],
+  "senders": [ "CDPSvc", "CDPUserSvc", "svchost.exe" ],
+  "control": { "fr": "Paramètres > Confidentialité et sécurité > Historique des activités : désactiver l'enregistrement.", "en": "Settings > Privacy & security > Activity history: turn off storing activity." },
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

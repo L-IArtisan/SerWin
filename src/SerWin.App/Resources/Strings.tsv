@@ -513,3 +513,72 @@ Known_office_update	Lancement ou mise à jour de Microsoft Office	Microsoft Offi
 Known_firefox_update	Mises à jour de Firefox	Firefox updates
 App_TitleBar	SerWin {0} · par L'IArtisan	SerWin {0} · by L'IArtisan
 About_Author	Réalisé par L'IArtisan	Made by L'IArtisan
+History_DnsLogOn	Activation du journal DNS	DNS log turned on
+History_DnsLogOff	Désactivation du journal DNS	DNS log turned off
+Change_DnsLogOn	Journal DNS de Windows : activé (taille {0} Mo)	Windows DNS log: on (size {0} MB)
+Change_DnsLogOff	Journal DNS de Windows : désactivé	Windows DNS log: off
+Nav_Network	Réseau	Network
+Net_Title	Qui contacte quoi ?	Who contacts what?
+Net_Intro	Les programmes et services de ton PC qui communiquent avec Internet ou ton réseau local, et à quoi servent ces échanges. Sélectionne une destination pour voir sa fiche.	The programs and services on your PC that talk to the Internet or your local network, and what these exchanges are for. Select a destination to see its entry.
+Net_Privacy	SerWin ne se connecte à rien : il lit seulement la table des connexions et le journal DNS de Windows, sur ta machine.	SerWin connects to nothing: it only reads Windows' connection table and DNS log, on your machine.
+Net_ObserveOnly	Cette version observe et explique ; elle ne bloque rien. Pour réduire un échange, utilise d'abord le réglage officiel indiqué dans la fiche.	This version observes and explains; it does not block anything. To reduce an exchange, first use the official setting shown in the entry.
+Net_EnableDnsLog	Activer le journal DNS	Turn on the DNS log
+Net_DisableDnsLog	Désactiver le journal DNS	Turn off the DNS log
+Net_DnsLogOff	Journal DNS de Windows désactivé : les destinations n'apparaissent que par leur adresse IP, et seulement pendant que la page est ouverte. Active-le (administrateur, annulable) pour voir le nom des serveurs et l'historique des derniers jours.	Windows DNS log is off: destinations only show up by IP address, and only while this page is open. Turn it on (administrator, can be undone) to see server names and the history of the past days.
+Net_DnsLogOn	Journal DNS actif : {0} requête(s) analysée(s) sur les 7 derniers jours, plus les connexions en direct.	DNS log on: {0} request(s) analyzed over the past 7 days, plus live connections.
+Net_DnsLogUnreadable	Journal DNS de Windows illisible : seules les connexions en direct sont affichées.	Windows DNS log unreadable: only live connections are shown.
+Net_DnsLogIntro	SerWin active le journal « Microsoft-Windows-DNS-Client/Operational » de Windows et porte sa taille à 20 Mo. Windows y note quel programme demande quel nom de serveur ; ce journal reste sur ta machine.	SerWin turns on Windows' “Microsoft-Windows-DNS-Client/Operational” log and sets its size to 20 MB. Windows records in it which program asks for which server name; this log stays on your machine.
+Warn_DnsLog	Le journal garde la liste des sites et serveurs contactés par tous les programmes, navigateur compris, pendant plusieurs jours. Toute personne ayant accès à ton compte Windows pourra la lire. Tu peux le désactiver à tout moment (Historique → Annuler).	The log keeps the list of sites and servers contacted by all programs, browser included, for several days. Anyone with access to your Windows account can read it. You can turn it off at any time (History → Undo).
+Net_ActiveNow	Connexion ouverte en ce moment	Connection open right now
+Net_Count	{0} destination(s) affichée(s) sur {1} · {2} active(s) en ce moment	{0} destination(s) shown out of {1} · {2} active right now
+Net_Activity	{0} requête(s) DNS · {1} connexion(s)	{0} DNS request(s) · {1} connection(s)
+Net_ActivityLabel	Activité	Activity
+Net_LocalBadge	Réseau local	Local network
+Net_LocalSummary	Appareil de ton réseau local (box, imprimante, NAS, autre PC…). Ces échanges ne sortent pas vers Internet.	Device on your local network (router, printer, NAS, other PC…). These exchanges do not go out to the Internet.
+Net_UnknownSummary	SerWin n'a pas encore de fiche pour cette destination. Regarde quel programme la contacte : c'est le meilleur indice de son rôle.	SerWin has no entry for this destination yet. Look at which program contacts it: that is the best clue to its role.
+Net_NotUsefulHere	D'après ce que SerWin a détecté, ce service ne sert à rien sur ce PC.	Based on what SerWin detected, this service is of no use on this PC.
+Net_IfBlocked	Si tu la bloques	If you block it
+Net_HowToReduce	Pour réduire ces échanges	To reduce these exchanges
+Net_Senders	Qui la contacte	Who contacts it
+Net_UnexpectedSender	⚠️ Au moins un programme n'est pas celui qui contacte habituellement cette destination.	⚠️ At least one program is not the one that usually contacts this destination.
+Net_EndedProcess	Processus terminé (PID {0})	Ended process (PID {0})
+Net_HostedServices	svchost partagé : {0} ({1} services)	Shared svchost: {0} ({1} services)
+Net_Addresses	Adresses	Addresses
+Net_Ports	Ports distants	Remote ports
+Net_Aliases	Alias (CNAME)	Aliases (CNAME)
+Net_FirstSeen	Première fois vue	First seen
+Net_LastSeen	Dernière fois vue	Last seen
+Net_Patterns	Couvert par la fiche	Covered by the entry
+NetFilter_All	Toutes les destinations	All destinations
+NetFilter_Privacy	Télémétrie, publicité et vie privée	Telemetry, ads and privacy
+NetFilter_Undocumented	Sans fiche	Without an entry
+NetFilter_Active	Actives en ce moment	Active right now
+NetFilter_LocalNetwork	Réseau local	Local network
+Need_Essential	Indispensable	Essential
+Need_Useful	Utile	Useful
+Need_Optional	Optionnel	Optional
+Need_Unwanted	Indésirable	Unwanted
+Need_Unknown	Inconnu	Unknown
+DestCat_telemetry	Télémétrie	Telemetry
+DestCat_advertising	Publicité et suivi	Advertising and tracking
+DestCat_content	Contenus (actualités, météo…)	Content (news, weather…)
+DestCat_updates	Mises à jour	Updates
+DestCat_security	Sécurité	Security
+DestCat_certificates	Certificats	Certificates
+DestCat_connectivity	Connectivité	Connectivity
+DestCat_time	Heure	Time
+DestCat_account	Compte	Account
+DestCat_store	Store	Store
+DestCat_licensing	Licences et activation	Licensing and activation
+DestCat_cloud	Cloud	Cloud
+DestCat_search	Recherche	Search
+DestCat_browser	Navigateur	Browser
+DestCat_office	Bureautique	Office apps
+DestCat_gaming	Jeux	Gaming
+DestCat_maps	Cartes	Maps
+DestCat_sync	Synchronisation	Sync
+DestCat_diagnostics	Diagnostic et configuration	Diagnostics and configuration
+DestCat_cdn	Distribution de contenu (CDN)	Content delivery (CDN)
+DestCat_location	Localisation	Location
+DestCat_notifications	Notifications	Notifications
+DestCat_third_party	Logiciel tiers	Third-party software

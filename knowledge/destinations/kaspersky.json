@@ -1,0 +1,34 @@
+{
+  "name": "kaspersky",
+  "patterns": [ "*.kaspersky.com", "*.kaspersky-labs.com", "*.kas-labs.com" ],
+  "owner": "Kaspersky",
+  "displayName": { "fr": "Kaspersky", "en": "Kaspersky" },
+  "category": "security",
+  "need": "essentiel",
+  "privacy": false,
+  "summary": {
+    "fr": "Mises à jour et réseau de protection cloud (KSN) de Kaspersky.",
+    "en": "Kaspersky updates and cloud protection network (KSN)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable à l'antivirus Kaspersky, s'il est installé.",
+      "en": "Essential for the Kaspersky antivirus, if installed."
+    },
+    "avance": {
+      "fr": "Kaspersky Security Network envoie des informations sur les menaces rencontrées ; la participation se règle dans le logiciel.",
+      "en": "Kaspersky Security Network sends information about threats encountered; participation is set in the software."
+    },
+    "expert": {
+      "fr": "Fiche générique Kaspersky.",
+      "en": "Generic Kaspersky entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Antivirus non mis à jour : protection affaiblie", "en": "Antivirus not updated: weaker protection" }
+  ],
+  "senders": [ "avp.exe", "avpui.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

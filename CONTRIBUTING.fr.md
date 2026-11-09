@@ -82,6 +82,15 @@ Pour passer des fiches en « 🔍 Configuration vérifiée » :
 
 `apply` enregistre la configuration d'usine (`defaults["Édition:Build"]`) et ne marque une fiche vérifiée que si tout ce qu'elle affirme existe réellement. Une capture faite sur une machine déjà modifiée ne reporte pas les types de démarrage.
 
+### Destinations réseau (v1.1)
+
+Chaque service en ligne est décrit dans `knowledge/destinations/<nom>.json` (schéma : [`knowledge/destination.schema.json`](knowledge/destination.schema.json)) : motifs de noms d'hôtes (`login.live.com`, `*.events.data.microsoft.com`), éditeur, catégorie, utilité (`essentiel`, `utile`, `optionnel`, `indesirable`), programmes émetteurs habituels, ce qui casse si on la bloque et le réglage officiel qui la réduit. Une fiche reste **générale** (vraie pour tout PC sous Windows 11) et ne décrit jamais une machine particulière. Entre deux fiches, le motif le plus précis l'emporte.
+
+```powershell
+dotnet run --project src/SerWin.Verify -- net              # ce que ce PC échange (journal DNS + TCP en direct), avec les fiches
+dotnet run --project src/SerWin.Verify -- net --unknown    # noms d'hôtes vus ici sans fiche
+```
+
 ## Traduire l'interface
 
 Les chaînes d'interface sont dans `src/SerWin.App/Resources/Strings.tsv` (clé, français, anglais). Après modification :

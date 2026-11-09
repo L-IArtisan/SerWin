@@ -1,0 +1,34 @@
+{
+  "name": "zoom",
+  "patterns": [ "*.zoom.us", "*.zoom.com", "*.zoomgov.com" ],
+  "owner": "Zoom",
+  "displayName": { "fr": "Zoom", "en": "Zoom" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": false,
+  "summary": {
+    "fr": "Visioconférence Zoom.",
+    "en": "Zoom video conferencing."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Normal si tu utilises Zoom.",
+      "en": "Normal if you use Zoom."
+    },
+    "avance": {
+      "fr": "Audio et vidéo passent surtout en UDP (invisible pour SerWin).",
+      "en": "Audio and video mostly use UDP (invisible to SerWin)."
+    },
+    "expert": {
+      "fr": "Fiche générique Zoom.",
+      "en": "Generic Zoom entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Zoom hors ligne", "en": "Zoom offline" }
+  ],
+  "senders": [ "Zoom.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

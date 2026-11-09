@@ -28,6 +28,7 @@ return command switch
     "who" => Who(),
     "ps" => Ps(),
     "context" => Context(),
+    "net" => Net(),
     _ => Usage(),
 };
 
@@ -51,6 +52,7 @@ static int Usage()
           os                                 Édition et build détectés
           ps                                 Arbre des processus, services hébergés, signatures
           context                            Contexte détecté (matériel, usages) et verdicts « Chez toi »
+          net [--hours N] [--unknown]         Échanges réseau : journal DNS + connexions TCP, fiches destinations
         """);
     return 1;
 }
@@ -61,7 +63,7 @@ static int Validate(string? dir)
     var issues = KnowledgeValidator.Validate(kb);
     foreach (var i in issues) Console.WriteLine(i);
     var errors = issues.Count(i => i.Severity == "error");
-    Console.WriteLine($"Base {kb.Metadata.Version} : {kb.ServiceCount} fiches services, {kb.ProcessCount} fiches processus — " +
+    Console.WriteLine($"Base {kb.Metadata.Version} : {kb.ServiceCount} fiches services, {kb.ProcessCount} fiches processus, {kb.Destinations.Count} fiches destinations — " +
                       $"{errors} erreur(s), {issues.Count - errors} avertissement(s).");
     return errors == 0 ? 0 : 2;
 }
@@ -170,6 +172,42 @@ static int Context()
     {
         var v = SerWin.Core.Context.UsefulnessRules.Evaluate(e.UsefulIf, ctx);
         Console.WriteLine($"  {e.Name,-34} {v.Verdict,-10} {string.Join(", ", v.Checks.Select(c => $"{c.Key}{c.Expected}→{c.Satisfied?.ToString() ?? "?"}"))}");
+    }
+    return 0;
+}
+
+int Net()
+{
+    var kb = LoadKb();
+    var hours = int.TryParse(Opt("--hours"), out var h) ? h : 24;
+    var setting = SerWin.Core.Network.DnsLog.ReadSetting();
+    Console.WriteLine(setting is null ? "Journal DNS : illisible"
+        : $"Journal DNS : {(setting.Enabled ? "activé" : "désactivé")}, taille max {setting.MaxSize / 1024} Ko");
+
+    var resolver = new SerWin.Core.Network.SenderResolver();
+    resolver.Refresh(new ServiceReader().ReadAll());
+    var observer = new SerWin.Core.Network.NetworkObserver(resolver);
+    var queries = SerWin.Core.Network.DnsLog.Read(DateTime.Now.AddHours(-hours));
+    observer.AddDns(queries);
+    observer.AddCache(SerWin.Core.Network.DnsCache.Read(), DateTime.Now);
+    observer.AddConnections(SerWin.Core.Network.TcpConnections.ReadEstablished(), DateTime.Now);
+    Console.WriteLine($"{queries.Count} requête(s) DNS sur {hours} h, {observer.Flows.Count} échange(s) programme → destination.");
+    Console.WriteLine();
+
+    var rows = observer.Flows
+        .Where(f => f.Scope != SerWin.Core.Network.AddressScope.Loopback)
+        .Select(f => (Flow: f, Entry: f.HasHostName ? kb.FindDestination(f.Destination, f.Aliases) : null))
+        .ToList();
+    if (Flag("--unknown"))
+    {
+        foreach (var g in rows.Where(r => r.Entry is null && r.Flow.HasHostName).GroupBy(r => r.Flow.Destination).OrderByDescending(g => g.Sum(r => r.Flow.Queries + r.Flow.Connections)))
+            Console.WriteLine($"{g.Key,-60} {string.Join(", ", g.Select(r => r.Flow.Sender.Service ?? r.Flow.Sender.ProcessName ?? r.Flow.Sender.Key).Distinct())}");
+        return 0;
+    }
+    foreach (var r in rows.OrderBy(r => r.Entry?.Name ?? "~").ThenBy(r => r.Flow.Destination))
+    {
+        var sender = r.Flow.Sender.Service ?? r.Flow.Sender.ProcessName ?? r.Flow.Sender.Key;
+        Console.WriteLine($"{r.Entry?.Name ?? "(sans fiche)",-28} {r.Flow.Destination,-50} {sender,-28} dns={r.Flow.Queries} tcp={r.Flow.Connections}{(r.Flow.ActiveConnections > 0 ? " ●" : "")}");
     }
     return 0;
 }

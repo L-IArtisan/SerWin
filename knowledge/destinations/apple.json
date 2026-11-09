@@ -1,0 +1,34 @@
+{
+  "name": "apple",
+  "patterns": [ "*.apple.com", "*.icloud.com", "*.mzstatic.com", "*.apple-cloudkit.com", "*.cdn-apple.com" ],
+  "owner": "Apple",
+  "displayName": { "fr": "Services Apple (iCloud, iTunes)", "en": "Apple services (iCloud, iTunes)" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": false,
+  "summary": {
+    "fr": "iCloud pour Windows, Apple Music / iTunes, appareils Apple.",
+    "en": "iCloud for Windows, Apple Music / iTunes, Apple devices."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu utilises iCloud, iTunes ou Apple Music sur ton PC.",
+      "en": "Useful if you use iCloud, iTunes or Apple Music on your PC."
+    },
+    "avance": {
+      "fr": "Contacté par iCloud, iTunes / Apple Music et le service des appareils mobiles Apple.",
+      "en": "Contacted by iCloud, iTunes / Apple Music and the Apple Mobile Device service."
+    },
+    "expert": {
+      "fr": "Fiche générique Apple.",
+      "en": "Generic Apple entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "iCloud et applications Apple hors ligne", "en": "iCloud and Apple apps offline" }
+  ],
+  "senders": [ "iCloudServices.exe", "iTunes.exe", "AppleMobileDeviceService.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

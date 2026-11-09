@@ -520,4 +520,73 @@
   <data name="Known_firefox_update" xml:space="preserve"><value>Mises à jour de Firefox</value></data>
   <data name="App_TitleBar" xml:space="preserve"><value>SerWin {0} · par L&apos;IArtisan</value></data>
   <data name="About_Author" xml:space="preserve"><value>Réalisé par L&apos;IArtisan</value></data>
+  <data name="History_DnsLogOn" xml:space="preserve"><value>Activation du journal DNS</value></data>
+  <data name="History_DnsLogOff" xml:space="preserve"><value>Désactivation du journal DNS</value></data>
+  <data name="Change_DnsLogOn" xml:space="preserve"><value>Journal DNS de Windows : activé (taille {0} Mo)</value></data>
+  <data name="Change_DnsLogOff" xml:space="preserve"><value>Journal DNS de Windows : désactivé</value></data>
+  <data name="Nav_Network" xml:space="preserve"><value>Réseau</value></data>
+  <data name="Net_Title" xml:space="preserve"><value>Qui contacte quoi ?</value></data>
+  <data name="Net_Intro" xml:space="preserve"><value>Les programmes et services de ton PC qui communiquent avec Internet ou ton réseau local, et à quoi servent ces échanges. Sélectionne une destination pour voir sa fiche.</value></data>
+  <data name="Net_Privacy" xml:space="preserve"><value>SerWin ne se connecte à rien : il lit seulement la table des connexions et le journal DNS de Windows, sur ta machine.</value></data>
+  <data name="Net_ObserveOnly" xml:space="preserve"><value>Cette version observe et explique ; elle ne bloque rien. Pour réduire un échange, utilise d&apos;abord le réglage officiel indiqué dans la fiche.</value></data>
+  <data name="Net_EnableDnsLog" xml:space="preserve"><value>Activer le journal DNS</value></data>
+  <data name="Net_DisableDnsLog" xml:space="preserve"><value>Désactiver le journal DNS</value></data>
+  <data name="Net_DnsLogOff" xml:space="preserve"><value>Journal DNS de Windows désactivé : les destinations n&apos;apparaissent que par leur adresse IP, et seulement pendant que la page est ouverte. Active-le (administrateur, annulable) pour voir le nom des serveurs et l&apos;historique des derniers jours.</value></data>
+  <data name="Net_DnsLogOn" xml:space="preserve"><value>Journal DNS actif : {0} requête(s) analysée(s) sur les 7 derniers jours, plus les connexions en direct.</value></data>
+  <data name="Net_DnsLogUnreadable" xml:space="preserve"><value>Journal DNS de Windows illisible : seules les connexions en direct sont affichées.</value></data>
+  <data name="Net_DnsLogIntro" xml:space="preserve"><value>SerWin active le journal « Microsoft-Windows-DNS-Client/Operational » de Windows et porte sa taille à 20 Mo. Windows y note quel programme demande quel nom de serveur ; ce journal reste sur ta machine.</value></data>
+  <data name="Warn_DnsLog" xml:space="preserve"><value>Le journal garde la liste des sites et serveurs contactés par tous les programmes, navigateur compris, pendant plusieurs jours. Toute personne ayant accès à ton compte Windows pourra la lire. Tu peux le désactiver à tout moment (Historique → Annuler).</value></data>
+  <data name="Net_ActiveNow" xml:space="preserve"><value>Connexion ouverte en ce moment</value></data>
+  <data name="Net_Count" xml:space="preserve"><value>{0} destination(s) affichée(s) sur {1} · {2} active(s) en ce moment</value></data>
+  <data name="Net_Activity" xml:space="preserve"><value>{0} requête(s) DNS · {1} connexion(s)</value></data>
+  <data name="Net_ActivityLabel" xml:space="preserve"><value>Activité</value></data>
+  <data name="Net_LocalBadge" xml:space="preserve"><value>Réseau local</value></data>
+  <data name="Net_LocalSummary" xml:space="preserve"><value>Appareil de ton réseau local (box, imprimante, NAS, autre PC…). Ces échanges ne sortent pas vers Internet.</value></data>
+  <data name="Net_UnknownSummary" xml:space="preserve"><value>SerWin n&apos;a pas encore de fiche pour cette destination. Regarde quel programme la contacte : c&apos;est le meilleur indice de son rôle.</value></data>
+  <data name="Net_NotUsefulHere" xml:space="preserve"><value>D&apos;après ce que SerWin a détecté, ce service ne sert à rien sur ce PC.</value></data>
+  <data name="Net_IfBlocked" xml:space="preserve"><value>Si tu la bloques</value></data>
+  <data name="Net_HowToReduce" xml:space="preserve"><value>Pour réduire ces échanges</value></data>
+  <data name="Net_Senders" xml:space="preserve"><value>Qui la contacte</value></data>
+  <data name="Net_UnexpectedSender" xml:space="preserve"><value>⚠️ Au moins un programme n&apos;est pas celui qui contacte habituellement cette destination.</value></data>
+  <data name="Net_EndedProcess" xml:space="preserve"><value>Processus terminé (PID {0})</value></data>
+  <data name="Net_HostedServices" xml:space="preserve"><value>svchost partagé : {0} ({1} services)</value></data>
+  <data name="Net_Addresses" xml:space="preserve"><value>Adresses</value></data>
+  <data name="Net_Ports" xml:space="preserve"><value>Ports distants</value></data>
+  <data name="Net_Aliases" xml:space="preserve"><value>Alias (CNAME)</value></data>
+  <data name="Net_FirstSeen" xml:space="preserve"><value>Première fois vue</value></data>
+  <data name="Net_LastSeen" xml:space="preserve"><value>Dernière fois vue</value></data>
+  <data name="Net_Patterns" xml:space="preserve"><value>Couvert par la fiche</value></data>
+  <data name="NetFilter_All" xml:space="preserve"><value>Toutes les destinations</value></data>
+  <data name="NetFilter_Privacy" xml:space="preserve"><value>Télémétrie, publicité et vie privée</value></data>
+  <data name="NetFilter_Undocumented" xml:space="preserve"><value>Sans fiche</value></data>
+  <data name="NetFilter_Active" xml:space="preserve"><value>Actives en ce moment</value></data>
+  <data name="NetFilter_LocalNetwork" xml:space="preserve"><value>Réseau local</value></data>
+  <data name="Need_Essential" xml:space="preserve"><value>Indispensable</value></data>
+  <data name="Need_Useful" xml:space="preserve"><value>Utile</value></data>
+  <data name="Need_Optional" xml:space="preserve"><value>Optionnel</value></data>
+  <data name="Need_Unwanted" xml:space="preserve"><value>Indésirable</value></data>
+  <data name="Need_Unknown" xml:space="preserve"><value>Inconnu</value></data>
+  <data name="DestCat_telemetry" xml:space="preserve"><value>Télémétrie</value></data>
+  <data name="DestCat_advertising" xml:space="preserve"><value>Publicité et suivi</value></data>
+  <data name="DestCat_content" xml:space="preserve"><value>Contenus (actualités, météo…)</value></data>
+  <data name="DestCat_updates" xml:space="preserve"><value>Mises à jour</value></data>
+  <data name="DestCat_security" xml:space="preserve"><value>Sécurité</value></data>
+  <data name="DestCat_certificates" xml:space="preserve"><value>Certificats</value></data>
+  <data name="DestCat_connectivity" xml:space="preserve"><value>Connectivité</value></data>
+  <data name="DestCat_time" xml:space="preserve"><value>Heure</value></data>
+  <data name="DestCat_account" xml:space="preserve"><value>Compte</value></data>
+  <data name="DestCat_store" xml:space="preserve"><value>Store</value></data>
+  <data name="DestCat_licensing" xml:space="preserve"><value>Licences et activation</value></data>
+  <data name="DestCat_cloud" xml:space="preserve"><value>Cloud</value></data>
+  <data name="DestCat_search" xml:space="preserve"><value>Recherche</value></data>
+  <data name="DestCat_browser" xml:space="preserve"><value>Navigateur</value></data>
+  <data name="DestCat_office" xml:space="preserve"><value>Bureautique</value></data>
+  <data name="DestCat_gaming" xml:space="preserve"><value>Jeux</value></data>
+  <data name="DestCat_maps" xml:space="preserve"><value>Cartes</value></data>
+  <data name="DestCat_sync" xml:space="preserve"><value>Synchronisation</value></data>
+  <data name="DestCat_diagnostics" xml:space="preserve"><value>Diagnostic et configuration</value></data>
+  <data name="DestCat_cdn" xml:space="preserve"><value>Distribution de contenu (CDN)</value></data>
+  <data name="DestCat_location" xml:space="preserve"><value>Localisation</value></data>
+  <data name="DestCat_notifications" xml:space="preserve"><value>Notifications</value></data>
+  <data name="DestCat_third_party" xml:space="preserve"><value>Logiciel tiers</value></data>
 </root>

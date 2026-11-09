@@ -1,0 +1,34 @@
+{
+  "name": "google-services",
+  "patterns": [ "*.google.com", "*.googleapis.com", "*.gstatic.com", "*.googleusercontent.com", "*.youtube.com", "*.ytimg.com", "*.googlevideo.com", "*.google.fr" ],
+  "owner": "Google",
+  "displayName": { "fr": "Services Google", "en": "Google services" },
+  "category": "third-party",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Services en ligne de Google : recherche, YouTube, Gmail, Drive, polices et bibliothèques web.",
+    "en": "Google online services: search, YouTube, Gmail, Drive, web fonts and libraries."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Serveurs de Google utilisés par ton navigateur et certains logiciels. Beaucoup de sites s'en servent aussi pour leurs polices ou leurs scripts.",
+      "en": "Google servers used by your browser and some software. Many websites also use them for fonts or scripts."
+    },
+    "avance": {
+      "fr": "Fiche générique pour les domaines Google ; la publicité et la mesure d'audience ont leur propre fiche.",
+      "en": "Generic entry for Google domains; advertising and analytics have their own entry."
+    },
+    "expert": {
+      "fr": "Correspondance par suffixe ; les sous-domaines publicitaires (doubleclick, google-analytics…) relèvent d'une fiche plus précise.",
+      "en": "Matched by suffix; advertising subdomains (doubleclick, google-analytics…) belong to a more precise entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Services Google et certains sites web défaillants", "en": "Google services and some websites fail" }
+  ],
+  "senders": [ "chrome.exe", "msedge.exe", "brave.exe", "firefox.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

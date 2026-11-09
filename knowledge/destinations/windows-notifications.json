@@ -1,0 +1,34 @@
+{
+  "name": "windows-notifications",
+  "patterns": [ "*.notify.windows.com", "*.wns.windows.com", "client.wns.windows.com", "*.notify.live.net" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Notifications Windows (WNS)", "en": "Windows notifications (WNS)" },
+  "category": "notifications",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Canal permanent par lequel les applications reçoivent leurs notifications.",
+    "en": "Permanent channel through which apps receive their notifications."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait arriver les notifications des applis (messages, mails, rappels). Une connexion reste ouverte en permanence : c'est normal.",
+      "en": "Delivers app notifications (messages, mail, reminders). A connection stays open permanently: that is normal."
+    },
+    "avance": {
+      "fr": "Le service de notifications Push (WpnService) maintient une connexion avec le Windows Push Notification Service. Les applis du Store en dépendent pour leurs notifications.",
+      "en": "The Push Notifications service (WpnService) keeps a connection to the Windows Push Notification Service. Store apps depend on it for notifications."
+    },
+    "expert": {
+      "fr": "client.wns.windows.com puis un serveur *.notify.windows.com attribué, en HTTPS / WebSocket sur le port 443.",
+      "en": "client.wns.windows.com then an assigned *.notify.windows.com server, over HTTPS / WebSocket on port 443."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Plus de notifications des applications", "en": "No more app notifications" }
+  ],
+  "senders": [ "WpnService", "svchost.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

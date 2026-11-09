@@ -1,0 +1,36 @@
+{
+  "name": "windows-update",
+  "patterns": [ "*.update.microsoft.com", "*.windowsupdate.com", "*.windowsupdate.microsoft.com", "*.delivery.mp.microsoft.com", "*.dl.delivery.mp.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Windows Update", "en": "Windows Update" },
+  "category": "updates",
+  "need": "essentiel",
+  "privacy": false,
+  "summary": {
+    "fr": "Recherche et téléchargement des mises à jour de Windows, des pilotes et des définitions de sécurité.",
+    "en": "Checks for and downloads Windows, driver and security definition updates."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable pour recevoir les correctifs de sécurité. Le bloquer laisse ton PC de plus en plus vulnérable.",
+      "en": "Essential to receive security fixes. Blocking it leaves your PC increasingly vulnerable."
+    },
+    "avance": {
+      "fr": "Contacté par Windows Update (wuauserv), l'orchestrateur (UsoSvc, MoUsoCoreWorker.exe) et l'Optimisation de livraison pour les téléchargements. Pour décider quand installer, mieux vaut régler les options de Windows Update que bloquer.",
+      "en": "Contacted by Windows Update (wuauserv), the orchestrator (UsoSvc, MoUsoCoreWorker.exe) and Delivery Optimization for downloads. To decide when to install, use Windows Update options rather than blocking."
+    },
+    "expert": {
+      "fr": "fe3.delivery.mp.microsoft.com (métadonnées), *.dl.delivery.mp.microsoft.com et download.windowsupdate.com (contenus), sls.update.microsoft.com (services). HTTPS 443 et HTTP 80 pour les contenus signés.",
+      "en": "fe3.delivery.mp.microsoft.com (metadata), *.dl.delivery.mp.microsoft.com and download.windowsupdate.com (content), sls.update.microsoft.com (services). HTTPS 443, plus HTTP 80 for signed content."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Plus aucun correctif de sécurité", "en": "No more security fixes" },
+    { "fr": "Pilotes et fonctionnalités facultatives non installables", "en": "Drivers and optional features cannot be installed" },
+    { "fr": "Microsoft Store en échec", "en": "Microsoft Store fails" }
+  ],
+  "senders": [ "wuauserv", "UsoSvc", "MoUsoCoreWorker.exe", "DoSvc", "TrustedInstaller.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

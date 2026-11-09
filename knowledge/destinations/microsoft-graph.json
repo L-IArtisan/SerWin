@@ -1,0 +1,34 @@
+{
+  "name": "microsoft-graph",
+  "patterns": [ "graph.microsoft.com", "*.graph.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Microsoft Graph (données des services Microsoft)", "en": "Microsoft Graph (Microsoft services data)" },
+  "category": "cloud",
+  "need": "utile",
+  "privacy": true,
+  "summary": {
+    "fr": "Interface d'accès aux données Microsoft 365 et du compte : mails, agenda, fichiers, profil.",
+    "en": "Access interface to Microsoft 365 and account data: mail, calendar, files, profile."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par Outlook, Teams, les Widgets ou le menu Démarrer pour afficher tes fichiers récents, ton agenda ou ta photo de profil.",
+      "en": "Used by Outlook, Teams, Widgets or the Start menu to show your recent files, calendar or profile picture."
+    },
+    "avance": {
+      "fr": "Les échanges portent sur tes propres données, avec ton autorisation de connexion. Sans compte Microsoft, ce trafic est faible.",
+      "en": "Exchanges concern your own data, with your sign-in consent. Without a Microsoft account, this traffic is low."
+    },
+    "expert": {
+      "fr": "API REST graph.microsoft.com (v1.0, beta), authentifiée par jeton OAuth obtenu via TokenBroker.",
+      "en": "REST API graph.microsoft.com (v1.0, beta), authenticated with an OAuth token obtained through TokenBroker."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Fichiers récents, agenda et profil absents de certaines applis", "en": "Recent files, calendar and profile missing from some apps" }
+  ],
+  "senders": [ "olk.exe", "ms-teams.exe", "msedgewebview2.exe", "SearchHost.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

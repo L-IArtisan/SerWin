@@ -1,0 +1,34 @@
+{
+  "name": "microsoft-store",
+  "patterns": [ "*.displaycatalog.mp.microsoft.com", "displaycatalog.mp.microsoft.com", "*.storeedgefd.dsx.mp.microsoft.com", "storecatalogrevocation.storequality.microsoft.com", "*.md.mp.microsoft.com", "purchase.mp.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Microsoft Store", "en": "Microsoft Store" },
+  "category": "store",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Catalogue, achats et mises à jour des applications du Microsoft Store.",
+    "en": "Catalog, purchases and updates for Microsoft Store apps."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour installer ou mettre à jour les applications du Store, y compris des applis intégrées comme la Calculatrice ou Photos.",
+      "en": "Needed to install or update Store apps, including built-in apps such as Calculator or Photos."
+    },
+    "avance": {
+      "fr": "Contacté par l'application Store, le service d'installation (InstallService) et winget. Les mises à jour automatiques des applications passent par lui, même sans ouvrir le Store.",
+      "en": "Contacted by the Store app, the install service (InstallService) and winget. Automatic app updates go through it even without opening the Store."
+    },
+    "expert": {
+      "fr": "displaycatalog.mp.microsoft.com (catalogue), storeedgefd.dsx.mp.microsoft.com (vitrine), purchase.mp.microsoft.com (achats). Les contenus viennent ensuite des serveurs de Windows Update et des CDN.",
+      "en": "displaycatalog.mp.microsoft.com (catalog), storeedgefd.dsx.mp.microsoft.com (storefront), purchase.mp.microsoft.com (purchases). Content then comes from Windows Update servers and CDNs."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Plus d'installation ni de mise à jour d'applications du Store", "en": "No more Store app installs or updates" }
+  ],
+  "senders": [ "WinStore.App.exe", "InstallService", "svchost.exe", "winget.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

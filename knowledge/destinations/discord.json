@@ -1,0 +1,34 @@
+{
+  "name": "discord",
+  "patterns": [ "*.discord.com", "*.discordapp.com", "*.discordapp.net", "*.discord.gg", "*.discord.media" ],
+  "owner": "Discord",
+  "displayName": { "fr": "Discord", "en": "Discord" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Messagerie et salons vocaux Discord.",
+    "en": "Discord messaging and voice channels."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Normal si tu utilises Discord. L'application se lance souvent au démarrage et reste connectée.",
+      "en": "Normal if you use Discord. The app often starts with Windows and stays connected."
+    },
+    "avance": {
+      "fr": "La voix passe en UDP (invisible pour SerWin) ; les messages et les mises à jour en HTTPS.",
+      "en": "Voice uses UDP (invisible to SerWin); messages and updates use HTTPS."
+    },
+    "expert": {
+      "fr": "Fiche générique Discord.",
+      "en": "Generic Discord entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Discord hors ligne", "en": "Discord offline" }
+  ],
+  "senders": [ "Discord.exe", "Update.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

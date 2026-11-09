@@ -1,0 +1,35 @@
+{
+  "name": "onedrive",
+  "patterns": [ "onedrive.live.com", "*.onedrive.live.com", "*.onedrive.com", "*.storage.live.com", "skyapi.live.net", "*.sharepoint.com", "oneclient.sfx.ms", "*.oneclient.sfx.ms" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "OneDrive", "en": "OneDrive" },
+  "category": "cloud",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Synchronisation de fichiers avec OneDrive (personnel ou professionnel) et mises à jour de l'application.",
+    "en": "File sync with OneDrive (personal or work) and app updates."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Synchronise tes fichiers avec le cloud de Microsoft. Si tu n'utilises pas OneDrive, ces échanges sont inutiles et l'application peut être désinstallée.",
+      "en": "Syncs your files with Microsoft's cloud. If you do not use OneDrive, these exchanges are useless and the app can be uninstalled."
+    },
+    "avance": {
+      "fr": "OneDrive se lance à l'ouverture de session et peut sauvegarder automatiquement Bureau, Documents et Images. *.sharepoint.com sert aussi à OneDrive Entreprise et Teams.",
+      "en": "OneDrive starts at sign-in and can automatically back up Desktop, Documents and Pictures. *.sharepoint.com also serves OneDrive for Business and Teams."
+    },
+    "expert": {
+      "fr": "OneDrive.exe ; mises à jour depuis oneclient.sfx.ms via la tâche planifiée « OneDrive Standalone Update Task ».",
+      "en": "OneDrive.exe; updates from oneclient.sfx.ms through the “OneDrive Standalone Update Task” scheduled task."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Fichiers OneDrive non synchronisés", "en": "OneDrive files not synced" },
+    { "fr": "Sauvegarde des dossiers interrompue", "en": "Folder backup interrupted" }
+  ],
+  "senders": [ "OneDrive.exe", "FileCoAuth.exe", "OneDriveStandaloneUpdater.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

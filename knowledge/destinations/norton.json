@@ -1,0 +1,34 @@
+{
+  "name": "norton",
+  "patterns": [ "*.norton.com", "*.symantec.com", "*.nortonlifelock.com", "*.symantecliveupdate.com" ],
+  "owner": "Gen Digital (Norton)",
+  "displayName": { "fr": "Norton", "en": "Norton" },
+  "category": "security",
+  "need": "essentiel",
+  "privacy": false,
+  "summary": {
+    "fr": "Mises à jour (LiveUpdate) et protection cloud de Norton.",
+    "en": "Norton updates (LiveUpdate) and cloud protection."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable à l'antivirus Norton, s'il est installé.",
+      "en": "Essential for the Norton antivirus, if installed."
+    },
+    "avance": {
+      "fr": "LiveUpdate télécharge les définitions ; d'autres échanges servent aux offres et aux statistiques.",
+      "en": "LiveUpdate downloads definitions; other exchanges serve offers and statistics."
+    },
+    "expert": {
+      "fr": "Fiche générique Norton / Symantec.",
+      "en": "Generic Norton / Symantec entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Antivirus non mis à jour : protection affaiblie", "en": "Antivirus not updated: weaker protection" }
+  ],
+  "senders": [ "NortonSecurity.exe", "nsWscSvc.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

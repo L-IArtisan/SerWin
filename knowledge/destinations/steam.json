@@ -1,0 +1,34 @@
+{
+  "name": "steam",
+  "patterns": [ "*.steampowered.com", "*.steamcontent.com", "*.steamstatic.com", "*.steamserver.net", "*.steamcommunity.com" ],
+  "owner": "Valve",
+  "displayName": { "fr": "Steam", "en": "Steam" },
+  "category": "gaming",
+  "need": "optionnel",
+  "privacy": false,
+  "summary": {
+    "fr": "Boutique, téléchargements de jeux et services en ligne de Steam.",
+    "en": "Steam store, game downloads and online services."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu joues avec Steam. Le client peut rester connecté en arrière-plan.",
+      "en": "Useful if you play with Steam. The client can stay connected in the background."
+    },
+    "avance": {
+      "fr": "steam.exe et steamwebhelper.exe ; les jeux en ligne utilisent souvent l'UDP, invisible pour SerWin.",
+      "en": "steam.exe and steamwebhelper.exe; online games often use UDP, invisible to SerWin."
+    },
+    "expert": {
+      "fr": "*.steamserver.net : connexion aux serveurs Steam ; *.steamcontent.com : téléchargements.",
+      "en": "*.steamserver.net: connection to Steam servers; *.steamcontent.com: downloads."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Steam hors ligne", "en": "Steam offline" }
+  ],
+  "senders": [ "steam.exe", "steamwebhelper.exe", "steamservice.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

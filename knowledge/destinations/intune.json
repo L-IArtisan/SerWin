@@ -1,0 +1,35 @@
+{
+  "name": "intune",
+  "patterns": [ "*.manage.microsoft.com", "enrollment.manage.microsoft.com", "enterpriseregistration.windows.net", "*.dm.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Gestion des appareils (Intune / MDM)", "en": "Device management (Intune / MDM)" },
+  "category": "diagnostics",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Gestion à distance du PC par une entreprise ou une école (Microsoft Intune).",
+    "en": "Remote management of the PC by a company or school (Microsoft Intune)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé seulement si ton PC est géré par une entreprise ou une école. Sur un PC personnel, ce trafic ne devrait pas exister.",
+      "en": "Only used if your PC is managed by a company or school. On a personal PC, this traffic should not exist."
+    },
+    "avance": {
+      "fr": "Le service d'inscription (DmEnrollmentSvc) et l'agent de gestion appliquent les stratégies définies par l'administrateur.",
+      "en": "The enrollment service (DmEnrollmentSvc) and the management agent apply the policies set by the administrator."
+    },
+    "expert": {
+      "fr": "Protocole OMA-DM sur HTTPS ; enterpriseregistration.windows.net sert à l'enregistrement dans Entra ID.",
+      "en": "OMA-DM protocol over HTTPS; enterpriseregistration.windows.net is used for Entra ID registration."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Le PC n'applique plus les stratégies de l'entreprise", "en": "The PC no longer applies company policies" }
+  ],
+  "senders": [ "DmEnrollmentSvc", "omadmclient.exe", "svchost.exe" ],
+  "usefulIf": { "mdmEnrolled": "true" },
+  "verdictIfNot": { "fr": "PC non géré par une entreprise : ces échanges sont inattendus.", "en": "PC not managed by a company: these exchanges are unexpected." },
+  "verification": { "status": "draft" },
+  "sources": []
+}

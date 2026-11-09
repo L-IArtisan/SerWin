@@ -1,0 +1,34 @@
+{
+  "name": "smartscreen",
+  "patterns": [ "*.smartscreen.microsoft.com", "*.smartscreen-prod.microsoft.com", "*.urs.microsoft.com", "checkappexec.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "SmartScreen (sites et téléchargements dangereux)", "en": "SmartScreen (dangerous sites and downloads)" },
+  "category": "security",
+  "need": "essentiel",
+  "privacy": true,
+  "summary": {
+    "fr": "Vérifie la réputation des sites visités et des programmes téléchargés.",
+    "en": "Checks the reputation of visited sites and downloaded programs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est lui qui affiche « Windows a protégé votre ordinateur » devant un programme inconnu, ou qui bloque un site de hameçonnage dans Edge. Une protection importante pour la plupart des gens.",
+      "en": "It shows “Windows protected your PC” for an unknown program, or blocks a phishing site in Edge. An important protection for most people."
+    },
+    "avance": {
+      "fr": "Envoie à Microsoft l'adresse des sites visités dans Edge et l'empreinte des programmes lancés pour la première fois. C'est le prix de la protection : à toi de choisir.",
+      "en": "Sends Microsoft the address of sites visited in Edge and the fingerprint of programs launched for the first time. That is the price of the protection: your choice."
+    },
+    "expert": {
+      "fr": "smartscreen.exe, Edge et l'Explorateur interrogent nav.smartscreen.microsoft.com et apprep.smartscreen.microsoft.com. Réglages : Sécurité Windows > Contrôle des applications et du navigateur.",
+      "en": "smartscreen.exe, Edge and Explorer query nav.smartscreen.microsoft.com and apprep.smartscreen.microsoft.com. Settings: Windows Security > App & browser control."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Plus d'alerte devant les sites et téléchargements dangereux", "en": "No more warnings for dangerous sites and downloads" }
+  ],
+  "senders": [ "smartscreen.exe", "msedge.exe", "explorer.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

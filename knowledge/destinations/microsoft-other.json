@@ -1,0 +1,34 @@
+{
+  "name": "microsoft-other",
+  "patterns": [ "*.microsoft.com", "*.windows.com", "*.windows.net", "*.live.com", "*.live.net", "*.microsoftonline.com", "*.msftauth.com", "*.azure.com", "*.office.net" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Autre service Microsoft", "en": "Other Microsoft service" },
+  "category": "cloud",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Service en ligne de Microsoft que SerWin ne sait pas encore identifier précisément.",
+    "en": "Microsoft online service that SerWin cannot yet identify precisely."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ce serveur appartient à Microsoft, mais SerWin ne connaît pas encore son rôle exact. Regarde quel programme le contacte pour te faire une idée.",
+      "en": "This server belongs to Microsoft, but SerWin does not know its exact role yet. Look at which program contacts it to get an idea."
+    },
+    "avance": {
+      "fr": "Fiche générique : le domaine est celui de Microsoft (microsoft.com, windows.com, live.com, azure…). Une fiche plus précise existe peut-être pour un sous-domaine : tu peux en proposer une.",
+      "en": "Generic entry: the domain is Microsoft's (microsoft.com, windows.com, live.com, azure…). A more precise entry may exist for a subdomain: you can suggest one."
+    },
+    "expert": {
+      "fr": "Correspondance par suffixe de domaine ; toute fiche plus précise l'emporte (motif le plus long).",
+      "en": "Matched by domain suffix; any more precise entry wins (longest pattern)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Inconnu : dépend du service", "en": "Unknown: depends on the service" }
+  ],
+  "senders": [],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

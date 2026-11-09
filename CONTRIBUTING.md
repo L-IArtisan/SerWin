@@ -82,6 +82,15 @@ To promote entries to "🔍 Configuration verified":
 
 `apply` records the factory configuration (`defaults["Edition:Build"]`) and only marks an entry as verified if everything it claims really exists. A capture made on an already-modified machine does not record startup types.
 
+### Network destinations (v1.1)
+
+Each online service is described in `knowledge/destinations/<name>.json` (schema: [`knowledge/destination.schema.json`](knowledge/destination.schema.json)): host patterns (`login.live.com`, `*.events.data.microsoft.com`), owner, category, need (`essentiel`, `utile`, `optionnel`, `indesirable`), the usual senders, what breaks if blocked and the official setting that reduces it. Entries must stay **general** (true for any Windows 11 PC), not describe one machine. The most precise pattern wins between entries.
+
+```powershell
+dotnet run --project src/SerWin.Verify -- net              # what this PC exchanges (DNS log + live TCP), with matching entries
+dotnet run --project src/SerWin.Verify -- net --unknown    # host names seen here that have no entry yet
+```
+
 ## Translating the interface
 
 UI strings live in `src/SerWin.App/Resources/Strings.tsv` (key, French, English). After editing:

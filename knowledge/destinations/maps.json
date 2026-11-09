@@ -1,0 +1,34 @@
+{
+  "name": "maps",
+  "patterns": [ "dev.virtualearth.net", "*.dev.virtualearth.net", "*.virtualearth.net", "*.maps.windows.com", "maps.windows.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Cartes (Bing Maps)", "en": "Maps (Bing Maps)" },
+  "category": "maps",
+  "need": "optionnel",
+  "privacy": false,
+  "summary": {
+    "fr": "Cartes, recherche d'adresses et téléchargement des cartes hors connexion.",
+    "en": "Maps, address search and offline map downloads."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fournit les cartes de Windows et de certaines applis (météo, photos). Inutile si tu n'utilises pas de cartes.",
+      "en": "Provides maps for Windows and some apps (weather, photos). Useless if you do not use maps."
+    },
+    "avance": {
+      "fr": "Le Gestionnaire des cartes téléchargées (MapsBroker) met à jour les cartes hors connexion ; d'autres applications y affichent des fonds de carte.",
+      "en": "The Downloaded Maps Manager (MapsBroker) updates offline maps; other apps display base maps from it."
+    },
+    "expert": {
+      "fr": "Bing Maps : dev.virtualearth.net (API), ecn.dev.virtualearth.net (tuiles).",
+      "en": "Bing Maps: dev.virtualearth.net (API), ecn.dev.virtualearth.net (tiles)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Cartes et mises à jour des cartes hors connexion indisponibles", "en": "Maps and offline map updates unavailable" }
+  ],
+  "senders": [ "MapsBroker", "svchost.exe", "msedgewebview2.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

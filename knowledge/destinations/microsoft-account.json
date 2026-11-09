@@ -1,0 +1,35 @@
+{
+  "name": "microsoft-account",
+  "patterns": [ "login.live.com", "*.login.live.com", "account.live.com", "login.microsoftonline.com", "login.windows.net", "*.msauth.net", "*.msftauth.net", "*.msauthimages.net", "*.msftauthimages.net" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Connexion aux comptes Microsoft", "en": "Microsoft account sign-in" },
+  "category": "account",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Authentification des comptes Microsoft personnels et professionnels.",
+    "en": "Authentication for personal and work Microsoft accounts."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable si tu te connectes à Windows, au Store, à OneDrive ou à Office avec un compte Microsoft.",
+      "en": "Essential if you sign in to Windows, the Store, OneDrive or Office with a Microsoft account."
+    },
+    "avance": {
+      "fr": "Contacté par l'Assistant de connexion (wlidsvc), le Gestionnaire de comptes web (TokenBroker) et les applications. Avec un compte local et sans services Microsoft, il est très peu utilisé.",
+      "en": "Contacted by the Sign-in Assistant (wlidsvc), Web Account Manager (TokenBroker) and apps. With a local account and no Microsoft services, it is rarely used."
+    },
+    "expert": {
+      "fr": "login.live.com (comptes personnels, MSA), login.microsoftonline.com (comptes professionnels, Entra ID), *.msauth.net (pages de connexion).",
+      "en": "login.live.com (personal accounts, MSA), login.microsoftonline.com (work accounts, Entra ID), *.msauth.net (sign-in pages)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Connexion au compte Microsoft impossible", "en": "Microsoft account sign-in impossible" },
+    { "fr": "Store, OneDrive, Office et Xbox déconnectés", "en": "Store, OneDrive, Office and Xbox signed out" }
+  ],
+  "senders": [ "wlidsvc", "TokenBroker", "Microsoft.AAD.BrokerPlugin.exe", "svchost.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

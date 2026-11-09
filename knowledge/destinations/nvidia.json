@@ -1,0 +1,34 @@
+{
+  "name": "nvidia",
+  "patterns": [ "*.nvidia.com", "*.geforce.com", "*.nvidiagrid.net" ],
+  "owner": "NVIDIA",
+  "displayName": { "fr": "Services NVIDIA", "en": "NVIDIA services" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Mises à jour de pilotes, application NVIDIA / GeForce Experience et télémétrie NVIDIA.",
+    "en": "Driver updates, NVIDIA app / GeForce Experience and NVIDIA telemetry."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à proposer les nouveaux pilotes de ta carte graphique NVIDIA. Une partie des échanges est de la télémétrie.",
+      "en": "Used to offer new drivers for your NVIDIA graphics card. Part of the exchanges is telemetry."
+    },
+    "avance": {
+      "fr": "Contacté par l'application NVIDIA, GeForce Experience et leurs services (NVIDIA Display Container…). Sans ces applications, les pilotes fonctionnent normalement et se mettent à jour par Windows Update ou manuellement.",
+      "en": "Contacted by the NVIDIA app, GeForce Experience and their services (NVIDIA Display Container…). Without these apps, drivers work normally and update through Windows Update or manually."
+    },
+    "expert": {
+      "fr": "Fiche générique NVIDIA (*.nvidia.com) : télémétrie, vérification des pilotes, connexion au compte.",
+      "en": "Generic NVIDIA entry (*.nvidia.com): telemetry, driver checks, account sign-in."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Plus de notification de nouveaux pilotes NVIDIA", "en": "No more new NVIDIA driver notifications" }
+  ],
+  "senders": [ "NVIDIA app.exe", "NVIDIA Share.exe", "NVDisplay.Container.exe", "nvcontainer.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

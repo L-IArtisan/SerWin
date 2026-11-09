@@ -1,0 +1,34 @@
+{
+  "name": "spotify",
+  "patterns": [ "*.spotify.com", "*.scdn.co", "*.spotifycdn.com", "*.spotify.net" ],
+  "owner": "Spotify",
+  "displayName": { "fr": "Spotify", "en": "Spotify" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Diffusion musicale, mises à jour et statistiques d'écoute de Spotify.",
+    "en": "Spotify music streaming, updates and listening statistics."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Normal si tu utilises Spotify. L'application peut se lancer au démarrage.",
+      "en": "Normal if you use Spotify. The app may start with Windows."
+    },
+    "avance": {
+      "fr": "Spotify transmet aussi des statistiques d'écoute et d'usage.",
+      "en": "Spotify also sends listening and usage statistics."
+    },
+    "expert": {
+      "fr": "Fiche générique Spotify.",
+      "en": "Generic Spotify entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Spotify hors ligne", "en": "Spotify offline" }
+  ],
+  "senders": [ "Spotify.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

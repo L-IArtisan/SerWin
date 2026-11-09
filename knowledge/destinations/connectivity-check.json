@@ -1,0 +1,36 @@
+{
+  "name": "connectivity-check",
+  "patterns": [ "www.msftconnecttest.com", "msftconnecttest.com", "ipv6.msftconnecttest.com", "dns.msftncsi.com", "www.msftncsi.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Test de connexion à Internet (NCSI)", "en": "Internet connectivity test (NCSI)" },
+  "category": "connectivity",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Petit test qui permet à Windows de savoir si Internet est accessible.",
+    "en": "A small test that lets Windows know whether the Internet is reachable."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est grâce à lui que l'icône réseau affiche « Connecté » ou « Pas d'accès Internet », et que la page de connexion d'un Wi-Fi d'hôtel s'ouvre toute seule.",
+      "en": "Thanks to it, the network icon shows “Connected” or “No Internet access”, and a hotel Wi-Fi login page opens on its own."
+    },
+    "avance": {
+      "fr": "Le service Connaissance des emplacements réseau (NlaSvc) télécharge un minuscule fichier texte à chaque changement de réseau. Le bloquer fait croire à Windows et aux applis qu'il n'y a pas d'Internet.",
+      "en": "The Network Location Awareness service (NlaSvc) downloads a tiny text file whenever the network changes. Blocking it makes Windows and apps believe there is no Internet."
+    },
+    "expert": {
+      "fr": "GET http://www.msftconnecttest.com/connecttest.txt et résolution de dns.msftncsi.com. Sonde remplaçable par un serveur maison via HKLM\\SYSTEM\\CurrentControlSet\\Services\\NlaSvc\\Parameters\\Internet.",
+      "en": "GET http://www.msftconnecttest.com/connecttest.txt and resolution of dns.msftncsi.com. The probe can be pointed to your own server via HKLM\\SYSTEM\\CurrentControlSet\\Services\\NlaSvc\\Parameters\\Internet."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Icône « pas d'accès Internet » à tort", "en": "Network icon wrongly shows “no Internet access”" },
+    { "fr": "Store, OneDrive et Outlook peuvent se croire hors ligne", "en": "Store, OneDrive and Outlook may think they are offline" },
+    { "fr": "Pages de connexion Wi-Fi publiques non affichées", "en": "Public Wi-Fi login pages not shown" }
+  ],
+  "senders": [ "NlaSvc", "svchost.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

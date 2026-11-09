@@ -520,4 +520,73 @@
   <data name="Known_firefox_update" xml:space="preserve"><value>Firefox updates</value></data>
   <data name="App_TitleBar" xml:space="preserve"><value>SerWin {0} · by L&apos;IArtisan</value></data>
   <data name="About_Author" xml:space="preserve"><value>Made by L&apos;IArtisan</value></data>
+  <data name="History_DnsLogOn" xml:space="preserve"><value>DNS log turned on</value></data>
+  <data name="History_DnsLogOff" xml:space="preserve"><value>DNS log turned off</value></data>
+  <data name="Change_DnsLogOn" xml:space="preserve"><value>Windows DNS log: on (size {0} MB)</value></data>
+  <data name="Change_DnsLogOff" xml:space="preserve"><value>Windows DNS log: off</value></data>
+  <data name="Nav_Network" xml:space="preserve"><value>Network</value></data>
+  <data name="Net_Title" xml:space="preserve"><value>Who contacts what?</value></data>
+  <data name="Net_Intro" xml:space="preserve"><value>The programs and services on your PC that talk to the Internet or your local network, and what these exchanges are for. Select a destination to see its entry.</value></data>
+  <data name="Net_Privacy" xml:space="preserve"><value>SerWin connects to nothing: it only reads Windows&apos; connection table and DNS log, on your machine.</value></data>
+  <data name="Net_ObserveOnly" xml:space="preserve"><value>This version observes and explains; it does not block anything. To reduce an exchange, first use the official setting shown in the entry.</value></data>
+  <data name="Net_EnableDnsLog" xml:space="preserve"><value>Turn on the DNS log</value></data>
+  <data name="Net_DisableDnsLog" xml:space="preserve"><value>Turn off the DNS log</value></data>
+  <data name="Net_DnsLogOff" xml:space="preserve"><value>Windows DNS log is off: destinations only show up by IP address, and only while this page is open. Turn it on (administrator, can be undone) to see server names and the history of the past days.</value></data>
+  <data name="Net_DnsLogOn" xml:space="preserve"><value>DNS log on: {0} request(s) analyzed over the past 7 days, plus live connections.</value></data>
+  <data name="Net_DnsLogUnreadable" xml:space="preserve"><value>Windows DNS log unreadable: only live connections are shown.</value></data>
+  <data name="Net_DnsLogIntro" xml:space="preserve"><value>SerWin turns on Windows&apos; “Microsoft-Windows-DNS-Client/Operational” log and sets its size to 20 MB. Windows records in it which program asks for which server name; this log stays on your machine.</value></data>
+  <data name="Warn_DnsLog" xml:space="preserve"><value>The log keeps the list of sites and servers contacted by all programs, browser included, for several days. Anyone with access to your Windows account can read it. You can turn it off at any time (History → Undo).</value></data>
+  <data name="Net_ActiveNow" xml:space="preserve"><value>Connection open right now</value></data>
+  <data name="Net_Count" xml:space="preserve"><value>{0} destination(s) shown out of {1} · {2} active right now</value></data>
+  <data name="Net_Activity" xml:space="preserve"><value>{0} DNS request(s) · {1} connection(s)</value></data>
+  <data name="Net_ActivityLabel" xml:space="preserve"><value>Activity</value></data>
+  <data name="Net_LocalBadge" xml:space="preserve"><value>Local network</value></data>
+  <data name="Net_LocalSummary" xml:space="preserve"><value>Device on your local network (router, printer, NAS, other PC…). These exchanges do not go out to the Internet.</value></data>
+  <data name="Net_UnknownSummary" xml:space="preserve"><value>SerWin has no entry for this destination yet. Look at which program contacts it: that is the best clue to its role.</value></data>
+  <data name="Net_NotUsefulHere" xml:space="preserve"><value>Based on what SerWin detected, this service is of no use on this PC.</value></data>
+  <data name="Net_IfBlocked" xml:space="preserve"><value>If you block it</value></data>
+  <data name="Net_HowToReduce" xml:space="preserve"><value>To reduce these exchanges</value></data>
+  <data name="Net_Senders" xml:space="preserve"><value>Who contacts it</value></data>
+  <data name="Net_UnexpectedSender" xml:space="preserve"><value>⚠️ At least one program is not the one that usually contacts this destination.</value></data>
+  <data name="Net_EndedProcess" xml:space="preserve"><value>Ended process (PID {0})</value></data>
+  <data name="Net_HostedServices" xml:space="preserve"><value>Shared svchost: {0} ({1} services)</value></data>
+  <data name="Net_Addresses" xml:space="preserve"><value>Addresses</value></data>
+  <data name="Net_Ports" xml:space="preserve"><value>Remote ports</value></data>
+  <data name="Net_Aliases" xml:space="preserve"><value>Aliases (CNAME)</value></data>
+  <data name="Net_FirstSeen" xml:space="preserve"><value>First seen</value></data>
+  <data name="Net_LastSeen" xml:space="preserve"><value>Last seen</value></data>
+  <data name="Net_Patterns" xml:space="preserve"><value>Covered by the entry</value></data>
+  <data name="NetFilter_All" xml:space="preserve"><value>All destinations</value></data>
+  <data name="NetFilter_Privacy" xml:space="preserve"><value>Telemetry, ads and privacy</value></data>
+  <data name="NetFilter_Undocumented" xml:space="preserve"><value>Without an entry</value></data>
+  <data name="NetFilter_Active" xml:space="preserve"><value>Active right now</value></data>
+  <data name="NetFilter_LocalNetwork" xml:space="preserve"><value>Local network</value></data>
+  <data name="Need_Essential" xml:space="preserve"><value>Essential</value></data>
+  <data name="Need_Useful" xml:space="preserve"><value>Useful</value></data>
+  <data name="Need_Optional" xml:space="preserve"><value>Optional</value></data>
+  <data name="Need_Unwanted" xml:space="preserve"><value>Unwanted</value></data>
+  <data name="Need_Unknown" xml:space="preserve"><value>Unknown</value></data>
+  <data name="DestCat_telemetry" xml:space="preserve"><value>Telemetry</value></data>
+  <data name="DestCat_advertising" xml:space="preserve"><value>Advertising and tracking</value></data>
+  <data name="DestCat_content" xml:space="preserve"><value>Content (news, weather…)</value></data>
+  <data name="DestCat_updates" xml:space="preserve"><value>Updates</value></data>
+  <data name="DestCat_security" xml:space="preserve"><value>Security</value></data>
+  <data name="DestCat_certificates" xml:space="preserve"><value>Certificates</value></data>
+  <data name="DestCat_connectivity" xml:space="preserve"><value>Connectivity</value></data>
+  <data name="DestCat_time" xml:space="preserve"><value>Time</value></data>
+  <data name="DestCat_account" xml:space="preserve"><value>Account</value></data>
+  <data name="DestCat_store" xml:space="preserve"><value>Store</value></data>
+  <data name="DestCat_licensing" xml:space="preserve"><value>Licensing and activation</value></data>
+  <data name="DestCat_cloud" xml:space="preserve"><value>Cloud</value></data>
+  <data name="DestCat_search" xml:space="preserve"><value>Search</value></data>
+  <data name="DestCat_browser" xml:space="preserve"><value>Browser</value></data>
+  <data name="DestCat_office" xml:space="preserve"><value>Office apps</value></data>
+  <data name="DestCat_gaming" xml:space="preserve"><value>Gaming</value></data>
+  <data name="DestCat_maps" xml:space="preserve"><value>Maps</value></data>
+  <data name="DestCat_sync" xml:space="preserve"><value>Sync</value></data>
+  <data name="DestCat_diagnostics" xml:space="preserve"><value>Diagnostics and configuration</value></data>
+  <data name="DestCat_cdn" xml:space="preserve"><value>Content delivery (CDN)</value></data>
+  <data name="DestCat_location" xml:space="preserve"><value>Location</value></data>
+  <data name="DestCat_notifications" xml:space="preserve"><value>Notifications</value></data>
+  <data name="DestCat_third_party" xml:space="preserve"><value>Third-party software</value></data>
 </root>

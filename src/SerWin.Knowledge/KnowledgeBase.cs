@@ -16,6 +16,8 @@ public sealed class KnowledgeBase
 
     private readonly Dictionary<string, KnowledgeEntry> _services = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<string, KnowledgeEntry> _processes = new(StringComparer.OrdinalIgnoreCase);
+    private readonly List<DestinationEntry> _destinations = [];
+    private DestinationCatalog? _catalog;
 
     public KnowledgeMetadata Metadata { get; private set; } = new();
     public IReadOnlyCollection<KnowledgeEntry> Services => _services.Values.Distinct().ToList();
@@ -28,6 +30,11 @@ public sealed class KnowledgeBase
 
     public KnowledgeEntry? FindService(string name) => _services.GetValueOrDefault(name);
     public KnowledgeEntry? FindProcess(string name) => _processes.GetValueOrDefault(name);
+
+    /// <summary>Fiches « destinations » (v1.1, page Réseau).</summary>
+    public IReadOnlyList<DestinationEntry> Destinations => _destinations;
+    public DestinationCatalog DestinationCatalog => _catalog ??= new DestinationCatalog(_destinations);
+    public DestinationEntry? FindDestination(string host, IEnumerable<string>? aliases = null) => DestinationCatalog.Match(host, aliases);
 
     /// <summary>Charge la base embarquée dans l'assembly SerWin.Knowledge.</summary>
     public static KnowledgeBase LoadEmbedded()
@@ -63,6 +70,15 @@ public sealed class KnowledgeBase
             if (resourceName.Equals("knowledge/kb.json", StringComparison.OrdinalIgnoreCase))
             {
                 Metadata = JsonSerializer.Deserialize<KnowledgeMetadata>(stream, JsonOptions) ?? new();
+                return;
+            }
+
+            if (resourceName.StartsWith("knowledge/destinations/", StringComparison.OrdinalIgnoreCase))
+            {
+                var dest = JsonSerializer.Deserialize<DestinationEntry>(stream, JsonOptions);
+                if (dest is null || string.IsNullOrWhiteSpace(dest.Name)) LoadErrors.Add($"{resourceName}: fiche vide ou sans nom");
+                else _destinations.Add(dest);
+                _catalog = null;
                 return;
             }
 

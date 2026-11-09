@@ -1,0 +1,35 @@
+{
+  "name": "windows-activation",
+  "patterns": [ "activation-v2.sls.microsoft.com", "validation-v2.sls.microsoft.com", "*.sls.microsoft.com", "licensing.mp.microsoft.com", "*.licensing.mp.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Activation de Windows et licences", "en": "Windows activation and licensing" },
+  "category": "licensing",
+  "need": "essentiel",
+  "privacy": false,
+  "summary": {
+    "fr": "Activation de Windows et vérification des licences des applications.",
+    "en": "Windows activation and app license checks."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet à Windows de vérifier qu'il est activé. Le bloquer peut faire apparaître « Windows n'est pas activé » et bloquer des applis du Store.",
+      "en": "Lets Windows check that it is activated. Blocking it can bring up “Windows is not activated” and block Store apps."
+    },
+    "avance": {
+      "fr": "Contacté par la Protection logicielle (sppsvc) et le service de licences (ClipSVC, LicenseManager), surtout après une installation ou un changement de matériel.",
+      "en": "Contacted by Software Protection (sppsvc) and the licensing services (ClipSVC, LicenseManager), mostly after an install or a hardware change."
+    },
+    "expert": {
+      "fr": "SLS = Software Licensing Service. Les licences numériques sont liées à l'identifiant matériel ; les échanges sont rares une fois Windows activé.",
+      "en": "SLS = Software Licensing Service. Digital licenses are tied to the hardware ID; exchanges are rare once Windows is activated."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Activation impossible", "en": "Activation impossible" },
+    { "fr": "Applications du Store qui refusent de démarrer", "en": "Store apps that refuse to start" }
+  ],
+  "senders": [ "sppsvc.exe", "ClipSVC", "LicenseManager", "svchost.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -72,6 +72,11 @@ public class LocalizationTests
         foreach (var t in KnowledgeBase.LoadEmbedded().Services.Concat(KnowledgeBase.LoadEmbedded().Processes).SelectMany(e => e.Revivers)
                      .Where(r => r.Type == "trigger").Select(r => r.Target).Distinct())
             keys.Add($"TriggerTarget_{t.Replace('-', '_')}");
+        // v1.1 — Réseau
+        foreach (var c in DestinationCategories.All) keys.Add($"DestCat_{c.Replace('-', '_')}");
+        foreach (var v in Enum.GetNames<DestinationNeed>()) keys.Add($"Need_{v}");
+        keys.Add("Need_Unknown");
+        foreach (var v in new[] { "All", "Privacy", "Undocumented", "Active", "LocalNetwork" }) keys.Add($"NetFilter_{v}");
         foreach (var n in new[] { "FirstIpAddressArrival", "LastIpAddressRemoval", "DomainJoin", "DomainLeave", "FirewallPortOpen",
                      "FirewallPortClose", "MachinePolicyPresent", "UserPolicyPresent", "RpcInterfaceEvent", "NamedPipeEvent" })
             keys.Add($"TriggerSub_{n}");

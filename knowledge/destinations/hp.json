@@ -1,0 +1,35 @@
+{
+  "name": "hp",
+  "patterns": [ "*.hp.com", "*.hpsmart.com", "*.hpeprint.com", "*.hpconnected.com" ],
+  "owner": "HP",
+  "displayName": { "fr": "Services HP (imprimantes et PC)", "en": "HP services (printers and PCs)" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Application HP Smart, impression à distance, abonnement d'encre et télémétrie HP.",
+    "en": "HP Smart app, remote printing, ink subscription and HP telemetry."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par l'application HP Smart et les logiciels d'imprimante HP. L'impression locale fonctionne sans ces échanges.",
+      "en": "Used by the HP Smart app and HP printer software. Local printing works without these exchanges."
+    },
+    "avance": {
+      "fr": "Certains logiciels HP envoient des données d'usage de l'imprimante ; l'abonnement HP Instant Ink en a besoin.",
+      "en": "Some HP software sends printer usage data; the HP Instant Ink subscription needs it."
+    },
+    "expert": {
+      "fr": "Fiche générique HP.",
+      "en": "Generic HP entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Impression à distance, HP Smart et Instant Ink indisponibles", "en": "Remote printing, HP Smart and Instant Ink unavailable" }
+  ],
+  "senders": [ "HP.Smart.exe", "HPPrintScanDoctorService.exe", "hpqtra08.exe" ],
+  "usefulIf": { "printers": ">0" },
+  "verdictIfNot": { "fr": "Aucune imprimante détectée.", "en": "No printer detected." },
+  "verification": { "status": "draft" },
+  "sources": []
+}

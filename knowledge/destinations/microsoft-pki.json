@@ -1,0 +1,35 @@
+{
+  "name": "microsoft-pki",
+  "patterns": [ "ctldl.windowsupdate.com", "crl.microsoft.com", "mscrl.microsoft.com", "oneocsp.microsoft.com", "ocsp.msocsp.com", "*.msocsp.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Certificats racines et révocation (Microsoft)", "en": "Root certificates and revocation (Microsoft)" },
+  "category": "certificates",
+  "need": "essentiel",
+  "privacy": false,
+  "summary": {
+    "fr": "Mise à jour de la liste des autorités de confiance et vérification qu'un certificat n'a pas été révoqué.",
+    "en": "Updates the list of trusted authorities and checks that a certificate has not been revoked."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable à la sécurité des connexions : sans lui, Windows ne sait plus quels sites et logiciels sont dignes de confiance, et des erreurs de certificat apparaissent.",
+      "en": "Essential for secure connections: without it, Windows no longer knows which sites and software to trust, and certificate errors appear."
+    },
+    "avance": {
+      "fr": "Le service Services de chiffrement (CryptSvc) télécharge régulièrement la liste des autorités racines (CTL) et vérifie les révocations. Très peu de données, aucune information personnelle.",
+      "en": "The Cryptographic Services (CryptSvc) service regularly downloads the root authority list (CTL) and checks revocations. Very little data, no personal information."
+    },
+    "expert": {
+      "fr": "ctldl.windowsupdate.com/msdownload/update/v3/static/trustedr/ : listes authroot.stl et disallowedcert.stl (HTTP 80, contenus signés). Mise à jour automatique désactivable (DisableRootAutoUpdate), à éviter.",
+      "en": "ctldl.windowsupdate.com/msdownload/update/v3/static/trustedr/: authroot.stl and disallowedcert.stl lists (HTTP 80, signed content). Automatic updating can be disabled (DisableRootAutoUpdate), not recommended."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Erreurs de certificat sur des sites et logiciels légitimes", "en": "Certificate errors on legitimate sites and software" },
+    { "fr": "Certificats compromis non révoqués", "en": "Compromised certificates not revoked" }
+  ],
+  "senders": [ "CryptSvc", "svchost.exe", "lsass.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

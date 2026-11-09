@@ -1,0 +1,34 @@
+{
+  "name": "microsoft-cdn",
+  "patterns": [ "*.msedge.net", "*.azureedge.net", "*.azurefd.net", "*.trafficmanager.net", "*.sfx.ms", "*.s-microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Réseaux de distribution de contenu Microsoft (CDN)", "en": "Microsoft content delivery networks (CDN)" },
+  "category": "cdn",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Serveurs relais qui distribuent fichiers, images et mises à jour pour de nombreux services.",
+    "en": "Relay servers that deliver files, images and updates for many services."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ce sont des « entrepôts » répartis dans le monde qui livrent rapidement fichiers et mises à jour. Ils servent beaucoup de services différents : ce n'est pas un service en soi.",
+      "en": "These are “warehouses” spread around the world that quickly deliver files and updates. They serve many different services: not a service in itself."
+    },
+    "avance": {
+      "fr": "Azure Front Door (*.azurefd.net, *.msedge.net) et Azure CDN (*.azureedge.net). Le nom demandé par le programme indique en général le vrai service : SerWin l'affiche quand il le connaît.",
+      "en": "Azure Front Door (*.azurefd.net, *.msedge.net) and Azure CDN (*.azureedge.net). The name requested by the program usually reveals the real service: SerWin shows it when known."
+    },
+    "expert": {
+      "fr": "Ces noms apparaissent souvent comme alias (CNAME) d'un nom de service ; bloquer un CDN casse en même temps des services sans rapport entre eux.",
+      "en": "These names often appear as aliases (CNAME) of a service name; blocking a CDN breaks unrelated services at the same time."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Mises à jour, images et téléchargements de nombreux services en échec", "en": "Updates, images and downloads of many services fail" }
+  ],
+  "senders": [],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

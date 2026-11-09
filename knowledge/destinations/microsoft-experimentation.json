@@ -1,0 +1,34 @@
+{
+  "name": "microsoft-experimentation",
+  "patterns": [ "ecs.office.com", "config.edge.skype.com", "*.ecs.office.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Service d'expérimentation et de configuration (ECS)", "en": "Experimentation and Configuration Service (ECS)" },
+  "category": "diagnostics",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Réglages à distance et essais A/B pour Edge, Office, Teams et certaines parties de Windows.",
+    "en": "Remote settings and A/B trials for Edge, Office, Teams and parts of Windows."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Les applications Microsoft y demandent quelles options activer chez toi, notamment pour tester des nouveautés sur une partie des utilisateurs.",
+      "en": "Microsoft apps ask it which options to turn on for you, notably to test new features on some users."
+    },
+    "avance": {
+      "fr": "Contacté au démarrage d'Edge, d'Office et de Teams. Le bloquer ne casse pas ces applications, mais elles gardent leurs réglages par défaut.",
+      "en": "Contacted when Edge, Office and Teams start. Blocking it does not break these apps, but they keep their default settings."
+    },
+    "expert": {
+      "fr": "ECS renvoie un ensemble de « flags » JSON par application et par appareil ; l'identifiant d'appareil permet de rester dans le même groupe d'essai.",
+      "en": "ECS returns a JSON set of “flags” per app and device; the device identifier keeps you in the same trial group."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Les applications gardent leurs réglages par défaut", "en": "Apps keep their default settings" }
+  ],
+  "senders": [ "msedge.exe", "msedgewebview2.exe", "ms-teams.exe", "WINWORD.EXE", "EXCEL.EXE" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

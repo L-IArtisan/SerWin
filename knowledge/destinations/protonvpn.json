@@ -1,0 +1,34 @@
+{
+  "name": "protonvpn",
+  "patterns": [ "*.protonvpn.com", "*.proton.me", "*.protonmail.ch", "*.protonvpn.net" ],
+  "owner": "Proton",
+  "displayName": { "fr": "Proton (VPN, Mail, Drive)", "en": "Proton (VPN, Mail, Drive)" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": false,
+  "summary": {
+    "fr": "Services Proton : connexion au VPN, messagerie, stockage.",
+    "en": "Proton services: VPN connection, mail, storage."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Normal si tu utilises ProtonVPN ou un autre service Proton.",
+      "en": "Normal if you use ProtonVPN or another Proton service."
+    },
+    "avance": {
+      "fr": "Le client VPN contacte l'API Proton pour la liste des serveurs ; le tunnel lui-même apparaît comme une connexion vers l'adresse du serveur VPN.",
+      "en": "The VPN client contacts the Proton API for the server list; the tunnel itself shows up as a connection to the VPN server address."
+    },
+    "expert": {
+      "fr": "Fiche générique Proton.",
+      "en": "Generic Proton entry."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Connexion VPN impossible", "en": "VPN connection impossible" }
+  ],
+  "senders": [ "ProtonVPN.exe", "ProtonVPNService.exe", "ProtonVPN.WireGuardService.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

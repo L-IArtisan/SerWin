@@ -1,0 +1,36 @@
+{
+  "name": "windows-spotlight-ads",
+  "patterns": [ "arc.msn.com", "*.arc.msn.com", "*.api.iris.microsoft.com", "ris.api.iris.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Windows à la une et suggestions (contenu promotionnel)", "en": "Windows Spotlight and suggestions (promotional content)" },
+  "category": "advertising",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Images de l'écran de verrouillage « Windows à la une », suggestions d'applications et contenus promotionnels du menu Démarrer.",
+    "en": "Lock-screen “Windows Spotlight” images, app suggestions and promotional content in the Start menu."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fournit les belles photos de l'écran de verrouillage, mais aussi les « suggestions » d'applications et publicités dans Windows. Si tu n'utilises pas Windows à la une, ce trafic ne t'apporte rien.",
+      "en": "Provides the nice lock-screen photos, but also app “suggestions” and ads in Windows. If you do not use Windows Spotlight, this traffic gives you nothing."
+    },
+    "avance": {
+      "fr": "Géré par le gestionnaire de contenu (ContentDeliveryManager). Les mêmes serveurs servent les images à la une et les campagnes promotionnelles : couper les suggestions dans les Paramètres réduit fortement ce trafic.",
+      "en": "Handled by the Content Delivery Manager. The same servers deliver Spotlight images and promotional campaigns: turning off suggestions in Settings greatly reduces this traffic."
+    },
+    "expert": {
+      "fr": "Service IRIS (« ris.api.iris.microsoft.com ») et ARC (« arc.msn.com »). Réglages : HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager (SubscribedContent-*, SystemPaneSuggestionsEnabled…).",
+      "en": "IRIS (“ris.api.iris.microsoft.com”) and ARC (“arc.msn.com”) services. Settings: HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager (SubscribedContent-*, SystemPaneSuggestionsEnabled…)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Plus d'images « Windows à la une » sur l'écran de verrouillage", "en": "No more “Windows Spotlight” images on the lock screen" },
+    { "fr": "Plus de suggestions d'applications", "en": "No more app suggestions" }
+  ],
+  "senders": [ "svchost.exe", "explorer.exe", "StartMenuExperienceHost.exe" ],
+  "control": { "fr": "Paramètres > Personnalisation > Écran de verrouillage (choisir « Image ») et Paramètres > Confidentialité et sécurité > Général (désactiver les contenus suggérés).", "en": "Settings > Personalization > Lock screen (choose “Picture”) and Settings > Privacy & security > General (turn off suggested content)." },
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "avast-avg",
+  "patterns": [ "*.avast.com", "*.avcdn.net", "*.avg.com", "*.avast.net" ],
+  "owner": "Gen Digital (Avast, AVG)",
+  "displayName": { "fr": "Avast / AVG", "en": "Avast / AVG" },
+  "category": "security",
+  "need": "essentiel",
+  "privacy": true,
+  "summary": {
+    "fr": "Mises à jour et protection dans le cloud des antivirus Avast et AVG.",
+    "en": "Updates and cloud protection for Avast and AVG antivirus."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable à l'antivirus Avast ou AVG, s'il est installé.",
+      "en": "Essential for the Avast or AVG antivirus, if installed."
+    },
+    "avance": {
+      "fr": "Les versions gratuites envoient aussi des statistiques d'usage, réglables dans les paramètres de confidentialité de l'antivirus.",
+      "en": "Free versions also send usage statistics, configurable in the antivirus privacy settings."
+    },
+    "expert": {
+      "fr": "*.avcdn.net : distribution des mises à jour.",
+      "en": "*.avcdn.net: update distribution."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Antivirus non mis à jour : protection affaiblie", "en": "Antivirus not updated: weaker protection" }
+  ],
+  "senders": [ "AvastSvc.exe", "AVGSvc.exe", "AvastUI.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

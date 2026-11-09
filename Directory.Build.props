@@ -3,7 +3,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>latest</LangVersion>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <Authors>L'IArtisan</Authors>
     <Company>L'IArtisan</Company>
     <Product>SerWin</Product>

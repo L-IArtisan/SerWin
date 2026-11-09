@@ -1,0 +1,35 @@
+{
+  "name": "delivery-optimization",
+  "patterns": [ "*.do.dsp.mp.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Optimisation de livraison", "en": "Delivery Optimization" },
+  "category": "updates",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Coordonne le téléchargement des mises à jour et applications, éventuellement depuis d'autres PC.",
+    "en": "Coordinates update and app downloads, possibly from other PCs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est le gestionnaire de téléchargement des mises à jour. Il peut aussi échanger des morceaux de mises à jour avec d'autres PC : tu peux limiter ce partage à ton réseau local dans les Paramètres.",
+      "en": "It is the update download manager. It can also exchange update pieces with other PCs: you can limit this sharing to your local network in Settings."
+    },
+    "avance": {
+      "fr": "Le service DoSvc interroge ces serveurs pour savoir quels pairs peuvent fournir un fichier. Le partage avec des PC sur Internet utilise le port 7680 ; il est désactivé par défaut sur la plupart des configurations récentes.",
+      "en": "The DoSvc service asks these servers which peers can provide a file. Sharing with PCs on the Internet uses port 7680; it is off by default on most recent setups."
+    },
+    "expert": {
+      "fr": "geo.prod.do.dsp.mp.microsoft.com, kv*.prod.do.dsp.mp.microsoft.com, cp*.prod.do.dsp.mp.microsoft.com. Mode réglable par la stratégie DODownloadMode (0 = HTTP seul, 1 = réseau local, 3 = Internet, 99 = simple).",
+      "en": "geo.prod.do.dsp.mp.microsoft.com, kv*.prod.do.dsp.mp.microsoft.com, cp*.prod.do.dsp.mp.microsoft.com. Mode set by the DODownloadMode policy (0 = HTTP only, 1 = LAN, 3 = Internet, 99 = simple)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Téléchargements de mises à jour et du Store plus lents ou en échec", "en": "Slower or failing update and Store downloads" }
+  ],
+  "senders": [ "DoSvc" ],
+  "control": { "fr": "Paramètres > Windows Update > Options avancées > Optimisation de la distribution : désactiver « Autoriser les téléchargements à partir d'autres PC » ou se limiter au réseau local.", "en": "Settings > Windows Update > Advanced options > Delivery Optimization: turn off “Allow downloads from other PCs” or limit it to the local network." },
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

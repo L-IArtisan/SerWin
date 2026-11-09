@@ -1,0 +1,35 @@
+{
+  "name": "windows-location",
+  "patterns": [ "inference.location.live.net", "*.location.live.net" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Service de localisation Windows", "en": "Windows location service" },
+  "category": "location",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Estimation de la position du PC à partir des réseaux Wi-Fi visibles.",
+    "en": "Estimates the PC's position from visible Wi-Fi networks."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet à Windows de savoir où tu te trouves (météo locale, fuseau horaire automatique, « Localiser mon appareil »). Sans localisation activée, ces échanges n'ont pas lieu d'être.",
+      "en": "Lets Windows know where you are (local weather, automatic time zone, “Find my device”). Without location turned on, these exchanges have no reason to happen."
+    },
+    "avance": {
+      "fr": "Le service de géolocalisation (lfsvc) envoie la liste des réseaux Wi-Fi visibles et reçoit une position estimée.",
+      "en": "The geolocation service (lfsvc) sends the list of visible Wi-Fi networks and receives an estimated position."
+    },
+    "expert": {
+      "fr": "inference.location.live.net ; désactivable par Paramètres > Confidentialité et sécurité > Localisation, ou par la stratégie LetAppsAccessLocation.",
+      "en": "inference.location.live.net; can be turned off in Settings > Privacy & security > Location, or with the LetAppsAccessLocation policy."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Position inconnue : météo locale, fuseau horaire automatique et « Localiser mon appareil » dégradés", "en": "Unknown position: local weather, automatic time zone and “Find my device” degraded" }
+  ],
+  "senders": [ "lfsvc", "svchost.exe" ],
+  "control": { "fr": "Paramètres > Confidentialité et sécurité > Localisation : désactiver « Services de localisation ».", "en": "Settings > Privacy & security > Location: turn off “Location services”." },
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

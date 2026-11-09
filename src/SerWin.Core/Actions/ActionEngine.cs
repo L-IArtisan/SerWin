@@ -163,7 +163,7 @@ public sealed class ActionEngine(
         if (plan.IsNoOp) return new ActionResult();
 
         // 1. Sauvegarde complète de chaque service touché, avant toute modification.
-        var services = plan.Changes.Select(c => c.Service).Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+        var services = plan.Changes.Select(c => c.Service).Where(s => s.Length > 0).Distinct(StringComparer.OrdinalIgnoreCase).ToList();
         var label = plan.Request.Kind switch
         {
             ActionKind.RestoreAll => "restore-all",
@@ -244,7 +244,7 @@ public sealed class ActionEngine(
         return list.Where(c => c.Kind == ChangeKind.RegistryAcl && !AclLock.IsLocked(c.After))
             .Concat(list.Where(c => c.Kind == ChangeKind.StartMode && c.After != disable))
             .Concat(list.Where(c => c.Kind == ChangeKind.State))
-            .Concat(list.Where(c => c.Kind is ChangeKind.Triggers or ChangeKind.Recovery or ChangeKind.TaskEnabled))
+            .Concat(list.Where(c => c.Kind is ChangeKind.Triggers or ChangeKind.Recovery or ChangeKind.TaskEnabled or ChangeKind.EventLog))
             .Concat(list.Where(c => c.Kind == ChangeKind.StartMode && c.After == disable))
             .Concat(list.Where(c => c.Kind == ChangeKind.RegistryAcl && AclLock.IsLocked(c.After)));
     }
@@ -274,12 +274,16 @@ public sealed class ActionEngine(
             case ChangeKind.RegistryAcl:
                 control.SetRegistryAcl(change.Service, change.After);
                 break;
+            case ChangeKind.EventLog:
+                control.SetEventLog(change.Target!, change.After);
+                break;
         }
     }
 
     private string? CurrentValue(ServiceChange c)
     {
         if (c.Kind == ChangeKind.TaskEnabled) return control.IsTaskEnabled(c.Target!)?.ToString();
+        if (c.Kind == ChangeKind.EventLog) return control.GetEventLog(c.Target!);
         var s = control.Read(c.Service);
         if (s is null) return null;
         return c.Kind switch
@@ -307,6 +311,7 @@ public sealed class ActionEngine(
             ChangeKind.Recovery => ChangeCodec.RecoveryKey(ChangeCodec.Recovery(actual)) == ChangeCodec.RecoveryKey(ChangeCodec.Recovery(expected)),
             ChangeKind.RegistryAcl => AclLock.IsLocked(actual) == AclLock.IsLocked(expected),
             ChangeKind.TaskEnabled => string.Equals(actual, expected, StringComparison.OrdinalIgnoreCase),
+            ChangeKind.EventLog => EventLogMatches(actual, expected),
             _ => actual == expected,
         };
     }
@@ -377,6 +382,32 @@ public sealed class ActionEngine(
             Request = request,
             Safety = SafetyLists.ForService(target.TemplateName),
             Changes = [new(target.Name, ChangeKind.RegistryAcl, AclLock.Normalize(sddl), AclLock.Unlock(sddl))],
+        };
+    }
+
+    /// <summary>Windows arrondit la taille d'un journal au multiple de 64 Ko : on compare l'état et la taille à 64 Ko près.</summary>
+    private static bool EventLogMatches(string actual, string expected) =>
+        Network.EventLogSetting.Parse(actual) is { } a && Network.EventLogSetting.Parse(expected) is { } e
+        && a.Enabled == e.Enabled && Math.Abs(a.MaxSize - e.MaxSize) < 65536;
+
+    // ── v1.1 : journal DNS (page Réseau) ──────────────────────
+    /// <summary>
+    /// Active (ou désactive) le journal du client DNS de Windows, avec une taille suffisante pour garder plusieurs jours
+    /// de requêtes. Réglage sauvegardé dans l'historique et annulable comme le reste.
+    /// </summary>
+    public ActionPlan PlanDnsLog(bool enable)
+    {
+        var request = new ActionRequest("", ActionKind.ConfigureDnsLog);
+        var before = Network.EventLogSetting.Parse(control.GetEventLog(Network.DnsLog.LogName));
+        if (before is null) return new ActionPlan { Request = request, Blocked = BlockReason.NotFound };
+        var after = enable
+            ? new Network.EventLogSetting(true, Math.Max(before.MaxSize, Network.DnsLog.RecommendedMaxSize))
+            : before with { Enabled = false };
+        if (after == before) return new ActionPlan { Request = request };
+        return new ActionPlan
+        {
+            Request = request,
+            Changes = [new("", ChangeKind.EventLog, before.Encode(), after.Encode(), Network.DnsLog.LogName)],
         };
     }
 

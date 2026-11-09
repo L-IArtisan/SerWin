@@ -1,0 +1,34 @@
+{
+  "name": "meta",
+  "patterns": [ "*.facebook.com", "*.facebook.net", "*.fbcdn.net", "*.instagram.com", "*.cdninstagram.com", "*.whatsapp.net", "*.whatsapp.com", "*.messenger.com" ],
+  "owner": "Meta",
+  "displayName": { "fr": "Meta (Facebook, Instagram, WhatsApp)", "en": "Meta (Facebook, Instagram, WhatsApp)" },
+  "category": "third-party",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Services de Meta, et boutons ou pixels de suivi intégrés à de nombreux sites.",
+    "en": "Meta's services, and buttons or tracking pixels embedded in many sites."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Normal si tu utilises Facebook, Instagram ou WhatsApp. Ailleurs, ce sont souvent des « pixels » de suivi placés sur des sites web.",
+      "en": "Normal if you use Facebook, Instagram or WhatsApp. Elsewhere, these are often tracking “pixels” placed on websites."
+    },
+    "avance": {
+      "fr": "connect.facebook.net sert le pixel publicitaire de Meta sur les sites tiers ; un bloqueur de publicité le coupe.",
+      "en": "connect.facebook.net serves Meta's advertising pixel on third-party sites; an ad blocker cuts it."
+    },
+    "expert": {
+      "fr": "Fiche générique Meta ; l'application WhatsApp pour Windows garde une connexion ouverte.",
+      "en": "Generic Meta entry; the WhatsApp app for Windows keeps a connection open."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Applications et sites de Meta hors service", "en": "Meta apps and sites broken" }
+  ],
+  "senders": [ "WhatsApp.exe", "msedge.exe", "chrome.exe", "brave.exe", "firefox.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

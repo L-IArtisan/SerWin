@@ -1,0 +1,34 @@
+{
+  "name": "windows-error-reporting",
+  "patterns": [ "*.watson.microsoft.com", "watson.telemetry.microsoft.com", "oca.telemetry.microsoft.com", "oca.microsoft.com" ],
+  "owner": "Microsoft",
+  "displayName": { "fr": "Rapports d'erreurs Windows", "en": "Windows Error Reporting" },
+  "category": "diagnostics",
+  "need": "optionnel",
+  "privacy": true,
+  "summary": {
+    "fr": "Envoi des rapports de plantage (et parfois d'extraits de mémoire) à Microsoft.",
+    "en": "Sends crash reports (and sometimes memory excerpts) to Microsoft."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Quand un programme plante, Windows peut envoyer un rapport à Microsoft pour aider à corriger le problème. Sans cet envoi, tout continue de fonctionner.",
+      "en": "When a program crashes, Windows can send a report to Microsoft to help fix the problem. Without it, everything keeps working."
+    },
+    "avance": {
+      "fr": "Émis par le service Rapport d'erreurs Windows (WerSvc) et wermgr.exe. Les rapports peuvent contenir un extrait de la mémoire du programme planté, donc potentiellement des données personnelles.",
+      "en": "Sent by the Windows Error Reporting service (WerSvc) and wermgr.exe. Reports can contain an excerpt of the crashed program's memory, so potentially personal data."
+    },
+    "expert": {
+      "fr": "Watson / OCA (Online Crash Analysis). Désactivable par la stratégie « Désactiver le rapport d'erreurs Windows » (HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Error Reporting, Disabled = 1).",
+      "en": "Watson / OCA (Online Crash Analysis). Can be turned off with the “Disable Windows Error Reporting” policy (HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Error Reporting, Disabled = 1)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Plus de solutions proposées après un plantage (rare de toute façon)", "en": "No more solutions offered after a crash (rare anyway)" }
+  ],
+  "senders": [ "WerSvc", "wermgr.exe", "WerFault.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

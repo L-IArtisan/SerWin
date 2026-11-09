@@ -1,0 +1,34 @@
+{
+  "name": "brave",
+  "patterns": [ "*.brave.com", "*.bravesoftware.com", "*.brave.software" ],
+  "owner": "Brave Software",
+  "displayName": { "fr": "Services du navigateur Brave", "en": "Brave browser services" },
+  "category": "browser",
+  "need": "utile",
+  "privacy": false,
+  "summary": {
+    "fr": "Mises à jour, listes de blocage et services du navigateur Brave.",
+    "en": "Brave browser updates, block lists and services."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde Brave et son bloqueur de publicité à jour. À laisser fonctionner si tu utilises Brave.",
+      "en": "Keeps Brave and its ad blocker up to date. Leave it working if you use Brave."
+    },
+    "avance": {
+      "fr": "Le programme de mise à jour de Brave (services brave / bravem) fonctionne comme celui de Chrome. Les statistiques anonymes (P3A) se désactivent dans les paramètres de Brave.",
+      "en": "Brave's updater (brave / bravem services) works like Chrome's. Anonymous statistics (P3A) can be turned off in Brave's settings."
+    },
+    "expert": {
+      "fr": "updates.bravesoftware.com, go-updater.brave.com, componentupdater.brave.com (listes de blocage), p3a.brave.com (statistiques).",
+      "en": "updates.bravesoftware.com, go-updater.brave.com, componentupdater.brave.com (block lists), p3a.brave.com (statistics)."
+    }
+  },
+  "ifBlocked": [
+    { "fr": "Brave et ses listes de blocage plus mis à jour", "en": "Brave and its block lists no longer updated" }
+  ],
+  "senders": [ "brave.exe", "BraveUpdate.exe", "updater.exe" ],
+  "usefulIf": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}
