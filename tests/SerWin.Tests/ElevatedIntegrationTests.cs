@@ -10,6 +10,14 @@ public sealed class AdminFactAttribute : FactAttribute
     public AdminFactAttribute()
     {
         if (!OsInfo.IsElevated()) Skip = "Nécessite une session administrateur (dotnet test depuis un terminal élevé).";
+        // Le service cobaye (Fax) n'existe pas sur Windows Server, dont les machines GitHub Actions (qui, elles, sont élevées).
+        else if (!FaxExists()) Skip = "Service Fax absent sur cette machine (Windows Server ?) : test sur le vrai SCM impossible.";
+    }
+
+    private static bool FaxExists()
+    {
+        using var key = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Services\Fax");
+        return key is not null;
     }
 }
 

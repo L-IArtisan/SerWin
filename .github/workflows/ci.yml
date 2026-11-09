@@ -31,7 +31,7 @@ jobs:
         run: dotnet run --no-build -c Release --project src/SerWin.Verify -- validate knowledge
 
       - name: Test
-        run: dotnet test --no-build -c Release
+        run: dotnet test --no-build -c Release --logger GitHubActions
 
       - name: Publish portable executable
         run: dotnet publish src/SerWin.App -c Release -r win-x64 -o publish

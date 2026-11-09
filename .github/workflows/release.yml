@@ -29,7 +29,7 @@ jobs:
         run: |
           dotnet build -c Release
           dotnet run --no-build -c Release --project src/SerWin.Verify -- validate knowledge
-          dotnet test --no-build -c Release
+          dotnet test --no-build -c Release --logger GitHubActions
 
       - name: Publish portable executables
         run: |
