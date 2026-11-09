@@ -60,6 +60,8 @@ public sealed partial class MainViewModel : ObservableObject
 
         ServicesView = CollectionViewSource.GetDefaultView(Services);
         ServicesView.Filter = o => o is ServiceItemViewModel s && PassesFilter(s);
+        // Tri par nom affiché, qui dépend de la langue de l'interface (voir ServiceItemViewModel.DisplayName).
+        ServicesView.SortDescriptions.Add(new System.ComponentModel.SortDescription(nameof(ServiceItemViewModel.DisplayName), System.ComponentModel.ListSortDirection.Ascending));
 
         Levels =
         [
@@ -263,6 +265,7 @@ public sealed partial class MainViewModel : ObservableObject
         foreach (var o in Filters) o.Refresh();
         foreach (var o in Languages) o.Refresh();
         foreach (var s in Services) s.Refresh();
+        ServicesView.Refresh();
         Raise(nameof(CountText));
         Raise(nameof(OsText));
         Raise(nameof(KnowledgeText));

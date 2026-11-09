@@ -25,6 +25,9 @@ public sealed class Loc : INotifyPropertyChanged
     /// <summary>« fr » ou « en » : code utilisé aussi pour les fiches de la base.</summary>
     public string Language { get; private set; } = "fr";
 
+    /// <summary>Deux-points typographique : « Nom : valeur » en français, « Name: value » en anglais.</summary>
+    public string Colon => Language == "fr" ? " : " : ": ";
+
     public string this[string key] => _rm.GetString(key, Culture) ?? $"⟦{key}⟧";
 
     /// <summary>Chaîne si la clé existe, sinon null (clés construites dynamiquement).</summary>

@@ -20,6 +20,7 @@ public partial class App : Application
         var vm = new MainViewModel(settings, new DialogService()) { InitialSelection = ArgValue(e.Args, "--select") };
         var page = ArgValue(e.Args, "--page");
         if (page is "history" or "settings" or "alerts" or "processes" or "suggestions") vm.CurrentPage = page;
+        if (ArgValue(e.Args, "--search") is { } search) vm.SearchText = search;
         var window = new MainWindow { DataContext = vm };
         MainWindow = window;
         window.Show();

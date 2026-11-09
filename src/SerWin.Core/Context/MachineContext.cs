@@ -224,13 +224,22 @@ public sealed class MachineContext
     // ── Antivirus tiers enregistré auprès du Centre de sécurité ──
     private static Fact DetectThirdPartyAntivirus()
     {
-        using var s = new ManagementObjectSearcher(@"root\SecurityCenter2", "SELECT displayName FROM AntiVirusProduct");
+        using var s = new ManagementObjectSearcher(@"root\SecurityCenter2", "SELECT displayName, pathToSignedProductExe FROM AntiVirusProduct");
         var names = new List<string>();
         foreach (var o in s.Get())
             using (o)
-                if (o["displayName"] is string n && !n.Contains("Defender", StringComparison.OrdinalIgnoreCase)) names.Add(n);
+                if (o["displayName"] is string n && !IsMicrosoftDefender(n, o["pathToSignedProductExe"] as string)) names.Add(n);
         return new Fact(names.Count, string.Join(", ", names));
     }
+
+    /// <summary>
+    /// Microsoft Defender s'enregistre avec le chemin « windowsdefender:// ». Ne jamais filtrer sur « Defender » seul :
+    /// « Bitdefender » le contient aussi.
+    /// </summary>
+    internal static bool IsMicrosoftDefender(string displayName, string? signedExePath) =>
+        signedExePath?.StartsWith("windowsdefender:", StringComparison.OrdinalIgnoreCase) == true
+        || displayName.Equals("Windows Defender", StringComparison.OrdinalIgnoreCase)
+        || displayName.Equals("Microsoft Defender Antivirus", StringComparison.OrdinalIgnoreCase);
 
     private static Fact DetectOfflineMaps()
     {

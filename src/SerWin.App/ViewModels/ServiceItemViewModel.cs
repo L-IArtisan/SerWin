@@ -106,7 +106,7 @@ public sealed class ServiceItemViewModel(ServiceInfo info, KnowledgeEntry? entry
             1 => L["Fact_Yes"],
             var n => n.ToString(),
         };
-        return string.IsNullOrWhiteSpace(c.Fact.Detail) ? $"{name} : {value}" : $"{name} : {value} ({c.Fact.Detail})";
+        return string.IsNullOrWhiteSpace(c.Fact.Detail) ? $"{name}{L.Colon}{value}" : $"{name}{L.Colon}{value} ({c.Fact.Detail})";
     }
 
     private bool _defaultExact;
@@ -130,9 +130,25 @@ public sealed class ServiceItemViewModel(ServiceInfo info, KnowledgeEntry? entry
 
     // ── Identité ─────────────────────────────────────────────
     public string Name => Info.Name;
-    public string DisplayName => string.IsNullOrWhiteSpace(Info.DisplayName)
-        ? Entry?.DisplayName.Resolve(ctx.Language) ?? Info.Name
-        : Info.DisplayName;
+    /// <summary>
+    /// Nom affiché : celui de Windows, sauf si l'interface n'est pas dans la langue de Windows
+    /// (ex. interface anglaise sur un Windows français) et qu'une fiche fournit le nom traduit.
+    /// La recherche porte sur les deux noms.
+    /// </summary>
+    public string DisplayName
+    {
+        get
+        {
+            if (Entry is not null && (string.IsNullOrWhiteSpace(Info.DisplayName) || !string.Equals(ctx.Language, WindowsLanguage, StringComparison.OrdinalIgnoreCase)))
+            {
+                var name = Entry.DisplayName.Resolve(ctx.Language, out var fallback);
+                if (!fallback || string.IsNullOrWhiteSpace(Info.DisplayName)) return name;
+            }
+            return string.IsNullOrWhiteSpace(Info.DisplayName) ? Info.Name : Info.DisplayName;
+        }
+    }
+
+    private static readonly string WindowsLanguage = System.Globalization.CultureInfo.InstalledUICulture.TwoLetterISOLanguageName;
 
     public bool IsDocumented => Entry is not null;
     public bool IsUndocumented => Entry is null;
@@ -216,7 +232,7 @@ public sealed class ServiceItemViewModel(ServiceInfo info, KnowledgeEntry? entry
     {
         var label = L[$"Reviver_{r.Type}"];
         var note = r.Note?.Resolve(ctx.Language);
-        return note is null ? $"{label} : {r.Target}" : $"{label} : {r.Target} — {note}";
+        return note is null ? $"{label}{L.Colon}{r.Target}" : $"{label}{L.Colon}{r.Target} — {note}";
     }
 
     public bool IsUntranslated
@@ -259,7 +275,7 @@ public sealed class ServiceItemViewModel(ServiceInfo info, KnowledgeEntry? entry
         var kind = L[$"TriggerKind_{t.Kind}"];
         var sub = t.SubtypeName is { } n ? L[$"TriggerSub_{n}"] : t.Subtype?.ToString();
         var data = t.Data.Count > 0 ? $" [{string.Join(", ", t.Data)}]" : "";
-        return sub is null ? $"{action} — {kind}{data}" : $"{action} — {kind} : {sub}{data}";
+        return sub is null ? $"{action} — {kind}{data}" : $"{action} — {kind}{L.Colon}{sub}{data}";
     }
 
     // ── Onglet Technique ─────────────────────────────────────

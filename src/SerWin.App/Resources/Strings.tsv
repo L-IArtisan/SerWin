@@ -299,7 +299,7 @@ RevStrength_Active	Actif	Active
 RevStrength_Possible	Possible	Possible
 RevStrength_Inactive	Neutralisé	Neutralized
 Rev_Trigger	Déclencheur : {0}	Trigger: {0}
-Rev_Recovery	Récupération : redémarrage automatique après un plantage ({0} fois)	Recovery: automatic restart after a crash ({0} times)
+Rev_Recovery	Récupération : redémarrage automatique après un plantage ({0} fois)	Recovery: automatic restart after a crash (×{0})
 Rev_Dependent	« {0} » dépend de lui ({1})	“{0}” depends on it ({1})
 Rev_Task	Tâche planifiée {0}	Scheduled task {0}
 Rev_Repair	Service réparateur « {0} »	Repair service “{0}”

@@ -306,7 +306,7 @@
   <data name="RevStrength_Possible" xml:space="preserve"><value>Possible</value></data>
   <data name="RevStrength_Inactive" xml:space="preserve"><value>Neutralized</value></data>
   <data name="Rev_Trigger" xml:space="preserve"><value>Trigger: {0}</value></data>
-  <data name="Rev_Recovery" xml:space="preserve"><value>Recovery: automatic restart after a crash ({0} times)</value></data>
+  <data name="Rev_Recovery" xml:space="preserve"><value>Recovery: automatic restart after a crash (×{0})</value></data>
   <data name="Rev_Dependent" xml:space="preserve"><value>“{0}” depends on it ({1})</value></data>
   <data name="Rev_Task" xml:space="preserve"><value>Scheduled task {0}</value></data>
   <data name="Rev_Repair" xml:space="preserve"><value>Repair service “{0}”</value></data>

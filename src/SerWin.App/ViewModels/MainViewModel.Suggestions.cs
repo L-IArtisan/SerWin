@@ -5,6 +5,7 @@ using SerWin.App.Infrastructure;
 using SerWin.App.Localization;
 using SerWin.Core.Actions;
 using SerWin.Core.Context;
+using SerWin.Core.Safety;
 using SerWin.Core.Services;
 
 namespace SerWin.App.ViewModels;
@@ -103,8 +104,9 @@ public sealed partial class MainViewModel
         foreach (var key in MachineContext.Keys.All)
         {
             var text = ServiceItemViewModel.DescribeFact(new RuleCheck(key, "", _machine[key], null));
-            var sep = text.IndexOf(" : ", StringComparison.Ordinal);
-            DetectedFacts.Add(new FactItem(text[..sep], text[(sep + 3)..]));
+            var colon = Loc.Instance.Colon;
+            var sep = text.IndexOf(colon, StringComparison.Ordinal);
+            DetectedFacts.Add(new FactItem(text[..sep], text[(sep + colon.Length)..]));
         }
     }
 
@@ -115,7 +117,10 @@ public sealed partial class MainViewModel
         var checkedNames = UselessSuggestions.Concat(PrivacySuggestions).Where(s => s.IsChecked).Select(s => s.Name)
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-        bool Eligible(ServiceItemViewModel s) => !s.IsBlocked && !s.IsDisabled && !s.Info.IsPerUserInstance && s.CanChangeStartMode;
+        // Les protections de sécurité (antivirus, pare-feu…) ne sont jamais suggérées, même jugées inutiles : avec un
+        // antivirus tiers, Defender se met déjà en retrait de lui-même, et le couper ne ferait que retirer un filet de secours.
+        bool Eligible(ServiceItemViewModel s) => !s.IsBlocked && !s.IsDisabled && !s.Info.IsPerUserInstance && s.CanChangeStartMode
+            && !(s.Safety == SafetyLevel.Orange && s.Entry?.Category == "security");
         var useless = Services.Where(s => s.IsNotUseful && Eligible(s)).OrderBy(s => s.DisplayName, StringComparer.CurrentCultureIgnoreCase).ToList();
         var privacy = Services.Where(s => s.IsPrivacy && Eligible(s) && s.Verdict.Verdict != Usefulness.Useful && !useless.Contains(s))
             .OrderBy(s => s.DisplayName, StringComparer.CurrentCultureIgnoreCase).ToList();

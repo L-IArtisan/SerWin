@@ -148,3 +148,16 @@ public sealed class DisableManyTests : IDisposable
         Assert.Equal(ChangeKind.StartMode, Assert.Single(plan.Changes).Kind);
     }
 }
+
+public class AntivirusDetectionTests
+{
+    [Theory]
+    [InlineData("Windows Defender", "windowsdefender://", true)]
+    [InlineData("Microsoft Defender Antivirus", null, true)]
+    [InlineData("Bitdefender Antivirus", @"C:\Program Files\Bitdefender\Bitdefender Security\wscfix.exe", false)]
+    [InlineData("Kaspersky", @"C:\Program Files (x86)\Kaspersky Lab\avp.exe", false)]
+    public void Only_Microsoft_Defender_is_excluded(string name, string? path, bool isDefender)
+    {
+        Assert.Equal(isDefender, MachineContext.IsMicrosoftDefender(name, path));
+    }
+}
