@@ -241,5 +241,5 @@ public sealed partial class MainViewModel
             NetworkFilter.Active => i.IsActive,
             NetworkFilter.LocalNetwork => i.IsLocalNetwork,
             _ => true,
-        } && i.Matches(SearchText.Trim());
+        } && i.Matches(SearchText.Trim()) && (SenderFilter is null || i.HasSender(SenderFilter));
 }

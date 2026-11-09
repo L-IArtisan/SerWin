@@ -263,6 +263,18 @@
                                     <TextBlock Text="{loc:T Badge_Privacy}" FontSize="12" />
                                 </Border>
                             </WrapPanel>
+                            <!-- Liens croisés : processus hôte et échanges réseau du service -->
+                            <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+                                <ui:Button Padding="8,3" Icon="{ui:SymbolIcon Board24}" Content="{loc:T Link_Process}"
+                                           ToolTip="{loc:T Link_ProcessHelp}"
+                                           Command="{Binding DataContext.ShowProcessCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                           CommandParameter="{Binding}"
+                                           Visibility="{Binding HasProcess, Converter={StaticResource BoolToVis}}" />
+                                <ui:Button Margin="8,0,0,0" Padding="8,3" Icon="{ui:SymbolIcon Globe24}" Content="{loc:T Link_Network}"
+                                           ToolTip="{loc:T Link_NetworkHelp}"
+                                           Command="{Binding DataContext.ShowNetworkCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                           CommandParameter="{Binding}" />
+                            </StackPanel>
                         </StackPanel>
 
                         <TabControl Grid.Row="1" Margin="12,4,12,12"
@@ -655,12 +667,13 @@
 
                     <TreeView Grid.Row="1" Margin="4,0" ItemsSource="{Binding ProcessRoots}" Background="Transparent" BorderThickness="0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                              VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
+                              VirtualizingPanel.IsVirtualizing="False"
                               Visibility="{Binding IsTreeMode, Converter={StaticResource BoolToVis}}">
                         <TreeView.ItemContainerStyle>
                             <Style TargetType="TreeViewItem" BasedOn="{StaticResource {x:Type TreeViewItem}}">
                                 <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
                                 <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                <EventSetter Event="Selected" Handler="OnProcessTreeItemSelected" />
                             </Style>
                         </TreeView.ItemContainerStyle>
                         <TreeView.Resources>
@@ -746,6 +759,11 @@
                                     <TextBlock Text="{loc:T Badge_Undocumented}" FontSize="12" />
                                 </Border>
                             </WrapPanel>
+                            <!-- Lien croisé : échanges réseau de ce processus -->
+                            <ui:Button HorizontalAlignment="Left" Margin="0,6,0,0" Padding="8,3" Icon="{ui:SymbolIcon Globe24}" Content="{loc:T Link_Network}"
+                                       ToolTip="{loc:T Link_NetworkProcessHelp}"
+                                       Command="{Binding DataContext.ShowNetworkCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                       CommandParameter="{Binding}" />
 
                             <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Proc_ConsumptionTitle}" />
                             <UniformGrid Columns="3" HorizontalAlignment="Left" Width="420">
@@ -789,6 +807,9 @@
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate DataType="{x:Type vm:HostedServiceItemViewModel}">
                                             <DockPanel Margin="0,2">
+                                                <ui:Button DockPanel.Dock="Right" Margin="6,0,0,0" Padding="8,3" Icon="{ui:SymbolIcon Globe24}" Content="{loc:T Link_Network}"
+                                                           Command="{Binding DataContext.ShowNetworkCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                           CommandParameter="{Binding Name}" />
                                                 <ui:Button DockPanel.Dock="Right" Padding="8,3" Content="{loc:T Proc_OpenService}"
                                                            Command="{Binding DataContext.ShowServiceCommand, RelativeSource={RelativeSource AncestorType=Window}}"
                                                            CommandParameter="{Binding Name}" />
@@ -880,10 +901,21 @@
                         </StackPanel>
                     </Border>
 
-                    <DockPanel Grid.Row="1" Margin="10,6,10,6">
-                        <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,0,8,0" Text="{loc:T Filter_Label}" />
-                        <ComboBox ItemsSource="{Binding NetworkFilters}" SelectedItem="{Binding SelectedNetworkFilter}" DisplayMemberPath="Label" />
-                    </DockPanel>
+                    <StackPanel Grid.Row="1">
+                        <DockPanel Margin="10,6,10,6">
+                            <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,0,8,0" Text="{loc:T Filter_Label}" />
+                            <ComboBox ItemsSource="{Binding NetworkFilters}" SelectedItem="{Binding SelectedNetworkFilter}" DisplayMemberPath="Label" />
+                        </DockPanel>
+                        <!-- Filtre « échanges de ce programme » (depuis un service, un processus ou un émetteur) -->
+                        <Border Margin="10,0,10,6" Padding="10,4,4,4" CornerRadius="6" Background="#262B88D8"
+                                Visibility="{Binding HasSenderFilter, Converter={StaticResource BoolToVis}}">
+                            <DockPanel>
+                                <ui:Button DockPanel.Dock="Right" Padding="6,2" Icon="{ui:SymbolIcon Dismiss24}" ToolTip="{loc:T Net_ClearSenderFilter}"
+                                           Command="{Binding ClearSenderFilterCommand}" />
+                                <TextBlock VerticalAlignment="Center" FontSize="12" TextTrimming="CharacterEllipsis" Text="{Binding SenderFilterText}" />
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
 
                     <ListBox Grid.Row="2" Margin="4,0" ItemsSource="{Binding NetworkItems}" SelectedItem="{Binding SelectedNetworkItem}"
                              VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
@@ -1106,10 +1138,20 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate DataType="{x:Type vm:NetworkSenderItem}">
                                         <DockPanel Margin="0,3">
-                                            <ui:Button DockPanel.Dock="Right" Padding="8,3" Content="{loc:T Proc_OpenService}"
-                                                       Command="{Binding DataContext.ShowServiceCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                                       CommandParameter="{Binding ServiceName}"
-                                                       Visibility="{Binding HasService, Converter={StaticResource BoolToVis}}" />
+                                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                                                <ui:Button Padding="8,3" Icon="{ui:SymbolIcon Apps24}" Content="{loc:T Link_Service}"
+                                                           Command="{Binding DataContext.ShowServiceCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                           CommandParameter="{Binding ServiceName}"
+                                                           Visibility="{Binding HasService, Converter={StaticResource BoolToVis}}" />
+                                                <ui:Button Margin="6,0,0,0" Padding="8,3" Icon="{ui:SymbolIcon Board24}" Content="{loc:T Link_Process}"
+                                                           Command="{Binding DataContext.ShowProcessCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                           CommandParameter="{Binding}"
+                                                           Visibility="{Binding HasProcess, Converter={StaticResource BoolToVis}}" />
+                                                <ui:Button Margin="6,0,0,0" Padding="8,3" Icon="{ui:SymbolIcon Globe24}" Content="{loc:T Link_AllExchanges}"
+                                                           ToolTip="{loc:T Link_AllExchangesHelp}"
+                                                           Command="{Binding DataContext.ShowNetworkCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                           CommandParameter="{Binding}" />
+                                            </StackPanel>
                                             <StackPanel>
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding Label}" />

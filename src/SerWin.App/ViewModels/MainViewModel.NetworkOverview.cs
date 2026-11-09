@@ -79,14 +79,14 @@ public sealed partial class MainViewModel
         if (_observer is null) return;
         var range = SelectedTimelineRange?.Value ?? TimelineRange.Day;
         var now = DateTime.Now;
-        var key = $"{_observer.LastSequence}|{SelectedNetworkFilter?.Value}|{SearchText}|{range}|{now:yyyyMMddHH}|{_networkItems.Count}";
+        var key = $"{_observer.LastSequence}|{SelectedNetworkFilter?.Value}|{SearchText}|{SenderFilter}|{range}|{now:yyyyMMddHH}|{_networkItems.Count}";
         if (!force && key == _overviewKey) return;
         _overviewKey = key;
 
         // Chaque événement est rattaché à la destination affichée dans la liste (fiche, filtre, recherche).
         var events = _observer.Events
             .Select(e => (Event: e, Item: _networkItems.GetValueOrDefault(e.Destination)))
-            .Where(x => x.Item is not null && PassesNetworkFilter(x.Item))
+            .Where(x => x.Item is not null && PassesNetworkFilter(x.Item) && (SenderFilter is null || SenderFilter.Matches(x.Event.Sender)))
             .ToList();
 
         // ── Fil en direct ──

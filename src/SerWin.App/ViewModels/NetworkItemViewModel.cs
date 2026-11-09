@@ -8,10 +8,12 @@ using SerWin.Knowledge;
 namespace SerWin.App.ViewModels;
 
 /// <summary>Un programme qui a contacté la destination.</summary>
-public sealed record NetworkSenderItem(string Label, string? Detail, string? ServiceName, int Queries, int Connections, bool Active)
+public sealed record NetworkSenderItem(string Label, string? Detail, string? ServiceName, int Queries, int Connections, bool Active,
+    int Pid = 0, string? ProcessName = null)
 {
     public bool HasService => ServiceName is not null;
     public bool HasDetail => !string.IsNullOrEmpty(Detail);
+    public bool HasProcess => ProcessName is not null;
 }
 
 /// <summary>
@@ -109,7 +111,8 @@ public sealed class NetworkItemViewModel(string destination, DestinationEntry? e
             string? detail = s.Service is not null ? s.ProcessName
                 : s.HostedServices.Count > 0 ? L.Format("Net_HostedServices", string.Join(", ", s.HostedServices.Take(6)), s.HostedServices.Count)
                 : null;
-            return new NetworkSenderItem(label, detail, s.Service, g.Sum(f => f.Queries), g.Sum(f => f.Connections), g.Any(f => f.ActiveConnections > 0));
+            return new NetworkSenderItem(label, detail, s.Service, g.Sum(f => f.Queries), g.Sum(f => f.Connections), g.Any(f => f.ActiveConnections > 0),
+                g.Select(f => f.Sender.ProcessId).LastOrDefault(), s.ProcessName);
         })
         .OrderByDescending(s => s.Queries + s.Connections)
         .ToList();
@@ -130,6 +133,9 @@ public sealed class NetworkItemViewModel(string destination, DestinationEntry? e
     public string FirstSeenText => FirstSeen == DateTime.MaxValue ? "" : FormatWhen(FirstSeen);
     public string PatternsText => Entry is null ? "" : string.Join(", ", Entry.Patterns);
     public bool IsDraft => Entry?.Verification.Status == VerificationStatus.Draft;
+
+    /// <summary>Vrai si ce programme fait partie des émetteurs (filtre « échanges de ce programme »).</summary>
+    public bool HasSender(NetworkSenderFilter f) => _flows.Any(fl => f.Matches(fl.Sender));
 
     public bool Matches(string query)
     {

@@ -17,4 +17,11 @@ public partial class MainWindow : FluentWindow
             if (ServiceList.SelectedItem is { } item) ServiceList.ScrollIntoView(item);
         };
     }
+
+    /// <summary>Lien « Processus » depuis un service ou la page Réseau : on fait défiler l'arbre jusqu'au processus.</summary>
+    private void OnProcessTreeItemSelected(object sender, System.Windows.RoutedEventArgs e)
+    {
+        if (sender is System.Windows.Controls.TreeViewItem item && ReferenceEquals(e.OriginalSource, item))
+            Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Background, new Action(item.BringIntoView));
+    }
 }

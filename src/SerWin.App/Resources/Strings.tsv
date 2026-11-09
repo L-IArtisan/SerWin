@@ -593,3 +593,14 @@ Timeline_SummaryDay	{0} échange(s) sur les dernières 24 h, dont {1} indésirab
 Timeline_SummaryWeek	{0} échange(s) sur les 7 derniers jours, dont {1} indésirable(s) (télémétrie, publicité…). Survole une barre pour le détail.	{0} exchange(s) over the last 7 days, including {1} unwanted (telemetry, ads…). Hover over a bar for details.
 Timeline_BarTip	{0} – {1} : {2} échange(s)	{0} – {1}: {2} exchange(s)
 Timeline_HourLabel	{0} h	{0}:00
+Link_Service	Service	Service
+Link_Process	Processus	Process
+Link_Network	Réseau	Network
+Link_AllExchanges	Ses échanges	Its exchanges
+Link_ProcessHelp	Voir le processus qui exécute ce service	See the process running this service
+Link_NetworkHelp	Voir les échanges réseau de ce service	See this service's network exchanges
+Link_NetworkProcessHelp	Voir les échanges réseau de ce processus	See this process's network exchanges
+Link_AllExchangesHelp	Voir toutes les destinations contactées par ce programme	See all destinations contacted by this program
+Net_SenderFilter	Échanges de : {0}	Exchanges of: {0}
+Net_ClearSenderFilter	Afficher tous les programmes	Show all programs
+Nav_ProcessGone	Ce processus n'est plus en cours d'exécution.	This process is no longer running.

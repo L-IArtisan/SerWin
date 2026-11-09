@@ -600,4 +600,15 @@
   <data name="Timeline_SummaryWeek" xml:space="preserve"><value>{0} exchange(s) over the last 7 days, including {1} unwanted (telemetry, ads…). Hover over a bar for details.</value></data>
   <data name="Timeline_BarTip" xml:space="preserve"><value>{0} – {1}: {2} exchange(s)</value></data>
   <data name="Timeline_HourLabel" xml:space="preserve"><value>{0}:00</value></data>
+  <data name="Link_Service" xml:space="preserve"><value>Service</value></data>
+  <data name="Link_Process" xml:space="preserve"><value>Process</value></data>
+  <data name="Link_Network" xml:space="preserve"><value>Network</value></data>
+  <data name="Link_AllExchanges" xml:space="preserve"><value>Its exchanges</value></data>
+  <data name="Link_ProcessHelp" xml:space="preserve"><value>See the process running this service</value></data>
+  <data name="Link_NetworkHelp" xml:space="preserve"><value>See this service&apos;s network exchanges</value></data>
+  <data name="Link_NetworkProcessHelp" xml:space="preserve"><value>See this process&apos;s network exchanges</value></data>
+  <data name="Link_AllExchangesHelp" xml:space="preserve"><value>See all destinations contacted by this program</value></data>
+  <data name="Net_SenderFilter" xml:space="preserve"><value>Exchanges of: {0}</value></data>
+  <data name="Net_ClearSenderFilter" xml:space="preserve"><value>Show all programs</value></data>
+  <data name="Nav_ProcessGone" xml:space="preserve"><value>This process is no longer running.</value></data>
 </root>

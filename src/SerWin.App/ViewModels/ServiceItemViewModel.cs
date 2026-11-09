@@ -156,6 +156,9 @@ public sealed class ServiceItemViewModel(ServiceInfo info, KnowledgeEntry? entry
     public bool IsDisabled => Info.StartMode == ServiceStartMode.Disabled;
     public bool IsThirdParty => Info.IsThirdParty;
     public bool IsPrivacy => Entry?.Privacy == true || Entry?.Category == "privacy";
+
+    /// <summary>Le service tourne dans un processus (lien « Processus »).</summary>
+    public bool HasProcess => Info.ProcessId != 0;
     public bool IsPerUser => Info.IsPerUserInstance || Info.IsPerUserTemplate;
 
     public string StateLabel => L[$"State_{Info.State}"];

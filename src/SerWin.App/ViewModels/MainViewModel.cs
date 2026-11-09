@@ -96,6 +96,7 @@ public sealed partial class MainViewModel : ObservableObject
         InitSuggestions();
         InitExpert();
         InitNetwork();
+        InitNavigation();
     }
 
     // ── Données ──────────────────────────────────────────────
