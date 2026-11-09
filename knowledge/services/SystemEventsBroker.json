@@ -1,0 +1,34 @@
+{
+  "name": "SystemEventsBroker",
+  "displayName": { "fr": "Service Broker des événements système", "en": "System Events Broker" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Déclenche les tâches en arrière-plan des applications sur des événements système.",
+    "en": "Triggers apps' background tasks on system events."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Prévient les applications quand quelque chose se passe (réseau, heure, session). Nécessaire au menu Démarrer et aux applis modernes.",
+      "en": "Tells apps when something happens (network, time, session). Required by the Start menu and modern apps."
+    },
+    "avance": {
+      "fr": "Travaille avec l'infrastructure des tâches en arrière-plan (BrokerInfrastructure) et le planificateur. Le Planificateur de tâches en dépend.",
+      "en": "Works with the background task infrastructure (BrokerInfrastructure) and the scheduler. Task Scheduler depends on it."
+    },
+    "expert": {
+      "fr": "svchost -k DcomLaunch, SystemEventsBrokerServer.dll, LocalSystem.",
+      "en": "svchost -k DcomLaunch, SystemEventsBrokerServer.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Planificateur de tâches et applis modernes hors service", "en": "Task Scheduler and modern apps broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

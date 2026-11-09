@@ -1,0 +1,16 @@
+{
+  "name": "fontdrvhost.exe",
+  "displayName": { "fr": "Hôte du pilote de polices en mode utilisateur", "en": "Usermode Font Driver Host" },
+  "category": "ui",
+  "risk": "critique",
+  "bootCritical": false,
+  "summary": { "fr": "Affiche les polices de caractères dans un processus isolé, pour la sécurité.", "en": "Renders fonts in an isolated process, for security." },
+  "levels": {
+    "simple": { "fr": "Il dessine les polices de caractères. Le terminer peut fermer la session.", "en": "It draws fonts. Terminating it may end the session." },
+    "avance": { "fr": "Les polices sont analysées hors du noyau pour qu'une police piégée ne puisse pas compromettre Windows. Un par session, plus un pour l'écran de connexion.", "en": "Fonts are parsed outside the kernel so that a booby-trapped font cannot compromise Windows. One per session, plus one for the sign-in screen." },
+    "expert": { "fr": "Lancé par wininit.exe / winlogon.exe sous les comptes virtuels UMFD-n, avec un jeton très restreint (AppContainer).", "en": "Launched by wininit.exe / winlogon.exe under UMFD-n virtual accounts, with a heavily restricted token (AppContainer)." }
+  },
+  "ifDisabled": [ { "fr": "Le terminer peut fermer la session", "en": "Terminating it may end the session" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "LockApp.exe",
+  "displayName": { "fr": "Écran de verrouillage", "en": "Lock screen" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Affiche l'écran de verrouillage (image, heure, notifications).", "en": "Shows the lock screen (picture, time, notifications)." },
+  "levels": {
+    "simple": { "fr": "C'est l'écran qui s'affiche quand le PC est verrouillé. Suspendu le reste du temps.", "en": "It is the screen shown when the PC is locked. Suspended the rest of the time." },
+    "avance": { "fr": "N'a rien à voir avec la sécurité de la connexion (gérée par LogonUI.exe et lsass.exe).", "en": "Unrelated to sign-in security (handled by LogonUI.exe and lsass.exe)." },
+    "expert": { "fr": "Package Microsoft.LockApp dans %SystemRoot%\\SystemApps.", "en": "Package Microsoft.LockApp in %SystemRoot%\\SystemApps." }
+  },
+  "ifDisabled": [ { "fr": "Relancé au prochain verrouillage", "en": "Restarted at next lock" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

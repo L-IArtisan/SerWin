@@ -1,0 +1,34 @@
+{
+  "name": "StateRepository",
+  "displayName": { "fr": "Service State Repository", "en": "State Repository Service" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Base de données des applications installées et de leur état.",
+    "en": "Database of installed apps and their state."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Tient le registre des applications du Store et de l'interface moderne. Sans lui, le menu Démarrer et les applis ne s'ouvrent plus.",
+      "en": "Keeps track of Store apps and the modern interface. Without it, the Start menu and apps no longer open."
+    },
+    "avance": {
+      "fr": "Stocke dans une base SQLite les paquets AppX installés, leurs tuiles et leurs autorisations. Démarre automatiquement.",
+      "en": "Stores installed AppX packages, their tiles and permissions in an SQLite database. Starts automatically."
+    },
+    "expert": {
+      "fr": "svchost -k appmodel, windows.staterepository.dll, LocalSystem. Base dans %ProgramData%\\Microsoft\\Windows\\AppRepository\\StateRepository-Machine.srd.",
+      "en": "svchost -k appmodel, windows.staterepository.dll, LocalSystem. Database at %ProgramData%\\Microsoft\\Windows\\AppRepository\\StateRepository-Machine.srd."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Menu Démarrer, Paramètres et applis hors service", "en": "Start menu, Settings and apps broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

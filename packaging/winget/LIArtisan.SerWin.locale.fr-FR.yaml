@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.6.0.schema.json
+PackageIdentifier: LIArtisan.SerWin
+PackageVersion: {VERSION}
+PackageLocale: fr-FR
+Publisher: L'IArtisan
+PublisherUrl: https://github.com/L-IArtisan
+PackageName: SerWin
+PackageUrl: https://github.com/L-IArtisan/SerWin
+License: GPL-3.0-or-later
+LicenseUrl: https://github.com/L-IArtisan/SerWin/blob/main/LICENSE
+ShortDescription: Comprendre, gérer et reprendre la main sur les services et processus Windows.
+Description: |-
+  SerWin explique ce que fait chaque service Windows, ce qui casse si on le coupe et pourquoi un service désactivé redémarre.
+  Chaque modification est sauvegardée et annulable. Aucune connexion réseau, aucune télémétrie.
+Tags:
+  - services
+  - windows-services
+  - processes
+  - privacy
+  - system
+ManifestType: defaultLocale
+ManifestVersion: 1.6.0

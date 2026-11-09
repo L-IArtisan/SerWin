@@ -1,0 +1,34 @@
+{
+  "name": "WPDBusEnum",
+  "displayName": { "fr": "Service Énumérateur d'appareils mobiles", "en": "Portable Device Enumerator Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les appareils mobiles branchés (téléphones, lecteurs MP3) et les stratégies de stockage amovible.",
+    "en": "Handles connected portable devices (phones, MP3 players) and removable storage policies."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet de voir un téléphone dans l'Explorateur pour copier des photos. Utile si tu branches un smartphone.",
+      "en": "Lets you see a phone in File Explorer to copy photos. Useful if you plug in a smartphone."
+    },
+    "avance": {
+      "fr": "Démarré à la demande pour les appareils MTP/PTP. Applique aussi les stratégies de groupe sur le stockage amovible.",
+      "en": "Started on demand for MTP/PTP devices. Also enforces Group Policy on removable storage."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, wpdbusenum.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, wpdbusenum.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Téléphones invisibles dans l'Explorateur", "en": "Phones invisible in File Explorer" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,41 @@
+{
+  "name": "dmwappushservice",
+  "displayName": { "fr": "Service de routage des messages Push WAP pour la gestion des appareils", "en": "Device Management Wireless Application Protocol (WAP) Push message Routing Service" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Achemine les messages de gestion à distance des appareils (MDM, Intune).",
+    "en": "Routes remote device management messages (MDM, Intune)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ce service sert surtout aux entreprises qui gèrent leurs PC à distance. Sur un ordinateur personnel non géré, il est rarement utile.",
+      "en": "This service is mostly for companies that manage their PCs remotely. On an unmanaged personal computer it is rarely useful."
+    },
+    "avance": {
+      "fr": "Utilisé lors de l'inscription MDM (Intune, « Accès Professionnel ou Scolaire ») et par certains scénarios de télémétrie. Démarre à la demande via des déclencheurs RPC et de changement d'état système.",
+      "en": "Used during MDM enrollment (Intune, “Access work or school”) and by some telemetry scenarios. Starts on demand via RPC and system state change triggers."
+    },
+    "expert": {
+      "fr": "dmwappushsvc.dll dans svchost, LocalSystem. Si le PC est inscrit à un MDM (clé HKLM\\SOFTWARE\\Microsoft\\Enrollments non vide), le désactiver peut casser la synchronisation des stratégies.",
+      "en": "dmwappushsvc.dll in svchost, LocalSystem. If the PC is enrolled in MDM (non-empty HKLM\\SOFTWARE\\Microsoft\\Enrollments key), disabling it can break policy sync."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "La gestion à distance (Intune / MDM) peut ne plus se synchroniser", "en": "Remote management (Intune / MDM) may stop syncing" }
+  ],
+  "revivers": [
+    { "type": "trigger", "target": "rpc" },
+    { "type": "update", "target": "feature-update" }
+  ],
+  "usefulIf": { "mdmEnrolled": "true" },
+  "verdictIfNot": {
+    "fr": "Ton PC n'est géré par aucune organisation : ce service n'est pas utilisé.",
+    "en": "Your PC is not managed by any organization: this service is not used."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services" ]
+}

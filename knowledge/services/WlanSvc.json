@@ -1,0 +1,39 @@
+{
+  "name": "WlanSvc",
+  "displayName": { "fr": "Service de configuration automatique WLAN", "en": "WLAN AutoConfig" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Détecte les réseaux Wi-Fi, s'y connecte et gère les profils enregistrés.",
+    "en": "Detects Wi-Fi networks, connects to them and manages saved profiles."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable pour le Wi-Fi. Si ton PC est uniquement branché en câble Ethernet et n'a pas de carte Wi-Fi, il ne sert à rien.",
+      "en": "Required for Wi-Fi. If your PC only uses an Ethernet cable and has no Wi-Fi card, it is useless."
+    },
+    "avance": {
+      "fr": "Gère aussi le point d'accès mobile, Wi-Fi Direct (Miracast, projection sans fil) et les profils sans fil. Le désactiver fait disparaître l'icône Wi-Fi.",
+      "en": "Also handles the mobile hotspot, Wi-Fi Direct (Miracast, wireless projection) and wireless profiles. Disabling it removes the Wi-Fi icon."
+    },
+    "expert": {
+      "fr": "wlansvc.dll dans svchost, LocalSystem. Dépend de nativewifip, RpcSs, Ndisuio et Wcmsvc. Profils dans %ProgramData%\\Microsoft\\Wlansvc\\Profiles (exportables via « netsh wlan export profile »).",
+      "en": "wlansvc.dll in svchost, LocalSystem. Depends on nativewifip, RpcSs, Ndisuio and Wcmsvc. Profiles in %ProgramData%\\Microsoft\\Wlansvc\\Profiles (exportable with “netsh wlan export profile”)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de Wi-Fi", "en": "No more Wi-Fi" },
+    { "fr": "Point d'accès mobile et projection sans fil indisponibles", "en": "Mobile hotspot and wireless projection unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "wifi": "present" },
+  "verdictIfNot": {
+    "fr": "Aucune carte Wi-Fi détectée : ce service est inutile ici.",
+    "en": "No Wi-Fi adapter detected: this service is useless here."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

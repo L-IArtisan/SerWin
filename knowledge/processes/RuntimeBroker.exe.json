@@ -1,0 +1,16 @@
+{
+  "name": "RuntimeBroker.exe",
+  "displayName": { "fr": "Runtime Broker", "en": "Runtime Broker" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Vérifie les autorisations des applications du Microsoft Store (caméra, micro, localisation…).", "en": "Checks permissions of Microsoft Store apps (camera, microphone, location…)." },
+  "levels": {
+    "simple": { "fr": "Il contrôle ce que les applications du Store ont le droit de faire. Plusieurs exemplaires sont normaux.", "en": "It controls what Store apps are allowed to do. Several instances are normal." },
+    "avance": { "fr": "Un Runtime Broker accompagne souvent chaque application UWP/WinUI ouverte. Une forte consommation vient en général de l'application qu'il sert, pas de lui.", "en": "A Runtime Broker often accompanies each open UWP/WinUI app. High usage usually comes from the app it serves, not from itself." },
+    "expert": { "fr": "%SystemRoot%\\System32\\RuntimeBroker.exe, lancé via DCOM (parent svchost DcomLaunch). Le terminer peut faire perdre des autorisations à l'application associée.", "en": "%SystemRoot%\\System32\\RuntimeBroker.exe, launched via DCOM (svchost DcomLaunch parent). Terminating it may make the associated app lose permissions." }
+  },
+  "ifDisabled": [ { "fr": "L'application du Store associée peut mal fonctionner", "en": "The associated Store app may malfunction" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "backgroundTaskHost.exe",
+  "displayName": { "fr": "Hôte des tâches en arrière-plan", "en": "Background Task Host" },
+  "category": "core",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Exécute les tâches d'arrière-plan des applications du Store (synchronisation, notifications).", "en": "Runs background tasks of Store apps (sync, notifications)." },
+  "levels": {
+    "simple": { "fr": "Il laisse les applications du Store faire de petites tâches en arrière-plan. Apparaît et disparaît tout seul.", "en": "It lets Store apps do small background jobs. Comes and goes on its own." },
+    "avance": { "fr": "Les autorisations d'arrière-plan se règlent application par application (Paramètres > Applications > Applications installées > Options avancées).", "en": "Background permissions are set per app (Settings > Apps > Installed apps > Advanced options)." },
+    "expert": { "fr": "%SystemRoot%\\System32\\backgroundTaskHost.exe -ServerName:<classe> ; géré par le Broker Infrastructure.", "en": "%SystemRoot%\\System32\\backgroundTaskHost.exe -ServerName:<class>; managed by Broker Infrastructure." }
+  },
+  "ifDisabled": [ { "fr": "La tâche de l'application est interrompue", "en": "The app's task is interrupted" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

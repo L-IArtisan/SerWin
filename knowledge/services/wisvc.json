@@ -1,0 +1,35 @@
+{
+  "name": "wisvc",
+  "displayName": { "fr": "Service Windows Insider", "en": "Windows Insider Service" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère la participation au programme Windows Insider.",
+    "en": "Manages participation in the Windows Insider Program."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu testes les préversions de Windows.",
+      "en": "Only useful if you test Windows previews."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par Paramètres > Windows Update > Programme Windows Insider.",
+      "en": "Started on demand by Settings > Windows Update > Windows Insider Program."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, flightsettings.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, flightsettings.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Programme Insider inaccessible", "en": "Insider Program inaccessible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "insider": "true" },
+  "verdictIfNot": { "fr": "PC hors programme Insider.", "en": "PC not in the Insider Program." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

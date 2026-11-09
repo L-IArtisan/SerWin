@@ -1,0 +1,35 @@
+{
+  "name": "Sense",
+  "displayName": { "fr": "Service Advanced Threat Protection de Windows Defender", "en": "Windows Defender Advanced Threat Protection Service" },
+  "category": "enterprise",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Capteur de Microsoft Defender for Endpoint, la protection d'entreprise.",
+    "en": "Sensor for Microsoft Defender for Endpoint, the enterprise protection."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne sert que dans les entreprises abonnées à Microsoft Defender for Endpoint. Sur un PC personnel, il reste arrêté.",
+      "en": "Only used by companies subscribed to Microsoft Defender for Endpoint. On a personal PC it stays stopped."
+    },
+    "avance": {
+      "fr": "Démarré uniquement quand la machine est inscrite (onboarding) auprès de Defender for Endpoint. Sinon, il ne fait rien.",
+      "en": "Only started when the machine is onboarded to Defender for Endpoint. Otherwise it does nothing."
+    },
+    "expert": {
+      "fr": "MsSense.exe, LocalSystem. Inscription visible sous HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Advanced Threat Protection.",
+      "en": "MsSense.exe, LocalSystem. Onboarding visible under HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Advanced Threat Protection."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Surveillance d'entreprise interrompue (si le PC est inscrit)", "en": "Enterprise monitoring interrupted (if the PC is onboarded)" }
+  ],
+  "revivers": [],
+  "usefulIf": { "mdmEnrolled": "true" },
+  "verdictIfNot": { "fr": "PC non géré par une entreprise : ce capteur n'est pas utilisé.", "en": "PC not managed by a company: this sensor is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

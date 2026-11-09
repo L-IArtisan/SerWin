@@ -1,0 +1,35 @@
+{
+  "name": "SharedAccess",
+  "displayName": { "fr": "Partage de connexion Internet (ICS)", "en": "Internet Connection Sharing (ICS)" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Partage la connexion Internet du PC avec d'autres appareils.",
+    "en": "Shares the PC's Internet connection with other devices."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu partages ta connexion (point d'accès mobile). Attention : Hyper-V, WSL et Windows Sandbox l'utilisent aussi pour leur réseau.",
+      "en": "Useful if you share your connection (mobile hotspot). Careful: Hyper-V, WSL and Windows Sandbox also use it for their networking."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Le « Commutateur par défaut » d'Hyper-V repose dessus pour le NAT et le DHCP.",
+      "en": "Started on demand. Hyper-V's “Default Switch” relies on it for NAT and DHCP."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, ipnathlp.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, ipnathlp.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Point d'accès mobile impossible", "en": "Mobile hotspot impossible" },
+    { "fr": "Réseau des machines virtuelles, WSL et Sandbox cassé", "en": "Virtual machines, WSL and Sandbox networking broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

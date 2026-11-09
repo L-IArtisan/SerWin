@@ -1,0 +1,38 @@
+{
+  "name": "BITS",
+  "displayName": { "fr": "Service de transfert intelligent en arrière-plan", "en": "Background Intelligent Transfer Service" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Télécharge des fichiers en arrière-plan en utilisant la bande passante inutilisée.",
+    "en": "Downloads files in the background using idle network bandwidth."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il télécharge discrètement les gros fichiers (mises à jour Windows, du navigateur, de certains logiciels) sans ralentir ta connexion. Le couper casse beaucoup de mises à jour.",
+      "en": "It quietly downloads large files (Windows, browser and some software updates) without slowing your connection. Turning it off breaks many updates."
+    },
+    "avance": {
+      "fr": "Utilisé par Windows Update, Microsoft Edge, Defender et de nombreuses applications tierces. Les transferts reprennent après un redémarrage ou une coupure réseau. Démarre à la demande lorsqu'un programme crée une tâche de transfert.",
+      "en": "Used by Windows Update, Microsoft Edge, Defender and many third-party apps. Transfers resume after a reboot or network loss. Starts on demand when a program creates a transfer job."
+    },
+    "expert": {
+      "fr": "qmgr.dll dans svchost, LocalSystem. Les tâches sont visibles avec « bitsadmin /list /allusers » (admin) ou Get-BitsTransfer. BITS est aussi détourné par des logiciels malveillants pour la persistance : une tâche BITS inconnue mérite attention.",
+      "en": "qmgr.dll in svchost, LocalSystem. Jobs are visible with “bitsadmin /list /allusers” (admin) or Get-BitsTransfer. BITS is also abused by malware for persistence: an unknown BITS job deserves attention."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Windows Update échoue lors des téléchargements", "en": "Windows Update fails while downloading" },
+    { "fr": "Les mises à jour d'Edge et de certaines applications ne se font plus", "en": "Edge and some apps stop updating" }
+  ],
+  "revivers": [
+    { "type": "service", "target": "WaaSMedicSvc" },
+    { "type": "software", "target": "edge-update" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/win32/bits/background-intelligent-transfer-service-portal" ]
+}

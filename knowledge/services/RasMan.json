@@ -1,0 +1,35 @@
+{
+  "name": "RasMan",
+  "displayName": { "fr": "Gestionnaire des connexions d'accès à distance", "en": "Remote Access Connection Manager" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les connexions VPN et d'accès à distance intégrées à Windows.",
+    "en": "Manages Windows' built-in VPN and remote access connections."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour les VPN configurés dans Windows. Certains VPN tiers en ont aussi besoin.",
+      "en": "Needed for VPNs configured in Windows. Some third-party VPNs need it too."
+    },
+    "avance": {
+      "fr": "Le point d'accès mobile et le partage de connexion en dépendent aussi. Le désactiver casse les connexions VPN intégrées.",
+      "en": "The mobile hotspot and connection sharing also depend on it. Disabling it breaks built-in VPN connections."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, rasmans.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, rasmans.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "VPN intégrés impossibles", "en": "Built-in VPNs impossible" },
+    { "fr": "Point d'accès mobile hors service", "en": "Mobile hotspot broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

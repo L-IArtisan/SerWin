@@ -1,0 +1,34 @@
+{
+  "name": "SessionEnv",
+  "displayName": { "fr": "Configuration des services Bureau à distance", "en": "Remote Desktop Configuration" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Prépare l'environnement des sessions Bureau à distance.",
+    "en": "Prepares the environment for Remote Desktop sessions."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Complément du Bureau à distance. Inutile si tu ne l'utilises pas.",
+      "en": "Companion of Remote Desktop. Useless if you don't use it."
+    },
+    "avance": {
+      "fr": "Démarré à la demande avec TermService.",
+      "en": "Started on demand with TermService."
+    },
+    "expert": {
+      "fr": "svchost -k SessionEnvSvc, sessenv.dll, LocalSystem.",
+      "en": "svchost -k SessionEnvSvc, sessenv.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Sessions Bureau à distance mal configurées", "en": "Remote Desktop sessions misconfigured" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "PeerDistSvc",
+  "displayName": { "fr": "BranchCache", "en": "BranchCache" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Met en cache le contenu réseau pour les sites distants d'une entreprise.",
+    "en": "Caches network content for a company's remote sites."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction d'entreprise. Inutile chez soi.",
+      "en": "An enterprise feature. Useless at home."
+    },
+    "avance": {
+      "fr": "Démarré à la demande quand BranchCache est activé par stratégie.",
+      "en": "Started on demand when BranchCache is enabled by policy."
+    },
+    "expert": {
+      "fr": "svchost -k PeerDist, peerdistsvc.dll, NetworkService.",
+      "en": "svchost -k PeerDist, peerdistsvc.dll, NetworkService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Cache BranchCache indisponible", "en": "BranchCache unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non joint à un domaine : BranchCache n'est pas utilisé.", "en": "PC not domain-joined: BranchCache is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

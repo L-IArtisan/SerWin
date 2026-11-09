@@ -1,0 +1,35 @@
+{
+  "name": "fdPHost",
+  "displayName": { "fr": "Hôte du fournisseur de découverte de fonctions", "en": "Function Discovery Provider Host" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Recherche les appareils et PC du réseau local.",
+    "en": "Searches for devices and PCs on the local network."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé quand tu ouvres « Réseau » dans l'Explorateur ou cherches une imprimante réseau.",
+      "en": "Used when you open “Network” in File Explorer or search for a network printer."
+    },
+    "avance": {
+      "fr": "Héberge les fournisseurs de découverte (WSD, SSDP). Travaille avec FDResPub.",
+      "en": "Hosts discovery providers (WSD, SSDP). Works with FDResPub."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, fdPHost.dll, LocalService.",
+      "en": "svchost -k LocalService, fdPHost.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "« Réseau » vide dans l'Explorateur", "en": "“Network” empty in File Explorer" },
+    { "fr": "Imprimantes réseau WSD introuvables", "en": "WSD network printers not found" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "netprofm",
+  "displayName": { "fr": "Service Liste des réseaux", "en": "Network List Service" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Tient la liste des réseaux connus et leurs propriétés.",
+    "en": "Keeps the list of known networks and their properties."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Retient les réseaux auxquels tu t'es connecté et leur type (privé ou public). Nécessaire à l'icône réseau.",
+      "en": "Remembers the networks you have joined and their type (private or public). Needed by the network icon."
+    },
+    "avance": {
+      "fr": "Expose la liste des réseaux aux applications ; travaille avec NlaSvc. Le désactiver casse l'affichage de l'état du réseau et certaines applis.",
+      "en": "Exposes the network list to apps; works with NlaSvc. Disabling it breaks the network status display and some apps."
+    },
+    "expert": {
+      "fr": "svchost -k netprofm, netprofmsvc.dll, NetworkService. Profils sous HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList.",
+      "en": "svchost -k netprofm, netprofmsvc.dll, NetworkService. Profiles under HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\NetworkList."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "État du réseau inconnu dans Windows", "en": "Network status unknown to Windows" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

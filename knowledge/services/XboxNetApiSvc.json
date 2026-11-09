@@ -1,0 +1,38 @@
+{
+  "name": "XboxNetApiSvc",
+  "displayName": { "fr": "Service de mise en réseau Xbox Live", "en": "Xbox Live Networking Service" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère la connectivité réseau des jeux Xbox (multijoueur, chat).",
+    "en": "Handles network connectivity for Xbox games (multiplayer, chat)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il aide les jeux Xbox à se connecter en ligne pour jouer à plusieurs. Inutile si tu ne joues pas en ligne à ces jeux.",
+      "en": "It helps Xbox games connect online for multiplayer. Useless if you do not play these games online."
+    },
+    "avance": {
+      "fr": "Utilisé pour les tests de NAT (Paramètres > Jeux > Réseau Xbox) et le multijoueur pair-à-pair via Teredo/IPsec. Dépend du pare-feu, de BFE et d'IKEEXT.",
+      "en": "Used for NAT tests (Settings > Gaming > Xbox Networking) and peer-to-peer multiplayer via Teredo/IPsec. Depends on the firewall, BFE and IKEEXT."
+    },
+    "expert": {
+      "fr": "XboxNetApiSvc.dll dans svchost, LocalSystem. Dépendances : BFE, mpssvc, IKEEXT, KeyIso.",
+      "en": "XboxNetApiSvc.dll in svchost, LocalSystem. Dependencies: BFE, mpssvc, IKEEXT, KeyIso."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Le multijoueur et le chat de certains jeux Xbox peuvent échouer", "en": "Multiplayer and chat in some Xbox games may fail" }
+  ],
+  "revivers": [],
+  "usefulIf": { "xboxApps": "installed" },
+  "verdictIfNot": {
+    "fr": "Aucune application ou jeu Xbox détecté.",
+    "en": "No Xbox app or game detected."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

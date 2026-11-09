@@ -1,0 +1,34 @@
+{
+  "name": "fhsvc",
+  "displayName": { "fr": "Service d'historique des fichiers", "en": "File History Service" },
+  "category": "storage",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Sauvegarde régulièrement tes fichiers personnels sur un autre disque.",
+    "en": "Regularly backs up your personal files to another drive."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu as activé l'Historique des fichiers. Sinon, il ne fait rien.",
+      "en": "Useful if you turned on File History. Otherwise it does nothing."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur quand l'Historique des fichiers est configuré.",
+      "en": "Started by trigger when File History is configured."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, fhsvc.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, fhsvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Historique des fichiers arrêté", "en": "File History stopped" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

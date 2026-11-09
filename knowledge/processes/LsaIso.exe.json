@@ -1,0 +1,16 @@
+{
+  "name": "LsaIso.exe",
+  "displayName": { "fr": "Processus LSA isolé (Credential Guard)", "en": "LSA Isolated process (Credential Guard)" },
+  "category": "security",
+  "risk": "critique",
+  "bootCritical": true,
+  "summary": { "fr": "Garde les secrets d'authentification dans une zone isolée par la virtualisation.", "en": "Keeps authentication secrets in a virtualization-isolated area." },
+  "levels": {
+    "simple": { "fr": "Il protège tes identifiants dans un coffre-fort séparé du reste de Windows. Présent seulement si Credential Guard est actif.", "en": "It protects your credentials in a vault separated from the rest of Windows. Only present when Credential Guard is on." },
+    "avance": { "fr": "Fait partie de la sécurité basée sur la virtualisation (VBS) : même un administrateur ne peut pas lire sa mémoire.", "en": "Part of virtualization-based security (VBS): even an administrator cannot read its memory." },
+    "expert": { "fr": "Trustlet exécuté en VTL1 (mode noyau sécurisé) ; lsass.exe lui délègue le stockage des secrets NTLM / Kerberos.", "en": "Trustlet running in VTL1 (secure kernel mode); lsass.exe delegates NTLM / Kerberos secret storage to it." }
+  },
+  "ifDisabled": [ { "fr": "Ne peut pas être terminé", "en": "Cannot be terminated" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "msiserver",
+  "displayName": { "fr": "Windows Installer", "en": "Windows Installer" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Installe et désinstalle les logiciels au format .msi.",
+    "en": "Installs and uninstalls .msi software packages."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Beaucoup de logiciels s'installent et se désinstallent grâce à lui. Il ne tourne que pendant ces opérations.",
+      "en": "Many programs install and uninstall through it. It only runs during those operations."
+    },
+    "avance": {
+      "fr": "Démarré à la demande ; le désactiver bloque l'installation, la réparation et la désinstallation des paquets MSI.",
+      "en": "Started on demand; disabling it blocks installing, repairing and uninstalling MSI packages."
+    },
+    "expert": {
+      "fr": "msiexec.exe /V, LocalSystem. Cache des paquets dans %windir%\\Installer.",
+      "en": "msiexec.exe /V, LocalSystem. Package cache in %windir%\\Installer."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Impossible d'installer ou de désinstaller de nombreux logiciels", "en": "Many programs cannot be installed or uninstalled" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

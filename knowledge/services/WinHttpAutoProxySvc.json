@@ -1,0 +1,34 @@
+{
+  "name": "WinHttpAutoProxySvc",
+  "displayName": { "fr": "Service de découverte automatique de Proxy Web pour les services HTTP Windows", "en": "WinHTTP Web Proxy Auto-Discovery Service" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Détecte automatiquement le proxy (WPAD) pour les connexions de Windows.",
+    "en": "Automatically detects the proxy (WPAD) for Windows connections."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Trouve le proxy réseau quand il y en a un. Windows le protège : plusieurs composants réseau en dépendent.",
+      "en": "Finds the network proxy when there is one. Windows protects it: several network components depend on it."
+    },
+    "avance": {
+      "fr": "Requis par l'Assistance IP (iphlpsvc). Clé de service protégée.",
+      "en": "Required by IP Helper (iphlpsvc). Protected service key."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceHttp, winhttp.dll, LocalService.",
+      "en": "svchost -k LocalServiceHttp, winhttp.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Détection de proxy et certaines connexions en échec", "en": "Proxy detection and some connections fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

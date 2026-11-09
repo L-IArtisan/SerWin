@@ -1,0 +1,34 @@
+{
+  "name": "Power",
+  "displayName": { "fr": "Alimentation", "en": "Power" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère la stratégie d'alimentation, la veille et les notifications d'énergie.",
+    "en": "Manages power policy, sleep and power notifications."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Gère la veille, l'extinction de l'écran et la batterie. Indispensable au fonctionnement de Windows.",
+      "en": "Manages sleep, screen timeout and battery. Essential to Windows."
+    },
+    "avance": {
+      "fr": "Applique le mode d'alimentation choisi et transmet les événements d'énergie (batterie faible, mise en veille) aux applications. Démarre automatiquement très tôt.",
+      "en": "Applies the selected power plan and passes power events (low battery, sleep) to apps. Starts automatically very early."
+    },
+    "expert": {
+      "fr": "svchost -k DcomLaunch, umpo.dll, LocalSystem. Arrêt refusé par le SCM.",
+      "en": "svchost -k DcomLaunch, umpo.dll, LocalSystem. The SCM refuses to stop it."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Veille, gestion de la batterie et modes d'alimentation hors service", "en": "Sleep, battery management and power plans broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

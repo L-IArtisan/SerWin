@@ -1,0 +1,16 @@
+{
+  "name": "TextInputHost.exe",
+  "displayName": { "fr": "Expérience de saisie Windows", "en": "Windows Input Experience" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Clavier tactile, panneau d'emojis, historique du presse-papiers, dictée.", "en": "Touch keyboard, emoji panel, clipboard history, dictation." },
+  "levels": {
+    "simple": { "fr": "Il affiche le clavier virtuel, les emojis (Win + .) et l'historique du presse-papiers (Win + V). Relancé à la demande.", "en": "It shows the virtual keyboard, emoji (Win + .) and clipboard history (Win + V). Restarted on demand." },
+    "avance": { "fr": "Travaille avec le service TextInputManagementService et ctfmon.exe.", "en": "Works with the TextInputManagementService service and ctfmon.exe." },
+    "expert": { "fr": "Package MicrosoftWindows.Client.CBS (InputApp) ; suspendu quand inutilisé.", "en": "Package MicrosoftWindows.Client.CBS (InputApp); suspended when unused." }
+  },
+  "ifDisabled": [ { "fr": "Relancé à la prochaine utilisation", "en": "Restarted on next use" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

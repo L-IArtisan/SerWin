@@ -1,0 +1,35 @@
+{
+  "name": "WwanSvc",
+  "displayName": { "fr": "Configuration automatique WWAN", "en": "WWAN AutoConfig" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les connexions 4G/5G (carte SIM ou modem cellulaire).",
+    "en": "Manages 4G/5G connections (SIM card or cellular modem)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si ton PC a une carte SIM ou un modem 4G/5G.",
+      "en": "Only useful if your PC has a SIM card or 4G/5G modem."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur en présence d'un modem cellulaire.",
+      "en": "Started by trigger when a cellular modem is present."
+    },
+    "expert": {
+      "fr": "svchost (groupe LocalSystemNetworkRestricted, suffixé « RedirectionGuard » sur les builds récents), wwansvc.dll, LocalSystem.",
+      "en": "svchost (LocalSystemNetworkRestricted group, with a “RedirectionGuard” suffix on recent builds), wwansvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion cellulaire impossible", "en": "Cellular connection impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : pas de modem cellulaire attendu.", "en": "Desktop PC: no cellular modem expected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

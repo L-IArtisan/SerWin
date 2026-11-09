@@ -1,0 +1,16 @@
+{
+  "name": "SecurityHealthSystray.exe",
+  "displayName": { "fr": "Icône Sécurité Windows", "en": "Windows Security notification icon" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "L'icône de bouclier de la zone de notification.", "en": "The shield icon in the notification area." },
+  "levels": {
+    "simple": { "fr": "C'est juste l'icône : la terminer ne réduit pas la protection.", "en": "It is just the icon: terminating it does not reduce protection." },
+    "avance": { "fr": "Lancé à l'ouverture de session (Démarrage des applications). La protection est assurée par SecurityHealthService et Defender.", "en": "Started at sign-in (Startup apps). Protection is provided by SecurityHealthService and Defender." },
+    "expert": { "fr": "%SystemRoot%\\System32\\SecurityHealthSystray.exe, clé Run HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\SecurityHealth.", "en": "%SystemRoot%\\System32\\SecurityHealthSystray.exe, Run key HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\SecurityHealth." }
+  },
+  "ifDisabled": [ { "fr": "L'icône disparaît jusqu'à la prochaine session", "en": "The icon disappears until the next session" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

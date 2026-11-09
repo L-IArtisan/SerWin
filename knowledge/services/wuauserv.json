@@ -1,0 +1,44 @@
+{
+  "name": "wuauserv",
+  "displayName": { "fr": "Windows Update", "en": "Windows Update" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Recherche, télécharge et installe les mises à jour de Windows et des pilotes.",
+    "en": "Detects, downloads and installs Windows and driver updates."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est le service qui garde Windows à jour. Le couper empêche les correctifs de sécurité d'arriver : ton PC devient de plus en plus vulnérable avec le temps.",
+      "en": "This is the service that keeps Windows up to date. Turning it off stops security fixes from arriving: your PC becomes more vulnerable over time."
+    },
+    "avance": {
+      "fr": "Démarré à la demande (Manuel + déclencheurs de stratégie de groupe), il est piloté par l'Orchestrateur de mises à jour (UsoSvc) et réparé par WaaSMedicSvc s'il est désactivé. C'est pourquoi le passer en « Désactivé » ne tient généralement pas : Windows le remet en route.",
+      "en": "Started on demand (Manual + Group Policy triggers), it is driven by the Update Orchestrator (UsoSvc) and repaired by WaaSMedicSvc when disabled. That is why setting it to “Disabled” usually does not stick: Windows turns it back on."
+    },
+    "expert": {
+      "fr": "Hébergé dans svchost (groupe netsvcs) via wuaueng.dll, compte LocalSystem. Les triggers MachinePolicyPresent / UserPolicyPresent le démarrent à chaque application de GPO. WaaSMedicSvc réécrit la valeur Start de HKLM\\SYSTEM\\CurrentControlSet\\Services\\wuauserv ; seul un verrouillage ACL de la clé (mode Expert, v0.6) ou les stratégies officielles (HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate) permettent un contrôle durable.",
+      "en": "Hosted in svchost (netsvcs group) via wuaueng.dll, running as LocalSystem. The MachinePolicyPresent / UserPolicyPresent triggers start it whenever Group Policy is applied. WaaSMedicSvc rewrites the Start value under HKLM\\SYSTEM\\CurrentControlSet\\Services\\wuauserv; only an ACL lock on that key (Expert mode, v0.6) or the official policies (HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate) give lasting control."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus aucune mise à jour de sécurité ni de pilote", "en": "No more security or driver updates" },
+    { "fr": "Le Microsoft Store peut ne plus installer ni mettre à jour d'applications", "en": "The Microsoft Store may fail to install or update apps" },
+    { "fr": "Les fonctionnalités facultatives de Windows ne s'installent plus", "en": "Optional Windows features can no longer be installed" }
+  ],
+  "revivers": [
+    { "type": "service", "target": "WaaSMedicSvc", "note": { "fr": "Répare et réactive Windows Update", "en": "Repairs and re-enables Windows Update" } },
+    { "type": "service", "target": "UsoSvc", "note": { "fr": "Lance les recherches de mises à jour", "en": "Starts update scans" } },
+    { "type": "task", "target": "\\Microsoft\\Windows\\UpdateOrchestrator\\*" },
+    { "type": "task", "target": "\\Microsoft\\Windows\\WindowsUpdate\\*" },
+    { "type": "task", "target": "\\Microsoft\\Windows\\WaaSMedic\\*" },
+    { "type": "trigger", "target": "group-policy" },
+    { "type": "update", "target": "cumulative-update", "note": { "fr": "Les mises à jour cumulatives restaurent souvent la configuration d'origine", "en": "Cumulative updates often restore the original configuration" } }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/deployment/update/how-windows-update-works" ]
+}

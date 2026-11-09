@@ -1,0 +1,34 @@
+{
+  "name": "wcncsvc",
+  "displayName": { "fr": "Windows Connect Now - Registre de configuration", "en": "Windows Connect Now - Config Registrar" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Configuration Wi-Fi simplifiée par WPS.",
+    "en": "Simplified Wi-Fi setup via WPS."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à connecter un appareil en appuyant sur le bouton WPS de la box. Rarement utilisé.",
+      "en": "Used to connect a device by pressing the router's WPS button. Rarely used."
+    },
+    "avance": {
+      "fr": "Démarré à la demande.",
+      "en": "Started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceAndNoImpersonation, wcncsvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceAndNoImpersonation, wcncsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Configuration WPS impossible", "en": "WPS setup impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,41 @@
+{
+  "name": "SysMain",
+  "displayName": { "fr": "SysMain", "en": "SysMain" },
+  "category": "storage",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Précharge en mémoire les applications que tu utilises souvent pour qu'elles démarrent plus vite (anciennement Superfetch).",
+    "en": "Preloads frequently used apps into memory so they start faster (formerly Superfetch)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il observe quelles applications tu ouvres souvent et les garde « prêtes » en mémoire. Sur un SSD, le gain est faible ; le désactiver est sans danger.",
+      "en": "It watches which apps you open often and keeps them “ready” in memory. On an SSD the benefit is small; disabling it is safe."
+    },
+    "avance": {
+      "fr": "La mémoire utilisée par le préchargement est libérée dès qu'une application en a besoin : une RAM « pleine » n'est pas un problème. SysMain gère aussi la compression mémoire et ReadyBoot ; sur disque dur mécanique, le couper ralentit sensiblement le démarrage.",
+      "en": "Memory used for preloading is released as soon as an app needs it: “full” RAM is not a problem. SysMain also handles memory compression and ReadyBoot; on a spinning hard drive, turning it off noticeably slows startup."
+    },
+    "expert": {
+      "fr": "sysmain.dll dans svchost (LocalSystemNetworkRestricted), LocalSystem. Données de traces dans %SystemRoot%\\Prefetch. La compression mémoire est aussi pilotable via Disable-MMAgent -MemoryCompression.",
+      "en": "sysmain.dll in svchost (LocalSystemNetworkRestricted), LocalSystem. Trace data in %SystemRoot%\\Prefetch. Memory compression can also be controlled via Disable-MMAgent -MemoryCompression."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applications un peu plus lentes au premier lancement", "en": "Apps slightly slower on first launch" },
+    { "fr": "Démarrage plus lent sur disque dur mécanique", "en": "Slower startup on spinning hard drives" }
+  ],
+  "revivers": [
+    { "type": "update", "target": "feature-update" }
+  ],
+  "usefulIf": { "hdd": "true" },
+  "verdictIfNot": {
+    "fr": "Ton système est sur SSD : le bénéfice de SysMain est minime.",
+    "en": "Your system runs on an SSD: SysMain's benefit is minimal."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows-server/administration/performance-tuning/" ]
+}

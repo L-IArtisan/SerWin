@@ -1,0 +1,35 @@
+{
+  "name": "shpamsvc",
+  "displayName": { "fr": "Gestionnaire de comptes PC partagé", "en": "Shared PC Account Manager" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les comptes temporaires des PC partagés (écoles, bibliothèques, accueil).",
+    "en": "Manages temporary accounts on shared PCs (schools, libraries, front desks)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert uniquement aux PC configurés en « mode PC partagé » par une organisation. Inutile sur ton PC ; désactivé par défaut.",
+      "en": "Only used by PCs set up in “shared PC mode” by an organization. Useless on your PC; disabled by default."
+    },
+    "avance": {
+      "fr": "En mode PC partagé (configuré par MDM ou package de provisionnement), il supprime automatiquement les comptes invités et les profils inactifs pour libérer de l'espace.",
+      "en": "In shared PC mode (configured via MDM or a provisioning package), it automatically deletes guest accounts and inactive profiles to free up space."
+    },
+    "expert": {
+      "fr": "Windows.SharedPC.AccountManager.dll dans svchost, LocalSystem. Configuration : CSP SharedPC (HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SharedPC).",
+      "en": "Windows.SharedPC.AccountManager.dll in svchost, LocalSystem. Configuration: SharedPC CSP (HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\SharedPC)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Aucun effet hors mode PC partagé", "en": "No effect outside shared PC mode" }
+  ],
+  "revivers": [ { "type": "policy", "target": "mdm" } ],
+  "usefulIf": { "mdmEnrolled": "true" },
+  "verdictIfNot": { "fr": "Ton PC n'est pas en mode PC partagé.", "en": "Your PC is not in shared PC mode." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/configuration/shared-pc/shared-pc" ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "StiSvc",
+  "displayName": { "fr": "Acquisition d'image Windows (WIA)", "en": "Windows Image Acquisition (WIA)" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fait fonctionner les scanners et certains appareils photo.",
+    "en": "Runs scanners and some cameras."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à numériser avec un scanner ou une imprimante multifonction. Sans scanner, il est inutile.",
+      "en": "Used to scan with a scanner or multifunction printer. Without a scanner it is useless."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par l'appli Numériser, Fax et numérisation ou les logiciels du fabricant. Certains logiciels d'imprimante (HP, Canon, Epson) l'exigent pour leur bouton « Scan ».",
+      "en": "Started on demand by the Scan app, Fax and Scan or vendor software. Some printer software (HP, Canon, Epson) requires it for its “Scan” button."
+    },
+    "expert": {
+      "fr": "svchost -k imgsvc, wiaservc.dll, LocalService. WiaRpc relaie les événements matériels.",
+      "en": "svchost -k imgsvc, wiaservc.dll, LocalService. WiaRpc relays hardware events."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Numérisation impossible", "en": "Scanning impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "printers": ">0" },
+  "verdictIfNot": { "fr": "Aucune imprimante ou scanner détecté.", "en": "No printer or scanner detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

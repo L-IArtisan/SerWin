@@ -1,0 +1,35 @@
+{
+  "name": "DmEnrollmentSvc",
+  "displayName": { "fr": "Service d'inscription de la gestion des appareils", "en": "Device Management Enrollment Service" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Inscrit le PC auprès d'une gestion d'entreprise (Intune).",
+    "en": "Enrolls the PC with enterprise management (Intune)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne sert que si tu ajoutes un compte professionnel ou scolaire géré.",
+      "en": "Only used if you add a managed work or school account."
+    },
+    "avance": {
+      "fr": "Démarré à la demande.",
+      "en": "Started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, Windows.Internal.Management.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, Windows.Internal.Management.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Inscription à une gestion d'entreprise impossible", "en": "Enterprise management enrollment impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "mdmEnrolled": "true" },
+  "verdictIfNot": { "fr": "PC non géré par une entreprise.", "en": "PC not managed by a company." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

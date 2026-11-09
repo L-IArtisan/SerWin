@@ -1,0 +1,35 @@
+{
+  "name": "SCPolicySvc",
+  "displayName": { "fr": "Stratégie de retrait de la carte à puce", "en": "Smart Card Removal Policy" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Verrouille ou ferme la session quand on retire sa carte à puce, si une stratégie le demande.",
+    "en": "Locks or signs out the session when the smart card is removed, if a policy requires it."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement en entreprise, quand on se connecte avec une carte à puce. Sur un PC personnel, il ne sert à rien.",
+      "en": "Only useful in companies where people sign in with a smart card. On a personal PC it does nothing."
+    },
+    "avance": {
+      "fr": "Applique la stratégie « Ouverture de session interactive : comportement lors du retrait de la carte à puce ». Sans cette stratégie configurée, le service n'a aucun effet même s'il est démarré.",
+      "en": "Enforces the “Interactive logon: Smart card removal behavior” policy. Without that policy configured, the service has no effect even when running."
+    },
+    "expert": {
+      "fr": "certprop.dll dans svchost, LocalSystem. Stratégie : HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\ScRemoveOption (0 aucune action, 1 verrouiller, 2 déconnecter, 3 déconnecter session distante).",
+      "en": "certprop.dll in svchost, LocalSystem. Policy: HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\ScRemoveOption (0 none, 1 lock, 2 sign out, 3 disconnect remote session)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Retirer la carte à puce ne verrouille plus la session", "en": "Removing the smart card no longer locks the session" }
+  ],
+  "revivers": [ { "type": "policy", "target": "domain-gpo" } ],
+  "usefulIf": { "smartCardReader": "present" },
+  "verdictIfNot": { "fr": "Aucun lecteur de carte à puce détecté.", "en": "No smart card reader detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/security/identity-protection/smart-cards/smart-card-removal-policy-service" ]
+}

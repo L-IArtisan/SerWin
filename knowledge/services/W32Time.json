@@ -1,0 +1,38 @@
+{
+  "name": "W32Time",
+  "displayName": { "fr": "Temps Windows", "en": "Windows Time" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Synchronise l'horloge du PC sur un serveur de temps.",
+    "en": "Synchronizes the PC clock with a time server."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde l'heure du PC exacte. Une horloge fausse fait échouer les sites sécurisés et les mises à jour.",
+      "en": "Keeps the PC's time accurate. A wrong clock makes secure websites and updates fail."
+    },
+    "avance": {
+      "fr": "Synchronise par NTP (time.windows.com par défaut), démarré par déclencheur ou tâche planifiée. L'arrêter n'a pas d'effet immédiat, mais l'horloge dérive.",
+      "en": "Synchronizes over NTP (time.windows.com by default), started by trigger or scheduled task. Stopping it has no immediate effect, but the clock drifts."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, w32time.dll, LocalService. « w32tm /query /status » affiche la source.",
+      "en": "svchost -k LocalService, w32time.dll, LocalService. “w32tm /query /status” shows the source."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "L'horloge dérive au fil des semaines", "en": "The clock drifts over weeks" },
+    { "fr": "Erreurs de certificat si l'écart devient grand", "en": "Certificate errors if the drift gets large" }
+  ],
+  "revivers": [
+    { "type": "task", "target": "\\Microsoft\\Windows\\Time Synchronization\\SynchronizeTime" },
+    { "type": "trigger", "target": "domain" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

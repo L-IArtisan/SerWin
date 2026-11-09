@@ -1,0 +1,57 @@
+<ui:FluentWindow x:Class="SerWin.App.Views.ConfirmWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+                 xmlns:loc="clr-namespace:SerWin.App.Localization"
+                 Width="620" SizeToContent="Height" MaxHeight="760" ResizeMode="NoResize"
+                 WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+                 ExtendsContentIntoTitleBar="True" WindowBackdropType="Mica">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ui:TitleBar x:Name="Bar" ShowMinimize="False" ShowMaximize="False" />
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="24,0,24,8">
+                <TextBlock x:Name="TitleText" FontSize="20" FontWeight="SemiBold" TextWrapping="Wrap" />
+                <TextBlock x:Name="IntroText" Margin="0,8,0,0" TextWrapping="Wrap" FontSize="14" />
+
+                <TextBlock Margin="0,16,0,6" FontWeight="SemiBold" Text="{loc:T Confirm_Changes}" />
+                <Border Padding="12,8" CornerRadius="6" Background="{DynamicResource ControlFillColorDefaultBrush}">
+                    <ItemsControl x:Name="ChangesList">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Margin="0,2" TextWrapping="Wrap" FontFamily="Cascadia Mono, Consolas" FontSize="13" Text="{Binding}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+
+                <ItemsControl x:Name="WarningsList" Margin="0,12,0,0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="0,0,0,8" Padding="12,8" CornerRadius="6" Background="#26E88A1A">
+                                <TextBlock TextWrapping="Wrap" FontSize="13" Text="{Binding}" />
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <TextBlock Margin="0,4,0,0" TextWrapping="Wrap" FontSize="12"
+                           Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{loc:T Confirm_BackupNote}" />
+
+                <CheckBox x:Name="RestorePointBox" Margin="0,12,0,0" Content="{loc:T Confirm_RestorePoint}" />
+                <CheckBox x:Name="AcknowledgeBox" Margin="0,8,0,0" FontWeight="SemiBold"
+                          Content="{loc:T Confirm_Acknowledge}" Checked="OnAckChanged" Unchecked="OnAckChanged" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="24,8,24,20">
+            <ui:Button Content="{loc:T Action_Cancel}" IsCancel="True" MinWidth="110" Margin="0,0,8,0" Click="OnCancel" />
+            <ui:Button x:Name="ConfirmButton" Appearance="Primary" MinWidth="140" IsDefault="True" Click="OnConfirm" />
+        </StackPanel>
+    </Grid>
+</ui:FluentWindow>

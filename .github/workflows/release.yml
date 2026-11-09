@@ -1,0 +1,76 @@
+name: Release
+
+# Publie une version quand on pousse une étiquette « v1.2.3 ».
+# La signature passe par SignPath Foundation (gratuit pour les projets open source) :
+# tant que les secrets SIGNPATH_* ne sont pas configurés, la version est publiée non signée.
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_NOLOGO: 1
+      HAS_SIGNPATH: ${{ secrets.SIGNPATH_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build and test
+        run: |
+          dotnet build -c Release
+          dotnet run --no-build -c Release --project src/SerWin.Verify -- validate knowledge
+          dotnet test --no-build -c Release
+
+      - name: Publish portable executables
+        run: |
+          dotnet publish src/SerWin.App -c Release -r win-x64 -o publish
+          dotnet publish src/SerWin.Verify -c Release -r win-x64 -o publish
+
+      - name: Upload unsigned build
+        id: unsigned
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned
+          path: |
+            publish/SerWin.exe
+            publish/SerWin.Verify.exe
+
+      - name: Sign with SignPath
+        if: env.HAS_SIGNPATH == 'true'
+        uses: signpath/github-action-submit-signing-request@v1
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ secrets.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: serwin
+          signing-policy-slug: release-signing
+          artifact-configuration-slug: portable-exe
+          github-artifact-id: ${{ steps.unsigned.outputs.artifact-id }}
+          wait-for-completion: true
+          output-artifact-directory: publish
+
+      - name: Package
+        shell: pwsh
+        run: |
+          $v = '${{ github.ref_name }}'
+          Compress-Archive -Path publish/SerWin.exe, publish/SerWin.Verify.exe, LICENSE, README.md -DestinationPath "SerWin-$v-win-x64.zip"
+          Copy-Item publish/SerWin.exe "SerWin-$v-win-x64.exe"
+          Get-FileHash "SerWin-$v-win-x64.*" -Algorithm SHA256 |
+            ForEach-Object { "$($_.Hash)  $(Split-Path $_.Path -Leaf)" } | Set-Content SHA256SUMS.txt
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: |
+          $v = '${{ github.ref_name }}'
+          gh release create $v "SerWin-$v-win-x64.exe" "SerWin-$v-win-x64.zip" SHA256SUMS.txt --title "SerWin $v" --generate-notes

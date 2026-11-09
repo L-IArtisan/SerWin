@@ -1,0 +1,34 @@
+{
+  "name": "FrameServer",
+  "displayName": { "fr": "Serveur de trame de la Caméra Windows", "en": "Windows Camera Frame Server" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet à plusieurs applications d'utiliser la webcam en même temps.",
+    "en": "Lets several apps use the webcam at the same time."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour la webcam dans la plupart des applis (Teams, Caméra, navigateur).",
+      "en": "Needed for the webcam in most apps (Teams, Camera, browser)."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Fournit aussi les effets Windows Studio (flou d'arrière-plan) sur les PC compatibles.",
+      "en": "Started on demand. Also provides Windows Studio effects (background blur) on compatible PCs."
+    },
+    "expert": {
+      "fr": "svchost -k Camera, FrameServer.dll, LocalService.",
+      "en": "svchost -k Camera, FrameServer.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Webcam inaccessible dans de nombreuses applis", "en": "Webcam inaccessible in many apps" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "LxpSvc",
+  "displayName": { "fr": "Service d'expérience linguistique", "en": "Language Experience Service" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Installe et met à jour les modules linguistiques.",
+    "en": "Installs and updates language packs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour ajouter une langue d'affichage à Windows.",
+      "en": "Needed to add a display language to Windows."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par Paramètres > Heure et langue.",
+      "en": "Started on demand by Settings > Time & language."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, LanguageOverlayServer.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, LanguageOverlayServer.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Ajout de langues impossible", "en": "Cannot add languages" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

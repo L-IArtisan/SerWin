@@ -1,0 +1,34 @@
+{
+  "name": "WdiServiceHost",
+  "displayName": { "fr": "Hôte du service de diagnostic", "en": "Diagnostic Service Host" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Exécute les diagnostics qui ont besoin de droits limités.",
+    "en": "Runs diagnostics that need limited rights."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Complément du service de stratégie de diagnostic.",
+      "en": "Companion of the Diagnostic Policy Service."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par DPS.",
+      "en": "Started on demand by DPS."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, wdi.dll, LocalService.",
+      "en": "svchost -k LocalService, wdi.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Certains diagnostics ne s'exécutent plus", "en": "Some diagnostics no longer run" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

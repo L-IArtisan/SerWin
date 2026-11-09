@@ -1,0 +1,34 @@
+{
+  "name": "LicenseManager",
+  "displayName": { "fr": "Service Gestionnaire de licences Windows", "en": "Windows License Manager Service" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les licences des applications du Store.",
+    "en": "Manages Store app licenses."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour que les applis du Store vérifient leur licence.",
+      "en": "Needed for Store apps to check their license."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur.",
+      "en": "Started by trigger."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, LicenseManagerSvc.dll, LocalService.",
+      "en": "svchost -k LocalService, LicenseManagerSvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applis du Store qui refusent de démarrer", "en": "Store apps refuse to start" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

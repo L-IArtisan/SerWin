@@ -1,0 +1,16 @@
+{
+  "name": "SearchIndexer.exe",
+  "displayName": { "fr": "Indexeur de Windows Search", "en": "Windows Search Indexer" },
+  "category": "search",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Processus du service Windows Search : indexe les fichiers pour la recherche.", "en": "Process of the Windows Search service: indexes files for search." },
+  "levels": {
+    "simple": { "fr": "Il prépare l'index de recherche. Il travaille surtout quand le PC est inactif. Pour le régler, vois la fiche du service Windows Search.", "en": "It builds the search index. It works mostly when the PC is idle. To adjust it, see the Windows Search service entry." },
+    "avance": { "fr": "Les processus SearchProtocolHost.exe et SearchFilterHost.exe, qu'il lance, lisent le contenu des fichiers.", "en": "The SearchProtocolHost.exe and SearchFilterHost.exe processes it starts read file contents." },
+    "expert": { "fr": "%SystemRoot%\\System32\\SearchIndexer.exe /Embedding, service WSearch.", "en": "%SystemRoot%\\System32\\SearchIndexer.exe /Embedding, WSearch service." }
+  },
+  "ifDisabled": [ { "fr": "L'indexation s'interrompt ; le service le relance", "en": "Indexing stops; the service restarts it" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

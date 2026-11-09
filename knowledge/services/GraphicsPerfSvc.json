@@ -1,0 +1,34 @@
+{
+  "name": "GraphicsPerfSvc",
+  "displayName": { "fr": "GraphicsPerfSvc", "en": "GraphicsPerfSvc" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Collecte des mesures de performance graphique.",
+    "en": "Collects graphics performance measurements."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Service de diagnostic graphique, rarement actif.",
+      "en": "A graphics diagnostic service, rarely active."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur.",
+      "en": "Started by trigger."
+    },
+    "expert": {
+      "fr": "svchost -k GraphicsPerfSvcGroup, GraphicsPerfSvc.dll, LocalSystem.",
+      "en": "svchost -k GraphicsPerfSvcGroup, GraphicsPerfSvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mesures de performance graphique indisponibles", "en": "Graphics performance data unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

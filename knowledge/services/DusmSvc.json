@@ -1,0 +1,34 @@
+{
+  "name": "DusmSvc",
+  "displayName": { "fr": "Utilisation des données", "en": "Data Usage" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Mesure la consommation de données et applique les limites des connexions limitées.",
+    "en": "Measures data usage and enforces metered-connection limits."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Compte combien de données chaque appli utilise. Utile avec un forfait limité.",
+      "en": "Counts how much data each app uses. Useful with a capped plan."
+    },
+    "avance": {
+      "fr": "Alimente Paramètres > Réseau > Utilisation des données et la notion de « connexion limitée ». Le couper casse cette page et peut perturber l'icône réseau.",
+      "en": "Feeds Settings > Network > Data usage and the “metered connection” setting. Turning it off breaks that page and can disrupt the network icon."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, dusmsvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, dusmsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Statistiques et limites de données indisponibles", "en": "Data statistics and limits unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

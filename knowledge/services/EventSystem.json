@@ -1,0 +1,34 @@
+{
+  "name": "EventSystem",
+  "displayName": { "fr": "Système d'événement COM+", "en": "COM+ Event System" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Distribue les événements COM+ entre les composants abonnés.",
+    "en": "Distributes COM+ events to subscribed components."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Transmet des notifications internes entre composants de Windows. Plusieurs services importants ne fonctionnent pas sans lui.",
+      "en": "Passes internal notifications between Windows components. Several important services do not work without it."
+    },
+    "avance": {
+      "fr": "Le service de notification système (SENS) et d'autres en dépendent. Démarre automatiquement.",
+      "en": "The System Event Notification Service (SENS) and others depend on it. Starts automatically."
+    },
+    "expert": {
+      "fr": "svchost (groupe LocalService, suffixé « RedirectionGuard » sur les builds récents), es.dll, compte LocalService.",
+      "en": "svchost (LocalService group, with a “RedirectionGuard” suffix on recent builds), es.dll, LocalService account."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Notifications système (connexion, réseau, alimentation) perdues", "en": "System notifications (sign-in, network, power) lost" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

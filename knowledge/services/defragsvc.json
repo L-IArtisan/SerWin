@@ -1,0 +1,37 @@
+{
+  "name": "defragsvc",
+  "displayName": { "fr": "Optimiser les lecteurs", "en": "Optimize Drives" },
+  "category": "storage",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Défragmente les disques durs et envoie la commande TRIM aux SSD.",
+    "en": "Defragments hard drives and sends TRIM to SSDs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Entretient tes disques chaque semaine. Même avec un SSD, il reste utile : il lui envoie le TRIM qui préserve ses performances.",
+      "en": "Maintains your drives weekly. Even with an SSD it remains useful: it sends the TRIM command that keeps it fast."
+    },
+    "avance": {
+      "fr": "Démarré par la tâche planifiée « ScheduledDefrag ». Le couper laisse les SSD sans TRIM régulier.",
+      "en": "Started by the “ScheduledDefrag” scheduled task. Turning it off leaves SSDs without regular TRIM."
+    },
+    "expert": {
+      "fr": "svchost -k defragsvc, defragsvc.dll, LocalSystem.",
+      "en": "svchost -k defragsvc, defragsvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Disques durs fragmentés", "en": "Fragmented hard drives" },
+    { "fr": "SSD sans TRIM régulier", "en": "SSDs without regular TRIM" }
+  ],
+  "revivers": [
+    { "type": "task", "target": "\\Microsoft\\Windows\\Defrag\\ScheduledDefrag" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

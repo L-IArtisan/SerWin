@@ -1,0 +1,16 @@
+{
+  "name": "SecurityHealthService.exe",
+  "displayName": { "fr": "Service Sécurité Windows", "en": "Windows Security Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "summary": { "fr": "Surveille l'état de la sécurité (antivirus, pare-feu, mises à jour) et alimente l'application Sécurité Windows.", "en": "Monitors security status (antivirus, firewall, updates) and feeds the Windows Security app." },
+  "levels": {
+    "simple": { "fr": "Il vérifie que ton PC est protégé et affiche les alertes de sécurité. Protégé par Windows.", "en": "It checks that your PC is protected and shows security alerts. Protected by Windows." },
+    "avance": { "fr": "Processus du service SecurityHealthService ; il signale aussi à Defender et au pare-feu quand ils doivent se réactiver.", "en": "Process of the SecurityHealthService service; it also signals Defender and the firewall when they must be re-enabled." },
+    "expert": { "fr": "%SystemRoot%\\System32\\SecurityHealthService.exe ; l'icône de la zone de notification est SecurityHealthSystray.exe (session utilisateur).", "en": "%SystemRoot%\\System32\\SecurityHealthService.exe; the tray icon is SecurityHealthSystray.exe (user session)." }
+  },
+  "ifDisabled": [ { "fr": "Ne peut pas être terminé (processus protégé)", "en": "Cannot be terminated (protected process)" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

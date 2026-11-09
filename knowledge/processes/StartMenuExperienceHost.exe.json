@@ -1,0 +1,16 @@
+{
+  "name": "StartMenuExperienceHost.exe",
+  "displayName": { "fr": "Menu Démarrer", "en": "Start menu" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Le menu Démarrer de Windows.", "en": "The Windows Start menu." },
+  "levels": {
+    "simple": { "fr": "C'est le menu Démarrer. S'il ne s'ouvre plus, terminer ce processus le fait redémarrer proprement.", "en": "It is the Start menu. If it no longer opens, terminating this process makes it restart cleanly." },
+    "avance": { "fr": "Préchargé et suspendu en arrière-plan pour s'ouvrir instantanément. Sa mémoire reste modérée.", "en": "Preloaded and suspended in the background to open instantly. Its memory stays moderate." },
+    "expert": { "fr": "Application empaquetée Microsoft.Windows.StartMenuExperienceHost, relancée automatiquement par le shell.", "en": "Packaged app Microsoft.Windows.StartMenuExperienceHost, restarted automatically by the shell." }
+  },
+  "ifDisabled": [ { "fr": "Relancé automatiquement", "en": "Restarted automatically" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

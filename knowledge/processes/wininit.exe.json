@@ -1,0 +1,16 @@
+{
+  "name": "wininit.exe",
+  "displayName": { "fr": "Application de démarrage de Windows", "en": "Windows Start-Up Application" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "summary": { "fr": "Démarre les services de Windows et le contrôle de sécurité au lancement.", "en": "Starts Windows services and security at boot." },
+  "levels": {
+    "simple": { "fr": "Il lance les services et la sécurité de Windows au démarrage. Indispensable.", "en": "It launches Windows services and security at startup. Essential." },
+    "avance": { "fr": "Dans la session 0, il démarre services.exe (gestionnaire de services), lsass.exe (sécurité) et, si activé, LsaIso.exe (Credential Guard).", "en": "In session 0, it starts services.exe (service manager), lsass.exe (security) and, if enabled, LsaIso.exe (Credential Guard)." },
+    "expert": { "fr": "%SystemRoot%\\System32\\wininit.exe, processus critique : sa fin entraîne un arrêt du système (CRITICAL_PROCESS_DIED).", "en": "%SystemRoot%\\System32\\wininit.exe, critical process: its exit causes a system stop (CRITICAL_PROCESS_DIED)." }
+  },
+  "ifDisabled": [ { "fr": "Le terminer provoque un écran bleu", "en": "Terminating it causes a blue screen" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

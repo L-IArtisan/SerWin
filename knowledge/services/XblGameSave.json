@@ -1,0 +1,41 @@
+{
+  "name": "XblGameSave",
+  "displayName": { "fr": "Jeu sauvegardé sur Xbox Live", "en": "Xbox Live Game Save" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Synchronise les sauvegardes de jeux Xbox avec le cloud.",
+    "en": "Syncs Xbox game saves with the cloud."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il copie tes parties sauvegardées en ligne pour les retrouver sur une autre machine. Inutile si tu ne joues pas à des jeux Xbox / Game Pass.",
+      "en": "It copies your saved games online so you can pick them up on another machine. Useless if you do not play Xbox / Game Pass games."
+    },
+    "avance": {
+      "fr": "Démarre à la demande via un déclencheur RPC, lorsqu'un jeu compatible synchronise ses données. Dépend de XblAuthManager.",
+      "en": "Starts on demand via an RPC trigger when a compatible game syncs its data. Depends on XblAuthManager."
+    },
+    "expert": {
+      "fr": "XblGameSave.dll dans svchost, LocalSystem. Une tâche planifiée \\Microsoft\\XblGameSave\\XblGameSaveTask existe sur certaines versions.",
+      "en": "XblGameSave.dll in svchost, LocalSystem. A scheduled task \\Microsoft\\XblGameSave\\XblGameSaveTask exists on some versions."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Les sauvegardes des jeux Xbox ne sont plus synchronisées (risque de perte de progression entre machines)", "en": "Xbox game saves are no longer synced (risk of losing progress across machines)" }
+  ],
+  "revivers": [
+    { "type": "trigger", "target": "rpc" },
+    { "type": "task", "target": "\\Microsoft\\XblGameSave\\*" }
+  ],
+  "usefulIf": { "xboxApps": "installed" },
+  "verdictIfNot": {
+    "fr": "Aucune application ou jeu Xbox détecté.",
+    "en": "No Xbox app or game detected."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "AxInstSV",
+  "displayName": { "fr": "Programme d'installation ActiveX", "en": "ActiveX Installer" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Installe les contrôles ActiveX selon la stratégie d'entreprise.",
+    "en": "Installs ActiveX controls according to company policy."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Héritage d'Internet Explorer. Inutile aujourd'hui.",
+      "en": "An Internet Explorer legacy. Useless today."
+    },
+    "avance": {
+      "fr": "Démarré à la demande, uniquement si la stratégie ActiveX Installer est configurée.",
+      "en": "Started on demand, only if the ActiveX Installer policy is configured."
+    },
+    "expert": {
+      "fr": "svchost -k AxInstSVGroup, axinstsv.dll, LocalSystem.",
+      "en": "svchost -k AxInstSVGroup, axinstsv.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Installation ActiveX gérée impossible", "en": "Managed ActiveX installation impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

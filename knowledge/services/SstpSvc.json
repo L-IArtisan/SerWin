@@ -1,0 +1,35 @@
+{
+  "name": "SstpSvc",
+  "displayName": { "fr": "Service SSTP (Secure Socket Tunneling Protocol)", "en": "Secure Socket Tunneling Protocol Service" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Prend en charge les VPN de type SSTP.",
+    "en": "Supports SSTP VPNs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement pour un VPN SSTP (souvent d'entreprise).",
+      "en": "Only useful for an SSTP VPN (often corporate)."
+    },
+    "avance": {
+      "fr": "Requis par le Gestionnaire d'accès à distance (RasMan) : le désactiver peut empêcher ce dernier de démarrer.",
+      "en": "Required by Remote Access Connection Manager (RasMan): disabling it can prevent RasMan from starting."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, sstpsvc.dll, LocalService.",
+      "en": "svchost -k LocalService, sstpsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "VPN SSTP impossibles", "en": "SSTP VPNs impossible" },
+    { "fr": "RasMan peut ne plus démarrer", "en": "RasMan may no longer start" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

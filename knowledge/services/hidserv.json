@@ -1,0 +1,36 @@
+{
+  "name": "hidserv",
+  "displayName": { "fr": "Service du périphérique d'interface utilisateur", "en": "Human Interface Device Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Active les touches spéciales des claviers, télécommandes et périphériques multimédia.",
+    "en": "Enables hotkeys on keyboards, remotes and multimedia devices."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner les touches multimédia (volume, lecture) de certains claviers et télécommandes.",
+      "en": "Makes multimedia keys (volume, play) work on some keyboards and remotes."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur quand un périphérique HID qui en a besoin est branché. Clavier et souris de base fonctionnent sans lui.",
+      "en": "Started by trigger when a HID device needing it is connected. Basic keyboard and mouse work without it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, hidserv.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, hidserv.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Touches multimédia inopérantes sur certains claviers", "en": "Multimedia keys stop working on some keyboards" }
+  ],
+  "revivers": [
+    { "type": "trigger", "target": "device-arrival" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

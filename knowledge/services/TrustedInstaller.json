@@ -1,0 +1,35 @@
+{
+  "name": "TrustedInstaller",
+  "displayName": { "fr": "Programme d'installation des modules Windows", "en": "Windows Modules Installer" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Installe, modifie et supprime les mises à jour et composants de Windows.",
+    "en": "Installs, changes and removes Windows updates and components."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installe les mises à jour de Windows. Sans lui, elles échouent toutes.",
+      "en": "Installs Windows updates. Without it, they all fail."
+    },
+    "avance": {
+      "fr": "Démarré à la demande pour installer les mises à jour et les fonctionnalités facultatives. C'est aussi le « propriétaire » des fichiers système protégés.",
+      "en": "Started on demand to install updates and optional features. It is also the “owner” of protected system files."
+    },
+    "expert": {
+      "fr": "TrustedInstaller.exe, LocalSystem, SID NT SERVICE\\TrustedInstaller. Moteur CBS ; journaux dans %windir%\\Logs\\CBS.",
+      "en": "TrustedInstaller.exe, LocalSystem, SID NT SERVICE\\TrustedInstaller. CBS engine; logs in %windir%\\Logs\\CBS."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mises à jour et fonctionnalités facultatives impossibles à installer", "en": "Updates and optional features cannot be installed" },
+    { "fr": "sfc /scannow et DISM échouent", "en": "sfc /scannow and DISM fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

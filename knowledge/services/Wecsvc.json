@@ -1,0 +1,34 @@
+{
+  "name": "Wecsvc",
+  "displayName": { "fr": "Collecteur d'événements de Windows", "en": "Windows Event Collector" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Collecte les journaux d'événements d'autres machines.",
+    "en": "Collects event logs from other machines."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Outil d'administration d'entreprise. Inutile chez soi.",
+      "en": "An enterprise admin tool. Useless at home."
+    },
+    "avance": {
+      "fr": "Démarré à la demande pour les abonnements aux événements.",
+      "en": "Started on demand for event subscriptions."
+    },
+    "expert": {
+      "fr": "svchost -k NetworkService, wecsvc.dll, NetworkService.",
+      "en": "svchost -k NetworkService, wecsvc.dll, NetworkService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Abonnements aux événements inactifs", "en": "Event subscriptions inactive" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

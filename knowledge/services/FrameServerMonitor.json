@@ -1,0 +1,34 @@
+{
+  "name": "FrameServerMonitor",
+  "displayName": { "fr": "Moniteur du serveur de trame de la Caméra Windows", "en": "Windows Camera Frame Server Monitor" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Surveille l'état du serveur de trame de la caméra.",
+    "en": "Monitors the camera frame server's health."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Complément du serveur de caméra. À laisser tel quel si tu utilises une webcam.",
+      "en": "Companion of the camera server. Leave it as is if you use a webcam."
+    },
+    "avance": {
+      "fr": "Démarré à la demande avec FrameServer.",
+      "en": "Started on demand with FrameServer."
+    },
+    "expert": {
+      "fr": "svchost -k CameraMonitor, FrameServerMonitor.dll, LocalSystem.",
+      "en": "svchost -k CameraMonitor, FrameServerMonitor.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Problèmes de webcam plus difficiles à récupérer", "en": "Webcam issues harder to recover from" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

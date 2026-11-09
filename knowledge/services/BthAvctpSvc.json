@@ -1,0 +1,35 @@
+{
+  "name": "BthAvctpSvc",
+  "displayName": { "fr": "Service AVCTP", "en": "AVCTP service" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les commandes de lecture des casques et enceintes Bluetooth.",
+    "en": "Handles playback controls on Bluetooth headphones and speakers."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait marcher les boutons lecture/pause d'un casque Bluetooth. Inutile sans Bluetooth.",
+      "en": "Makes play/pause buttons work on Bluetooth headphones. Useless without Bluetooth."
+    },
+    "avance": {
+      "fr": "Protocole AVRCP (télécommande audio/vidéo Bluetooth). Démarré par déclencheur.",
+      "en": "AVRCP protocol (Bluetooth audio/video remote control). Started by trigger."
+    },
+    "expert": {
+      "fr": "svchost (groupe LocalService, suffixé « RedirectionGuard » sur les builds récents), BthAvctpSvc.dll, LocalService.",
+      "en": "svchost (LocalService group, with a “RedirectionGuard” suffix on recent builds), BthAvctpSvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Boutons du casque Bluetooth inopérants", "en": "Bluetooth headphone buttons stop working" }
+  ],
+  "revivers": [],
+  "usefulIf": { "bluetooth": "present" },
+  "verdictIfNot": { "fr": "Aucun adaptateur Bluetooth détecté.", "en": "No Bluetooth adapter detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

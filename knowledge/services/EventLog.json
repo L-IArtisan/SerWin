@@ -1,0 +1,36 @@
+{
+  "name": "EventLog",
+  "displayName": { "fr": "Journal d'événements Windows", "en": "Windows Event Log" },
+  "category": "diagnostics",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Enregistre les événements du système et des applications (erreurs, avertissements, audits).",
+    "en": "Records system and application events (errors, warnings, audits)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est la « boîte noire » de Windows : il note tout ce qui se passe. Indispensable pour comprendre une panne. SerWin s'en sert pour savoir qui a relancé un service.",
+      "en": "This is Windows' “black box”: it records everything that happens. Essential to understand a failure. SerWin uses it to find out who restarted a service."
+    },
+    "avance": {
+      "fr": "Le couper n'accélère pas le PC mais fait échouer des services qui en dépendent (collecteur d'événements, certaines fonctions de sécurité et d'audit) et empêche tout diagnostic. L'Observateur d'événements ne s'ouvre plus.",
+      "en": "Stopping it does not speed up the PC but makes dependent services fail (event collector, some security and audit features) and prevents any diagnosis. Event Viewer no longer opens."
+    },
+    "expert": {
+      "fr": "wevtsvc.dll dans svchost, LocalService. Journaux dans %SystemRoot%\\System32\\winevt\\Logs (*.evtx). Les événements 7036 (changement d'état) et 7040 (type de démarrage modifié) du journal Système, source Service Control Manager, alimentent la chronologie de SerWin.",
+      "en": "wevtsvc.dll in svchost, LocalService. Logs in %SystemRoot%\\System32\\winevt\\Logs (*.evtx). Events 7036 (state change) and 7040 (start type changed) in the System log, source Service Control Manager, feed SerWin's timeline."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus aucun journal : diagnostic des pannes impossible", "en": "No more logs: troubleshooting becomes impossible" },
+    { "fr": "Des services dépendants ne démarrent plus", "en": "Dependent services no longer start" },
+    { "fr": "La chronologie « Qui le relance » de SerWin ne fonctionne plus", "en": "SerWin's “Who restarts it” timeline stops working" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/win32/wes/windows-event-log" ]
+}

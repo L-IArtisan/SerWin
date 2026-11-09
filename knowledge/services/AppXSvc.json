@@ -1,0 +1,34 @@
+{
+  "name": "AppXSvc",
+  "displayName": { "fr": "Service de déploiement AppX", "en": "AppX Deployment Service" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Installe et met à jour les applications du Microsoft Store.",
+    "en": "Installs and updates Microsoft Store apps."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installe les applications du Store et les applis intégrées. Sans lui, elles ne s'installent ni ne se mettent à jour.",
+      "en": "Installs Store apps and built-in apps. Without it, they cannot be installed or updated."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Les applis intégrées (Calculatrice, Photos…) sont aussi des paquets AppX qu'il met à jour.",
+      "en": "Started on demand. Built-in apps (Calculator, Photos…) are also AppX packages that it updates."
+    },
+    "expert": {
+      "fr": "svchost -k wsappx, appxdeploymentserver.dll, LocalSystem. Clé de service protégée.",
+      "en": "svchost -k wsappx, appxdeploymentserver.dll, LocalSystem. Protected service key."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applis du Store impossibles à installer ou mettre à jour", "en": "Store apps cannot be installed or updated" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

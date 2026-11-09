@@ -1,0 +1,34 @@
+{
+  "name": "RetailDemo",
+  "displayName": { "fr": "Service de démo du magasin", "en": "Retail Demo Service" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère le mode démonstration des PC exposés en magasin.",
+    "en": "Manages the demo mode of PCs on display in stores."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il sert uniquement aux PC de démonstration en magasin. Sur ton PC, il est totalement inutile.",
+      "en": "It is only used by demo PCs in stores. On your PC it is completely useless."
+    },
+    "avance": {
+      "fr": "Ne s'active que si le mode Démo commerciale a été activé (par exemple via un raccourci caché pendant l'installation). Il réinitialise alors régulièrement le PC et affiche du contenu promotionnel.",
+      "en": "Only activates when Retail Demo mode has been turned on (for example via a hidden shortcut during setup). It then periodically resets the PC and shows promotional content."
+    },
+    "expert": {
+      "fr": "RDXService.dll dans svchost, LocalSystem. État du mode démo : HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RetailDemo.",
+      "en": "RDXService.dll in svchost, LocalSystem. Demo mode state: HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RetailDemo."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Aucun effet sur un PC personnel", "en": "No effect on a personal PC" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

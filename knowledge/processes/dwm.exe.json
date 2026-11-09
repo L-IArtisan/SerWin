@@ -1,0 +1,16 @@
+{
+  "name": "dwm.exe",
+  "displayName": { "fr": "Gestionnaire de fenêtres du Bureau", "en": "Desktop Window Manager" },
+  "category": "ui",
+  "risk": "critique",
+  "bootCritical": false,
+  "summary": { "fr": "Compose l'affichage de toutes les fenêtres (transparence, animations, multi-écrans).", "en": "Composes the display of all windows (transparency, animations, multi-monitor)." },
+  "levels": {
+    "simple": { "fr": "C'est lui qui dessine l'écran. Une consommation de quelques pourcents est normale, surtout avec plusieurs écrans ou une vidéo.", "en": "It draws the screen. A few percent of usage is normal, especially with several monitors or a video." },
+    "avance": { "fr": "Chaque application dessine dans un tampon ; DWM les assemble via la carte graphique. S'il se termine, l'écran clignote et Windows le relance.", "en": "Each app draws into a buffer; DWM assembles them through the graphics card. If it exits, the screen flickers and Windows restarts it." },
+    "expert": { "fr": "Lancé par winlogon.exe sous le compte DWM-n. Une consommation anormale pointe souvent vers un pilote graphique ou un logiciel de capture d'écran.", "en": "Launched by winlogon.exe under the DWM-n account. Abnormal usage often points to a graphics driver or screen-capture software." }
+  },
+  "ifDisabled": [ { "fr": "L'écran se fige ou clignote jusqu'à sa relance", "en": "The screen freezes or flickers until it restarts" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

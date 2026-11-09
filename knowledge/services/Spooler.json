@@ -1,0 +1,40 @@
+{
+  "name": "Spooler",
+  "displayName": { "fr": "Spouleur d'impression", "en": "Print Spooler" },
+  "category": "printing",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Met en file d'attente les documents à imprimer et dialogue avec les imprimantes.",
+    "en": "Queues documents for printing and talks to printers."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable pour imprimer, y compris vers « Microsoft Print to PDF ». Si tu n'imprimes jamais et n'utilises pas l'impression PDF, tu peux le désactiver.",
+      "en": "Required for printing, including to “Microsoft Print to PDF”. If you never print and do not use PDF printing, you can disable it."
+    },
+    "avance": {
+      "fr": "Le spouleur a été la cible de failles graves (PrintNightmare, 2021). Le désactiver réduit la surface d'attaque, mais coupe aussi l'impression locale, réseau et les imprimantes virtuelles (PDF, OneNote, fax).",
+      "en": "The spooler has been the target of serious vulnerabilities (PrintNightmare, 2021). Disabling it reduces the attack surface but also stops local, network and virtual printing (PDF, OneNote, fax)."
+    },
+    "expert": {
+      "fr": "spoolsv.exe (processus dédié), LocalSystem. Charge les pilotes d'impression et les moniteurs de port (HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print). Le service Fax en dépend. Actions de récupération : redémarrage automatique.",
+      "en": "spoolsv.exe (dedicated process), LocalSystem. Loads printer drivers and port monitors (HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print). The Fax service depends on it. Recovery actions: automatic restart."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Impossible d'imprimer, même en PDF", "en": "Cannot print, not even to PDF" },
+    { "fr": "La liste des imprimantes reste vide dans les Paramètres", "en": "The printer list stays empty in Settings" },
+    { "fr": "Le service Fax ne démarre plus", "en": "The Fax service no longer starts" }
+  ],
+  "revivers": [],
+  "usefulIf": { "printers": ">0" },
+  "verdictIfNot": {
+    "fr": "Aucune imprimante physique détectée : seul l'export « Imprimer en PDF » en dépend.",
+    "en": "No physical printer detected: only “Print to PDF” depends on it."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527" ]
+}

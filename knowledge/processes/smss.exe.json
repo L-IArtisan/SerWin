@@ -1,0 +1,16 @@
+{
+  "name": "smss.exe",
+  "displayName": { "fr": "Gestionnaire de session Windows", "en": "Windows Session Manager" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "summary": { "fr": "Premier programme lancé au démarrage : prépare les sessions utilisateur.", "en": "First program started at boot: prepares user sessions." },
+  "levels": {
+    "simple": { "fr": "C'est l'un des tout premiers programmes de Windows au démarrage. Indispensable.", "en": "One of the very first Windows programs at startup. Essential." },
+    "avance": { "fr": "Il crée les sessions (0 pour les services, 1+ pour les utilisateurs), lance csrss.exe et wininit.exe / winlogon.exe, et configure le fichier d'échange.", "en": "It creates sessions (0 for services, 1+ for users), starts csrss.exe and wininit.exe / winlogon.exe, and configures the page file." },
+    "expert": { "fr": "%SystemRoot%\\System32\\smss.exe, enfant de System. Un smss.exe hors de System32 ou avec un parent autre que System est suspect. Réglages : HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager.", "en": "%SystemRoot%\\System32\\smss.exe, child of System. An smss.exe outside System32 or with a parent other than System is suspicious. Settings: HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager." }
+  },
+  "ifDisabled": [ { "fr": "Le terminer provoque un écran bleu", "en": "Terminating it causes a blue screen" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

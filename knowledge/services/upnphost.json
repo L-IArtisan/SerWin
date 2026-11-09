@@ -1,0 +1,34 @@
+{
+  "name": "upnphost",
+  "displayName": { "fr": "Hôte de périphérique UPnP", "en": "UPnP Device Host" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet au PC de se présenter comme un appareil UPnP sur le réseau.",
+    "en": "Lets the PC present itself as a UPnP device on the network."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert surtout à partager ta médiathèque avec d'autres appareils. Rarement utile.",
+      "en": "Mostly used to share your media library with other devices. Rarely useful."
+    },
+    "avance": {
+      "fr": "Dépend de SSDPSRV. Le Partage réseau du Lecteur Windows Media l'utilise.",
+      "en": "Depends on SSDPSRV. Windows Media Player network sharing uses it."
+    },
+    "expert": {
+      "fr": "svchost (groupe LocalServiceAndNoImpersonation, suffixé « RedirectionGuard » sur les builds récents), upnphost.dll, LocalService.",
+      "en": "svchost (LocalServiceAndNoImpersonation group, with a “RedirectionGuard” suffix on recent builds), upnphost.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Partage multimédia réseau indisponible", "en": "Network media sharing unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

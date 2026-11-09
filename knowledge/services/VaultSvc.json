@@ -1,0 +1,35 @@
+{
+  "name": "VaultSvc",
+  "displayName": { "fr": "Gestionnaire d'informations d'identification", "en": "Credential Manager" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Stocke de façon sécurisée tes mots de passe enregistrés.",
+    "en": "Securely stores your saved passwords."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde les mots de passe enregistrés par Windows, Edge, Outlook ou les lecteurs réseau. Sans lui, ils ne sont plus retrouvés.",
+      "en": "Keeps passwords saved by Windows, Edge, Outlook or network drives. Without it, they can no longer be retrieved."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Le Gestionnaire d'identification du Panneau de configuration et de nombreuses applis en dépendent.",
+      "en": "Started on demand. Control Panel's Credential Manager and many apps depend on it."
+    },
+    "expert": {
+      "fr": "lsass.exe (vaultsvc.dll), LocalSystem. Coffres dans %LocalAppData%\\Microsoft\\Vault et Credentials.",
+      "en": "lsass.exe (vaultsvc.dll), LocalSystem. Vaults in %LocalAppData%\\Microsoft\\Vault and Credentials."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mots de passe enregistrés introuvables", "en": "Saved passwords cannot be found" },
+    { "fr": "Connexions Outlook et Teams à refaire", "en": "Outlook and Teams sign-ins must be redone" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

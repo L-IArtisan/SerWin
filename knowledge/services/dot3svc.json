@@ -1,0 +1,35 @@
+{
+  "name": "dot3svc",
+  "displayName": { "fr": "Configuration automatique de réseau câblé", "en": "Wired AutoConfig" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Authentification 802.1X sur les réseaux filaires d'entreprise.",
+    "en": "802.1X authentication on corporate wired networks."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement sur un réseau câblé d'entreprise qui exige une authentification. Chez toi, il ne sert pas.",
+      "en": "Only useful on a corporate wired network that requires authentication. At home, it is not used."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Le réseau Ethernet classique fonctionne sans lui.",
+      "en": "Started on demand. Regular Ethernet works without it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, dot3svc.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, dot3svc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Réseau filaire 802.1X inaccessible", "en": "802.1X wired network inaccessible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non joint à un domaine : l'authentification filaire d'entreprise n'est pas utilisée.", "en": "PC not domain-joined: corporate wired authentication is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

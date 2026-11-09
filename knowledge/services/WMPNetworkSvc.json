@@ -1,0 +1,34 @@
+{
+  "name": "WMPNetworkSvc",
+  "displayName": { "fr": "Service de partage réseau du Lecteur Windows Media", "en": "Windows Media Player Network Sharing Service" },
+  "category": "media",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Partage ta musique, tes photos et tes vidéos avec d'autres appareils du réseau (DLNA).",
+    "en": "Shares your music, photos and videos with other devices on the network (DLNA)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il permet à une TV ou une console de lire les médias de ton PC via l'ancien Lecteur Windows Media. Si tu n'utilises pas cette fonction, il est inutile.",
+      "en": "It lets a TV or console play media from your PC through the legacy Windows Media Player. If you do not use this feature, it is useless."
+    },
+    "avance": {
+      "fr": "Implémente un serveur multimédia UPnP/DLNA. Il dépend de Windows Search pour connaître la bibliothèque : si WSearch est désactivé, ce service ne peut de toute façon pas démarrer.",
+      "en": "Implements a UPnP/DLNA media server. It depends on Windows Search to know the library: if WSearch is disabled, this service cannot start anyway."
+    },
+    "expert": {
+      "fr": "wmpnetwk.exe (processus dédié), NetworkService. Ouvre des ports UPnP sur le réseau privé ; le désactiver réduit la surface exposée sur le réseau local.",
+      "en": "wmpnetwk.exe (own process), NetworkService. Opens UPnP ports on the private network; disabling it reduces the attack surface on the local network."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Les autres appareils ne voient plus la bibliothèque multimédia du PC", "en": "Other devices no longer see the PC's media library" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

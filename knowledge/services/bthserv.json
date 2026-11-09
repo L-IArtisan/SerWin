@@ -1,0 +1,41 @@
+{
+  "name": "bthserv",
+  "displayName": { "fr": "Service de prise en charge Bluetooth", "en": "Bluetooth Support Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère la découverte et l'association des appareils Bluetooth.",
+    "en": "Handles discovery and pairing of Bluetooth devices."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour utiliser des écouteurs, souris, claviers ou manettes Bluetooth. Si ton PC n'a pas de Bluetooth ou que tu ne t'en sers pas, il est inutile.",
+      "en": "Needed for Bluetooth headphones, mice, keyboards or controllers. If your PC has no Bluetooth or you never use it, it is useless."
+    },
+    "avance": {
+      "fr": "Démarre automatiquement à l'apparition d'un adaptateur Bluetooth (déclencheur d'arrivée d'interface de périphérique) et via RPC. Les appareils déjà associés peuvent continuer à fonctionner un temps, mais aucune nouvelle association n'est possible.",
+      "en": "Starts automatically when a Bluetooth adapter appears (device interface arrival trigger) and via RPC. Already-paired devices may keep working for a while, but no new pairing is possible."
+    },
+    "expert": {
+      "fr": "bthserv.dll dans svchost, LocalService. Le service par utilisateur BluetoothUserService_xxxx en dépend. Les associations sont stockées dans HKLM\\SYSTEM\\CurrentControlSet\\Services\\BTHPORT\\Parameters\\Keys.",
+      "en": "bthserv.dll in svchost, LocalService. The per-user BluetoothUserService_xxxx depends on it. Pairings are stored in HKLM\\SYSTEM\\CurrentControlSet\\Services\\BTHPORT\\Parameters\\Keys."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Impossible d'associer de nouveaux appareils Bluetooth", "en": "Cannot pair new Bluetooth devices" },
+    { "fr": "Les appareils associés peuvent se déconnecter", "en": "Paired devices may disconnect" }
+  ],
+  "revivers": [
+    { "type": "trigger", "target": "device-arrival" }
+  ],
+  "usefulIf": { "bluetooth": "present" },
+  "verdictIfNot": {
+    "fr": "Aucun adaptateur Bluetooth détecté : ce service n'a rien à gérer.",
+    "en": "No Bluetooth adapter detected: this service has nothing to manage."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <AssemblyName>SerWin.Verify</AssemblyName>
+    <!-- Exécutable autonome pour Windows Sandbox : dotnet publish src/SerWin.Verify -c Release -r win-x64 -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained Condition="'$(RuntimeIdentifier)' != ''">true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SerWin.Core\SerWin.Core.csproj" />
+    <ProjectReference Include="..\SerWin.Knowledge\SerWin.Knowledge.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,35 @@
+{
+  "name": "SamSs",
+  "displayName": { "fr": "Gestionnaire de comptes de sécurité", "en": "Security Accounts Manager" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère la base des comptes locaux (SAM) et signale aux autres services qu'elle est prête.",
+    "en": "Manages the local accounts database (SAM) and signals other services that it is ready."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable : sans lui, personne ne peut ouvrir de session et de nombreux services refusent de démarrer.",
+      "en": "Essential: without it nobody can sign in and many services refuse to start."
+    },
+    "avance": {
+      "fr": "Démarre automatiquement avec Windows. Une fois la base SAM initialisée, il prévient les services qui attendent ce signal (SAMSS_READY). Le désactiver bloque les connexions et provoque des cascades d'erreurs au démarrage.",
+      "en": "Starts automatically with Windows. Once the SAM database is initialized, it notifies the services waiting for that signal (SAMSS_READY). Disabling it blocks sign-ins and causes cascades of errors at boot."
+    },
+    "expert": {
+      "fr": "Hébergé dans lsass.exe (samsrv.dll), compte LocalSystem. Le nom affiché du processus est lsass, pas svchost : arrêter le service reviendrait à arrêter LSASS, ce qui redémarre la machine.",
+      "en": "Hosted in lsass.exe (samsrv.dll), LocalSystem account. The process is lsass, not svchost: stopping the service would mean stopping LSASS, which reboots the machine."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Impossible d'ouvrir une session", "en": "Cannot sign in" },
+    { "fr": "De nombreux services ne démarrent plus", "en": "Many services no longer start" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/security/identity-protection/access-control/security-identifiers" ]
+}

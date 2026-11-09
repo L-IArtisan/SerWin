@@ -1,0 +1,34 @@
+{
+  "name": "BrokerInfrastructure",
+  "displayName": { "fr": "Service d'infrastructure des tâches en arrière-plan", "en": "Background Tasks Infrastructure Service" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Décide quelles tâches en arrière-plan les applications ont le droit d'exécuter.",
+    "en": "Decides which background tasks apps are allowed to run."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Pièce centrale de Windows : il orchestre le travail en arrière-plan des applications. Sans lui, le menu Démarrer, les notifications et de nombreuses applis cessent de fonctionner.",
+      "en": "A core part of Windows: it orchestrates apps' background work. Without it, the Start menu, notifications and many apps stop working."
+    },
+    "avance": {
+      "fr": "Hébergé dans le groupe DcomLaunch, il démarre très tôt. Il gère les « brokers » qui accordent ou refusent l'exécution en arrière-plan selon la batterie, l'économie d'énergie et les autorisations de chaque appli.",
+      "en": "Hosted in the DcomLaunch group, it starts very early. It manages the “brokers” that grant or deny background execution based on battery, power saving and each app's permissions."
+    },
+    "expert": {
+      "fr": "svchost -k DcomLaunch, psmsrv.dll, LocalSystem. Dépend de RpcEptMapper et RpcSs. Son arrêt est refusé par le gestionnaire de services.",
+      "en": "svchost -k DcomLaunch, psmsrv.dll, LocalSystem. Depends on RpcEptMapper and RpcSs. The service manager refuses to stop it."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Menu Démarrer, notifications et applis du Store hors service", "en": "Start menu, notifications and Store apps broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

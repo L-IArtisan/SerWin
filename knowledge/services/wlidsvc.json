@@ -1,0 +1,35 @@
+{
+  "name": "wlidsvc",
+  "displayName": { "fr": "Assistant Connexion avec un compte Microsoft", "en": "Microsoft Account Sign-in Assistant" },
+  "category": "core",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère la connexion avec un compte Microsoft.",
+    "en": "Handles Microsoft account sign-in."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Si tu te connectes à Windows avec un compte Microsoft, il est indispensable. Avec un compte local, il sert encore au Store, à OneDrive et à Xbox.",
+      "en": "If you sign in to Windows with a Microsoft account, it is essential. With a local account, it is still used by the Store, OneDrive and Xbox."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur. Le désactiver avec un compte Microsoft peut empêcher la connexion par code PIN.",
+      "en": "Started by trigger. Disabling it with a Microsoft account can prevent PIN sign-in."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, wlidsvc.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, wlidsvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion avec un compte Microsoft impossible", "en": "Microsoft account sign-in impossible" },
+    { "fr": "Store, OneDrive et Xbox déconnectés", "en": "Store, OneDrive and Xbox signed out" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

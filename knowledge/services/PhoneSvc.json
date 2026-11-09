@@ -1,0 +1,34 @@
+{
+  "name": "PhoneSvc",
+  "displayName": { "fr": "Service téléphonique", "en": "Phone Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère l'état de la téléphonie (appels via Mobile connecté, VoIP).",
+    "en": "Manages telephony state (calls via Phone Link, VoIP)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu passes des appels depuis le PC avec Mobile connecté.",
+      "en": "Useful if you make calls from the PC with Phone Link."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur.",
+      "en": "Started by trigger."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, PhoneService.dll, LocalService.",
+      "en": "svchost -k LocalService, PhoneService.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Appels depuis le PC impossibles", "en": "Calls from the PC impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

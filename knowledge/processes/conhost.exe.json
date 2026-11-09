@@ -1,0 +1,16 @@
+{
+  "name": "conhost.exe",
+  "displayName": { "fr": "Hôte de la fenêtre de console", "en": "Console Window Host" },
+  "category": "core",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Accompagne chaque programme en ligne de commande (fenêtre de console).", "en": "Accompanies every command-line program (console window)." },
+  "levels": {
+    "simple": { "fr": "Il y en a un pour chaque programme en mode texte, même invisible. Normal d'en voir plusieurs.", "en": "There is one for each text-mode program, even invisible ones. Seeing several is normal." },
+    "avance": { "fr": "Le terminer ferme la console du programme parent. Son parent indique quel programme l'utilise.", "en": "Terminating it closes the parent program's console. Its parent shows which program uses it." },
+    "expert": { "fr": "%SystemRoot%\\System32\\conhost.exe, souvent lancé avec « 0xffffffff -ForceV1 ». Remplacé par OpenConsole.exe quand Windows Terminal est le terminal par défaut.", "en": "%SystemRoot%\\System32\\conhost.exe, often launched with “0xffffffff -ForceV1”. Replaced by OpenConsole.exe when Windows Terminal is the default terminal." }
+  },
+  "ifDisabled": [ { "fr": "Ferme le programme en console associé", "en": "Closes the associated console program" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "WbioSrvc",
+  "displayName": { "fr": "Service de biométrie Windows", "en": "Windows Biometric Service" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les lecteurs d'empreintes et la reconnaissance faciale (Windows Hello).",
+    "en": "Manages fingerprint readers and face recognition (Windows Hello)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour se connecter avec son visage ou son doigt. Sans capteur biométrique, il ne sert à rien.",
+      "en": "Needed to sign in with your face or fingerprint. Without a biometric sensor, it is useless."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur quand un capteur biométrique est présent. Le code PIN Windows Hello fonctionne sans lui.",
+      "en": "Started by trigger when a biometric sensor is present. The Windows Hello PIN works without it."
+    },
+    "expert": {
+      "fr": "svchost -k WbioSvcGroup, wbiosrvc.dll, LocalSystem.",
+      "en": "svchost -k WbioSvcGroup, wbiosrvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion par visage ou empreinte impossible", "en": "Face or fingerprint sign-in impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

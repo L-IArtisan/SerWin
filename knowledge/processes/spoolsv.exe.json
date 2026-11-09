@@ -1,0 +1,16 @@
+{
+  "name": "spoolsv.exe",
+  "displayName": { "fr": "Spouleur d'impression", "en": "Print Spooler" },
+  "category": "printing",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Processus du service Spouleur d'impression (Spooler).", "en": "Process of the Print Spooler service." },
+  "levels": {
+    "simple": { "fr": "Il gère les impressions. Pour l'arrêter, utilise plutôt la fiche du service « Spouleur d'impression ».", "en": "It handles printing. To stop it, use the “Print Spooler” service entry instead." },
+    "avance": { "fr": "Les pilotes d'imprimante tournent dans ce processus : un plantage répété vient souvent d'un pilote défectueux.", "en": "Printer drivers run inside this process: repeated crashes often come from a faulty driver." },
+    "expert": { "fr": "%SystemRoot%\\System32\\spoolsv.exe, service Spooler, LocalSystem. Les pilotes v4 isolés tournent dans PrintIsolationHost.exe.", "en": "%SystemRoot%\\System32\\spoolsv.exe, Spooler service, LocalSystem. Isolated v4 drivers run in PrintIsolationHost.exe." }
+  },
+  "ifDisabled": [ { "fr": "Les impressions en cours sont perdues ; le service le relance après un plantage", "en": "Current print jobs are lost; the service restarts it after a crash" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

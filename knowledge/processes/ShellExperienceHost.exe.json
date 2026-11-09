@@ -1,0 +1,16 @@
+{
+  "name": "ShellExperienceHost.exe",
+  "displayName": { "fr": "Expérience du shell Windows", "en": "Windows Shell Experience Host" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Affiche des panneaux du système : calendrier de l'horloge, centre de notifications, réseau, son.", "en": "Shows system flyouts: clock calendar, notification center, network, volume." },
+  "levels": {
+    "simple": { "fr": "Il affiche les petits panneaux de la barre des tâches (heure, son, réseau). Relancé automatiquement.", "en": "It shows the small taskbar flyouts (time, sound, network). Restarted automatically." },
+    "avance": { "fr": "Application empaquetée suspendue la plupart du temps ; une consommation soutenue est inhabituelle (souvent liée au diaporama de fond d'écran).", "en": "Packaged app suspended most of the time; sustained usage is unusual (often related to the wallpaper slideshow)." },
+    "expert": { "fr": "Package Microsoft.Windows.ShellExperienceHost dans %SystemRoot%\\SystemApps.", "en": "Package Microsoft.Windows.ShellExperienceHost in %SystemRoot%\\SystemApps." }
+  },
+  "ifDisabled": [ { "fr": "Relancé automatiquement", "en": "Restarted automatically" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

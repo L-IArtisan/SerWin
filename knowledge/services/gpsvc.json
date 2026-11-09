@@ -1,0 +1,35 @@
+{
+  "name": "gpsvc",
+  "displayName": { "fr": "Client de stratégie de groupe", "en": "Group Policy Client" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Applique les stratégies de groupe locales et d'entreprise.",
+    "en": "Applies local and corporate Group Policy."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Applique les règles de configuration du PC, y compris celles que tu règles toi-même dans les stratégies locales. Windows le protège : il ne peut pas être désactivé normalement.",
+      "en": "Applies the PC's configuration rules, including the ones you set yourself in local policies. Windows protects it: it cannot normally be disabled."
+    },
+    "avance": {
+      "fr": "Lit et applique les stratégies (registre, sécurité, scripts) au démarrage et à la connexion, puis périodiquement. C'est aussi par lui qu'on bloque proprement Windows Update ou la télémétrie.",
+      "en": "Reads and applies policies (registry, security, scripts) at boot and sign-in, then periodically. It is also the clean way to block Windows Update or telemetry."
+    },
+    "expert": {
+      "fr": "svchost -k GPSvcGroup, gpsvc.dll, LocalSystem. Clé de service protégée par TrustedInstaller ; ses événements de démarrage déclenchent les triggers « MachinePolicyPresent » d'autres services.",
+      "en": "svchost -k GPSvcGroup, gpsvc.dll, LocalSystem. Service key protected by TrustedInstaller; its policy events fire the “MachinePolicyPresent” triggers of other services."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus aucune stratégie appliquée", "en": "No policy applied anymore" },
+    { "fr": "Connexion retardée ou impossible", "en": "Delayed or impossible sign-in" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

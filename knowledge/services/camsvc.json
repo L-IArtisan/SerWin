@@ -1,0 +1,34 @@
+{
+  "name": "camsvc",
+  "displayName": { "fr": "Service Gestionnaire d'accès aux fonctionnalités", "en": "Capability Access Manager Service" },
+  "category": "privacy",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les autorisations d'accès des applis à la caméra, au micro et à la localisation.",
+    "en": "Manages app permissions for camera, microphone and location."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est lui qui applique tes réglages de confidentialité (qui a droit à la caméra, au micro…). Le couper peut bloquer ces accès pour toutes les applis.",
+      "en": "It enforces your privacy settings (who may use the camera, microphone…). Turning it off can block those accesses for every app."
+    },
+    "avance": {
+      "fr": "Contrôle et journalise l'accès aux fonctionnalités sensibles ; alimente l'icône « micro utilisé » de la barre des tâches.",
+      "en": "Controls and logs access to sensitive capabilities; drives the taskbar “microphone in use” icon."
+    },
+    "expert": {
+      "fr": "svchost -k osprivacy, CapabilityAccessManager.dll, LocalSystem.",
+      "en": "svchost -k osprivacy, CapabilityAccessManager.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Caméra, micro ou localisation refusés aux applis", "en": "Camera, microphone or location denied to apps" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

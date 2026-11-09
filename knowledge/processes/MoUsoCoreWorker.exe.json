@@ -1,0 +1,16 @@
+{
+  "name": "MoUsoCoreWorker.exe",
+  "displayName": { "fr": "Travailleur de l'Orchestrateur de mises à jour", "en": "Update Orchestrator Core Worker" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Effectue les recherches et installations de mises à jour pour le service UsoSvc.", "en": "Performs update scans and installs for the UsoSvc service." },
+  "levels": {
+    "simple": { "fr": "Il travaille quand Windows cherche ou installe des mises à jour. Il peut aussi réveiller le PC pour cela.", "en": "It works when Windows searches for or installs updates. It can also wake the PC to do so." },
+    "avance": { "fr": "« powercfg /requests » le montre souvent comme empêchant la mise en veille pendant une mise à jour.", "en": "“powercfg /requests” often shows it preventing sleep during an update." },
+    "expert": { "fr": "%SystemRoot%\\System32\\MoUsoCoreWorker.exe, lancé par UsoSvc ou les tâches \\Microsoft\\Windows\\UpdateOrchestrator\\*.", "en": "%SystemRoot%\\System32\\MoUsoCoreWorker.exe, launched by UsoSvc or the \\Microsoft\\Windows\\UpdateOrchestrator\\* tasks." }
+  },
+  "ifDisabled": [ { "fr": "Interrompt la recherche ou l'installation en cours", "en": "Interrupts the current scan or install" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

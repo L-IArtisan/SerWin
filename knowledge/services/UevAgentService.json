@@ -1,0 +1,35 @@
+{
+  "name": "UevAgentService",
+  "displayName": { "fr": "Service User Experience Virtualization", "en": "User Experience Virtualization Service" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Synchronise les paramètres des applications et de Windows entre les PC d'une entreprise (UE-V).",
+    "en": "Syncs application and Windows settings across a company's PCs (UE-V)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Outil d'entreprise pour retrouver ses réglages d'un poste à l'autre. Inutile sur un PC personnel ; désactivé par défaut.",
+      "en": "An enterprise tool to keep your settings from one workstation to another. Useless on a personal PC; disabled by default."
+    },
+    "avance": {
+      "fr": "Disponible sur Windows Entreprise/Éducation et activé par Enable-UEV ou par stratégie de groupe. Sans rapport avec la synchronisation des paramètres liée au compte Microsoft.",
+      "en": "Available on Windows Enterprise/Education and enabled with Enable-UEV or Group Policy. Unrelated to Microsoft-account settings sync."
+    },
+    "expert": {
+      "fr": "AgentService.exe (processus dédié), LocalSystem. Modèles de synchronisation dans %ProgramData%\\Microsoft\\UEV\\Templates. État : Get-UevStatus.",
+      "en": "AgentService.exe (own process), LocalSystem. Sync templates in %ProgramData%\\Microsoft\\UEV\\Templates. Status: Get-UevStatus."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Les paramètres ne sont plus synchronisés par UE-V", "en": "Settings are no longer synced by UE-V" }
+  ],
+  "revivers": [ { "type": "policy", "target": "domain-gpo" } ],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non géré par une entreprise : UE-V n'est pas utilisé.", "en": "PC not managed by a company: UE-V is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/configuration/ue-v/uev-for-windows" ]
+}

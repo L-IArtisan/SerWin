@@ -1,0 +1,36 @@
+{
+  "name": "MozillaMaintenance",
+  "displayName": { "fr": "Service de maintenance Mozilla", "en": "Mozilla Maintenance Service" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet à Firefox et Thunderbird de se mettre à jour sans demande d'autorisation.",
+    "en": "Lets Firefox and Thunderbird update without a permission prompt."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec Firefox. Sans lui, Firefox se met quand même à jour, mais te demandera une confirmation administrateur.",
+      "en": "Installed with Firefox. Without it, Firefox still updates but asks for administrator confirmation."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par le programme de mise à jour de Firefox.",
+      "en": "Started on demand by the Firefox updater."
+    },
+    "expert": {
+      "fr": "maintenanceservice.exe, LocalSystem.",
+      "en": "maintenanceservice.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mises à jour de Firefox avec confirmation UAC", "en": "Firefox updates require a UAC confirmation" }
+  ],
+  "revivers": [
+    { "type": "software", "target": "firefox-update", "note": { "fr": "Réinstallé à chaque mise à jour", "en": "Reinstalled with each update" } }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

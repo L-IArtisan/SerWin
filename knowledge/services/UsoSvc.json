@@ -1,0 +1,39 @@
+{
+  "name": "UsoSvc",
+  "displayName": { "fr": "Service Orchestrateur de mises à jour", "en": "Update Orchestrator Service" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Planifie les recherches, téléchargements et installations de mises à jour, et gère les redémarrages.",
+    "en": "Schedules update scans, downloads and installs, and manages restarts."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est le chef d'orchestre des mises à jour : il décide quand chercher, installer et redémarrer. Sans lui, la page Windows Update des Paramètres ne fonctionne plus correctement.",
+      "en": "This is the conductor of updates: it decides when to scan, install and restart. Without it, the Windows Update page in Settings no longer works properly."
+    },
+    "avance": {
+      "fr": "Il pilote wuauserv et exécute les tâches du dossier UpdateOrchestrator (Schedule Scan, Reboot…). Il est lui aussi surveillé par WaaSMedicSvc, qui le réactive s'il est désactivé.",
+      "en": "It drives wuauserv and runs the tasks in the UpdateOrchestrator folder (Schedule Scan, Reboot…). It is also watched by WaaSMedicSvc, which re-enables it if disabled."
+    },
+    "expert": {
+      "fr": "usosvc.dll dans svchost, LocalSystem, démarrage automatique différé. Le client MoUsoCoreWorker.exe est lancé par ce service et par les tâches \\Microsoft\\Windows\\UpdateOrchestrator\\*. C'est aussi lui qui peut sortir le PC de veille (minuteries de réveil) pour installer les mises à jour.",
+      "en": "usosvc.dll in svchost, LocalSystem, delayed automatic start. The MoUsoCoreWorker.exe client is launched by this service and by the \\Microsoft\\Windows\\UpdateOrchestrator\\* tasks. It can also wake the PC from sleep (wake timers) to install updates."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Les mises à jour ne sont plus recherchées ni installées automatiquement", "en": "Updates are no longer scanned for or installed automatically" },
+    { "fr": "La page Windows Update des Paramètres peut afficher des erreurs", "en": "The Windows Update page in Settings may show errors" }
+  ],
+  "revivers": [
+    { "type": "service", "target": "WaaSMedicSvc" },
+    { "type": "task", "target": "\\Microsoft\\Windows\\UpdateOrchestrator\\*" },
+    { "type": "update", "target": "cumulative-update" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/deployment/update/how-windows-update-works" ]
+}

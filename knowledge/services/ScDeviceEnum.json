@@ -1,0 +1,35 @@
+{
+  "name": "ScDeviceEnum",
+  "displayName": { "fr": "Service d'énumération de périphériques de carte à puce", "en": "Smart Card Device Enumeration Service" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Crée les périphériques correspondant aux cartes à puce insérées.",
+    "en": "Creates device nodes for inserted smart cards."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Complément du service Carte à puce. Inutile sans lecteur.",
+      "en": "Companion of the Smart Card service. Useless without a reader."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur ; rend les cartes à puce accessibles aux applis du Store.",
+      "en": "Started by trigger; makes smart cards accessible to Store apps."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, ScDeviceEnum.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, ScDeviceEnum.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Cartes à puce non reconnues par certaines applis", "en": "Smart cards not recognized by some apps" }
+  ],
+  "revivers": [],
+  "usefulIf": { "smartCardReader": "present" },
+  "verdictIfNot": { "fr": "Aucun lecteur de carte à puce détecté.", "en": "No smart card reader detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

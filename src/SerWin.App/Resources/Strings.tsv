@@ -1,0 +1,513 @@
+App_Tagline	Comprendre avant d'agir	Understand before you act
+Search_Placeholder	Rechercher un service, un exécutable, un éditeur…	Search a service, executable, publisher…
+Level_Label	Niveau	Level
+Level_Simple	Simple	Simple
+Level_Avance	Avancé	Advanced
+Level_Expert	Expert	Expert
+Action_Refresh	Actualiser	Refresh
+Action_Copy	Copier	Copy
+Action_OpenFolder	Ouvrir le dossier	Open folder
+Nav_Services	Services	Services
+Nav_Processes	Processus	Processes
+Nav_Suggestions	Suggestions	Suggestions
+Nav_Alerts	Alertes	Alerts
+Nav_History	Historique	History
+Nav_Settings	Réglages	Settings
+Filter_Label	Filtre	Filter
+Filter_All	Tous	All
+Filter_Running	En cours d'exécution	Running
+Filter_Disabled	Désactivés	Disabled
+Filter_ThirdParty	Tiers (non-Microsoft)	Third-party (non-Microsoft)
+Filter_Undocumented	Non documentés	Undocumented
+Filter_Privacy	Vie privée	Privacy
+List_Count	{0} affichés sur {1}	{0} shown of {1}
+Detail_NoSelection	Sélectionne un service dans la liste.	Select a service in the list.
+Badge_Undocumented	Non documenté	Undocumented
+Badge_Untranslated	Non traduit	Not translated
+Badge_ThirdParty	Tiers	Third-party
+Badge_Privacy	Vie privée	Privacy
+Tab_Understand	Comprendre	Understand
+Tab_WhoRevives	Qui le relance	Who restarts it
+Tab_Act	Agir	Act
+Tab_Technical	Technique	Technical
+Warning_NotVerifiedOnYourVersion	⚠️ Fiche non vérifiée sur ta version de Windows : le comportement réel peut différer.	⚠️ This entry has not been verified on your Windows version: actual behavior may differ.
+Safety_Red	🔴 Service vital pour Windows : SerWin bloquera toute modification, quel que soit le niveau.	🔴 Vital Windows service: SerWin will block any change, whatever the level.
+Safety_Orange	🟠 Service important : toute modification demandera une confirmation explicite.	🟠 Important service: any change will require explicit confirmation.
+Section_WhatFor	À quoi ça sert	What it is for
+Section_Explanation	En détail	In detail
+Section_IfDisabled	Si tu le désactives	If you disable it
+Section_KnownRevivers	Peut être relancé par	Can be restarted by
+Section_Observed	Observé sur cette machine	Observed on this machine
+Observed_Intro	Ce service n'est pas encore décrit dans la base de connaissances. Voici ce que Windows en dit et ce que SerWin a observé.	This service is not yet described in the knowledge base. Here is what Windows says about it and what SerWin observed.
+Undocumented_NoDescription	Aucune description fournie par Windows.	No description provided by Windows.
+Field_WindowsDescription	Description Windows	Windows description
+Field_Executable	Exécutable	Executable
+Field_Publisher	Éditeur	Publisher
+Field_Dependencies	Dépend de	Depends on
+Field_Dependents	Services qui en dépendent	Services depending on it
+Field_Triggers	Déclencheurs (triggers)	Triggers
+Field_BinaryPath	Chemin binaire	Binary path
+Field_ServiceDll	DLL de service	Service DLL
+Field_Account	Compte	Account
+Field_StartMode	Type de démarrage	Startup type
+Field_ServiceType	Type de service	Service type
+Field_ProcessId	PID	PID
+Field_ErrorControl	Contrôle d'erreur	Error control
+Field_LoadOrderGroup	Groupe de chargement	Load order group
+Field_RegistryKey	Clé de registre	Registry key
+Value_None	Aucun	None
+Value_Unknown	Inconnu	Unknown
+Triggers_Count	{0} déclencheur(s) : peut démarrer tout seul	{0} trigger(s): can start on its own
+Technical_ConfigUnreadable	La configuration de ce service n'est pas lisible sans droits administrateur.	This service's configuration cannot be read without administrator rights.
+Section_Configuration	Configuration	Configuration
+Section_Recovery	Actions de récupération	Recovery actions
+Section_Dependencies	Dépendances	Dependencies
+Section_Sddl	Sécurité de la clé de registre (SDDL)	Registry key security (SDDL)
+Section_Commands	Commandes équivalentes	Equivalent commands
+Commands_Intro	À exécuter dans un terminal pour vérifier par toi-même.	Run these in a terminal to check for yourself.
+Cmd_config	Configuration	Configuration
+Cmd_description	Description	Description
+Cmd_triggers	Déclencheurs	Triggers
+Cmd_recovery	Récupération	Recovery
+Cmd_status	État détaillé	Detailed status
+Cmd_registry	Registre	Registry
+Cmd_sddl	Sécurité du service	Service security
+State_Stopped	Arrêté	Stopped
+State_StartPending	Démarrage…	Starting…
+State_StopPending	Arrêt…	Stopping…
+State_Running	En cours	Running
+State_ContinuePending	Reprise…	Resuming…
+State_PausePending	Mise en pause…	Pausing…
+State_Paused	En pause	Paused
+State_Unknown	État inconnu	Unknown state
+StartMode_Boot	Démarrage (pilote)	Boot (driver)
+StartMode_System	Système (pilote)	System (driver)
+StartMode_Automatic	Automatique	Automatic
+StartMode_AutomaticDelayed	Automatique (différé)	Automatic (delayed)
+StartMode_Manual	Manuel	Manual
+StartMode_Disabled	Désactivé	Disabled
+StartMode_Unknown	Type inconnu	Unknown type
+StartMode_TriggerSuffix	(déclencheur)	(trigger)
+Risk_Safe	Sûr	Safe
+Risk_Caution	Prudence	Caution
+Risk_Blocked	Bloqué	Blocked
+Risk_Unknown	Non évalué	Not assessed
+RiskExplain_Safe	Peut être désactivé sans conséquence grave, si tu n'utilises pas la fonction.	Can be disabled without serious consequences if you do not use the feature.
+RiskExplain_Caution	Le désactiver fait perdre des fonctions importantes : lis bien la fiche.	Disabling it loses important features: read the entry carefully.
+RiskExplain_Blocked	Indispensable à Windows : toute modification est bloquée.	Essential to Windows: any change is blocked.
+RiskExplain_Unknown	Service non documenté : SerWin ne peut pas évaluer le risque.	Undocumented service: SerWin cannot assess the risk.
+Verification_Draft	📝 Brouillon	📝 Draft
+Verification_ConfigVerified	🔍 Configuration vérifiée	🔍 Configuration verified
+Verification_BehaviorObserved	✅ Comportement observé	✅ Behavior observed
+Verification_Detail	Vérifié sur {0}, build {1} ({2})	Verified on {0}, build {1} ({2})
+Reviver_service	Service	Service
+Reviver_task	Tâche planifiée	Scheduled task
+Reviver_trigger	Déclencheur	Trigger
+Reviver_policy	Stratégie	Policy
+Reviver_software	Logiciel	Software
+Reviver_update	Mise à jour Windows	Windows update
+Category_core	Cœur du système	System core
+Category_maintenance	Mises à jour et maintenance	Updates and maintenance
+Category_security	Sécurité	Security
+Category_network	Réseau	Network
+Category_hardware	Matériel	Hardware
+Category_audio_video	Audio et vidéo	Audio and video
+Category_printing	Impression	Printing
+Category_gaming	Jeux	Gaming
+Category_search	Recherche	Search
+Category_diagnostics	Diagnostic	Diagnostics
+Category_privacy	Vie privée	Privacy
+Category_ui	Interface	User interface
+Category_remote	Accès à distance	Remote access
+Category_location	Localisation	Location
+Category_storage	Stockage et mémoire	Storage and memory
+TriggerAction_Start	Démarre	Starts
+TriggerAction_Stop	Arrête	Stops
+TriggerAction_Unknown	Action inconnue	Unknown action
+TriggerKind_DeviceInterfaceArrival	arrivée d'un périphérique	device arrival
+TriggerKind_IpAddressAvailability	disponibilité réseau	network availability
+TriggerKind_DomainJoin	appartenance au domaine	domain membership
+TriggerKind_FirewallPortEvent	port du pare-feu	firewall port
+TriggerKind_GroupPolicy	stratégie de groupe	group policy
+TriggerKind_NetworkEndpoint	appel réseau / RPC	network / RPC call
+TriggerKind_CustomSystemStateChange	changement d'état système	system state change
+TriggerKind_Custom	événement personnalisé (ETW)	custom event (ETW)
+TriggerKind_Aggregate	déclencheur agrégé	aggregate trigger
+TriggerKind_Unknown	type inconnu	unknown type
+TriggerSub_FirstIpAddressArrival	première adresse IP disponible	first IP address available
+TriggerSub_LastIpAddressRemoval	dernière adresse IP perdue	last IP address lost
+TriggerSub_DomainJoin	jonction à un domaine	domain join
+TriggerSub_DomainLeave	sortie d'un domaine	domain leave
+TriggerSub_FirewallPortOpen	ouverture d'un port	port opened
+TriggerSub_FirewallPortClose	fermeture d'un port	port closed
+TriggerSub_MachinePolicyPresent	stratégie ordinateur appliquée	machine policy applied
+TriggerSub_UserPolicyPresent	stratégie utilisateur appliquée	user policy applied
+TriggerSub_RpcInterfaceEvent	interface RPC	RPC interface
+TriggerSub_NamedPipeEvent	canal nommé	named pipe
+ServiceType_Shared	processus partagé (svchost)	shared process (svchost)
+ServiceType_Own	processus dédié	own process
+ServiceType_PerUserInstance	instance par utilisateur	per-user instance
+ServiceType_PerUserTemplate	modèle par utilisateur	per-user template
+ErrorControl_0	Ignorer	Ignore
+ErrorControl_1	Normal (journaliser)	Normal (log)
+ErrorControl_2	Grave (revenir à la dernière bonne configuration)	Severe (revert to last known good)
+ErrorControl_3	Critique (échec du démarrage)	Critical (boot fails)
+Recovery_None	Aucune action de récupération.	No recovery action.
+Recovery_Line	Échec n°{0} : {1} après {2:0.#} s	Failure #{0}: {1} after {2:0.#} s
+Recovery_Reset	Compteur d'échecs remis à zéro après {0}	Failure count reset after {0}
+Recovery_Command	Commande : {0}	Command: {0}
+RecoveryAction_None	ne rien faire	take no action
+RecoveryAction_Restart	redémarrer le service	restart the service
+RecoveryAction_Reboot	redémarrer l'ordinateur	restart the computer
+RecoveryAction_RunCommand	exécuter une commande	run a command
+Language_System	Langue de Windows	Windows language
+Language_French	Français	Français
+Language_English	English	English
+Settings_Language	Langue	Language
+Settings_LevelHelp	Simple : explications claires et actions de base. Avancé : mécanismes, triggers, onglet Technique. Expert : détails internes (DLL, registre, ACL).	Simple: plain explanations and basic actions. Advanced: mechanisms, triggers, Technical tab. Expert: internals (DLLs, registry, ACLs).
+Settings_Data	Données de SerWin	SerWin data
+Settings_DataHelp	La photographie de ton système (prise au premier lancement), les sauvegardes et l'historique sont stockés ici, en JSON lisible : tu peux tout restaurer à la main avec sc / reg.	Your system snapshot (taken at first launch), backups and history are stored here as readable JSON: you can restore everything by hand with sc / reg.
+Settings_Privacy	Vie privée	Privacy
+Settings_PrivacyText	SerWin ne se connecte jamais à Internet et n'envoie aucune donnée. Aucune télémétrie, aucune mise à jour automatique.	SerWin never connects to the Internet and sends no data. No telemetry, no automatic updates.
+Settings_About	À propos	About
+About_Version	SerWin version {0}	SerWin version {0}
+About_Licenses	Code sous licence GPL-3.0 · Base de connaissances sous licence CC BY-SA 4.0	Code licensed under GPL-3.0 · Knowledge base licensed under CC BY-SA 4.0
+Status_Os	{0} {1} — build {2}	{0} {1} — build {2}
+Status_Knowledge	Base de connaissances : version {0} ({1} fiches)	Knowledge base: version {0} ({1} entries)
+Status_Admin	🛡️ Mode administrateur	🛡️ Administrator mode
+Status_Standard	Mode standard (consultation)	Standard mode (read-only)
+Status_Snapshot	Photographie du {0}	Snapshot of {0}
+Status_SnapshotPending	Photographie en cours…	Taking snapshot…
+Status_SnapshotError	Photographie impossible : {0}	Snapshot failed: {0}
+Error_Load	Impossible de lire les services : {0}	Cannot read services: {0}
+Error_Unexpected	Une erreur inattendue s'est produite :\n{0}	An unexpected error occurred:\n{0}
+Unit_Days	j	days
+Category_enterprise	Fonctions entreprise	Enterprise features
+Category_virtualization	Virtualisation	Virtualization
+Category_media	Multimédia	Multimedia
+Action_Elevate	Passer en mode administrateur	Switch to administrator mode
+Action_ElevateHelp	Relance SerWin avec les droits administrateur, en conservant le service sélectionné.	Restarts SerWin with administrator rights, keeping the selected service.
+Action_Export	Exporter l'historique (ZIP)	Export history (ZIP)
+Action_DeleteData	Supprimer toutes les données SerWin	Delete all SerWin data
+Action_RestoreAll	Tout restaurer	Restore everything
+Action_CreateRestorePoint	Créer un point de restauration	Create a restore point
+Action_Undo	Annuler	Undo
+Action_Cancel	Annuler	Cancel
+Action_Continue	Continuer	Continue
+Act_NeedAdmin	Modifier un service nécessite les droits administrateur. La consultation, elle, n'en a pas besoin.	Changing a service requires administrator rights. Browsing does not.
+Act_Blocked	🔴 Ce service est indispensable à Windows : SerWin bloque toute modification, quel que soit le niveau.	🔴 This service is essential to Windows: SerWin blocks any change, whatever the level.
+Act_StateSection	État actuel	Current state
+Act_Start	Démarrer	Start
+Act_Stop	Arrêter	Stop
+Act_Apply	Appliquer	Apply
+Act_StartModeHelp	Automatique : démarre avec Windows. Manuel : démarre seulement quand un programme ou un déclencheur le demande. Désactivé : ne peut plus démarrer.	Automatic: starts with Windows. Manual: starts only when a program or trigger asks for it. Disabled: can no longer start.
+Act_RevivedBy	Attention, d'autres mécanismes peuvent relancer ou réactiver ce service :	Note: other mechanisms can restart or re-enable this service:
+Act_SafetyNet	Chaque modification est précédée d'une sauvegarde automatique et peut être annulée depuis l'Historique.	Every change is preceded by an automatic backup and can be undone from History.
+Act_PerUserInstance	Instance par utilisateur : son type de démarrage dépend du modèle « {0} ».	Per-user instance: its startup type depends on the “{0}” template.
+Act_Confirm_Start	Démarrer	Start
+Act_Confirm_Stop	Arrêter	Stop
+Act_Confirm_SetStartMode	Appliquer	Apply
+Act_Confirm_Undo	Annuler la modification	Undo the change
+Act_Confirm_RestoreAll	Tout restaurer	Restore everything
+Act_BlockedTitle	Action refusée	Action refused
+Blocked_None	—	—
+Blocked_RedList	Service indispensable à Windows (liste rouge) : aucune modification n'est possible. {0}	Service essential to Windows (red list): no change is possible. {0}
+Blocked_RedDependent	Le service « {0} » dépend de celui-ci et il est indispensable à Windows : l'arrêt est impossible.	The “{0}” service depends on this one and is essential to Windows: it cannot be stopped.
+Blocked_PerUserInstance	Le type de démarrage d'une instance par utilisateur se règle sur son modèle « {0} ».	A per-user instance's startup type is set on its “{0}” template.
+Blocked_UnsupportedStartMode	Ce type de démarrage ne peut pas être modifié ici (pilote ou valeur inconnue). {0}	This startup type cannot be changed here (driver or unknown value). {0}
+Blocked_NotFound	Service introuvable : il a peut-être été désinstallé. {0}	Service not found: it may have been uninstalled. {0}
+Blocked_AlreadyUndone	Cette modification a déjà été annulée. {0}	This change has already been undone. {0}
+Act_NoOp	Rien à faire : le service est déjà dans cet état.	Nothing to do: the service is already in that state.
+Act_Failed	Échec sur « {0} »	Failed on “{0}”
+Act_PartiallyApplied	Une partie des modifications a été appliquée : elle figure dans l'Historique et peut être annulée.	Some changes were applied: they are listed in History and can be undone.
+Act_NotEffectiveTitle	Windows a annulé la modification	Windows reverted the change
+Act_NotEffective	Le nouveau réglage n'a pas tenu pour : {0}. Un mécanisme de Windows l'a immédiatement remis (voir « Peut être relancé par »).	The new setting did not stick for: {0}. A Windows mechanism put it back immediately (see “Can be restarted by”).
+Act_Done	Fait : {0}	Done: {0}
+Act_Drifted	Remarque : modifié entre-temps par autre chose que SerWin : {0}.	Note: changed in the meantime by something other than SerWin: {0}.
+ActError_Unknown	Erreur inattendue de Windows.	Unexpected Windows error.
+ActError_AccessDenied	Accès refusé : les droits administrateur sont nécessaires.	Access denied: administrator rights are required.
+ActError_Protected	Windows protège ce service : même un administrateur ne peut pas le modifier. (Les services protégés seront gérés en v2.)	Windows protects this service: even an administrator cannot change it. (Protected services will be handled in v2.)
+ActError_NotFound	Service introuvable.	Service not found.
+ActError_ServiceDisabled	Le service est désactivé : il faut d'abord changer son type de démarrage.	The service is disabled: change its startup type first.
+ActError_DependentsRunning	Des services qui dépendent de celui-ci sont encore en cours d'exécution.	Services that depend on this one are still running.
+ActError_DependencyFailed	Un service dont il dépend n'a pas pu démarrer (peut-être désactivé).	A service it depends on could not start (maybe disabled).
+ActError_CannotAcceptControl	Le service refuse cette commande pour l'instant (il démarre peut-être, ou ne peut pas être arrêté).	The service refuses this command right now (it may be starting, or cannot be stopped).
+ActError_Timeout	Le service n'a pas répondu à temps.	The service did not respond in time.
+ActError_LogonFailure	Le service n'a pas pu s'authentifier avec son compte.	The service could not log on with its account.
+Warn_IfDisabled	Si tu le désactives : {0}	If you disable it: {0}
+Warn_Revivers	Ce service peut être relancé ou réactivé par : {0}. La désactivation risque de ne pas tenir.	This service can be restarted or re-enabled by: {0}. Disabling it may not stick.
+Warn_StopTemporary	L'arrêt est temporaire : selon son type de démarrage, le service pourra redémarrer (au prochain démarrage de Windows ou à la demande).	Stopping is temporary: depending on its startup type, the service may start again (at next boot or on demand).
+Warn_Dependents	Ces services dépendants seront aussi arrêtés : {0}	These dependent services will also be stopped: {0}
+Warn_Orange	🟠 Service important. Lis bien les conséquences ci-dessous et confirme explicitement.	🟠 Important service. Read the consequences below carefully and confirm explicitly.
+Confirm_Changes	Ce qui va changer	What will change
+Confirm_BackupNote	Une sauvegarde complète de la configuration est faite juste avant. Tu pourras annuler depuis l'Historique.	A full configuration backup is made just before. You can undo it from History.
+Confirm_RestorePoint	Créer d'abord un point de restauration Windows (peut prendre une minute)	Create a Windows restore point first (may take a minute)
+Confirm_Acknowledge	J'ai compris les conséquences et je veux continuer	I understand the consequences and want to continue
+Confirm_More	… et {0} autres modifications	… and {0} more changes
+Undo_Title	Annuler : {0}	Undo: {0}
+RestoreAll_Title	Tout restaurer	Restore everything
+RestoreAll_Intro	Remet le type de démarrage de chaque service tel qu'il était lors de la photographie du {0}.	Puts every service's startup type back as it was in the snapshot of {0}.
+RestoreAll_Warning	Les services indispensables (liste rouge) et les instances par utilisateur ne sont pas concernés. Cette opération est elle-même annulable.	Essential services (red list) and per-user instances are not affected. This operation can itself be undone.
+RestorePoint_Created	Point de restauration créé.	Restore point created.
+RestorePoint_Throttled	Windows n'a pas créé de nouveau point de restauration : il n'en accepte qu'un toutes les 24 h (dernier : {0}).	Windows did not create a new restore point: it only accepts one every 24 hours (last one: {0}).
+RestorePoint_Disabled	La protection du système est désactivée : impossible de créer un point de restauration.	System Protection is turned off: cannot create a restore point.
+RestorePoint_Failed	Le point de restauration n'a pas pu être créé ({0}).	The restore point could not be created ({0}).
+RestorePoint_ContinueTitle	Continuer sans point de restauration ?	Continue without a restore point?
+RestorePoint_ManualDescription	SerWin : point de restauration manuel	SerWin: manual restore point
+History_Start	Démarrer « {0} »	Start “{0}”
+History_Stop	Arrêter « {0} »	Stop “{0}”
+History_SetStartMode	« {0} » → {1}	“{0}” → {1}
+History_Undo	Annulation	Undo
+History_RestoreAll	Tout restaurer ({0} services)	Restore everything ({0} services)
+History_Undone	Annulée le {0}	Undone on {0}
+History_PartialError	Interrompue : {0}	Interrupted: {0}
+History_Intro	Toutes les modifications faites par SerWin, les plus récentes en premier. Chacune peut être annulée.	Every change made by SerWin, most recent first. Each one can be undone.
+History_Empty	Aucune modification pour l'instant.	No changes yet.
+Change_StartMode	{0} : {1} → {2}	{0}: {1} → {2}
+Change_Start	{0} : démarrer	{0}: start
+Change_Stop	{0} : arrêter	{0}: stop
+Snapshot_NoDiff	Tous les services sont dans l'état de la photographie.	All services match the snapshot.
+Snapshot_Diff	{0} service(s) diffèrent de la photographie.	{0} service(s) differ from the snapshot.
+Data_HardenFailed	Impossible de protéger le dossier de données SerWin.	Could not protect the SerWin data folder.
+Export_Nothing	Aucune donnée à exporter.	No data to export.
+Export_Done	Export terminé.	Export complete.
+Export_Failed	Échec de l'export.	Export failed.
+Delete_Title	Supprimer toutes les données SerWin	Delete all SerWin data
+Delete_Intro	Ces dossiers seront supprimés : photographie, sauvegardes, historique et réglages.	These folders will be deleted: snapshot, backups, history and settings.
+Delete_Warning	Les services ne sont pas modifiés, mais tu ne pourras plus annuler les modifications passées ni revenir à la photographie. Pense à exporter l'historique avant.	Services are not changed, but you will no longer be able to undo past changes or return to the snapshot. Consider exporting history first.
+Delete_Confirm	Tout supprimer	Delete everything
+Delete_Done	Données supprimées. SerWin va se fermer ; une nouvelle photographie sera prise au prochain lancement.	Data deleted. SerWin will close; a new snapshot will be taken at next launch.
+Delete_Failed	Suppression impossible.	Deletion failed.
+Delete_NeedAdmin	Le dossier de données est protégé : passe en mode administrateur pour le supprimer.	The data folder is protected: switch to administrator mode to delete it.
+Badge_Revived	↻ Désactivé puis relancé	↻ Disabled then revived
+Filter_Revived	Désactivés puis relancés	Disabled then revived
+Rev_StaticTitle	Qui pourrait le relancer ?	Who could restart it?
+Rev_StaticIntro	Mécanismes trouvés dans la configuration de Windows et dans la base de connaissances. « Actif » : il relancera le service ; « Possible » : sous conditions ; « Neutralisé » : présent mais sans effet.	Mechanisms found in Windows' configuration and in the knowledge base. “Active”: it will restart the service; “Possible”: under conditions; “Neutralized”: present but without effect.
+Rev_NoneFound	Aucun mécanisme de relance trouvé.	No restart mechanism found.
+Rev_TimelineTitle	Qui l'a réellement relancé ?	Who actually restarted it?
+Rev_TimelineIntro	Changements relevés dans les journaux de Windows, avec ce qui s'est passé au même moment. Ce sont des indices, pas des preuves.	Changes found in Windows' event logs, with what happened at the same time. These are clues, not proof.
+Rev_NoEvents	Aucun changement de ce service dans le journal Système.	No change of this service in the System log.
+Rev_EtwNote	Windows 11 ne journalise plus les démarrages et arrêts de services (événement 7036). L'identification exacte du processus responsable arrivera en v2 (surveillance ETW).	Windows 11 no longer logs service starts and stops (event 7036). Exact identification of the responsible process will come in v2 (ETW monitoring).
+Rev_TasksRead	{0} tâches planifiées analysées.	{0} scheduled tasks analyzed.
+Rev_TasksReadLimited	{0} tâches planifiées analysées. Sans droits administrateur, certaines tâches de Windows (mises à jour…) sont invisibles.	{0} scheduled tasks analyzed. Without administrator rights, some Windows tasks (updates…) are invisible.
+Action_EnableTaskLog	Activer le journal	Enable the log
+TaskLog_Disabled	Le journal du Planificateur de tâches est désactivé par défaut : l'activer permet de savoir quelle tâche s'est exécutée au moment d'une relance.	The Task Scheduler log is off by default: enabling it shows which task ran at the time of a restart.
+TaskLog_Enabled	Journal du Planificateur activé.	Task Scheduler log enabled.
+TaskLog_EnabledHelp	Les prochaines exécutions de tâches seront enregistrées et apparaîtront dans la chronologie.	Upcoming task runs will be recorded and will appear in the timeline.
+TaskLog_Failed	Impossible d'activer le journal du Planificateur.	Could not enable the Task Scheduler log.
+RevStrength_Active	Actif	Active
+RevStrength_Possible	Possible	Possible
+RevStrength_Inactive	Neutralisé	Neutralized
+Rev_Trigger	Déclencheur : {0}	Trigger: {0}
+Rev_Recovery	Récupération : redémarrage automatique après un plantage ({0} fois)	Recovery: automatic restart after a crash ({0} times)
+Rev_Dependent	« {0} » dépend de lui ({1})	“{0}” depends on it ({1})
+Rev_Task	Tâche planifiée {0}	Scheduled task {0}
+Rev_Repair	Service réparateur « {0} »	Repair service “{0}”
+Rev_Managed_domain_gpo	Stratégie de groupe du domaine	Domain Group Policy
+Rev_Managed_mdm	Gestion à distance (MDM / Intune)	Remote management (MDM / Intune)
+Rev_Policy	Stratégie {0}	Policy {0}
+Rev_Known	{0}	{0}
+RevDetail_Trigger	Windows démarre le service quand cet événement se produit, même s'il est en Manuel.	Windows starts the service when this event occurs, even if it is set to Manual.
+RevDetail_Recovery	Uniquement en cas d'arrêt inattendu, pas après un arrêt volontaire. Compteur remis à zéro après {0}.	Only after an unexpected stop, not after a deliberate one. Counter reset after {0}.
+RevDetail_Dependent	Démarrer ce service démarre aussi celui-ci (s'il n'est pas désactivé).	Starting that service also starts this one (unless it is disabled).
+RevDetail_Repair	Remet ce service en état s'il est désactivé ou endommagé.	Puts this service back if it is disabled or damaged.
+RevDetail_PolicyAbsent	Stratégie non configurée sur cette machine.	Policy not configured on this machine.
+RevDetail_PolicyEmpty	Clé présente, sans valeur.	Key present, no value.
+TaskReason_KnowledgePattern	connue de la base	known to the knowledge base
+TaskReason_NameInCommand	nomme le service dans sa commande	names the service in its command
+TaskReason_SameBinary	lance le même programme que le service	launches the same program as the service
+Task_Enabled	activée	enabled
+Task_Disabled	désactivée	disabled
+Task_LastRun	dernière exécution {0}	last run {0}
+Known_cumulative_update	Mises à jour cumulatives de Windows	Windows cumulative updates
+Known_feature_update	Mises à jour de fonctionnalités de Windows	Windows feature updates
+Known_defender_platform_update	Mises à jour de la plateforme Defender	Defender platform updates
+Known_edge_update	Mises à jour de Microsoft Edge	Microsoft Edge updates
+Known_nvidia_driver_update	Installation d'un pilote NVIDIA	NVIDIA driver installation
+Known_settings_app	Option des Paramètres Windows	Windows Settings option
+Tl_StartMode	Type de démarrage : {0} → {1}	Startup type: {0} → {1}
+Tl_Started	Démarré	Started
+Tl_Stopped	Arrêté	Stopped
+Tl_Crashed	Arrêt inattendu (n°{0})	Unexpected stop (#{0})
+Tl_CrashedRecovery	Arrêt inattendu (n°{0}), récupération : {1}	Unexpected stop (#{0}), recovery: {1}
+Tl_Installed	Service installé : {0}	Service installed: {0}
+Tl_By	par {0}	by {0}
+Tl_BySystem	par Windows lui-même ({0})	by Windows itself ({0})
+Clue_None	Aucun indice au même moment.	No clue at the same time.
+Clue_SerWin	Modification faite avec SerWin ({0})	Change made with SerWin ({0})
+Clue_Task	{0} : tâche {1} exécutée	{0}: task {1} ran
+Clue_OtherService	{0} : « {1} » modifié aussi {2}	{0}: “{1}” changed too {2}
+Clue_Update	{0} : mise à jour installée « {1} »	{0}: update installed “{1}”
+Clue_Installation	{0} : installation du service « {1} »	{0}: service “{1}” installed
+Alerts_Intro	Services désactivés qui ont été réactivés depuis, par Windows ou par un autre programme. Clique sur « Enquêter » pour voir qui les relance.	Disabled services that have been re-enabled since, by Windows or another program. Click “Investigate” to see who revives them.
+Alerts_None	Aucune relance détectée : tous les services désactivés le sont restés.	No revival detected: every disabled service stayed disabled.
+Alerts_Investigate	Enquêter	Investigate
+Alert_SerWinMismatch	Tu l'avais désactivé avec SerWin ; il est maintenant en « {0} ».	You disabled it with SerWin; it is now set to “{0}”.
+Alert_EventLog	Repassé de « Désactivé » à « {0} » par {1}.	Switched from “Disabled” to “{0}” by {1}.
+Blocked_NotUndoable	Cette action ne peut pas être annulée (un processus terminé ne peut pas être ramené). {0}	This action cannot be undone (a terminated process cannot be brought back). {0}
+Field_Consumption	Consommation	Resource usage
+Proc_ViewLabel	Affichage	View
+ProcView_Tree	Arbre parent → enfant	Parent → child tree
+ProcView_ByCpu	Liste, par processeur	List, by CPU
+ProcView_ByMemory	Liste, par mémoire	List, by memory
+ProcView_Warnings	Avertissements ⚠️ seulement	Warnings ⚠️ only
+Proc_Count	{0} processus · {1} avertissement(s)	{0} processes · {1} warning(s)
+Proc_NoSelection	Sélectionne un processus.	Select a process.
+Proc_Pid	PID {0}	PID {0}
+Proc_ConsumptionTitle	Consommation (mise à jour toutes les 2 s)	Resource usage (updated every 2 s)
+Proc_Cpu	Processeur	CPU
+Proc_Memory	Mémoire privée	Private memory
+Proc_Io	Disque et E/S	Disk and I/O
+Proc_CountersUnavailable	Compteurs inaccessibles sans droits administrateur pour ce processus (il appartient à un autre compte).	Counters unavailable without administrator rights for this process (it belongs to another account).
+Proc_IfTerminated	Si tu le termines	If you terminate it
+Proc_HostedServices	Services hébergés	Hosted services
+Proc_OpenService	Voir la fiche	Open entry
+Proc_Parent	Processus parent	Parent process
+Proc_Started	Démarré le	Started
+Proc_Session	Session	Session
+Proc_Threads	Threads	Threads
+Proc_Signature	Signature	Signature
+Proc_TerminateBlocked	🔴 Processus vital (liste rouge ou marqué critique par Windows) : SerWin refuse de le terminer. Pour un svchost, arrête plutôt le service hébergé.	🔴 Vital process (red list or marked critical by Windows): SerWin refuses to terminate it. For an svchost, stop the hosted service instead.
+Proc_Terminate	Terminer le processus	Terminate process
+Proc_TerminateHelp	Terminer un processus est immédiat et définitif : les données non enregistrées sont perdues. L'action est inscrite à l'historique.	Terminating a process is immediate and final: unsaved data is lost. The action is recorded in History.
+Proc_NoDescription	Aucune description disponible.	No description available.
+Proc_PathUnavailable	Inaccessible sans droits administrateur	Unavailable without administrator rights
+Proc_PathInferred	{0} (déduit)	{0} (inferred)
+Proc_ParentGone	Parent terminé (PID {0})	Parent exited (PID {0})
+Proc_Session0	0 (services)	0 (services)
+Proc_SuspiciousLocation	Lancé depuis un emplacement inhabituel	Launched from an unusual location
+Proc_Consumption	Processeur {0} · Mémoire {1} · Disque {2}	CPU {0} · Memory {1} · Disk {2}
+Proc_ConsumptionUnavailable	Compteurs inaccessibles sans droits administrateur.	Counters unavailable without administrator rights.
+Proc_SharedWith	(processus {1} [{2}] partagé avec {0} autre(s) service(s))	(process {1} [{2}] shared with {0} other service(s))
+Proc_Pseudo_System_Process	Processus inactif du système (temps processeur libre)	System Idle Process (free CPU time)
+Proc_Pseudo_System	Noyau Windows et pilotes	Windows kernel and drivers
+Proc_Pseudo_Secure_System	Noyau sécurisé (sécurité basée sur la virtualisation)	Secure kernel (virtualization-based security)
+Proc_Pseudo_Registry	Registre de Windows en mémoire	Windows Registry in memory
+Proc_Pseudo_Memory_Compression	Mémoire compressée	Compressed memory
+Proc_Pseudo_Interrupts	Interruptions matérielles	Hardware interrupts
+Sig_NoPath	Signature non vérifiable	Signature not verifiable
+Sig_Checking	Vérification de la signature…	Checking signature…
+Sig_SignedBy	✔ Signé par {0}	✔ Signed by {0}
+Sig_Signed	Signé	Signed
+Sig_SignedCatalog	Signé (catalogue)	Signed (catalog)
+Sig_Unsigned	Non signé	Unsigned
+Sig_Invalid	Signature invalide	Invalid signature
+Sig_Unknown	Signature non vérifiable	Signature not verifiable
+TermBlocked_None	—	—
+TermBlocked_RedList	Processus vital de Windows (liste rouge) : terminaison refusée.	Vital Windows process (red list): termination refused.
+TermBlocked_Critical	Windows a marqué ce processus comme critique : le terminer provoquerait un écran bleu.	Windows marked this process as critical: terminating it would cause a blue screen.
+TermBlocked_Self	Ce processus ne peut pas être terminé (SerWin lui-même ou noyau).	This process cannot be terminated (SerWin itself or the kernel).
+TermBlocked_NotFound	Processus introuvable : il s'est peut-être déjà arrêté.	Process not found: it may have already exited.
+Term_HostedWarning	Ces services s'arrêteront brutalement (et pourront être relancés par leurs actions de récupération) : {0}	These services will stop abruptly (and may be restarted by their recovery actions): {0}
+Term_NotUndoable	Action définitive : elle ne pourra pas être annulée depuis l'Historique.	Final action: it cannot be undone from History.
+Term_Title	Terminer {0} (PID {1}) ?	Terminate {0} (PID {1})?
+Term_Confirm	Terminer	Terminate
+Term_Done	{0} (PID {1}) terminé.	{0} (PID {1}) terminated.
+Term_Failed	Impossible de terminer {0}	Could not terminate {0}
+History_Terminate	Processus {0} terminé	Process {0} terminated
+History_TerminateHosted	Services hébergés arrêtés : {0}	Hosted services stopped: {0}
+Filter_NotUseful	Inutiles chez toi	Not useful here
+Filter_DiffersFromDefault	Différents du réglage d'usine	Different from factory setting
+Verdict_Useful	Chez toi : utile ✔	On this PC: useful ✔
+Verdict_NotUseful	Chez toi : inutile	On this PC: not useful
+Verdict_Unknown	Chez toi : impossible à déterminer	On this PC: cannot tell
+Verdict_Because	Détecté : {0}	Detected: {0}
+Verdict_NotBecause	Aucun usage détecté : {0}	No use detected: {0}
+Fact_Unknown	inconnu	unknown
+Fact_No	non	no
+Fact_Yes	oui	yes
+FactName_printers	Imprimantes physiques	Physical printers
+FactName_bluetooth	Bluetooth	Bluetooth
+FactName_wifi	Carte Wi-Fi	Wi-Fi adapter
+FactName_touch	Écran tactile	Touchscreen
+FactName_domainJoined	Domaine d'entreprise	Corporate domain
+FactName_mdmEnrolled	Gestion à distance (MDM)	Remote management (MDM)
+FactName_xboxApps	Applications Xbox	Xbox apps
+FactName_hypervisor	Hyperviseur actif (Hyper-V, WSL 2, Sandbox…)	Active hypervisor (Hyper-V, WSL 2, Sandbox…)
+FactName_laptop	Ordinateur portable	Laptop
+FactName_hdd	Windows sur disque dur mécanique	Windows on a spinning hard drive
+FactName_insider	Programme Windows Insider	Windows Insider program
+FactName_thirdPartyAntivirus	Antivirus tiers	Third-party antivirus
+FactName_faxModem	Modem fax	Fax modem
+FactName_smartCardReader	Lecteur de carte à puce	Smart card reader
+FactName_offlineMaps	Cartes hors connexion	Offline maps
+Field_Default	Réglage d'usine	Factory setting
+Default_Unknown	Inconnu pour ta version de Windows	Unknown for your Windows version
+Default_Exact	{0}	{0}
+Default_Approx	{0} (d'après un build voisin)	{0} (from a nearby build)
+Default_Differs	— diffère du réglage actuel	— differs from the current setting
+Default_NoneKnown	Réglages d'usine encore inconnus pour {0}. Ils s'obtiennent en lançant « SerWin.Verify capture » dans Windows Sandbox.	Factory settings not yet known for {0}. They are obtained by running “SerWin.Verify capture” in Windows Sandbox.
+Default_AllMatch	Les {0} services dont le réglage d'usine est connu sont dans leur état d'origine.	The {0} services with a known factory setting are in their original state.
+Default_SomeDiffer	{0} service(s) sur {1} diffèrent du réglage d'usine (peut-être d'anciens « optimiseurs »). Filtre « Différents du réglage d'usine » dans Services.	{0} of {1} service(s) differ from the factory setting (perhaps old “optimizers”). Use the “Different from factory setting” filter in Services.
+Sugg_Title	Suggestions pour ta machine	Suggestions for your PC
+Sugg_PageIntro	Services que SerWin juge inutiles ici, d'après ce qu'il a détecté. Rien n'est coché d'office : lis chaque explication et coche seulement ce que tu veux désactiver.	Services SerWin considers useless here, based on what it detected. Nothing is pre-checked: read each explanation and check only what you want to disable.
+Sugg_UselessTitle	Inutiles chez toi	Not useful on this PC
+Sugg_NoneUseless	Aucun service documenté ne semble inutile ici.	No documented service seems useless here.
+Sugg_PrivacyTitle	Vie privée	Privacy
+Sugg_PrivacyIntro	Services qui envoient des données ou exploitent ta position. Ils ne sont pas inutiles au sens strict : à toi de décider.	Services that send data or use your location. They are not strictly useless: it is your call.
+Sugg_NonePrivacy	Rien à signaler côté vie privée.	Nothing to report on privacy.
+Sugg_DetectedTitle	Ce que SerWin a détecté	What SerWin detected
+Sugg_DetectedIntro	Les verdicts reposent uniquement sur ces informations, lues localement.	Verdicts rely only on this information, read locally.
+Sugg_DefaultsTitle	Réglages d'usine	Factory settings
+Sugg_StopNow	Les arrêter aussi tout de suite	Also stop them right away
+Sugg_Apply	Désactiver la sélection ({0})	Disable selection ({0})
+Sugg_Consequences	Si tu le désactives : {0}	If you disable it: {0}
+Sugg_Revivers	⚠ Peut être réactivé par : {0}	⚠ Can be re-enabled by: {0}
+Sugg_Skipped	Écartés car protégés : {0}	Skipped because protected: {0}
+Sugg_RevivedSome	Ces services ont des mécanismes de relance connus ; SerWin te préviendra dans Alertes s'ils reviennent : {0}	These services have known revival mechanisms; SerWin will warn you in Alerts if they come back: {0}
+Sugg_NotStoppedNow	Les services en cours continueront jusqu'au prochain redémarrage.	Running services will keep running until the next restart.
+Sugg_Confirm	Désactiver	Disable
+Sugg_Intro	Chaque service coché sera désactivé. L'ensemble forme une seule entrée d'historique, annulable d'un clic.	Each checked service will be disabled. Together they form a single History entry, undoable in one click.
+History_Suggestions	Suggestions appliquées ({0} services)	Suggestions applied ({0} services)
+TriggerTarget_group_policy	application des stratégies de groupe	Group Policy refresh
+TriggerTarget_rpc	appel d'un programme (RPC)	a program call (RPC)
+TriggerTarget_named_pipe	connexion réseau (canal nommé)	network connection (named pipe)
+TriggerTarget_device_arrival	branchement d'un périphérique	device plug-in
+TriggerTarget_network	connexion au réseau	network connection
+TriggerTarget_domain	jonction à un domaine	domain join
+TriggerTarget_firewall	ouverture d'un port du pare-feu	firewall port opening
+TriggerTarget_custom	événement système	system event
+Blocked_AclUnreadable	La sécurité de la clé de registre de ce service est illisible : verrouillage impossible. {0}	This service's registry key security cannot be read: locking is impossible. {0}
+Badge_Locked	🔒 Verrouillé	🔒 Locked
+Neutralize_Title	Neutralisation complète	Full neutralization
+Neutralize_Help	Désactive le service et coupe aussi tout ce qui pourrait le relancer : déclencheurs supprimés, récupération « aucune action », tâches planifiées liées désactivées. Chaque élément est sauvegardé et l'ensemble s'annule d'un clic.	Disables the service and also cuts everything that could restart it: triggers removed, recovery set to “no action”, linked scheduled tasks disabled. Every item is backed up and the whole thing can be undone in one click.
+Neutralize_Button	Neutraliser…	Neutralize…
+Neutralize_Intro	Aperçu détaillé de chaque modification. Un point de restauration est recommandé avant cette action.	Detailed preview of each change. A restore point is recommended before this action.
+Lock_Title	Verrouillage (mode Expert)	Lock (Expert mode)
+Lock_Help	Interdit à quiconque — Windows et ses services réparateurs compris — de réécrire le type de démarrage, en ajoutant une règle « Refuser » sur la clé de registre du service. À réserver aux services qui reviennent sans cesse malgré une neutralisation.	Prevents anyone — Windows and its repair services included — from rewriting the startup type, by adding a “Deny” rule on the service's registry key. Reserve it for services that keep coming back despite a neutralization.
+Lock_IsLocked	🔒 La clé de ce service est verrouillée : son type de démarrage ne peut plus être modifié, y compris par SerWin tant qu'elle n'est pas déverrouillée.	🔒 This service's key is locked: its startup type can no longer be changed, SerWin included, until it is unlocked.
+Lock_Button	Verrouiller…	Lock…
+Unlock_Button	Déverrouiller	Unlock
+Lock_Intro	Le service sera désactivé si besoin, puis sa clé de registre verrouillée.	The service will be disabled if needed, then its registry key locked.
+Warn_Neutralize	La neutralisation va au-delà d'une simple désactivation : Windows ne pourra plus relancer ce service par ses mécanismes habituels. Certaines fonctions liées peuvent cesser de fonctionner sans message d'erreur.	Neutralization goes beyond simply disabling: Windows will no longer be able to restart this service through its usual mechanisms. Some related features may stop working without any error message.
+Warn_TasksPartial	Sans droits administrateur, certaines tâches planifiées de Windows sont invisibles : elles ne seront pas désactivées.	Without administrator rights, some Windows scheduled tasks are invisible: they will not be disabled.
+Warn_Lock	⚠️ Action Expert. Même Windows ne pourra plus modifier ce service : une mise à jour qui en a besoin peut échouer ou se bloquer. Déverrouille-le (ou annule depuis l'Historique) avant une grosse mise à jour de Windows.	⚠️ Expert action. Even Windows will no longer be able to modify this service: an update that needs it may fail or hang. Unlock it (or undo from History) before a major Windows update.
+Warn_LockRevivers	Mécanismes qui ne pourront plus le réactiver : {0}	Mechanisms that will no longer be able to re-enable it: {0}
+Act_Confirm_Neutralize	Neutraliser	Neutralize
+Act_Confirm_Lock	Verrouiller	Lock
+Act_Confirm_Unlock	Déverrouiller	Unlock
+History_Neutralize	Neutralisation de « {0} »	Neutralization of “{0}”
+History_LockAcl	Verrouillage de « {0} »	Lock of “{0}”
+History_UnlockAcl	Déverrouillage de « {0} »	Unlock of “{0}”
+Change_TriggersRemoved	{0} : {1} déclencheur(s) supprimé(s)	{0}: {1} trigger(s) removed
+Change_TriggersRestored	{0} : {1} déclencheur(s) rétabli(s)	{0}: {1} trigger(s) restored
+Change_RecoveryDisabled	{0} : récupération → aucune action	{0}: recovery → no action
+Change_RecoveryRestored	{0} : actions de récupération rétablies	{0}: recovery actions restored
+Change_TaskDisabled	Tâche {0} : désactivée	Task {0}: disabled
+Change_TaskEnabled	Tâche {0} : réactivée	Task {0}: re-enabled
+Change_AclLocked	{0} : clé de registre verrouillée 🔒	{0}: registry key locked 🔒
+Change_AclUnlocked	{0} : clé de registre déverrouillée	{0}: registry key unlocked
+Welcome_Title	Bienvenue dans SerWin	Welcome to SerWin
+Welcome_Intro	SerWin t'explique à quoi servent les services et processus de Windows, ce qui casse si on les coupe, et pourquoi certains reviennent tout seuls. Il te laisse agir, toujours avec une sauvegarde et un bouton Annuler.	SerWin explains what Windows services and processes are for, what breaks if you turn them off, and why some come back on their own. It lets you act, always with a backup and an Undo button.
+Welcome_Privacy	SerWin ne se connecte jamais à Internet et n'envoie aucune donnée.	SerWin never connects to the Internet and sends no data.
+Welcome_Question	Tu es plutôt :	You are more of a:
+Welcome_Curious	🌱 Curieux	🌱 Curious user
+Welcome_CuriousHelp	Explications simples, verdicts clairs, actions de base avec garde-fous.	Plain explanations, clear verdicts, basic actions with safeguards.
+Welcome_Tinkerer	🔧 Bidouilleur	🔧 Tinkerer
+Welcome_TinkererHelp	Mécanismes de relance, déclencheurs, onglet Technique, neutralisation complète.	Revival mechanisms, triggers, Technical tab, full neutralization.
+Welcome_Expert	🧪 Expert	🧪 Expert
+Welcome_ExpertHelp	Détails internes (DLL, registre, ACL) et verrouillage des clés de registre.	Internals (DLLs, registry, ACLs) and registry key locking.
+Welcome_ChangeLater	Tu pourras changer de niveau à tout moment, en haut à droite.	You can change the level at any time, top right.
+Term_PidReused	Ce processus s'est déjà terminé : son numéro (PID) désigne maintenant un autre programme. Rien n'a été fait.	This process has already exited: its number (PID) now belongs to another program. Nothing was done.
+Known_office_update	Lancement ou mise à jour de Microsoft Office	Microsoft Office launch or update
+Known_firefox_update	Mises à jour de Firefox	Firefox updates

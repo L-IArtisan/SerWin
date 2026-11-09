@@ -1,0 +1,34 @@
+{
+  "name": "FDResPub",
+  "displayName": { "fr": "Publication des ressources de découverte de fonctions", "en": "Function Discovery Resource Publication" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Rend ton PC et ses partages visibles des autres PC du réseau.",
+    "en": "Makes your PC and its shares visible to other PCs on the network."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Si tu ne partages rien sur le réseau local, il est inutile.",
+      "en": "If you share nothing on the local network, it is useless."
+    },
+    "avance": {
+      "fr": "Annonce le PC par WS-Discovery. Le couper le rend invisible dans « Réseau » chez les autres, sans couper les partages déjà connus.",
+      "en": "Announces the PC via WS-Discovery. Turning it off hides it from others' “Network” view without cutting known shares."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceAndNoImpersonation, fdrespub.dll, LocalService.",
+      "en": "svchost -k LocalServiceAndNoImpersonation, fdrespub.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "PC invisible dans le voisinage réseau des autres", "en": "PC invisible in other PCs' network view" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

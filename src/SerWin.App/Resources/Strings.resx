@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="App_Tagline" xml:space="preserve"><value>Comprendre avant d&apos;agir</value></data>
+  <data name="Search_Placeholder" xml:space="preserve"><value>Rechercher un service, un exécutable, un éditeur…</value></data>
+  <data name="Level_Label" xml:space="preserve"><value>Niveau</value></data>
+  <data name="Level_Simple" xml:space="preserve"><value>Simple</value></data>
+  <data name="Level_Avance" xml:space="preserve"><value>Avancé</value></data>
+  <data name="Level_Expert" xml:space="preserve"><value>Expert</value></data>
+  <data name="Action_Refresh" xml:space="preserve"><value>Actualiser</value></data>
+  <data name="Action_Copy" xml:space="preserve"><value>Copier</value></data>
+  <data name="Action_OpenFolder" xml:space="preserve"><value>Ouvrir le dossier</value></data>
+  <data name="Nav_Services" xml:space="preserve"><value>Services</value></data>
+  <data name="Nav_Processes" xml:space="preserve"><value>Processus</value></data>
+  <data name="Nav_Suggestions" xml:space="preserve"><value>Suggestions</value></data>
+  <data name="Nav_Alerts" xml:space="preserve"><value>Alertes</value></data>
+  <data name="Nav_History" xml:space="preserve"><value>Historique</value></data>
+  <data name="Nav_Settings" xml:space="preserve"><value>Réglages</value></data>
+  <data name="Filter_Label" xml:space="preserve"><value>Filtre</value></data>
+  <data name="Filter_All" xml:space="preserve"><value>Tous</value></data>
+  <data name="Filter_Running" xml:space="preserve"><value>En cours d&apos;exécution</value></data>
+  <data name="Filter_Disabled" xml:space="preserve"><value>Désactivés</value></data>
+  <data name="Filter_ThirdParty" xml:space="preserve"><value>Tiers (non-Microsoft)</value></data>
+  <data name="Filter_Undocumented" xml:space="preserve"><value>Non documentés</value></data>
+  <data name="Filter_Privacy" xml:space="preserve"><value>Vie privée</value></data>
+  <data name="List_Count" xml:space="preserve"><value>{0} affichés sur {1}</value></data>
+  <data name="Detail_NoSelection" xml:space="preserve"><value>Sélectionne un service dans la liste.</value></data>
+  <data name="Badge_Undocumented" xml:space="preserve"><value>Non documenté</value></data>
+  <data name="Badge_Untranslated" xml:space="preserve"><value>Non traduit</value></data>
+  <data name="Badge_ThirdParty" xml:space="preserve"><value>Tiers</value></data>
+  <data name="Badge_Privacy" xml:space="preserve"><value>Vie privée</value></data>
+  <data name="Tab_Understand" xml:space="preserve"><value>Comprendre</value></data>
+  <data name="Tab_WhoRevives" xml:space="preserve"><value>Qui le relance</value></data>
+  <data name="Tab_Act" xml:space="preserve"><value>Agir</value></data>
+  <data name="Tab_Technical" xml:space="preserve"><value>Technique</value></data>
+  <data name="Warning_NotVerifiedOnYourVersion" xml:space="preserve"><value>⚠️ Fiche non vérifiée sur ta version de Windows : le comportement réel peut différer.</value></data>
+  <data name="Safety_Red" xml:space="preserve"><value>🔴 Service vital pour Windows : SerWin bloquera toute modification, quel que soit le niveau.</value></data>
+  <data name="Safety_Orange" xml:space="preserve"><value>🟠 Service important : toute modification demandera une confirmation explicite.</value></data>
+  <data name="Section_WhatFor" xml:space="preserve"><value>À quoi ça sert</value></data>
+  <data name="Section_Explanation" xml:space="preserve"><value>En détail</value></data>
+  <data name="Section_IfDisabled" xml:space="preserve"><value>Si tu le désactives</value></data>
+  <data name="Section_KnownRevivers" xml:space="preserve"><value>Peut être relancé par</value></data>
+  <data name="Section_Observed" xml:space="preserve"><value>Observé sur cette machine</value></data>
+  <data name="Observed_Intro" xml:space="preserve"><value>Ce service n&apos;est pas encore décrit dans la base de connaissances. Voici ce que Windows en dit et ce que SerWin a observé.</value></data>
+  <data name="Undocumented_NoDescription" xml:space="preserve"><value>Aucune description fournie par Windows.</value></data>
+  <data name="Field_WindowsDescription" xml:space="preserve"><value>Description Windows</value></data>
+  <data name="Field_Executable" xml:space="preserve"><value>Exécutable</value></data>
+  <data name="Field_Publisher" xml:space="preserve"><value>Éditeur</value></data>
+  <data name="Field_Dependencies" xml:space="preserve"><value>Dépend de</value></data>
+  <data name="Field_Dependents" xml:space="preserve"><value>Services qui en dépendent</value></data>
+  <data name="Field_Triggers" xml:space="preserve"><value>Déclencheurs (triggers)</value></data>
+  <data name="Field_BinaryPath" xml:space="preserve"><value>Chemin binaire</value></data>
+  <data name="Field_ServiceDll" xml:space="preserve"><value>DLL de service</value></data>
+  <data name="Field_Account" xml:space="preserve"><value>Compte</value></data>
+  <data name="Field_StartMode" xml:space="preserve"><value>Type de démarrage</value></data>
+  <data name="Field_ServiceType" xml:space="preserve"><value>Type de service</value></data>
+  <data name="Field_ProcessId" xml:space="preserve"><value>PID</value></data>
+  <data name="Field_ErrorControl" xml:space="preserve"><value>Contrôle d&apos;erreur</value></data>
+  <data name="Field_LoadOrderGroup" xml:space="preserve"><value>Groupe de chargement</value></data>
+  <data name="Field_RegistryKey" xml:space="preserve"><value>Clé de registre</value></data>
+  <data name="Value_None" xml:space="preserve"><value>Aucun</value></data>
+  <data name="Value_Unknown" xml:space="preserve"><value>Inconnu</value></data>
+  <data name="Triggers_Count" xml:space="preserve"><value>{0} déclencheur(s) : peut démarrer tout seul</value></data>
+  <data name="Technical_ConfigUnreadable" xml:space="preserve"><value>La configuration de ce service n&apos;est pas lisible sans droits administrateur.</value></data>
+  <data name="Section_Configuration" xml:space="preserve"><value>Configuration</value></data>
+  <data name="Section_Recovery" xml:space="preserve"><value>Actions de récupération</value></data>
+  <data name="Section_Dependencies" xml:space="preserve"><value>Dépendances</value></data>
+  <data name="Section_Sddl" xml:space="preserve"><value>Sécurité de la clé de registre (SDDL)</value></data>
+  <data name="Section_Commands" xml:space="preserve"><value>Commandes équivalentes</value></data>
+  <data name="Commands_Intro" xml:space="preserve"><value>À exécuter dans un terminal pour vérifier par toi-même.</value></data>
+  <data name="Cmd_config" xml:space="preserve"><value>Configuration</value></data>
+  <data name="Cmd_description" xml:space="preserve"><value>Description</value></data>
+  <data name="Cmd_triggers" xml:space="preserve"><value>Déclencheurs</value></data>
+  <data name="Cmd_recovery" xml:space="preserve"><value>Récupération</value></data>
+  <data name="Cmd_status" xml:space="preserve"><value>État détaillé</value></data>
+  <data name="Cmd_registry" xml:space="preserve"><value>Registre</value></data>
+  <data name="Cmd_sddl" xml:space="preserve"><value>Sécurité du service</value></data>
+  <data name="State_Stopped" xml:space="preserve"><value>Arrêté</value></data>
+  <data name="State_StartPending" xml:space="preserve"><value>Démarrage…</value></data>
+  <data name="State_StopPending" xml:space="preserve"><value>Arrêt…</value></data>
+  <data name="State_Running" xml:space="preserve"><value>En cours</value></data>
+  <data name="State_ContinuePending" xml:space="preserve"><value>Reprise…</value></data>
+  <data name="State_PausePending" xml:space="preserve"><value>Mise en pause…</value></data>
+  <data name="State_Paused" xml:space="preserve"><value>En pause</value></data>
+  <data name="State_Unknown" xml:space="preserve"><value>État inconnu</value></data>
+  <data name="StartMode_Boot" xml:space="preserve"><value>Démarrage (pilote)</value></data>
+  <data name="StartMode_System" xml:space="preserve"><value>Système (pilote)</value></data>
+  <data name="StartMode_Automatic" xml:space="preserve"><value>Automatique</value></data>
+  <data name="StartMode_AutomaticDelayed" xml:space="preserve"><value>Automatique (différé)</value></data>
+  <data name="StartMode_Manual" xml:space="preserve"><value>Manuel</value></data>
+  <data name="StartMode_Disabled" xml:space="preserve"><value>Désactivé</value></data>
+  <data name="StartMode_Unknown" xml:space="preserve"><value>Type inconnu</value></data>
+  <data name="StartMode_TriggerSuffix" xml:space="preserve"><value>(déclencheur)</value></data>
+  <data name="Risk_Safe" xml:space="preserve"><value>Sûr</value></data>
+  <data name="Risk_Caution" xml:space="preserve"><value>Prudence</value></data>
+  <data name="Risk_Blocked" xml:space="preserve"><value>Bloqué</value></data>
+  <data name="Risk_Unknown" xml:space="preserve"><value>Non évalué</value></data>
+  <data name="RiskExplain_Safe" xml:space="preserve"><value>Peut être désactivé sans conséquence grave, si tu n&apos;utilises pas la fonction.</value></data>
+  <data name="RiskExplain_Caution" xml:space="preserve"><value>Le désactiver fait perdre des fonctions importantes : lis bien la fiche.</value></data>
+  <data name="RiskExplain_Blocked" xml:space="preserve"><value>Indispensable à Windows : toute modification est bloquée.</value></data>
+  <data name="RiskExplain_Unknown" xml:space="preserve"><value>Service non documenté : SerWin ne peut pas évaluer le risque.</value></data>
+  <data name="Verification_Draft" xml:space="preserve"><value>📝 Brouillon</value></data>
+  <data name="Verification_ConfigVerified" xml:space="preserve"><value>🔍 Configuration vérifiée</value></data>
+  <data name="Verification_BehaviorObserved" xml:space="preserve"><value>✅ Comportement observé</value></data>
+  <data name="Verification_Detail" xml:space="preserve"><value>Vérifié sur {0}, build {1} ({2})</value></data>
+  <data name="Reviver_service" xml:space="preserve"><value>Service</value></data>
+  <data name="Reviver_task" xml:space="preserve"><value>Tâche planifiée</value></data>
+  <data name="Reviver_trigger" xml:space="preserve"><value>Déclencheur</value></data>
+  <data name="Reviver_policy" xml:space="preserve"><value>Stratégie</value></data>
+  <data name="Reviver_software" xml:space="preserve"><value>Logiciel</value></data>
+  <data name="Reviver_update" xml:space="preserve"><value>Mise à jour Windows</value></data>
+  <data name="Category_core" xml:space="preserve"><value>Cœur du système</value></data>
+  <data name="Category_maintenance" xml:space="preserve"><value>Mises à jour et maintenance</value></data>
+  <data name="Category_security" xml:space="preserve"><value>Sécurité</value></data>
+  <data name="Category_network" xml:space="preserve"><value>Réseau</value></data>
+  <data name="Category_hardware" xml:space="preserve"><value>Matériel</value></data>
+  <data name="Category_audio_video" xml:space="preserve"><value>Audio et vidéo</value></data>
+  <data name="Category_printing" xml:space="preserve"><value>Impression</value></data>
+  <data name="Category_gaming" xml:space="preserve"><value>Jeux</value></data>
+  <data name="Category_search" xml:space="preserve"><value>Recherche</value></data>
+  <data name="Category_diagnostics" xml:space="preserve"><value>Diagnostic</value></data>
+  <data name="Category_privacy" xml:space="preserve"><value>Vie privée</value></data>
+  <data name="Category_ui" xml:space="preserve"><value>Interface</value></data>
+  <data name="Category_remote" xml:space="preserve"><value>Accès à distance</value></data>
+  <data name="Category_location" xml:space="preserve"><value>Localisation</value></data>
+  <data name="Category_storage" xml:space="preserve"><value>Stockage et mémoire</value></data>
+  <data name="TriggerAction_Start" xml:space="preserve"><value>Démarre</value></data>
+  <data name="TriggerAction_Stop" xml:space="preserve"><value>Arrête</value></data>
+  <data name="TriggerAction_Unknown" xml:space="preserve"><value>Action inconnue</value></data>
+  <data name="TriggerKind_DeviceInterfaceArrival" xml:space="preserve"><value>arrivée d&apos;un périphérique</value></data>
+  <data name="TriggerKind_IpAddressAvailability" xml:space="preserve"><value>disponibilité réseau</value></data>
+  <data name="TriggerKind_DomainJoin" xml:space="preserve"><value>appartenance au domaine</value></data>
+  <data name="TriggerKind_FirewallPortEvent" xml:space="preserve"><value>port du pare-feu</value></data>
+  <data name="TriggerKind_GroupPolicy" xml:space="preserve"><value>stratégie de groupe</value></data>
+  <data name="TriggerKind_NetworkEndpoint" xml:space="preserve"><value>appel réseau / RPC</value></data>
+  <data name="TriggerKind_CustomSystemStateChange" xml:space="preserve"><value>changement d&apos;état système</value></data>
+  <data name="TriggerKind_Custom" xml:space="preserve"><value>événement personnalisé (ETW)</value></data>
+  <data name="TriggerKind_Aggregate" xml:space="preserve"><value>déclencheur agrégé</value></data>
+  <data name="TriggerKind_Unknown" xml:space="preserve"><value>type inconnu</value></data>
+  <data name="TriggerSub_FirstIpAddressArrival" xml:space="preserve"><value>première adresse IP disponible</value></data>
+  <data name="TriggerSub_LastIpAddressRemoval" xml:space="preserve"><value>dernière adresse IP perdue</value></data>
+  <data name="TriggerSub_DomainJoin" xml:space="preserve"><value>jonction à un domaine</value></data>
+  <data name="TriggerSub_DomainLeave" xml:space="preserve"><value>sortie d&apos;un domaine</value></data>
+  <data name="TriggerSub_FirewallPortOpen" xml:space="preserve"><value>ouverture d&apos;un port</value></data>
+  <data name="TriggerSub_FirewallPortClose" xml:space="preserve"><value>fermeture d&apos;un port</value></data>
+  <data name="TriggerSub_MachinePolicyPresent" xml:space="preserve"><value>stratégie ordinateur appliquée</value></data>
+  <data name="TriggerSub_UserPolicyPresent" xml:space="preserve"><value>stratégie utilisateur appliquée</value></data>
+  <data name="TriggerSub_RpcInterfaceEvent" xml:space="preserve"><value>interface RPC</value></data>
+  <data name="TriggerSub_NamedPipeEvent" xml:space="preserve"><value>canal nommé</value></data>
+  <data name="ServiceType_Shared" xml:space="preserve"><value>processus partagé (svchost)</value></data>
+  <data name="ServiceType_Own" xml:space="preserve"><value>processus dédié</value></data>
+  <data name="ServiceType_PerUserInstance" xml:space="preserve"><value>instance par utilisateur</value></data>
+  <data name="ServiceType_PerUserTemplate" xml:space="preserve"><value>modèle par utilisateur</value></data>
+  <data name="ErrorControl_0" xml:space="preserve"><value>Ignorer</value></data>
+  <data name="ErrorControl_1" xml:space="preserve"><value>Normal (journaliser)</value></data>
+  <data name="ErrorControl_2" xml:space="preserve"><value>Grave (revenir à la dernière bonne configuration)</value></data>
+  <data name="ErrorControl_3" xml:space="preserve"><value>Critique (échec du démarrage)</value></data>
+  <data name="Recovery_None" xml:space="preserve"><value>Aucune action de récupération.</value></data>
+  <data name="Recovery_Line" xml:space="preserve"><value>Échec n°{0} : {1} après {2:0.#} s</value></data>
+  <data name="Recovery_Reset" xml:space="preserve"><value>Compteur d&apos;échecs remis à zéro après {0}</value></data>
+  <data name="Recovery_Command" xml:space="preserve"><value>Commande : {0}</value></data>
+  <data name="RecoveryAction_None" xml:space="preserve"><value>ne rien faire</value></data>
+  <data name="RecoveryAction_Restart" xml:space="preserve"><value>redémarrer le service</value></data>
+  <data name="RecoveryAction_Reboot" xml:space="preserve"><value>redémarrer l&apos;ordinateur</value></data>
+  <data name="RecoveryAction_RunCommand" xml:space="preserve"><value>exécuter une commande</value></data>
+  <data name="Language_System" xml:space="preserve"><value>Langue de Windows</value></data>
+  <data name="Language_French" xml:space="preserve"><value>Français</value></data>
+  <data name="Language_English" xml:space="preserve"><value>English</value></data>
+  <data name="Settings_Language" xml:space="preserve"><value>Langue</value></data>
+  <data name="Settings_LevelHelp" xml:space="preserve"><value>Simple : explications claires et actions de base. Avancé : mécanismes, triggers, onglet Technique. Expert : détails internes (DLL, registre, ACL).</value></data>
+  <data name="Settings_Data" xml:space="preserve"><value>Données de SerWin</value></data>
+  <data name="Settings_DataHelp" xml:space="preserve"><value>La photographie de ton système (prise au premier lancement), les sauvegardes et l&apos;historique sont stockés ici, en JSON lisible : tu peux tout restaurer à la main avec sc / reg.</value></data>
+  <data name="Settings_Privacy" xml:space="preserve"><value>Vie privée</value></data>
+  <data name="Settings_PrivacyText" xml:space="preserve"><value>SerWin ne se connecte jamais à Internet et n&apos;envoie aucune donnée. Aucune télémétrie, aucune mise à jour automatique.</value></data>
+  <data name="Settings_About" xml:space="preserve"><value>À propos</value></data>
+  <data name="About_Version" xml:space="preserve"><value>SerWin version {0}</value></data>
+  <data name="About_Licenses" xml:space="preserve"><value>Code sous licence GPL-3.0 · Base de connaissances sous licence CC BY-SA 4.0</value></data>
+  <data name="Status_Os" xml:space="preserve"><value>{0} {1} — build {2}</value></data>
+  <data name="Status_Knowledge" xml:space="preserve"><value>Base de connaissances : version {0} ({1} fiches)</value></data>
+  <data name="Status_Admin" xml:space="preserve"><value>🛡️ Mode administrateur</value></data>
+  <data name="Status_Standard" xml:space="preserve"><value>Mode standard (consultation)</value></data>
+  <data name="Status_Snapshot" xml:space="preserve"><value>Photographie du {0}</value></data>
+  <data name="Status_SnapshotPending" xml:space="preserve"><value>Photographie en cours…</value></data>
+  <data name="Status_SnapshotError" xml:space="preserve"><value>Photographie impossible : {0}</value></data>
+  <data name="Error_Load" xml:space="preserve"><value>Impossible de lire les services : {0}</value></data>
+  <data name="Error_Unexpected" xml:space="preserve"><value>Une erreur inattendue s&apos;est produite :
+{0}</value></data>
+  <data name="Unit_Days" xml:space="preserve"><value>j</value></data>
+  <data name="Category_enterprise" xml:space="preserve"><value>Fonctions entreprise</value></data>
+  <data name="Category_virtualization" xml:space="preserve"><value>Virtualisation</value></data>
+  <data name="Category_media" xml:space="preserve"><value>Multimédia</value></data>
+  <data name="Action_Elevate" xml:space="preserve"><value>Passer en mode administrateur</value></data>
+  <data name="Action_ElevateHelp" xml:space="preserve"><value>Relance SerWin avec les droits administrateur, en conservant le service sélectionné.</value></data>
+  <data name="Action_Export" xml:space="preserve"><value>Exporter l&apos;historique (ZIP)</value></data>
+  <data name="Action_DeleteData" xml:space="preserve"><value>Supprimer toutes les données SerWin</value></data>
+  <data name="Action_RestoreAll" xml:space="preserve"><value>Tout restaurer</value></data>
+  <data name="Action_CreateRestorePoint" xml:space="preserve"><value>Créer un point de restauration</value></data>
+  <data name="Action_Undo" xml:space="preserve"><value>Annuler</value></data>
+  <data name="Action_Cancel" xml:space="preserve"><value>Annuler</value></data>
+  <data name="Action_Continue" xml:space="preserve"><value>Continuer</value></data>
+  <data name="Act_NeedAdmin" xml:space="preserve"><value>Modifier un service nécessite les droits administrateur. La consultation, elle, n&apos;en a pas besoin.</value></data>
+  <data name="Act_Blocked" xml:space="preserve"><value>🔴 Ce service est indispensable à Windows : SerWin bloque toute modification, quel que soit le niveau.</value></data>
+  <data name="Act_StateSection" xml:space="preserve"><value>État actuel</value></data>
+  <data name="Act_Start" xml:space="preserve"><value>Démarrer</value></data>
+  <data name="Act_Stop" xml:space="preserve"><value>Arrêter</value></data>
+  <data name="Act_Apply" xml:space="preserve"><value>Appliquer</value></data>
+  <data name="Act_StartModeHelp" xml:space="preserve"><value>Automatique : démarre avec Windows. Manuel : démarre seulement quand un programme ou un déclencheur le demande. Désactivé : ne peut plus démarrer.</value></data>
+  <data name="Act_RevivedBy" xml:space="preserve"><value>Attention, d&apos;autres mécanismes peuvent relancer ou réactiver ce service :</value></data>
+  <data name="Act_SafetyNet" xml:space="preserve"><value>Chaque modification est précédée d&apos;une sauvegarde automatique et peut être annulée depuis l&apos;Historique.</value></data>
+  <data name="Act_PerUserInstance" xml:space="preserve"><value>Instance par utilisateur : son type de démarrage dépend du modèle « {0} ».</value></data>
+  <data name="Act_Confirm_Start" xml:space="preserve"><value>Démarrer</value></data>
+  <data name="Act_Confirm_Stop" xml:space="preserve"><value>Arrêter</value></data>
+  <data name="Act_Confirm_SetStartMode" xml:space="preserve"><value>Appliquer</value></data>
+  <data name="Act_Confirm_Undo" xml:space="preserve"><value>Annuler la modification</value></data>
+  <data name="Act_Confirm_RestoreAll" xml:space="preserve"><value>Tout restaurer</value></data>
+  <data name="Act_BlockedTitle" xml:space="preserve"><value>Action refusée</value></data>
+  <data name="Blocked_None" xml:space="preserve"><value>—</value></data>
+  <data name="Blocked_RedList" xml:space="preserve"><value>Service indispensable à Windows (liste rouge) : aucune modification n&apos;est possible. {0}</value></data>
+  <data name="Blocked_RedDependent" xml:space="preserve"><value>Le service « {0} » dépend de celui-ci et il est indispensable à Windows : l&apos;arrêt est impossible.</value></data>
+  <data name="Blocked_PerUserInstance" xml:space="preserve"><value>Le type de démarrage d&apos;une instance par utilisateur se règle sur son modèle « {0} ».</value></data>
+  <data name="Blocked_UnsupportedStartMode" xml:space="preserve"><value>Ce type de démarrage ne peut pas être modifié ici (pilote ou valeur inconnue). {0}</value></data>
+  <data name="Blocked_NotFound" xml:space="preserve"><value>Service introuvable : il a peut-être été désinstallé. {0}</value></data>
+  <data name="Blocked_AlreadyUndone" xml:space="preserve"><value>Cette modification a déjà été annulée. {0}</value></data>
+  <data name="Act_NoOp" xml:space="preserve"><value>Rien à faire : le service est déjà dans cet état.</value></data>
+  <data name="Act_Failed" xml:space="preserve"><value>Échec sur « {0} »</value></data>
+  <data name="Act_PartiallyApplied" xml:space="preserve"><value>Une partie des modifications a été appliquée : elle figure dans l&apos;Historique et peut être annulée.</value></data>
+  <data name="Act_NotEffectiveTitle" xml:space="preserve"><value>Windows a annulé la modification</value></data>
+  <data name="Act_NotEffective" xml:space="preserve"><value>Le nouveau réglage n&apos;a pas tenu pour : {0}. Un mécanisme de Windows l&apos;a immédiatement remis (voir « Peut être relancé par »).</value></data>
+  <data name="Act_Done" xml:space="preserve"><value>Fait : {0}</value></data>
+  <data name="Act_Drifted" xml:space="preserve"><value>Remarque : modifié entre-temps par autre chose que SerWin : {0}.</value></data>
+  <data name="ActError_Unknown" xml:space="preserve"><value>Erreur inattendue de Windows.</value></data>
+  <data name="ActError_AccessDenied" xml:space="preserve"><value>Accès refusé : les droits administrateur sont nécessaires.</value></data>
+  <data name="ActError_Protected" xml:space="preserve"><value>Windows protège ce service : même un administrateur ne peut pas le modifier. (Les services protégés seront gérés en v2.)</value></data>
+  <data name="ActError_NotFound" xml:space="preserve"><value>Service introuvable.</value></data>
+  <data name="ActError_ServiceDisabled" xml:space="preserve"><value>Le service est désactivé : il faut d&apos;abord changer son type de démarrage.</value></data>
+  <data name="ActError_DependentsRunning" xml:space="preserve"><value>Des services qui dépendent de celui-ci sont encore en cours d&apos;exécution.</value></data>
+  <data name="ActError_DependencyFailed" xml:space="preserve"><value>Un service dont il dépend n&apos;a pas pu démarrer (peut-être désactivé).</value></data>
+  <data name="ActError_CannotAcceptControl" xml:space="preserve"><value>Le service refuse cette commande pour l&apos;instant (il démarre peut-être, ou ne peut pas être arrêté).</value></data>
+  <data name="ActError_Timeout" xml:space="preserve"><value>Le service n&apos;a pas répondu à temps.</value></data>
+  <data name="ActError_LogonFailure" xml:space="preserve"><value>Le service n&apos;a pas pu s&apos;authentifier avec son compte.</value></data>
+  <data name="Warn_IfDisabled" xml:space="preserve"><value>Si tu le désactives : {0}</value></data>
+  <data name="Warn_Revivers" xml:space="preserve"><value>Ce service peut être relancé ou réactivé par : {0}. La désactivation risque de ne pas tenir.</value></data>
+  <data name="Warn_StopTemporary" xml:space="preserve"><value>L&apos;arrêt est temporaire : selon son type de démarrage, le service pourra redémarrer (au prochain démarrage de Windows ou à la demande).</value></data>
+  <data name="Warn_Dependents" xml:space="preserve"><value>Ces services dépendants seront aussi arrêtés : {0}</value></data>
+  <data name="Warn_Orange" xml:space="preserve"><value>🟠 Service important. Lis bien les conséquences ci-dessous et confirme explicitement.</value></data>
+  <data name="Confirm_Changes" xml:space="preserve"><value>Ce qui va changer</value></data>
+  <data name="Confirm_BackupNote" xml:space="preserve"><value>Une sauvegarde complète de la configuration est faite juste avant. Tu pourras annuler depuis l&apos;Historique.</value></data>
+  <data name="Confirm_RestorePoint" xml:space="preserve"><value>Créer d&apos;abord un point de restauration Windows (peut prendre une minute)</value></data>
+  <data name="Confirm_Acknowledge" xml:space="preserve"><value>J&apos;ai compris les conséquences et je veux continuer</value></data>
+  <data name="Confirm_More" xml:space="preserve"><value>… et {0} autres modifications</value></data>
+  <data name="Undo_Title" xml:space="preserve"><value>Annuler : {0}</value></data>
+  <data name="RestoreAll_Title" xml:space="preserve"><value>Tout restaurer</value></data>
+  <data name="RestoreAll_Intro" xml:space="preserve"><value>Remet le type de démarrage de chaque service tel qu&apos;il était lors de la photographie du {0}.</value></data>
+  <data name="RestoreAll_Warning" xml:space="preserve"><value>Les services indispensables (liste rouge) et les instances par utilisateur ne sont pas concernés. Cette opération est elle-même annulable.</value></data>
+  <data name="RestorePoint_Created" xml:space="preserve"><value>Point de restauration créé.</value></data>
+  <data name="RestorePoint_Throttled" xml:space="preserve"><value>Windows n&apos;a pas créé de nouveau point de restauration : il n&apos;en accepte qu&apos;un toutes les 24 h (dernier : {0}).</value></data>
+  <data name="RestorePoint_Disabled" xml:space="preserve"><value>La protection du système est désactivée : impossible de créer un point de restauration.</value></data>
+  <data name="RestorePoint_Failed" xml:space="preserve"><value>Le point de restauration n&apos;a pas pu être créé ({0}).</value></data>
+  <data name="RestorePoint_ContinueTitle" xml:space="preserve"><value>Continuer sans point de restauration ?</value></data>
+  <data name="RestorePoint_ManualDescription" xml:space="preserve"><value>SerWin : point de restauration manuel</value></data>
+  <data name="History_Start" xml:space="preserve"><value>Démarrer « {0} »</value></data>
+  <data name="History_Stop" xml:space="preserve"><value>Arrêter « {0} »</value></data>
+  <data name="History_SetStartMode" xml:space="preserve"><value>« {0} » → {1}</value></data>
+  <data name="History_Undo" xml:space="preserve"><value>Annulation</value></data>
+  <data name="History_RestoreAll" xml:space="preserve"><value>Tout restaurer ({0} services)</value></data>
+  <data name="History_Undone" xml:space="preserve"><value>Annulée le {0}</value></data>
+  <data name="History_PartialError" xml:space="preserve"><value>Interrompue : {0}</value></data>
+  <data name="History_Intro" xml:space="preserve"><value>Toutes les modifications faites par SerWin, les plus récentes en premier. Chacune peut être annulée.</value></data>
+  <data name="History_Empty" xml:space="preserve"><value>Aucune modification pour l&apos;instant.</value></data>
+  <data name="Change_StartMode" xml:space="preserve"><value>{0} : {1} → {2}</value></data>
+  <data name="Change_Start" xml:space="preserve"><value>{0} : démarrer</value></data>
+  <data name="Change_Stop" xml:space="preserve"><value>{0} : arrêter</value></data>
+  <data name="Snapshot_NoDiff" xml:space="preserve"><value>Tous les services sont dans l&apos;état de la photographie.</value></data>
+  <data name="Snapshot_Diff" xml:space="preserve"><value>{0} service(s) diffèrent de la photographie.</value></data>
+  <data name="Data_HardenFailed" xml:space="preserve"><value>Impossible de protéger le dossier de données SerWin.</value></data>
+  <data name="Export_Nothing" xml:space="preserve"><value>Aucune donnée à exporter.</value></data>
+  <data name="Export_Done" xml:space="preserve"><value>Export terminé.</value></data>
+  <data name="Export_Failed" xml:space="preserve"><value>Échec de l&apos;export.</value></data>
+  <data name="Delete_Title" xml:space="preserve"><value>Supprimer toutes les données SerWin</value></data>
+  <data name="Delete_Intro" xml:space="preserve"><value>Ces dossiers seront supprimés : photographie, sauvegardes, historique et réglages.</value></data>
+  <data name="Delete_Warning" xml:space="preserve"><value>Les services ne sont pas modifiés, mais tu ne pourras plus annuler les modifications passées ni revenir à la photographie. Pense à exporter l&apos;historique avant.</value></data>
+  <data name="Delete_Confirm" xml:space="preserve"><value>Tout supprimer</value></data>
+  <data name="Delete_Done" xml:space="preserve"><value>Données supprimées. SerWin va se fermer ; une nouvelle photographie sera prise au prochain lancement.</value></data>
+  <data name="Delete_Failed" xml:space="preserve"><value>Suppression impossible.</value></data>
+  <data name="Delete_NeedAdmin" xml:space="preserve"><value>Le dossier de données est protégé : passe en mode administrateur pour le supprimer.</value></data>
+  <data name="Badge_Revived" xml:space="preserve"><value>↻ Désactivé puis relancé</value></data>
+  <data name="Filter_Revived" xml:space="preserve"><value>Désactivés puis relancés</value></data>
+  <data name="Rev_StaticTitle" xml:space="preserve"><value>Qui pourrait le relancer ?</value></data>
+  <data name="Rev_StaticIntro" xml:space="preserve"><value>Mécanismes trouvés dans la configuration de Windows et dans la base de connaissances. « Actif » : il relancera le service ; « Possible » : sous conditions ; « Neutralisé » : présent mais sans effet.</value></data>
+  <data name="Rev_NoneFound" xml:space="preserve"><value>Aucun mécanisme de relance trouvé.</value></data>
+  <data name="Rev_TimelineTitle" xml:space="preserve"><value>Qui l&apos;a réellement relancé ?</value></data>
+  <data name="Rev_TimelineIntro" xml:space="preserve"><value>Changements relevés dans les journaux de Windows, avec ce qui s&apos;est passé au même moment. Ce sont des indices, pas des preuves.</value></data>
+  <data name="Rev_NoEvents" xml:space="preserve"><value>Aucun changement de ce service dans le journal Système.</value></data>
+  <data name="Rev_EtwNote" xml:space="preserve"><value>Windows 11 ne journalise plus les démarrages et arrêts de services (événement 7036). L&apos;identification exacte du processus responsable arrivera en v2 (surveillance ETW).</value></data>
+  <data name="Rev_TasksRead" xml:space="preserve"><value>{0} tâches planifiées analysées.</value></data>
+  <data name="Rev_TasksReadLimited" xml:space="preserve"><value>{0} tâches planifiées analysées. Sans droits administrateur, certaines tâches de Windows (mises à jour…) sont invisibles.</value></data>
+  <data name="Action_EnableTaskLog" xml:space="preserve"><value>Activer le journal</value></data>
+  <data name="TaskLog_Disabled" xml:space="preserve"><value>Le journal du Planificateur de tâches est désactivé par défaut : l&apos;activer permet de savoir quelle tâche s&apos;est exécutée au moment d&apos;une relance.</value></data>
+  <data name="TaskLog_Enabled" xml:space="preserve"><value>Journal du Planificateur activé.</value></data>
+  <data name="TaskLog_EnabledHelp" xml:space="preserve"><value>Les prochaines exécutions de tâches seront enregistrées et apparaîtront dans la chronologie.</value></data>
+  <data name="TaskLog_Failed" xml:space="preserve"><value>Impossible d&apos;activer le journal du Planificateur.</value></data>
+  <data name="RevStrength_Active" xml:space="preserve"><value>Actif</value></data>
+  <data name="RevStrength_Possible" xml:space="preserve"><value>Possible</value></data>
+  <data name="RevStrength_Inactive" xml:space="preserve"><value>Neutralisé</value></data>
+  <data name="Rev_Trigger" xml:space="preserve"><value>Déclencheur : {0}</value></data>
+  <data name="Rev_Recovery" xml:space="preserve"><value>Récupération : redémarrage automatique après un plantage ({0} fois)</value></data>
+  <data name="Rev_Dependent" xml:space="preserve"><value>« {0} » dépend de lui ({1})</value></data>
+  <data name="Rev_Task" xml:space="preserve"><value>Tâche planifiée {0}</value></data>
+  <data name="Rev_Repair" xml:space="preserve"><value>Service réparateur « {0} »</value></data>
+  <data name="Rev_Managed_domain_gpo" xml:space="preserve"><value>Stratégie de groupe du domaine</value></data>
+  <data name="Rev_Managed_mdm" xml:space="preserve"><value>Gestion à distance (MDM / Intune)</value></data>
+  <data name="Rev_Policy" xml:space="preserve"><value>Stratégie {0}</value></data>
+  <data name="Rev_Known" xml:space="preserve"><value>{0}</value></data>
+  <data name="RevDetail_Trigger" xml:space="preserve"><value>Windows démarre le service quand cet événement se produit, même s&apos;il est en Manuel.</value></data>
+  <data name="RevDetail_Recovery" xml:space="preserve"><value>Uniquement en cas d&apos;arrêt inattendu, pas après un arrêt volontaire. Compteur remis à zéro après {0}.</value></data>
+  <data name="RevDetail_Dependent" xml:space="preserve"><value>Démarrer ce service démarre aussi celui-ci (s&apos;il n&apos;est pas désactivé).</value></data>
+  <data name="RevDetail_Repair" xml:space="preserve"><value>Remet ce service en état s&apos;il est désactivé ou endommagé.</value></data>
+  <data name="RevDetail_PolicyAbsent" xml:space="preserve"><value>Stratégie non configurée sur cette machine.</value></data>
+  <data name="RevDetail_PolicyEmpty" xml:space="preserve"><value>Clé présente, sans valeur.</value></data>
+  <data name="TaskReason_KnowledgePattern" xml:space="preserve"><value>connue de la base</value></data>
+  <data name="TaskReason_NameInCommand" xml:space="preserve"><value>nomme le service dans sa commande</value></data>
+  <data name="TaskReason_SameBinary" xml:space="preserve"><value>lance le même programme que le service</value></data>
+  <data name="Task_Enabled" xml:space="preserve"><value>activée</value></data>
+  <data name="Task_Disabled" xml:space="preserve"><value>désactivée</value></data>
+  <data name="Task_LastRun" xml:space="preserve"><value>dernière exécution {0}</value></data>
+  <data name="Known_cumulative_update" xml:space="preserve"><value>Mises à jour cumulatives de Windows</value></data>
+  <data name="Known_feature_update" xml:space="preserve"><value>Mises à jour de fonctionnalités de Windows</value></data>
+  <data name="Known_defender_platform_update" xml:space="preserve"><value>Mises à jour de la plateforme Defender</value></data>
+  <data name="Known_edge_update" xml:space="preserve"><value>Mises à jour de Microsoft Edge</value></data>
+  <data name="Known_nvidia_driver_update" xml:space="preserve"><value>Installation d&apos;un pilote NVIDIA</value></data>
+  <data name="Known_settings_app" xml:space="preserve"><value>Option des Paramètres Windows</value></data>
+  <data name="Tl_StartMode" xml:space="preserve"><value>Type de démarrage : {0} → {1}</value></data>
+  <data name="Tl_Started" xml:space="preserve"><value>Démarré</value></data>
+  <data name="Tl_Stopped" xml:space="preserve"><value>Arrêté</value></data>
+  <data name="Tl_Crashed" xml:space="preserve"><value>Arrêt inattendu (n°{0})</value></data>
+  <data name="Tl_CrashedRecovery" xml:space="preserve"><value>Arrêt inattendu (n°{0}), récupération : {1}</value></data>
+  <data name="Tl_Installed" xml:space="preserve"><value>Service installé : {0}</value></data>
+  <data name="Tl_By" xml:space="preserve"><value>par {0}</value></data>
+  <data name="Tl_BySystem" xml:space="preserve"><value>par Windows lui-même ({0})</value></data>
+  <data name="Clue_None" xml:space="preserve"><value>Aucun indice au même moment.</value></data>
+  <data name="Clue_SerWin" xml:space="preserve"><value>Modification faite avec SerWin ({0})</value></data>
+  <data name="Clue_Task" xml:space="preserve"><value>{0} : tâche {1} exécutée</value></data>
+  <data name="Clue_OtherService" xml:space="preserve"><value>{0} : « {1} » modifié aussi {2}</value></data>
+  <data name="Clue_Update" xml:space="preserve"><value>{0} : mise à jour installée « {1} »</value></data>
+  <data name="Clue_Installation" xml:space="preserve"><value>{0} : installation du service « {1} »</value></data>
+  <data name="Alerts_Intro" xml:space="preserve"><value>Services désactivés qui ont été réactivés depuis, par Windows ou par un autre programme. Clique sur « Enquêter » pour voir qui les relance.</value></data>
+  <data name="Alerts_None" xml:space="preserve"><value>Aucune relance détectée : tous les services désactivés le sont restés.</value></data>
+  <data name="Alerts_Investigate" xml:space="preserve"><value>Enquêter</value></data>
+  <data name="Alert_SerWinMismatch" xml:space="preserve"><value>Tu l&apos;avais désactivé avec SerWin ; il est maintenant en « {0} ».</value></data>
+  <data name="Alert_EventLog" xml:space="preserve"><value>Repassé de « Désactivé » à « {0} » par {1}.</value></data>
+  <data name="Blocked_NotUndoable" xml:space="preserve"><value>Cette action ne peut pas être annulée (un processus terminé ne peut pas être ramené). {0}</value></data>
+  <data name="Field_Consumption" xml:space="preserve"><value>Consommation</value></data>
+  <data name="Proc_ViewLabel" xml:space="preserve"><value>Affichage</value></data>
+  <data name="ProcView_Tree" xml:space="preserve"><value>Arbre parent → enfant</value></data>
+  <data name="ProcView_ByCpu" xml:space="preserve"><value>Liste, par processeur</value></data>
+  <data name="ProcView_ByMemory" xml:space="preserve"><value>Liste, par mémoire</value></data>
+  <data name="ProcView_Warnings" xml:space="preserve"><value>Avertissements ⚠️ seulement</value></data>
+  <data name="Proc_Count" xml:space="preserve"><value>{0} processus · {1} avertissement(s)</value></data>
+  <data name="Proc_NoSelection" xml:space="preserve"><value>Sélectionne un processus.</value></data>
+  <data name="Proc_Pid" xml:space="preserve"><value>PID {0}</value></data>
+  <data name="Proc_ConsumptionTitle" xml:space="preserve"><value>Consommation (mise à jour toutes les 2 s)</value></data>
+  <data name="Proc_Cpu" xml:space="preserve"><value>Processeur</value></data>
+  <data name="Proc_Memory" xml:space="preserve"><value>Mémoire privée</value></data>
+  <data name="Proc_Io" xml:space="preserve"><value>Disque et E/S</value></data>
+  <data name="Proc_CountersUnavailable" xml:space="preserve"><value>Compteurs inaccessibles sans droits administrateur pour ce processus (il appartient à un autre compte).</value></data>
+  <data name="Proc_IfTerminated" xml:space="preserve"><value>Si tu le termines</value></data>
+  <data name="Proc_HostedServices" xml:space="preserve"><value>Services hébergés</value></data>
+  <data name="Proc_OpenService" xml:space="preserve"><value>Voir la fiche</value></data>
+  <data name="Proc_Parent" xml:space="preserve"><value>Processus parent</value></data>
+  <data name="Proc_Started" xml:space="preserve"><value>Démarré le</value></data>
+  <data name="Proc_Session" xml:space="preserve"><value>Session</value></data>
+  <data name="Proc_Threads" xml:space="preserve"><value>Threads</value></data>
+  <data name="Proc_Signature" xml:space="preserve"><value>Signature</value></data>
+  <data name="Proc_TerminateBlocked" xml:space="preserve"><value>🔴 Processus vital (liste rouge ou marqué critique par Windows) : SerWin refuse de le terminer. Pour un svchost, arrête plutôt le service hébergé.</value></data>
+  <data name="Proc_Terminate" xml:space="preserve"><value>Terminer le processus</value></data>
+  <data name="Proc_TerminateHelp" xml:space="preserve"><value>Terminer un processus est immédiat et définitif : les données non enregistrées sont perdues. L&apos;action est inscrite à l&apos;historique.</value></data>
+  <data name="Proc_NoDescription" xml:space="preserve"><value>Aucune description disponible.</value></data>
+  <data name="Proc_PathUnavailable" xml:space="preserve"><value>Inaccessible sans droits administrateur</value></data>
+  <data name="Proc_PathInferred" xml:space="preserve"><value>{0} (déduit)</value></data>
+  <data name="Proc_ParentGone" xml:space="preserve"><value>Parent terminé (PID {0})</value></data>
+  <data name="Proc_Session0" xml:space="preserve"><value>0 (services)</value></data>
+  <data name="Proc_SuspiciousLocation" xml:space="preserve"><value>Lancé depuis un emplacement inhabituel</value></data>
+  <data name="Proc_Consumption" xml:space="preserve"><value>Processeur {0} · Mémoire {1} · Disque {2}</value></data>
+  <data name="Proc_ConsumptionUnavailable" xml:space="preserve"><value>Compteurs inaccessibles sans droits administrateur.</value></data>
+  <data name="Proc_SharedWith" xml:space="preserve"><value>(processus {1} [{2}] partagé avec {0} autre(s) service(s))</value></data>
+  <data name="Proc_Pseudo_System_Process" xml:space="preserve"><value>Processus inactif du système (temps processeur libre)</value></data>
+  <data name="Proc_Pseudo_System" xml:space="preserve"><value>Noyau Windows et pilotes</value></data>
+  <data name="Proc_Pseudo_Secure_System" xml:space="preserve"><value>Noyau sécurisé (sécurité basée sur la virtualisation)</value></data>
+  <data name="Proc_Pseudo_Registry" xml:space="preserve"><value>Registre de Windows en mémoire</value></data>
+  <data name="Proc_Pseudo_Memory_Compression" xml:space="preserve"><value>Mémoire compressée</value></data>
+  <data name="Proc_Pseudo_Interrupts" xml:space="preserve"><value>Interruptions matérielles</value></data>
+  <data name="Sig_NoPath" xml:space="preserve"><value>Signature non vérifiable</value></data>
+  <data name="Sig_Checking" xml:space="preserve"><value>Vérification de la signature…</value></data>
+  <data name="Sig_SignedBy" xml:space="preserve"><value>✔ Signé par {0}</value></data>
+  <data name="Sig_Signed" xml:space="preserve"><value>Signé</value></data>
+  <data name="Sig_SignedCatalog" xml:space="preserve"><value>Signé (catalogue)</value></data>
+  <data name="Sig_Unsigned" xml:space="preserve"><value>Non signé</value></data>
+  <data name="Sig_Invalid" xml:space="preserve"><value>Signature invalide</value></data>
+  <data name="Sig_Unknown" xml:space="preserve"><value>Signature non vérifiable</value></data>
+  <data name="TermBlocked_None" xml:space="preserve"><value>—</value></data>
+  <data name="TermBlocked_RedList" xml:space="preserve"><value>Processus vital de Windows (liste rouge) : terminaison refusée.</value></data>
+  <data name="TermBlocked_Critical" xml:space="preserve"><value>Windows a marqué ce processus comme critique : le terminer provoquerait un écran bleu.</value></data>
+  <data name="TermBlocked_Self" xml:space="preserve"><value>Ce processus ne peut pas être terminé (SerWin lui-même ou noyau).</value></data>
+  <data name="TermBlocked_NotFound" xml:space="preserve"><value>Processus introuvable : il s&apos;est peut-être déjà arrêté.</value></data>
+  <data name="Term_HostedWarning" xml:space="preserve"><value>Ces services s&apos;arrêteront brutalement (et pourront être relancés par leurs actions de récupération) : {0}</value></data>
+  <data name="Term_NotUndoable" xml:space="preserve"><value>Action définitive : elle ne pourra pas être annulée depuis l&apos;Historique.</value></data>
+  <data name="Term_Title" xml:space="preserve"><value>Terminer {0} (PID {1}) ?</value></data>
+  <data name="Term_Confirm" xml:space="preserve"><value>Terminer</value></data>
+  <data name="Term_Done" xml:space="preserve"><value>{0} (PID {1}) terminé.</value></data>
+  <data name="Term_Failed" xml:space="preserve"><value>Impossible de terminer {0}</value></data>
+  <data name="History_Terminate" xml:space="preserve"><value>Processus {0} terminé</value></data>
+  <data name="History_TerminateHosted" xml:space="preserve"><value>Services hébergés arrêtés : {0}</value></data>
+  <data name="Filter_NotUseful" xml:space="preserve"><value>Inutiles chez toi</value></data>
+  <data name="Filter_DiffersFromDefault" xml:space="preserve"><value>Différents du réglage d&apos;usine</value></data>
+  <data name="Verdict_Useful" xml:space="preserve"><value>Chez toi : utile ✔</value></data>
+  <data name="Verdict_NotUseful" xml:space="preserve"><value>Chez toi : inutile</value></data>
+  <data name="Verdict_Unknown" xml:space="preserve"><value>Chez toi : impossible à déterminer</value></data>
+  <data name="Verdict_Because" xml:space="preserve"><value>Détecté : {0}</value></data>
+  <data name="Verdict_NotBecause" xml:space="preserve"><value>Aucun usage détecté : {0}</value></data>
+  <data name="Fact_Unknown" xml:space="preserve"><value>inconnu</value></data>
+  <data name="Fact_No" xml:space="preserve"><value>non</value></data>
+  <data name="Fact_Yes" xml:space="preserve"><value>oui</value></data>
+  <data name="FactName_printers" xml:space="preserve"><value>Imprimantes physiques</value></data>
+  <data name="FactName_bluetooth" xml:space="preserve"><value>Bluetooth</value></data>
+  <data name="FactName_wifi" xml:space="preserve"><value>Carte Wi-Fi</value></data>
+  <data name="FactName_touch" xml:space="preserve"><value>Écran tactile</value></data>
+  <data name="FactName_domainJoined" xml:space="preserve"><value>Domaine d&apos;entreprise</value></data>
+  <data name="FactName_mdmEnrolled" xml:space="preserve"><value>Gestion à distance (MDM)</value></data>
+  <data name="FactName_xboxApps" xml:space="preserve"><value>Applications Xbox</value></data>
+  <data name="FactName_hypervisor" xml:space="preserve"><value>Hyperviseur actif (Hyper-V, WSL 2, Sandbox…)</value></data>
+  <data name="FactName_laptop" xml:space="preserve"><value>Ordinateur portable</value></data>
+  <data name="FactName_hdd" xml:space="preserve"><value>Windows sur disque dur mécanique</value></data>
+  <data name="FactName_insider" xml:space="preserve"><value>Programme Windows Insider</value></data>
+  <data name="FactName_thirdPartyAntivirus" xml:space="preserve"><value>Antivirus tiers</value></data>
+  <data name="FactName_faxModem" xml:space="preserve"><value>Modem fax</value></data>
+  <data name="FactName_smartCardReader" xml:space="preserve"><value>Lecteur de carte à puce</value></data>
+  <data name="FactName_offlineMaps" xml:space="preserve"><value>Cartes hors connexion</value></data>
+  <data name="Field_Default" xml:space="preserve"><value>Réglage d&apos;usine</value></data>
+  <data name="Default_Unknown" xml:space="preserve"><value>Inconnu pour ta version de Windows</value></data>
+  <data name="Default_Exact" xml:space="preserve"><value>{0}</value></data>
+  <data name="Default_Approx" xml:space="preserve"><value>{0} (d&apos;après un build voisin)</value></data>
+  <data name="Default_Differs" xml:space="preserve"><value>— diffère du réglage actuel</value></data>
+  <data name="Default_NoneKnown" xml:space="preserve"><value>Réglages d&apos;usine encore inconnus pour {0}. Ils s&apos;obtiennent en lançant « SerWin.Verify capture » dans Windows Sandbox.</value></data>
+  <data name="Default_AllMatch" xml:space="preserve"><value>Les {0} services dont le réglage d&apos;usine est connu sont dans leur état d&apos;origine.</value></data>
+  <data name="Default_SomeDiffer" xml:space="preserve"><value>{0} service(s) sur {1} diffèrent du réglage d&apos;usine (peut-être d&apos;anciens « optimiseurs »). Filtre « Différents du réglage d&apos;usine » dans Services.</value></data>
+  <data name="Sugg_Title" xml:space="preserve"><value>Suggestions pour ta machine</value></data>
+  <data name="Sugg_PageIntro" xml:space="preserve"><value>Services que SerWin juge inutiles ici, d&apos;après ce qu&apos;il a détecté. Rien n&apos;est coché d&apos;office : lis chaque explication et coche seulement ce que tu veux désactiver.</value></data>
+  <data name="Sugg_UselessTitle" xml:space="preserve"><value>Inutiles chez toi</value></data>
+  <data name="Sugg_NoneUseless" xml:space="preserve"><value>Aucun service documenté ne semble inutile ici.</value></data>
+  <data name="Sugg_PrivacyTitle" xml:space="preserve"><value>Vie privée</value></data>
+  <data name="Sugg_PrivacyIntro" xml:space="preserve"><value>Services qui envoient des données ou exploitent ta position. Ils ne sont pas inutiles au sens strict : à toi de décider.</value></data>
+  <data name="Sugg_NonePrivacy" xml:space="preserve"><value>Rien à signaler côté vie privée.</value></data>
+  <data name="Sugg_DetectedTitle" xml:space="preserve"><value>Ce que SerWin a détecté</value></data>
+  <data name="Sugg_DetectedIntro" xml:space="preserve"><value>Les verdicts reposent uniquement sur ces informations, lues localement.</value></data>
+  <data name="Sugg_DefaultsTitle" xml:space="preserve"><value>Réglages d&apos;usine</value></data>
+  <data name="Sugg_StopNow" xml:space="preserve"><value>Les arrêter aussi tout de suite</value></data>
+  <data name="Sugg_Apply" xml:space="preserve"><value>Désactiver la sélection ({0})</value></data>
+  <data name="Sugg_Consequences" xml:space="preserve"><value>Si tu le désactives : {0}</value></data>
+  <data name="Sugg_Revivers" xml:space="preserve"><value>⚠ Peut être réactivé par : {0}</value></data>
+  <data name="Sugg_Skipped" xml:space="preserve"><value>Écartés car protégés : {0}</value></data>
+  <data name="Sugg_RevivedSome" xml:space="preserve"><value>Ces services ont des mécanismes de relance connus ; SerWin te préviendra dans Alertes s&apos;ils reviennent : {0}</value></data>
+  <data name="Sugg_NotStoppedNow" xml:space="preserve"><value>Les services en cours continueront jusqu&apos;au prochain redémarrage.</value></data>
+  <data name="Sugg_Confirm" xml:space="preserve"><value>Désactiver</value></data>
+  <data name="Sugg_Intro" xml:space="preserve"><value>Chaque service coché sera désactivé. L&apos;ensemble forme une seule entrée d&apos;historique, annulable d&apos;un clic.</value></data>
+  <data name="History_Suggestions" xml:space="preserve"><value>Suggestions appliquées ({0} services)</value></data>
+  <data name="TriggerTarget_group_policy" xml:space="preserve"><value>application des stratégies de groupe</value></data>
+  <data name="TriggerTarget_rpc" xml:space="preserve"><value>appel d&apos;un programme (RPC)</value></data>
+  <data name="TriggerTarget_named_pipe" xml:space="preserve"><value>connexion réseau (canal nommé)</value></data>
+  <data name="TriggerTarget_device_arrival" xml:space="preserve"><value>branchement d&apos;un périphérique</value></data>
+  <data name="TriggerTarget_network" xml:space="preserve"><value>connexion au réseau</value></data>
+  <data name="TriggerTarget_domain" xml:space="preserve"><value>jonction à un domaine</value></data>
+  <data name="TriggerTarget_firewall" xml:space="preserve"><value>ouverture d&apos;un port du pare-feu</value></data>
+  <data name="TriggerTarget_custom" xml:space="preserve"><value>événement système</value></data>
+  <data name="Blocked_AclUnreadable" xml:space="preserve"><value>La sécurité de la clé de registre de ce service est illisible : verrouillage impossible. {0}</value></data>
+  <data name="Badge_Locked" xml:space="preserve"><value>🔒 Verrouillé</value></data>
+  <data name="Neutralize_Title" xml:space="preserve"><value>Neutralisation complète</value></data>
+  <data name="Neutralize_Help" xml:space="preserve"><value>Désactive le service et coupe aussi tout ce qui pourrait le relancer : déclencheurs supprimés, récupération « aucune action », tâches planifiées liées désactivées. Chaque élément est sauvegardé et l&apos;ensemble s&apos;annule d&apos;un clic.</value></data>
+  <data name="Neutralize_Button" xml:space="preserve"><value>Neutraliser…</value></data>
+  <data name="Neutralize_Intro" xml:space="preserve"><value>Aperçu détaillé de chaque modification. Un point de restauration est recommandé avant cette action.</value></data>
+  <data name="Lock_Title" xml:space="preserve"><value>Verrouillage (mode Expert)</value></data>
+  <data name="Lock_Help" xml:space="preserve"><value>Interdit à quiconque — Windows et ses services réparateurs compris — de réécrire le type de démarrage, en ajoutant une règle « Refuser » sur la clé de registre du service. À réserver aux services qui reviennent sans cesse malgré une neutralisation.</value></data>
+  <data name="Lock_IsLocked" xml:space="preserve"><value>🔒 La clé de ce service est verrouillée : son type de démarrage ne peut plus être modifié, y compris par SerWin tant qu&apos;elle n&apos;est pas déverrouillée.</value></data>
+  <data name="Lock_Button" xml:space="preserve"><value>Verrouiller…</value></data>
+  <data name="Unlock_Button" xml:space="preserve"><value>Déverrouiller</value></data>
+  <data name="Lock_Intro" xml:space="preserve"><value>Le service sera désactivé si besoin, puis sa clé de registre verrouillée.</value></data>
+  <data name="Warn_Neutralize" xml:space="preserve"><value>La neutralisation va au-delà d&apos;une simple désactivation : Windows ne pourra plus relancer ce service par ses mécanismes habituels. Certaines fonctions liées peuvent cesser de fonctionner sans message d&apos;erreur.</value></data>
+  <data name="Warn_TasksPartial" xml:space="preserve"><value>Sans droits administrateur, certaines tâches planifiées de Windows sont invisibles : elles ne seront pas désactivées.</value></data>
+  <data name="Warn_Lock" xml:space="preserve"><value>⚠️ Action Expert. Même Windows ne pourra plus modifier ce service : une mise à jour qui en a besoin peut échouer ou se bloquer. Déverrouille-le (ou annule depuis l&apos;Historique) avant une grosse mise à jour de Windows.</value></data>
+  <data name="Warn_LockRevivers" xml:space="preserve"><value>Mécanismes qui ne pourront plus le réactiver : {0}</value></data>
+  <data name="Act_Confirm_Neutralize" xml:space="preserve"><value>Neutraliser</value></data>
+  <data name="Act_Confirm_Lock" xml:space="preserve"><value>Verrouiller</value></data>
+  <data name="Act_Confirm_Unlock" xml:space="preserve"><value>Déverrouiller</value></data>
+  <data name="History_Neutralize" xml:space="preserve"><value>Neutralisation de « {0} »</value></data>
+  <data name="History_LockAcl" xml:space="preserve"><value>Verrouillage de « {0} »</value></data>
+  <data name="History_UnlockAcl" xml:space="preserve"><value>Déverrouillage de « {0} »</value></data>
+  <data name="Change_TriggersRemoved" xml:space="preserve"><value>{0} : {1} déclencheur(s) supprimé(s)</value></data>
+  <data name="Change_TriggersRestored" xml:space="preserve"><value>{0} : {1} déclencheur(s) rétabli(s)</value></data>
+  <data name="Change_RecoveryDisabled" xml:space="preserve"><value>{0} : récupération → aucune action</value></data>
+  <data name="Change_RecoveryRestored" xml:space="preserve"><value>{0} : actions de récupération rétablies</value></data>
+  <data name="Change_TaskDisabled" xml:space="preserve"><value>Tâche {0} : désactivée</value></data>
+  <data name="Change_TaskEnabled" xml:space="preserve"><value>Tâche {0} : réactivée</value></data>
+  <data name="Change_AclLocked" xml:space="preserve"><value>{0} : clé de registre verrouillée 🔒</value></data>
+  <data name="Change_AclUnlocked" xml:space="preserve"><value>{0} : clé de registre déverrouillée</value></data>
+  <data name="Welcome_Title" xml:space="preserve"><value>Bienvenue dans SerWin</value></data>
+  <data name="Welcome_Intro" xml:space="preserve"><value>SerWin t&apos;explique à quoi servent les services et processus de Windows, ce qui casse si on les coupe, et pourquoi certains reviennent tout seuls. Il te laisse agir, toujours avec une sauvegarde et un bouton Annuler.</value></data>
+  <data name="Welcome_Privacy" xml:space="preserve"><value>SerWin ne se connecte jamais à Internet et n&apos;envoie aucune donnée.</value></data>
+  <data name="Welcome_Question" xml:space="preserve"><value>Tu es plutôt :</value></data>
+  <data name="Welcome_Curious" xml:space="preserve"><value>🌱 Curieux</value></data>
+  <data name="Welcome_CuriousHelp" xml:space="preserve"><value>Explications simples, verdicts clairs, actions de base avec garde-fous.</value></data>
+  <data name="Welcome_Tinkerer" xml:space="preserve"><value>🔧 Bidouilleur</value></data>
+  <data name="Welcome_TinkererHelp" xml:space="preserve"><value>Mécanismes de relance, déclencheurs, onglet Technique, neutralisation complète.</value></data>
+  <data name="Welcome_Expert" xml:space="preserve"><value>🧪 Expert</value></data>
+  <data name="Welcome_ExpertHelp" xml:space="preserve"><value>Détails internes (DLL, registre, ACL) et verrouillage des clés de registre.</value></data>
+  <data name="Welcome_ChangeLater" xml:space="preserve"><value>Tu pourras changer de niveau à tout moment, en haut à droite.</value></data>
+  <data name="Term_PidReused" xml:space="preserve"><value>Ce processus s&apos;est déjà terminé : son numéro (PID) désigne maintenant un autre programme. Rien n&apos;a été fait.</value></data>
+  <data name="Known_office_update" xml:space="preserve"><value>Lancement ou mise à jour de Microsoft Office</value></data>
+  <data name="Known_firefox_update" xml:space="preserve"><value>Mises à jour de Firefox</value></data>
+</root>

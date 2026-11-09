@@ -1,0 +1,34 @@
+{
+  "name": "Appinfo",
+  "displayName": { "fr": "Informations d'application", "en": "Application Information" },
+  "category": "security",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet de lancer des programmes en administrateur (fenêtre UAC).",
+    "en": "Lets programs run as administrator (UAC prompt)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est lui qui affiche la fenêtre « Voulez-vous autoriser… ? ». Sans lui, impossible d'exécuter quoi que ce soit en administrateur, y compris pour le réparer.",
+      "en": "It shows the “Do you want to allow…?” prompt. Without it, nothing can be run as administrator, not even to repair it."
+    },
+    "avance": {
+      "fr": "Gère l'élévation (UAC) et le lancement des applications avec des droits supplémentaires. Démarré à la demande.",
+      "en": "Handles elevation (UAC) and launching apps with extra rights. Started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, appinfo.dll, LocalSystem. Lance consent.exe sur le bureau sécurisé.",
+      "en": "svchost -k netsvcs, appinfo.dll, LocalSystem. Launches consent.exe on the secure desktop."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus aucune élévation administrateur possible", "en": "No administrator elevation possible anymore" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

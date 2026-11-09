@@ -1,0 +1,38 @@
+{
+  "name": "WaaSMedicSvc",
+  "displayName": { "fr": "Service Médic Windows Update", "en": "Windows Update Medic Service" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Répare automatiquement les composants de Windows Update lorsqu'ils sont endommagés ou désactivés.",
+    "en": "Automatically repairs Windows Update components when they are damaged or disabled."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est le « médecin » de Windows Update : si quelque chose (ou quelqu'un) empêche les mises à jour, il remet tout en état. C'est souvent lui qui « annule » ce que font les optimiseurs.",
+      "en": "This is Windows Update's “doctor”: if something (or someone) blocks updates, it puts everything back. It is often the one that “undoes” what optimizer tools do."
+    },
+    "avance": {
+      "fr": "Il surveille wuauserv, UsoSvc, BITS et leurs tâches planifiées, et rétablit leur type de démarrage d'origine. Il est protégé : même un administrateur ne peut pas modifier sa configuration avec services.msc.",
+      "en": "It watches wuauserv, UsoSvc, BITS and their scheduled tasks, and restores their original startup type. It is protected: even an administrator cannot change its configuration with services.msc."
+    },
+    "expert": {
+      "fr": "WaaSMedicSvc.dll dans svchost, LocalSystem. La clé du service porte une ACL restrictive (écriture réservée à TrustedInstaller/SYSTEM) : toute modification exige les privilèges TrustedInstaller (reporté en v2). La tâche \\Microsoft\\Windows\\WaaSMedic\\PerformRemediation déclenche les réparations.",
+      "en": "WaaSMedicSvc.dll in svchost, LocalSystem. The service key has a restrictive ACL (write reserved to TrustedInstaller/SYSTEM): any change requires TrustedInstaller privileges (deferred to v2). The \\Microsoft\\Windows\\WaaSMedic\\PerformRemediation task triggers repairs."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Windows Update n'est plus réparé automatiquement en cas de panne", "en": "Windows Update is no longer repaired automatically when it breaks" },
+    { "fr": "Les désactivations de wuauserv / UsoSvc deviennent durables", "en": "Disabling wuauserv / UsoSvc becomes lasting" }
+  ],
+  "revivers": [
+    { "type": "task", "target": "\\Microsoft\\Windows\\WaaSMedic\\*" },
+    { "type": "update", "target": "cumulative-update" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/deployment/update/windows-update-overview" ]
+}

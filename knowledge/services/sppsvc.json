@@ -1,0 +1,34 @@
+{
+  "name": "sppsvc",
+  "displayName": { "fr": "Protection logicielle", "en": "Software Protection" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère l'activation de Windows et d'Office.",
+    "en": "Manages Windows and Office activation."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Vérifie que Windows est activé. Le couper fait apparaître des messages « Windows n'est pas activé ».",
+      "en": "Checks that Windows is activated. Turning it off brings up “Windows is not activated” messages."
+    },
+    "avance": {
+      "fr": "Démarrage automatique différé, puis il s'arrête. Clé protégée.",
+      "en": "Delayed automatic start, then it stops. Protected key."
+    },
+    "expert": {
+      "fr": "sppsvc.exe, NetworkService.",
+      "en": "sppsvc.exe, NetworkService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Windows et Office signalés comme non activés", "en": "Windows and Office reported as not activated" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

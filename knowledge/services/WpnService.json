@@ -1,0 +1,34 @@
+{
+  "name": "WpnService",
+  "displayName": { "fr": "Service du système de notifications Push Windows", "en": "Windows Push Notifications System Service" },
+  "category": "ui",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fait arriver les notifications des applications.",
+    "en": "Delivers app notifications."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sans lui, plus de notifications (mails, messages, rappels) ni de tuiles à jour.",
+      "en": "Without it, no more notifications (mail, messages, reminders) and no live tiles."
+    },
+    "avance": {
+      "fr": "Démarrage automatique. Le service par utilisateur WpnUserService en dépend.",
+      "en": "Automatic start. The per-user WpnUserService depends on it."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, wpnservice.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, wpnservice.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus aucune notification", "en": "No more notifications" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

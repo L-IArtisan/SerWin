@@ -1,0 +1,35 @@
+{
+  "name": "CDPSvc",
+  "displayName": { "fr": "Service de plateforme des appareils connectés", "en": "Connected Devices Platform Service" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Relie le PC à tes autres appareils (téléphone, partage de proximité, presse-papiers cloud).",
+    "en": "Links the PC to your other devices (phone, Nearby sharing, cloud clipboard)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner Mobile connecté, le partage de proximité et le presse-papiers synchronisé. Si tu n'utilises rien de cela, tu peux le couper.",
+      "en": "Powers Phone Link, Nearby sharing and synced clipboard. If you use none of these, you can turn it off."
+    },
+    "avance": {
+      "fr": "Démarrage automatique différé. Le service par utilisateur CDPUserSvc en dépend. Échange des données avec le compte Microsoft.",
+      "en": "Delayed automatic start. The per-user CDPUserSvc depends on it. Exchanges data with the Microsoft account."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, CDPSvc.dll, LocalService.",
+      "en": "svchost -k LocalService, CDPSvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mobile connecté et partage de proximité hors service", "en": "Phone Link and Nearby sharing broken" },
+    { "fr": "Presse-papiers non synchronisé", "en": "Clipboard no longer synced" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

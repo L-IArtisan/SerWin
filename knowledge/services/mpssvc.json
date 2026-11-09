@@ -1,0 +1,39 @@
+{
+  "name": "mpssvc",
+  "displayName": { "fr": "Pare-feu Windows Defender", "en": "Windows Defender Firewall" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Filtre les connexions réseau entrantes et sortantes pour protéger le PC.",
+    "en": "Filters incoming and outgoing network connections to protect the PC."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est le pare-feu de Windows : il bloque les connexions non désirées venant d'Internet ou du réseau local. Ne le coupe pas ; si besoin, désactive plutôt le pare-feu dans la Sécurité Windows.",
+      "en": "This is the Windows firewall: it blocks unwanted connections from the Internet or local network. Do not stop it; if needed, turn off the firewall in Windows Security instead."
+    },
+    "avance": {
+      "fr": "Microsoft déconseille d'arrêter le service, même avec un pare-feu tiers : l'installation d'applications du Store, le partage réseau, l'IPsec et certains jeux en dépendent. Pour désactiver le filtrage, on désactive les profils (domaine, privé, public), pas le service.",
+      "en": "Microsoft advises against stopping the service, even with a third-party firewall: Store app installs, network sharing, IPsec and some games depend on it. To disable filtering, turn off the profiles (domain, private, public), not the service."
+    },
+    "expert": {
+      "fr": "mpssvc.dll dans svchost, LocalService. Dépend de BFE (moteur de filtrage de base), mpsdrv et nsi. Règles stockées dans HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy. Récupération configurée en redémarrage du PC.",
+      "en": "mpssvc.dll in svchost, LocalService. Depends on BFE (Base Filtering Engine), mpsdrv and nsi. Rules stored in HKLM\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy. Recovery is set to reboot the PC."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Le PC est exposé aux connexions entrantes non sollicitées", "en": "The PC is exposed to unsolicited incoming connections" },
+    { "fr": "L'installation d'applications du Microsoft Store peut échouer", "en": "Microsoft Store app installs may fail" },
+    { "fr": "Les services Xbox réseau et IPsec ne fonctionnent plus", "en": "Xbox networking and IPsec services stop working" }
+  ],
+  "revivers": [
+    { "type": "service", "target": "SecurityHealthService" },
+    { "type": "policy", "target": "HKLM\\SOFTWARE\\Policies\\Microsoft\\WindowsFirewall" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/security/operating-system-security/network-security/windows-firewall/" ]
+}

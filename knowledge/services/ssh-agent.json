@@ -1,0 +1,34 @@
+{
+  "name": "ssh-agent",
+  "displayName": { "fr": "Agent d'authentification OpenSSH", "en": "OpenSSH Authentication Agent" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Garde en mémoire tes clés SSH déverrouillées pour ne pas retaper leur phrase secrète.",
+    "en": "Keeps your unlocked SSH keys in memory so you do not retype their passphrase."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu te connectes à des serveurs ou à GitHub avec des clés SSH. Désactivé par défaut dans Windows.",
+      "en": "Only useful if you connect to servers or GitHub with SSH keys. Disabled by default in Windows."
+    },
+    "avance": {
+      "fr": "Utilisé par ssh, scp et Git (avec OpenSSH) via « ssh-add ». Sans lui, les clés protégées par phrase secrète la redemandent à chaque connexion. Pour l'utiliser : type Automatique ou Manuel, puis « ssh-add ».",
+      "en": "Used by ssh, scp and Git (with OpenSSH) via “ssh-add”. Without it, passphrase-protected keys ask for it on every connection. To use it: set Automatic or Manual, then run “ssh-add”."
+    },
+    "expert": {
+      "fr": "%SystemRoot%\\System32\\OpenSSH\\ssh-agent.exe, LocalSystem. Les clés ajoutées sont stockées chiffrées (DPAPI) dans HKCU\\Software\\OpenSSH\\Agent\\Keys et persistent entre les redémarrages.",
+      "en": "%SystemRoot%\\System32\\OpenSSH\\ssh-agent.exe, LocalSystem. Added keys are stored encrypted (DPAPI) in HKCU\\Software\\OpenSSH\\Agent\\Keys and persist across reboots."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "La phrase secrète des clés SSH est redemandée à chaque connexion", "en": "SSH key passphrases are asked on every connection" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows-server/administration/openssh/openssh_keymanagement" ]
+}

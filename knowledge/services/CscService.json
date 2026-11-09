@@ -1,0 +1,35 @@
+{
+  "name": "CscService",
+  "displayName": { "fr": "Fichiers hors connexion", "en": "Offline Files" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Garde une copie locale des fichiers réseau pour y accéder hors connexion.",
+    "en": "Keeps a local copy of network files for offline access."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu as activé les « Fichiers hors connexion » sur un partage réseau (fréquent en entreprise).",
+      "en": "Only useful if you enabled “Offline Files” on a network share (common in companies)."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur. Sur Windows Famille, la fonctionnalité n'est pas disponible.",
+      "en": "Started by trigger. On Windows Home, the feature is not available."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, cscsvc.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, cscsvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fichiers réseau hors connexion inaccessibles", "en": "Offline network files inaccessible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non joint à un domaine : les fichiers hors connexion ne sont pas utilisés.", "en": "PC not domain-joined: Offline Files are not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

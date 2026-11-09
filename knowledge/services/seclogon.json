@@ -1,0 +1,34 @@
+{
+  "name": "seclogon",
+  "displayName": { "fr": "Ouverture de session secondaire", "en": "Secondary Logon" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet « Exécuter en tant qu'autre utilisateur ».",
+    "en": "Enables “Run as a different user”."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à lancer un programme avec un autre compte. Certains installateurs l'utilisent.",
+      "en": "Used to launch a program with another account. Some installers use it."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par runas.exe et quelques logiciels.",
+      "en": "Started on demand by runas.exe and some programs."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, seclogon.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, seclogon.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "« Exécuter en tant qu'autre utilisateur » impossible", "en": "“Run as a different user” impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

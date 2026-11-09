@@ -1,0 +1,34 @@
+{
+  "name": "RemoteAccess",
+  "displayName": { "fr": "Routage et accès distant", "en": "Routing and Remote Access" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Transforme le PC en routeur ou en serveur d'accès distant (VPN, ligne commutée).",
+    "en": "Turns the PC into a router or remote access server (VPN, dial-up)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction de serveur pour entreprises. Il n'est pas nécessaire pour te connecter toi-même à un VPN. Désactivé par défaut.",
+      "en": "A server feature for companies. It is not needed to connect to a VPN yourself. Disabled by default."
+    },
+    "avance": {
+      "fr": "Les connexions VPN sortantes utilisent le Gestionnaire de connexions d'accès distant (RasMan), pas ce service. RemoteAccess sert à accepter des connexions entrantes ou à router entre réseaux.",
+      "en": "Outgoing VPN connections use the Remote Access Connection Manager (RasMan), not this service. RemoteAccess is for accepting incoming connections or routing between networks."
+    },
+    "expert": {
+      "fr": "mprdim.dll dans svchost, LocalSystem. Dépend de RasMan, BFE, Http, RpcSs. Le partage de connexion Internet (ICS) relève d'un autre service (SharedAccess).",
+      "en": "mprdim.dll in svchost, LocalSystem. Depends on RasMan, BFE, Http, RpcSs. Internet Connection Sharing (ICS) is a different service (SharedAccess)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Le PC ne peut pas servir de routeur ni de serveur VPN", "en": "The PC cannot act as a router or VPN server" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

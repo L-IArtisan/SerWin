@@ -1,0 +1,1129 @@
+<ui:FluentWindow x:Class="SerWin.App.Views.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+                 xmlns:loc="clr-namespace:SerWin.App.Localization"
+                 xmlns:vm="clr-namespace:SerWin.App.ViewModels"
+                 mc:Ignorable="d"
+                 d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
+                 Title="SerWin" Width="1280" Height="800" MinWidth="960" MinHeight="560"
+                 WindowStartupLocation="CenterScreen"
+                 ExtendsContentIntoTitleBar="True"
+                 WindowBackdropType="Mica"
+                 WindowCornerPreference="Round">
+
+    <ui:FluentWindow.Resources>
+        <Style x:Key="SectionTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Margin" Value="0,18,0,6" />
+            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        </Style>
+        <Style x:Key="Body" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="LineHeight" Value="21" />
+            <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        </Style>
+        <Style x:Key="Secondary" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+        </Style>
+        <Style x:Key="KeyText" TargetType="TextBlock" BasedOn="{StaticResource Secondary}">
+            <Setter Property="Width" Value="190" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        <Style x:Key="ValueText" TargetType="TextBlock" BasedOn="{StaticResource Body}">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontFamily" Value="Cascadia Mono, Consolas" />
+        </Style>
+        <Style x:Key="KvRow" TargetType="DockPanel">
+            <Setter Property="Margin" Value="0,3" />
+        </Style>
+        <Style x:Key="Badge" TargetType="Border">
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="9,2" />
+            <Setter Property="Margin" Value="0,0,6,6" />
+            <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+    </ui:FluentWindow.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Title="SerWin" />
+
+        <!-- ═════════ Notification (résultat d'action) ═════════ -->
+        <ui:InfoBar Grid.Row="2" Margin="16,0,16,8" IsClosable="True"
+                    IsOpen="{Binding IsNotificationOpen, Mode=TwoWay}" Title="{Binding NotificationTitle}"
+                    Message="{Binding NotificationMessage}" Severity="{Binding NotificationSeverity}" />
+
+        <!-- ═════════ En-tête : recherche + niveau ═════════ -->
+        <Grid Grid.Row="1" Margin="16,4,16,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center" FontSize="13"
+                       Style="{StaticResource Secondary}" Text="{loc:T App_Tagline}" Margin="2,0,16,0" />
+            <ui:Button Grid.Column="5" Margin="8,0,0,0" Appearance="Primary" Icon="{ui:SymbolIcon Shield24}"
+                       Content="{loc:T Action_Elevate}" Command="{Binding ElevateCommand}" ToolTip="{loc:T Action_ElevateHelp}"
+                       Visibility="{Binding ShowElevationBanner, Converter={StaticResource BoolToVis}}" />
+            <ui:TextBox Grid.Column="1" MaxWidth="520" HorizontalAlignment="Left" MinWidth="320"
+                        PlaceholderText="{loc:T Search_Placeholder}"
+                        Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                        Icon="{ui:SymbolIcon Search24}" ClearButtonEnabled="True" />
+            <TextBlock Grid.Column="2" VerticalAlignment="Center" Margin="16,0,8,0" Text="{loc:T Level_Label}" />
+            <ComboBox Grid.Column="3" MinWidth="130" ItemsSource="{Binding Levels}"
+                      SelectedItem="{Binding SelectedLevel}" DisplayMemberPath="Label" />
+            <ui:Button Grid.Column="4" Margin="8,0,0,0" Icon="{ui:SymbolIcon ArrowClockwise24}"
+                       Command="{Binding RefreshCommand}" ToolTip="{loc:T Action_Refresh}" />
+        </Grid>
+
+        <!-- ═════════ Contenu ═════════ -->
+        <Grid Grid.Row="3" Margin="8,0,8,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="360" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Navigation -->
+            <StackPanel Grid.Column="0" Margin="0,0,8,0">
+                <ListBox SelectedIndex="{Binding NavIndex}" Background="Transparent" BorderThickness="0">
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="Apps24" Margin="0,0,10,0" />
+                            <TextBlock Text="{loc:T Nav_Services}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="Board24" Margin="0,0,10,0" />
+                            <TextBlock Text="{loc:T Nav_Processes}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="Lightbulb24" Margin="0,0,10,0" />
+                            <TextBlock Text="{Binding SuggestionsNavLabel}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="Alert24" Margin="0,0,10,0" />
+                            <TextBlock Text="{Binding AlertsNavLabel}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="History24" Margin="0,0,10,0" />
+                            <TextBlock Text="{loc:T Nav_History}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="Settings24" Margin="0,0,10,0" />
+                            <TextBlock Text="{loc:T Nav_Settings}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </StackPanel>
+
+            <!-- ───── Page Services : liste ───── -->
+            <Border Grid.Column="1" Margin="0,0,8,0" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsServicesPage, Converter={StaticResource BoolToVis}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <DockPanel Margin="10,10,10,6">
+                        <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,0,8,0" Text="{loc:T Filter_Label}" />
+                        <ComboBox ItemsSource="{Binding Filters}" SelectedItem="{Binding SelectedFilter}" DisplayMemberPath="Label" />
+                    </DockPanel>
+
+                    <ListBox x:Name="ServiceList" Grid.Row="1" ItemsSource="{Binding ServicesView}" SelectedItem="{Binding SelectedService}"
+                             VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0"
+                             Margin="4,0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="{x:Type vm:ServiceItemViewModel}">
+                                <Grid Margin="0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="18" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Ellipse Width="8" Height="8" VerticalAlignment="Center" Fill="{Binding StateBrush}"
+                                             ToolTip="{Binding StateLabel}" />
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock Text="{Binding DisplayName}" TextTrimming="CharacterEllipsis" FontSize="13" />
+                                        <TextBlock Text="{Binding Name}" Style="{StaticResource Secondary}" FontSize="11" TextTrimming="CharacterEllipsis" />
+                                    </StackPanel>
+                                    <Ellipse Grid.Column="2" Width="12" Height="12" Margin="8,0,2,0" VerticalAlignment="Center"
+                                             Fill="{Binding RiskBrush}" ToolTip="{Binding RiskLabel}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <ui:ProgressRing Grid.Row="1" IsIndeterminate="True" Width="40" Height="40"
+                                     Visibility="{Binding IsLoading, Converter={StaticResource BoolToVis}}" />
+                    <TextBlock Grid.Row="1" Margin="16" Style="{StaticResource Body}" Text="{Binding LoadError}"
+                               Visibility="{Binding HasLoadError, Converter={StaticResource BoolToVis}}" />
+
+                    <TextBlock Grid.Row="2" Margin="12,6,12,8" Style="{StaticResource Secondary}" Text="{Binding CountText}" />
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Services : fiche ───── -->
+            <Border Grid.Column="2" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsServicesPage, Converter={StaticResource BoolToVis}}">
+                <Grid DataContext="{Binding SelectedService}">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource Secondary}"
+                               Text="{loc:T Detail_NoSelection}"
+                               Visibility="{Binding DataContext.HasSelection, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                    <Grid Visibility="{Binding DataContext.HasSelection, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BoolToVis}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!-- En-tête de fiche -->
+                        <StackPanel Margin="20,16,20,4">
+                            <TextBlock Text="{Binding DisplayName}" FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" />
+                            <TextBlock Text="{Binding Name}" Style="{StaticResource Secondary}" Margin="0,2,0,10" />
+                            <WrapPanel>
+                                <Border Style="{StaticResource Badge}" Background="{Binding RiskBrush}" BorderThickness="0"
+                                        ToolTip="{Binding RiskExplanation}">
+                                    <TextBlock Text="{Binding RiskLabel}" Foreground="White" FontWeight="SemiBold" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse Width="8" Height="8" Fill="{Binding StateBrush}" Margin="0,0,6,0" VerticalAlignment="Center" />
+                                        <TextBlock Text="{Binding StateLabel}" FontSize="12" />
+                                    </StackPanel>
+                                </Border>
+                                <Border Style="{StaticResource Badge}">
+                                    <TextBlock Text="{Binding StartModeLabel}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{Binding CategoryLabel}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}"
+                                        ToolTip="{Binding VerificationDetail}">
+                                    <TextBlock Text="{Binding VerificationLabel}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsUndocumented, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Badge_Undocumented}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsUntranslated, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Badge_Untranslated}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsThirdParty, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Badge_ThirdParty}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Background="#26D13438"
+                                        Visibility="{Binding Info.IsAclLocked, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Badge_Locked}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Background="#26E88A1A"
+                                        Visibility="{Binding IsRevived, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Badge_Revived}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsPrivacy, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Badge_Privacy}" FontSize="12" />
+                                </Border>
+                            </WrapPanel>
+                        </StackPanel>
+
+                        <TabControl Grid.Row="1" Margin="12,4,12,12"
+                                    SelectedIndex="{Binding DataContext.SelectedTabIndex, RelativeSource={RelativeSource AncestorType=Window}}">
+                            <!-- ── Comprendre ── -->
+                            <TabItem Header="{loc:T Tab_Understand}">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <StackPanel Margin="10,4,16,16">
+                                        <Border Margin="0,8,0,0" Padding="12,8" CornerRadius="6" Background="#22E88A1A"
+                                                Visibility="{Binding ShowVersionWarning, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Warning_NotVerifiedOnYourVersion}" />
+                                        </Border>
+                                        <Border Margin="0,8,0,0" Padding="12,8" CornerRadius="6" Background="{Binding SafetyBackground}"
+                                                Visibility="{Binding HasSafetyNote, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding SafetyNote}" />
+                                        </Border>
+
+                                        <Border Margin="0,8,0,0" Padding="12,8" CornerRadius="6" Background="{Binding VerdictBackground}"
+                                                Visibility="{Binding HasVerdict, Converter={StaticResource BoolToVis}}">
+                                            <StackPanel>
+                                                <TextBlock Style="{StaticResource Body}" FontSize="13" FontWeight="SemiBold" Text="{Binding VerdictTitle}" />
+                                                <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding VerdictText}" />
+                                            </StackPanel>
+                                        </Border>
+
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_WhatFor}" />
+                                        <TextBlock Style="{StaticResource Body}" Text="{Binding Summary}" />
+
+                                        <StackPanel Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_Explanation}" />
+                                            <TextBlock Style="{StaticResource Body}" Text="{Binding LevelText}" />
+                                        </StackPanel>
+
+                                        <StackPanel Visibility="{Binding HasIfDisabled, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_IfDisabled}" />
+                                            <ItemsControl ItemsSource="{Binding IfDisabled}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <DockPanel Margin="4,2">
+                                                            <TextBlock DockPanel.Dock="Left" Width="18" Text="•" />
+                                                            <TextBlock Style="{StaticResource Body}" Text="{Binding}" />
+                                                        </DockPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+
+                                        <StackPanel Visibility="{Binding ShowRevivers, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_KnownRevivers}" />
+                                            <ItemsControl ItemsSource="{Binding KnownRevivers}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <DockPanel Margin="4,2">
+                                                            <TextBlock DockPanel.Dock="Left" Width="18" Text="↻" />
+                                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding}" />
+                                                        </DockPanel>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+
+                                        <!-- Données observées : toujours présentes, mises en avant pour les services non documentés -->
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_Observed}" />
+                                        <TextBlock Style="{StaticResource Secondary}" Margin="0,0,0,6" Text="{loc:T Observed_Intro}"
+                                                   Visibility="{Binding IsUndocumented, Converter={StaticResource BoolToVis}}" />
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_WindowsDescription}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding WindowsDescription}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Executable}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding Executable}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Publisher}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding Publisher}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Dependencies}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding DependenciesText}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Dependents}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding DependentsText}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Triggers}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding TriggerSummary}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}" Visibility="{Binding HasConsumption, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Consumption}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding Consumption}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}" Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Default}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding DefaultText}" />
+                                        </DockPanel>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+
+                            <!-- ── Qui le relance (v0.3) / Agir (v0.2) : annoncés, pas encore actifs ── -->
+                            <TabItem Header="{loc:T Tab_WhoRevives}">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                              DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}">
+                                    <StackPanel Margin="10,4,16,16">
+                                        <ui:ProgressRing Margin="0,12,0,0" Width="28" Height="28" HorizontalAlignment="Left" IsIndeterminate="True"
+                                                         Visibility="{Binding IsAnalyzing, Converter={StaticResource BoolToVis}}" />
+
+                                        <!-- ── Analyse statique ── -->
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Rev_StaticTitle}" />
+                                        <TextBlock Style="{StaticResource Secondary}" Margin="0,0,0,8" Text="{loc:T Rev_StaticIntro}" />
+                                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Rev_NoneFound}"
+                                                   Visibility="{Binding HasFindings, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                                        <ItemsControl ItemsSource="{Binding Findings}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate DataType="{x:Type vm:FindingViewModel}">
+                                                    <Border Margin="0,0,0,6" Padding="12,8" CornerRadius="6" Opacity="{Binding Opacity}"
+                                                            Background="{DynamicResource ControlFillColorDefaultBrush}">
+                                                        <DockPanel>
+                                                            <Border DockPanel.Dock="Right" VerticalAlignment="Top" CornerRadius="8" Padding="8,1" Margin="10,0,0,0"
+                                                                    Background="{Binding StrengthBrush}">
+                                                                <TextBlock Text="{Binding StrengthLabel}" Foreground="White" FontSize="11" FontWeight="SemiBold" />
+                                                            </Border>
+                                                            <StackPanel>
+                                                                <TextBlock Style="{StaticResource Body}" FontSize="13" FontWeight="SemiBold" Text="{Binding Title}" />
+                                                                <TextBlock Style="{StaticResource Secondary}" Margin="0,2,0,0" Text="{Binding Detail}"
+                                                                           Visibility="{Binding HasDetail, Converter={StaticResource BoolToVis}}" />
+                                                            </StackPanel>
+                                                        </DockPanel>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock Style="{StaticResource Secondary}" Margin="0,4,0,0" Text="{Binding TaskInventoryText}" />
+
+                                        <!-- ── Chronologie ── -->
+                                        <TextBlock Style="{StaticResource SectionTitle}" Margin="0,22,0,6" Text="{loc:T Rev_TimelineTitle}" />
+                                        <TextBlock Style="{StaticResource Secondary}" Margin="0,0,0,8" Text="{loc:T Rev_TimelineIntro}" />
+                                        <Border Margin="0,0,0,10" Padding="12,10" CornerRadius="6" Background="#262B88D8"
+                                                Visibility="{Binding ShowTaskLogBanner, Converter={StaticResource BoolToVis}}">
+                                            <DockPanel>
+                                                <ui:Button DockPanel.Dock="Right" Margin="12,0,0,0" Appearance="Primary"
+                                                           Content="{loc:T Action_EnableTaskLog}" Command="{Binding EnableTaskLogCommand}"
+                                                           Visibility="{Binding IsElevated, Converter={StaticResource BoolToVis}}" />
+                                                <ui:Button DockPanel.Dock="Right" Margin="12,0,0,0" Icon="{ui:SymbolIcon Shield24}"
+                                                           Content="{loc:T Action_Elevate}" Command="{Binding ElevateCommand}"
+                                                           Visibility="{Binding ShowElevationBanner, Converter={StaticResource BoolToVis}}" />
+                                                <TextBlock Style="{StaticResource Body}" FontSize="13" VerticalAlignment="Center" Text="{loc:T TaskLog_Disabled}" />
+                                            </DockPanel>
+                                        </Border>
+                                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Rev_NoEvents}"
+                                                   Visibility="{Binding HasTimeline, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                                        <ItemsControl ItemsSource="{Binding Timeline}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate DataType="{x:Type vm:TimelineItemViewModel}">
+                                                    <DockPanel Margin="0,0,0,10">
+                                                        <Ellipse DockPanel.Dock="Left" Width="10" Height="10" Margin="2,5,10,0" VerticalAlignment="Top" Fill="{Binding Brush}" />
+                                                        <StackPanel>
+                                                            <TextBlock Style="{StaticResource Body}" FontSize="13">
+                                                                <Run Text="{Binding When, Mode=OneWay}" FontWeight="SemiBold" />
+                                                                <Run Text=" — " />
+                                                                <Run Text="{Binding Title, Mode=OneWay}" />
+                                                            </TextBlock>
+                                                            <TextBlock Style="{StaticResource Secondary}" Text="{Binding By}"
+                                                                       Visibility="{Binding HasBy, Converter={StaticResource BoolToVis}}" />
+                                                            <ItemsControl ItemsSource="{Binding Clues}" Margin="0,2,0,0">
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <TextBlock Style="{StaticResource Secondary}" Margin="8,1,0,0" Text="{Binding StringFormat='↳ {0}'}" />
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                        </StackPanel>
+                                                    </DockPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <TextBlock Style="{StaticResource Secondary}" Margin="0,6,0,0" Text="{loc:T Rev_EtwNote}" />
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+                            <TabItem Header="{loc:T Tab_Act}">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                              DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}">
+                                    <StackPanel Margin="10,4,16,16">
+                                        <Border Margin="0,8,0,0" Padding="12,10" CornerRadius="6" Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                                Visibility="{Binding ShowElevationBanner, Converter={StaticResource BoolToVis}}">
+                                            <DockPanel>
+                                                <ui:Button DockPanel.Dock="Right" Margin="12,0,0,0" Appearance="Primary" Icon="{ui:SymbolIcon Shield24}"
+                                                           Content="{loc:T Action_Elevate}" Command="{Binding ElevateCommand}" />
+                                                <TextBlock Style="{StaticResource Body}" FontSize="13" VerticalAlignment="Center" Text="{loc:T Act_NeedAdmin}" />
+                                            </DockPanel>
+                                        </Border>
+                                        <Border Margin="0,8,0,0" Padding="12,8" CornerRadius="6" Background="#26D13438"
+                                                Visibility="{Binding SelectedService.IsBlocked, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Act_Blocked}" />
+                                        </Border>
+
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Act_StateSection}" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <Ellipse Width="10" Height="10" Margin="0,0,8,0" VerticalAlignment="Center" Fill="{Binding SelectedService.StateBrush}" />
+                                            <TextBlock Style="{StaticResource Body}" Text="{Binding SelectedService.StateLabel}" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                            <ui:Button Margin="0,0,8,0" Icon="{ui:SymbolIcon Play24}" Content="{loc:T Act_Start}" Command="{Binding StartServiceCommand}" />
+                                            <ui:Button Icon="{ui:SymbolIcon Stop24}" Content="{loc:T Act_Stop}" Command="{Binding StopServiceCommand}" />
+                                        </StackPanel>
+
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Field_StartMode}" />
+                                        <TextBlock Style="{StaticResource Secondary}" Margin="0,0,0,6" Text="{Binding SelectedService.PerUserNote}"
+                                                   Visibility="{Binding SelectedService.HasPerUserNote, Converter={StaticResource BoolToVis}}" />
+                                        <StackPanel Orientation="Horizontal">
+                                            <ComboBox MinWidth="240" ItemsSource="{Binding StartModeOptions}" SelectedItem="{Binding SelectedStartMode}"
+                                                      DisplayMemberPath="Label" IsEnabled="{Binding SelectedService.CanChangeStartMode}" />
+                                            <ui:Button Margin="8,0,0,0" Appearance="Primary" Content="{loc:T Act_Apply}" Command="{Binding ApplyStartModeCommand}" />
+                                        </StackPanel>
+                                        <TextBlock Style="{StaticResource Secondary}" Margin="0,8,0,0" Text="{loc:T Act_StartModeHelp}" />
+
+                                        <Border Margin="0,12,0,0" Padding="12,8" CornerRadius="6" Background="#26E88A1A"
+                                                Visibility="{Binding SelectedService.HasKnownRevivers, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13">
+                                                <Run Text="{loc:T Act_RevivedBy}" />
+                                                <Run Text="{Binding SelectedService.RevivedByText, Mode=OneWay}" FontWeight="SemiBold" />
+                                            </TextBlock>
+                                        </Border>
+
+                                        <!-- ── Avancé : neutralisation complète ── -->
+                                        <StackPanel Visibility="{Binding ShowNeutralize, Converter={StaticResource BoolToVis}}">
+                                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Neutralize_Title}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Neutralize_Help}" />
+                                            <ui:Button Margin="0,10,0,0" Appearance="Caution" Icon="{ui:SymbolIcon ShieldDismiss24}"
+                                                       Content="{loc:T Neutralize_Button}" Command="{Binding NeutralizeCommand}" />
+                                        </StackPanel>
+
+                                        <!-- ── Expert : verrouillage ACL (et déverrouillage toujours accessible) ── -->
+                                        <StackPanel>
+                                            <StackPanel.Style>
+                                                <Style TargetType="StackPanel">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding ShowLock}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding SelectedService.Info.IsAclLocked}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </StackPanel.Style>
+                                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Lock_Title}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Lock_Help}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Margin="0,6,0,0" FontWeight="SemiBold" Text="{loc:T Lock_IsLocked}"
+                                                       Visibility="{Binding SelectedService.Info.IsAclLocked, Converter={StaticResource BoolToVis}}" />
+                                            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                                                <ui:Button Appearance="Danger" Icon="{ui:SymbolIcon LockClosed24}" Content="{loc:T Lock_Button}"
+                                                           Command="{Binding LockCommand}" Margin="0,0,8,0"
+                                                           Visibility="{Binding SelectedService.Info.IsAclLocked, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                                                <ui:Button Icon="{ui:SymbolIcon LockOpen24}" Content="{loc:T Unlock_Button}" Command="{Binding UnlockCommand}"
+                                                           Visibility="{Binding SelectedService.Info.IsAclLocked, Converter={StaticResource BoolToVis}}" />
+                                            </StackPanel>
+                                        </StackPanel>
+
+                                        <TextBlock Style="{StaticResource Secondary}" Margin="0,18,0,0" Text="{loc:T Act_SafetyNet}" />
+                                        <ui:ProgressRing Margin="0,12,0,0" Width="28" Height="28" HorizontalAlignment="Left" IsIndeterminate="True"
+                                                         Visibility="{Binding IsBusy, Converter={StaticResource BoolToVis}}" />
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+
+                            <!-- ── Technique (masqué en mode Simple) ── -->
+                            <TabItem Header="{loc:T Tab_Technical}"
+                                     Visibility="{Binding ShowTechnical, Converter={StaticResource BoolToVis}}">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <StackPanel Margin="10,4,16,16">
+                                        <TextBlock Margin="0,8,0,0" Style="{StaticResource Secondary}" Text="{loc:T Technical_ConfigUnreadable}"
+                                                   Visibility="{Binding ConfigUnreadable, Converter={StaticResource BoolToVis}}" />
+
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_Configuration}" />
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_BinaryPath}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding BinaryPath}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_ServiceDll}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding ServiceDll, TargetNullValue='—'}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Account}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding AccountLabel}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_StartMode}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding StartModeLabel}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_ServiceType}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding ServiceTypeText}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_ProcessId}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding ProcessIdText}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_ErrorControl}" />
+                                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding ErrorControlText}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_LoadOrderGroup}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding LoadOrderGroup, TargetNullValue='—'}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_RegistryKey}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding RegistryPath}" />
+                                        </DockPanel>
+
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Field_Triggers}" />
+                                        <TextBlock Style="{StaticResource Secondary}" Text="{loc:T Value_None}"
+                                                   Visibility="{Binding HasTriggers, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                                        <ItemsControl ItemsSource="{Binding TriggerLines}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Style="{StaticResource ValueText}" Margin="0,2" Text="{Binding}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_Recovery}" />
+                                        <ItemsControl ItemsSource="{Binding RecoveryLines}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Style="{StaticResource ValueText}" Margin="0,2" Text="{Binding}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_Dependencies}" />
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Dependencies}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding DependenciesText}" />
+                                        </DockPanel>
+                                        <DockPanel Style="{StaticResource KvRow}">
+                                            <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Dependents}" />
+                                            <TextBlock Style="{StaticResource ValueText}" Text="{Binding DependentsText}" />
+                                        </DockPanel>
+
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_Sddl}" />
+                                        <TextBlock Style="{StaticResource ValueText}" FontSize="12" Text="{Binding Sddl, TargetNullValue='—'}" />
+
+                                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_Commands}" />
+                                        <TextBlock Style="{StaticResource Secondary}" Margin="0,0,0,6" Text="{loc:T Commands_Intro}" />
+                                        <ItemsControl ItemsSource="{Binding Commands}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate DataType="{x:Type vm:CommandLine}">
+                                                    <DockPanel Margin="0,2">
+                                                        <ui:Button DockPanel.Dock="Right" Icon="{ui:SymbolIcon Copy24}" Padding="6"
+                                                                   Margin="8,0,0,0" ToolTip="{loc:T Action_Copy}"
+                                                                   Command="{Binding DataContext.CopyCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                                   CommandParameter="{Binding Command}" />
+                                                        <TextBlock DockPanel.Dock="Left" Width="150" Style="{StaticResource Secondary}"
+                                                                   VerticalAlignment="Center" Text="{Binding Label}" />
+                                                        <TextBlock Style="{StaticResource ValueText}" VerticalAlignment="Center" Text="{Binding Command}" />
+                                                    </DockPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </TabItem>
+                        </TabControl>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Processus : arbre / liste ───── -->
+            <Border Grid.Column="1" Margin="0,0,8,0" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsProcessesPage, Converter={StaticResource BoolToVis}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <DockPanel Margin="10,10,10,6">
+                        <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,0,8,0" Text="{loc:T Proc_ViewLabel}" />
+                        <ComboBox ItemsSource="{Binding ProcessViewModes}" SelectedItem="{Binding SelectedProcessViewMode}" DisplayMemberPath="Label" />
+                    </DockPanel>
+
+                    <TreeView Grid.Row="1" Margin="4,0" ItemsSource="{Binding ProcessRoots}" Background="Transparent" BorderThickness="0"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
+                              Visibility="{Binding IsTreeMode, Converter={StaticResource BoolToVis}}">
+                        <TreeView.ItemContainerStyle>
+                            <Style TargetType="TreeViewItem" BasedOn="{StaticResource {x:Type TreeViewItem}}">
+                                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                                <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                            </Style>
+                        </TreeView.ItemContainerStyle>
+                        <TreeView.Resources>
+                            <HierarchicalDataTemplate DataType="{x:Type vm:ProcessItemViewModel}" ItemsSource="{Binding Children}">
+                                <StackPanel Orientation="Horizontal" ToolTip="{Binding PathText}">
+                                    <Ellipse Width="8" Height="8" Margin="0,0,6,0" VerticalAlignment="Center" Fill="{Binding RiskBrush}" />
+                                    <TextBlock Text="{Binding TreeLabel}" FontSize="13" MaxWidth="240" TextTrimming="CharacterEllipsis" />
+                                    <TextBlock Text=" ⚠️" Visibility="{Binding HasWarning, Converter={StaticResource BoolToVis}}" ToolTip="{Binding WarningText}" />
+                                    <TextBlock Style="{StaticResource Secondary}" Margin="8,0,0,0" VerticalAlignment="Center" Text="{Binding CpuText}" />
+                                </StackPanel>
+                            </HierarchicalDataTemplate>
+                            <DataTemplate DataType="{x:Type vm:HostedServiceItemViewModel}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="⚙ " Style="{StaticResource Secondary}" VerticalAlignment="Center" />
+                                    <TextBlock Style="{StaticResource Secondary}" FontSize="12" VerticalAlignment="Center" Text="{Binding Label}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </TreeView.Resources>
+                    </TreeView>
+
+                    <ListBox Grid.Row="1" Margin="4,0" ItemsSource="{Binding FlatProcesses}" SelectedItem="{Binding SelectedProcess}"
+                             VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0"
+                             Visibility="{Binding IsFlatMode, Converter={StaticResource BoolToVis}}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="{x:Type vm:ProcessItemViewModel}">
+                                <Grid Margin="0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="16" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Ellipse Width="8" Height="8" VerticalAlignment="Center" Fill="{Binding RiskBrush}" />
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock FontSize="13" TextTrimming="CharacterEllipsis">
+                                            <Run Text="{Binding Name, Mode=OneWay}" />
+                                            <Run Text="{Binding PidText, Mode=OneWay}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" FontSize="11" />
+                                        </TextBlock>
+                                        <TextBlock Style="{StaticResource Secondary}" FontSize="11" TextTrimming="CharacterEllipsis" Text="{Binding Description}" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Margin="8,0,2,0" VerticalAlignment="Center">
+                                        <TextBlock HorizontalAlignment="Right" FontSize="12" Text="{Binding CpuText}" />
+                                        <TextBlock HorizontalAlignment="Right" Style="{StaticResource Secondary}" FontSize="11" Text="{Binding MemoryText}" />
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <TextBlock Grid.Row="2" Margin="12,6,12,8" Style="{StaticResource Secondary}" Text="{Binding ProcessCountText}" />
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Processus : fiche ───── -->
+            <Border Grid.Column="2" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsProcessesPage, Converter={StaticResource BoolToVis}}">
+                <Grid>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource Secondary}"
+                               Text="{loc:T Proc_NoSelection}"
+                               Visibility="{Binding HasSelectedProcess, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                  Visibility="{Binding HasSelectedProcess, Converter={StaticResource BoolToVis}}">
+                        <StackPanel Margin="20,16,20,16" DataContext="{Binding SelectedProcess}">
+                            <TextBlock FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="{Binding Name}" />
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,2,0,10">
+                                <Run Text="{Binding PidText, Mode=OneWay}" />
+                                <Run Text="{Binding Description, Mode=OneWay}" />
+                            </TextBlock>
+                            <WrapPanel>
+                                <Border Style="{StaticResource Badge}" Background="{Binding RiskBrush}" BorderThickness="0"
+                                        Visibility="{Binding IsBlocked, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Risk_Blocked}" Foreground="White" FontWeight="SemiBold" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}">
+                                    <TextBlock Text="{Binding SignatureLabel}" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Background="#26E88A1A" Visibility="{Binding HasWarning, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock FontSize="12" Text="{Binding WarningText, StringFormat='⚠️ {0}'}" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}" Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}, ConverterParameter=invert}">
+                                    <TextBlock Text="{loc:T Badge_Undocumented}" FontSize="12" />
+                                </Border>
+                            </WrapPanel>
+
+                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Proc_ConsumptionTitle}" />
+                            <UniformGrid Columns="3" HorizontalAlignment="Left" Width="420">
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource Secondary}" Text="{loc:T Proc_Cpu}" />
+                                    <TextBlock FontSize="18" FontWeight="SemiBold" Text="{Binding CpuText}" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource Secondary}" Text="{loc:T Proc_Memory}" />
+                                    <TextBlock FontSize="18" FontWeight="SemiBold" Text="{Binding MemoryText}" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Style="{StaticResource Secondary}" Text="{loc:T Proc_Io}" />
+                                    <TextBlock FontSize="18" FontWeight="SemiBold" Text="{Binding IoText}" />
+                                </StackPanel>
+                            </UniformGrid>
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,6,0,0" Text="{loc:T Proc_CountersUnavailable}"
+                                       Visibility="{Binding CountersUnavailable, Converter={StaticResource BoolToVis}}" />
+
+                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_WhatFor}" />
+                            <TextBlock Style="{StaticResource Body}" Text="{Binding Summary}" />
+                            <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0" Text="{Binding LevelText}"
+                                       Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}" />
+                            <StackPanel Visibility="{Binding HasIfDisabled, Converter={StaticResource BoolToVis}}">
+                                <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Proc_IfTerminated}" />
+                                <ItemsControl ItemsSource="{Binding IfDisabled}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel Margin="4,2">
+                                                <TextBlock DockPanel.Dock="Left" Width="18" Text="•" />
+                                                <TextBlock Style="{StaticResource Body}" Text="{Binding}" />
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+
+                            <StackPanel Visibility="{Binding HasHostedServices, Converter={StaticResource BoolToVis}}">
+                                <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Proc_HostedServices}" />
+                                <ItemsControl ItemsSource="{Binding HostedServiceItems}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type vm:HostedServiceItemViewModel}">
+                                            <DockPanel Margin="0,2">
+                                                <ui:Button DockPanel.Dock="Right" Padding="8,3" Content="{loc:T Proc_OpenService}"
+                                                           Command="{Binding DataContext.ShowServiceCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                           CommandParameter="{Binding Name}" />
+                                                <TextBlock Style="{StaticResource Body}" FontSize="13" VerticalAlignment="Center" Text="{Binding Label}" />
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+
+                            <StackPanel Visibility="{Binding ShowTechnical, Converter={StaticResource BoolToVis}}">
+                                <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Tab_Technical}" />
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Field_Executable}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding PathText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Proc_Parent}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding ParentText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Proc_Started}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding StartText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Proc_Session}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding SessionText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Proc_Threads}" />
+                                    <TextBlock Style="{StaticResource ValueText}" Text="{Binding ThreadsText}" />
+                                </DockPanel>
+                                <DockPanel Style="{StaticResource KvRow}">
+                                    <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Proc_Signature}" />
+                                    <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding SignatureLabel}" />
+                                </DockPanel>
+                            </StackPanel>
+
+                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Tab_Act}" />
+                            <StackPanel DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}">
+                                <TextBlock Style="{StaticResource Body}" FontSize="13" Margin="0,0,0,8" Text="{loc:T Proc_TerminateBlocked}"
+                                           Visibility="{Binding SelectedProcess.IsBlocked, Converter={StaticResource BoolToVis}}" />
+                                <TextBlock Style="{StaticResource Secondary}" Margin="0,0,0,8" Text="{loc:T Act_NeedAdmin}"
+                                           Visibility="{Binding ShowElevationBanner, Converter={StaticResource BoolToVis}}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <ui:Button Appearance="Danger" Icon="{ui:SymbolIcon Dismiss24}" Content="{loc:T Proc_Terminate}"
+                                               Command="{Binding TerminateProcessCommand}" />
+                                    <ui:Button Margin="8,0,0,0" Icon="{ui:SymbolIcon Shield24}" Content="{loc:T Action_Elevate}"
+                                               Command="{Binding ElevateCommand}"
+                                               Visibility="{Binding ShowElevationBanner, Converter={StaticResource BoolToVis}}" />
+                                </StackPanel>
+                                <TextBlock Style="{StaticResource Secondary}" Margin="0,8,0,0" Text="{loc:T Proc_TerminateHelp}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Suggestions (Chez toi) ───── -->
+            <Border Grid.Column="1" Grid.ColumnSpan="2" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsSuggestionsPage, Converter={StaticResource BoolToVis}}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="280" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="24,16,16,16">
+                            <TextBlock Text="{loc:T Sugg_Title}" FontSize="22" FontWeight="SemiBold" />
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,4,0,8" FontSize="13" Text="{loc:T Sugg_PageIntro}" />
+                            <ui:ProgressRing Width="28" Height="28" HorizontalAlignment="Left" IsIndeterminate="True"
+                                             Visibility="{Binding IsContextLoaded, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+
+                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Sugg_UselessTitle}" />
+                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Sugg_NoneUseless}"
+                                       Visibility="{Binding HasUselessSuggestions, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                            <ItemsControl ItemsSource="{Binding UselessSuggestions}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:SuggestionItemViewModel}">
+                                        <Border Margin="0,0,0,8" Padding="12,10" CornerRadius="6"
+                                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}" BorderThickness="1">
+                                            <DockPanel>
+                                                <CheckBox DockPanel.Dock="Left" VerticalAlignment="Top" Margin="0,0,8,0" IsChecked="{Binding IsChecked}" />
+                                                <ui:Button DockPanel.Dock="Right" VerticalAlignment="Top" Padding="8,3" Margin="10,0,0,0"
+                                                           Content="{loc:T Proc_OpenService}"
+                                                           Command="{Binding DataContext.ShowServiceCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                           CommandParameter="{Binding Name}" />
+                                                <StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Ellipse Width="10" Height="10" Margin="0,0,8,0" VerticalAlignment="Center" Fill="{Binding RiskBrush}"
+                                                                 ToolTip="{Binding RiskLabel}" />
+                                                        <TextBlock FontWeight="SemiBold" FontSize="14" Text="{Binding Title}" />
+                                                    </StackPanel>
+                                                    <TextBlock Style="{StaticResource Secondary}" Margin="18,1,0,4" Text="{Binding StateText}" />
+                                                    <TextBlock Style="{StaticResource Body}" FontSize="13" Margin="18,0,0,0" Text="{Binding Reason}" />
+                                                    <TextBlock Style="{StaticResource Secondary}" Margin="18,4,0,0" Text="{Binding Consequences}"
+                                                               Visibility="{Binding HasConsequences, Converter={StaticResource BoolToVis}}" />
+                                                    <TextBlock Style="{StaticResource Secondary}" Margin="18,4,0,0" Foreground="#E88A1A" Text="{Binding RevivedWarning}"
+                                                               Visibility="{Binding HasRevivedWarning, Converter={StaticResource BoolToVis}}" />
+                                                </StackPanel>
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                            <TextBlock Style="{StaticResource SectionTitle}" Margin="0,22,0,6" Text="{loc:T Sugg_PrivacyTitle}" />
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,0,0,8" Text="{loc:T Sugg_PrivacyIntro}" />
+                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Sugg_NonePrivacy}"
+                                       Visibility="{Binding HasPrivacySuggestions, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                            <ItemsControl ItemsSource="{Binding PrivacySuggestions}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:SuggestionItemViewModel}">
+                                        <Border Margin="0,0,0,8" Padding="12,10" CornerRadius="6"
+                                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}" BorderThickness="1">
+                                            <DockPanel>
+                                                <CheckBox DockPanel.Dock="Left" VerticalAlignment="Top" Margin="0,0,8,0" IsChecked="{Binding IsChecked}" />
+                                                <ui:Button DockPanel.Dock="Right" VerticalAlignment="Top" Padding="8,3" Margin="10,0,0,0"
+                                                           Content="{loc:T Proc_OpenService}"
+                                                           Command="{Binding DataContext.ShowServiceCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                           CommandParameter="{Binding Name}" />
+                                                <StackPanel>
+                                                    <TextBlock FontWeight="SemiBold" FontSize="14" Text="{Binding Title}" />
+                                                    <TextBlock Style="{StaticResource Secondary}" Margin="0,1,0,4" Text="{Binding StateText}" />
+                                                    <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding Reason}" />
+                                                    <TextBlock Style="{StaticResource Secondary}" Margin="0,4,0,0" Text="{Binding Consequences}"
+                                                               Visibility="{Binding HasConsequences, Converter={StaticResource BoolToVis}}" />
+                                                    <TextBlock Style="{StaticResource Secondary}" Margin="0,4,0,0" Foreground="#E88A1A" Text="{Binding RevivedWarning}"
+                                                               Visibility="{Binding HasRevivedWarning, Converter={StaticResource BoolToVis}}" />
+                                                </StackPanel>
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <!-- Colonne : ce que SerWin a détecté + réglages d'usine -->
+                    <ScrollViewer Grid.Column="1" Grid.RowSpan="2" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="8,16,16,16">
+                            <TextBlock FontWeight="SemiBold" FontSize="14" Text="{loc:T Sugg_DetectedTitle}" />
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,2,0,8" Text="{loc:T Sugg_DetectedIntro}" />
+                            <ItemsControl ItemsSource="{Binding DetectedFacts}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:FactItem}">
+                                        <StackPanel Margin="0,0,0,6">
+                                            <TextBlock Style="{StaticResource Secondary}" Text="{Binding Name}" />
+                                            <TextBlock FontSize="13" TextWrapping="Wrap" Text="{Binding Value}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <TextBlock FontWeight="SemiBold" FontSize="14" Margin="0,14,0,4" Text="{loc:T Sugg_DefaultsTitle}" />
+                            <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding DefaultsSummaryText}" />
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <!-- Barre d'application -->
+                    <Border Grid.Row="1" Padding="24,10,16,12" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}">
+                        <DockPanel>
+                            <ui:Button DockPanel.Dock="Right" Appearance="Primary" Icon="{ui:SymbolIcon Checkmark24}"
+                                       Content="{Binding ApplySuggestionsLabel}" Command="{Binding ApplySuggestionsCommand}" />
+                            <ui:Button DockPanel.Dock="Right" Margin="0,0,8,0" Icon="{ui:SymbolIcon Shield24}" Content="{loc:T Action_Elevate}"
+                                       Command="{Binding ElevateCommand}"
+                                       Visibility="{Binding ShowElevationBanner, Converter={StaticResource BoolToVis}}" />
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding StopNow}" Content="{loc:T Sugg_StopNow}" />
+                        </DockPanel>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Alertes ───── -->
+            <Border Grid.Column="1" Grid.ColumnSpan="2" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsAlertsPage, Converter={StaticResource BoolToVis}}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="24,16,24,16">
+                        <TextBlock Text="{loc:T Nav_Alerts}" FontSize="22" FontWeight="SemiBold" />
+                        <TextBlock Style="{StaticResource Secondary}" Margin="0,4,0,14" FontSize="13" Text="{loc:T Alerts_Intro}" />
+                        <ui:ProgressRing Width="28" Height="28" HorizontalAlignment="Left" IsIndeterminate="True"
+                                         Visibility="{Binding IsAnalyzing, Converter={StaticResource BoolToVis}}" />
+                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Alerts_None}"
+                                   Visibility="{Binding HasAlerts, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                        <ItemsControl ItemsSource="{Binding Alerts}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type vm:AlertViewModel}">
+                                    <Border Margin="0,0,0,8" Padding="14,10" CornerRadius="6" Background="#1AE88A1A"
+                                            BorderBrush="#66E88A1A" BorderThickness="1">
+                                        <DockPanel>
+                                            <ui:Button DockPanel.Dock="Right" VerticalAlignment="Center" Margin="12,0,0,0"
+                                                       Icon="{ui:SymbolIcon Search24}" Content="{loc:T Alerts_Investigate}"
+                                                       Command="{Binding DataContext.ShowAlertCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                       CommandParameter="{Binding Service}" />
+                                            <StackPanel>
+                                                <TextBlock FontWeight="SemiBold" FontSize="14" Text="{Binding Title}" />
+                                                <TextBlock Style="{StaticResource Secondary}" Text="{Binding When}" Margin="0,2,0,4" />
+                                                <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding Message}" />
+                                            </StackPanel>
+                                        </DockPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <!-- ───── Page Historique ───── -->
+            <Border Grid.Column="1" Grid.ColumnSpan="2" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsHistoryPage, Converter={StaticResource BoolToVis}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="24,16,24,8">
+                        <TextBlock Text="{loc:T Nav_History}" FontSize="22" FontWeight="SemiBold" />
+                        <TextBlock Style="{StaticResource Secondary}" Margin="0,4,0,0" FontSize="13" Text="{loc:T History_Intro}" />
+                        <WrapPanel Margin="0,12,0,0">
+                            <ui:Button Margin="0,0,8,8" Icon="{ui:SymbolIcon ArrowUndo24}" Content="{loc:T Action_RestoreAll}"
+                                       Command="{Binding RestoreAllCommand}" />
+                            <ui:Button Margin="0,0,8,8" Icon="{ui:SymbolIcon Shield24}" Content="{loc:T Action_CreateRestorePoint}"
+                                       Command="{Binding CreateRestorePointCommand}" />
+                            <ui:Button Margin="0,0,8,8" Icon="{ui:SymbolIcon FolderOpen24}" Content="{loc:T Action_OpenFolder}"
+                                       Command="{Binding OpenDataFolderCommand}" />
+                            <ui:Button Margin="0,0,8,8" Appearance="Primary" Icon="{ui:SymbolIcon Shield24}" Content="{loc:T Action_Elevate}"
+                                       Command="{Binding ElevateCommand}"
+                                       Visibility="{Binding ShowElevationBanner, Converter={StaticResource BoolToVis}}" />
+                        </WrapPanel>
+                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding SnapshotDiffText}" />
+                        <TextBlock Style="{StaticResource Secondary}" Text="{Binding SnapshotText}" />
+                    </StackPanel>
+
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="24,4,24,16">
+                            <TextBlock Style="{StaticResource Secondary}" FontSize="13" Text="{loc:T History_Empty}"
+                                       Visibility="{Binding HasHistory, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                            <ItemsControl ItemsSource="{Binding History}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:HistoryItemViewModel}">
+                                        <Border Margin="0,0,0,8" Padding="14,10" CornerRadius="6"
+                                                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                                                BorderBrush="{DynamicResource ControlStrokeColorDefaultBrush}" BorderThickness="1">
+                                            <DockPanel>
+                                                <ui:Button DockPanel.Dock="Right" VerticalAlignment="Top" Margin="12,0,0,0"
+                                                           Icon="{ui:SymbolIcon ArrowUndo24}" Content="{loc:T Action_Undo}"
+                                                           Command="{Binding DataContext.UndoCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                           CommandParameter="{Binding Id}"
+                                                           Visibility="{Binding CanUndo, Converter={StaticResource BoolToVis}}" />
+                                                <StackPanel>
+                                                    <TextBlock FontWeight="SemiBold" FontSize="14" TextWrapping="Wrap" Text="{Binding Title}" />
+                                                    <TextBlock Style="{StaticResource Secondary}" Text="{Binding When}" Margin="0,2,0,6" />
+                                                    <ItemsControl ItemsSource="{Binding ChangeLines}">
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <TextBlock Style="{StaticResource ValueText}" FontSize="12" Text="{Binding}" />
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                    <TextBlock Margin="0,6,0,0" FontSize="12" Foreground="#E88A1A" TextWrapping="Wrap" Text="{Binding Status}"
+                                                               Visibility="{Binding HasStatus, Converter={StaticResource BoolToVis}}" />
+                                                    <TextBlock Style="{StaticResource Secondary}" FontSize="11" Margin="0,4,0,0" Text="{Binding BackupFile}" />
+                                                </StackPanel>
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Réglages ───── -->
+            <Border Grid.Column="1" Grid.ColumnSpan="2" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsSettingsPage, Converter={StaticResource BoolToVis}}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="24,16" MaxWidth="760" HorizontalAlignment="Left">
+                        <TextBlock Text="{loc:T Nav_Settings}" FontSize="22" FontWeight="SemiBold" />
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Settings_Language}" />
+                        <ComboBox Width="260" HorizontalAlignment="Left" ItemsSource="{Binding Languages}"
+                                  SelectedItem="{Binding SelectedLanguage}" DisplayMemberPath="Label" />
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Level_Label}" />
+                        <ComboBox Width="260" HorizontalAlignment="Left" ItemsSource="{Binding Levels}"
+                                  SelectedItem="{Binding SelectedLevel}" DisplayMemberPath="Label" />
+                        <TextBlock Style="{StaticResource Secondary}" Margin="0,6,0,0" Text="{loc:T Settings_LevelHelp}" />
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Settings_Data}" />
+                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Settings_DataHelp}" />
+                        <DockPanel Margin="0,8,0,0">
+                            <ui:Button DockPanel.Dock="Right" Margin="8,0,0,0" Content="{loc:T Action_OpenFolder}"
+                                       Icon="{ui:SymbolIcon FolderOpen24}" Command="{Binding OpenDataFolderCommand}" />
+                            <TextBlock Style="{StaticResource ValueText}" VerticalAlignment="Center" Text="{Binding DataFolderText}" />
+                        </DockPanel>
+                        <TextBlock Style="{StaticResource Secondary}" Margin="0,6,0,0" Text="{Binding SnapshotText}" />
+                        <WrapPanel Margin="0,10,0,0">
+                            <ui:Button Margin="0,0,8,8" Icon="{ui:SymbolIcon ArrowExportUp24}" Content="{loc:T Action_Export}"
+                                       Command="{Binding ExportDataCommand}" />
+                            <ui:Button Margin="0,0,8,8" Appearance="Danger" Icon="{ui:SymbolIcon Delete24}" Content="{loc:T Action_DeleteData}"
+                                       Command="{Binding DeleteDataCommand}" />
+                        </WrapPanel>
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Settings_Privacy}" />
+                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T Settings_PrivacyText}" />
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Settings_About}" />
+                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding AppVersionText}" />
+                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding KnowledgeText}" />
+                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding OsText}" />
+                        <TextBlock Style="{StaticResource Secondary}" Margin="0,6,0,0" Text="{loc:T About_Licenses}" />
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+
+        <!-- ═════════ Barre d'état ═════════ -->
+        <WrapPanel Grid.Row="4" Margin="18,8,18,8">
+            <TextBlock Style="{StaticResource Secondary}" Text="{Binding OsText}" />
+            <TextBlock Style="{StaticResource Secondary}" Text="  ·  " />
+            <TextBlock Style="{StaticResource Secondary}" Text="{Binding KnowledgeText}" />
+            <TextBlock Style="{StaticResource Secondary}" Text="  ·  " />
+            <TextBlock Style="{StaticResource Secondary}" Text="{Binding SnapshotText}" />
+            <TextBlock Style="{StaticResource Secondary}" Text="  ·  " />
+            <TextBlock Style="{StaticResource Secondary}" Text="{Binding PrivilegeText}" />
+        </WrapPanel>
+    </Grid>
+</ui:FluentWindow>

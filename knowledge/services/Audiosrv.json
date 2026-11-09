@@ -1,0 +1,35 @@
+{
+  "name": "Audiosrv",
+  "displayName": { "fr": "Audio Windows", "en": "Windows Audio" },
+  "category": "audio-video",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère le son de Windows et des applications.",
+    "en": "Manages audio for Windows and applications."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sans lui, plus aucun son : ni musique, ni vidéos, ni appels. Ne pas désactiver si tu utilises le son.",
+      "en": "Without it, no sound at all: no music, videos or calls. Do not disable if you use audio."
+    },
+    "avance": {
+      "fr": "Il mixe les flux audio des applications, applique le volume par application et les effets. Il dépend du Générateur de points de terminaison audio (AudioEndpointBuilder) qui détecte les périphériques.",
+      "en": "It mixes app audio streams, applies per-app volume and effects. It depends on the Windows Audio Endpoint Builder, which detects devices."
+    },
+    "expert": {
+      "fr": "Audiosrv.dll dans svchost (LocalServiceNetworkRestricted), LocalService. Le moteur audio s'exécute dans audiodg.exe (processus isolé). Récupération : redémarrages successifs.",
+      "en": "Audiosrv.dll in svchost (LocalServiceNetworkRestricted), LocalService. The audio engine runs in audiodg.exe (isolated process). Recovery: successive restarts."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus aucun son", "en": "No sound at all" },
+    { "fr": "Micro inutilisable dans les applications d'appel", "en": "Microphone unusable in calling apps" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

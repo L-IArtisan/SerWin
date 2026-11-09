@@ -1,0 +1,34 @@
+{
+  "name": "SecurityHealthService",
+  "displayName": { "fr": "Service Sécurité Windows", "en": "Windows Security Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fait fonctionner l'application Sécurité Windows et son état de protection.",
+    "en": "Powers the Windows Security app and its protection status."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Affiche l'état de ta protection (antivirus, pare-feu) dans l'application Sécurité Windows. Le couper ne protège pas mieux, ça te rend aveugle.",
+      "en": "Shows your protection status (antivirus, firewall) in the Windows Security app. Turning it off does not protect you better, it just leaves you blind."
+    },
+    "avance": {
+      "fr": "Collecte l'état des protections et alimente l'icône de la zone de notification. Démarré à la demande par l'application.",
+      "en": "Collects protection status and feeds the notification-area icon. Started on demand by the app."
+    },
+    "expert": {
+      "fr": "SecurityHealthService.exe, LocalSystem. Protégé : la valeur Start n'est modifiable que par TrustedInstaller.",
+      "en": "SecurityHealthService.exe, LocalSystem. Protected: the Start value is only writable by TrustedInstaller."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "L'application Sécurité Windows ne s'ouvre plus correctement", "en": "The Windows Security app no longer opens properly" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

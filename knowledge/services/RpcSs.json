@@ -1,0 +1,34 @@
+{
+  "name": "RpcSs",
+  "displayName": { "fr": "Appel de procédure distante (RPC)", "en": "Remote Procedure Call (RPC)" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet aux programmes et services de Windows de communiquer entre eux. Pilier du système.",
+    "en": "Lets Windows programs and services talk to each other. A cornerstone of the system."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est le « standard téléphonique » de Windows : presque tout passe par lui. Sans lui, Windows ne démarre plus. SerWin bloque toute modification.",
+      "en": "This is Windows' “switchboard”: almost everything goes through it. Without it, Windows no longer starts. SerWin blocks any change."
+    },
+    "avance": {
+      "fr": "Gestionnaire de contrôle des services COM et DCOM : il active les objets COM et résout les appels RPC locaux et distants. Des dizaines de services en dépendent. En cas d'arrêt, Windows redémarre la machine.",
+      "en": "The COM and DCOM Service Control Manager: it activates COM objects and resolves local and remote RPC calls. Dozens of services depend on it. If it stops, Windows reboots the machine."
+    },
+    "expert": {
+      "fr": "rpcss.dll dans svchost (groupe rpcss), NetworkService. Dépend de RpcEptMapper et DcomLaunch. Action de récupération : redémarrage du système. Le passer en Désactivé rend le système non amorçable (récupération via WinRE et modification hors ligne de la ruche SYSTEM).",
+      "en": "rpcss.dll in svchost (rpcss group), NetworkService. Depends on RpcEptMapper and DcomLaunch. Recovery action: system reboot. Setting it to Disabled makes the system unbootable (recovery via WinRE and offline editing of the SYSTEM hive)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Windows ne démarre plus", "en": "Windows no longer starts" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/win32/rpc/rpc-start-page" ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "DPS",
+  "displayName": { "fr": "Service de stratégie de diagnostic", "en": "Diagnostic Policy Service" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Détecte les problèmes et lance les utilitaires de résolution de Windows.",
+    "en": "Detects problems and runs Windows troubleshooters."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet à Windows de détecter et résoudre seul certains problèmes (réseau, disque). Le couper ne fait rien gagner de mesurable.",
+      "en": "Lets Windows detect and fix some problems on its own (network, disk). Turning it off brings no measurable gain."
+    },
+    "avance": {
+      "fr": "Héberge les scénarios de diagnostic ; la page Ressources système et le Moniteur de fiabilité en dépendent en partie.",
+      "en": "Hosts diagnostic scenarios; Resource Monitor and Reliability Monitor partly depend on it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNoNetwork, dps.dll, LocalService.",
+      "en": "svchost -k LocalServiceNoNetwork, dps.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Diagnostics automatiques désactivés", "en": "Automatic diagnostics disabled" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

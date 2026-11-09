@@ -1,0 +1,34 @@
+{
+  "name": "NetTcpPortSharing",
+  "displayName": { "fr": "Service de partage de ports Net.Tcp", "en": "Net.Tcp Port Sharing Service" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet à plusieurs applications .NET (WCF) d'écouter sur le même port réseau.",
+    "en": "Lets several .NET (WCF) applications listen on the same network port."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par quelques logiciels professionnels écrits en .NET. Presque jamais nécessaire sur un PC personnel ; désactivé par défaut.",
+      "en": "Used by a few professional programs written in .NET. Almost never needed on a personal PC; disabled by default."
+    },
+    "avance": {
+      "fr": "Fait partie du .NET Framework (Windows Communication Foundation). Un logiciel qui en a besoin le signale généralement à l'installation ou dans sa documentation.",
+      "en": "Part of the .NET Framework (Windows Communication Foundation). Software that needs it usually says so at install time or in its documentation."
+    },
+    "expert": {
+      "fr": "SMSvcHost.exe (%SystemRoot%\\Microsoft.NET\\Framework64\\v4.0.30319), LocalService. Liste des SID autorisés dans SMSvcHost.exe.config (allowAccounts).",
+      "en": "SMSvcHost.exe (%SystemRoot%\\Microsoft.NET\\Framework64\\v4.0.30319), LocalService. Allowed SIDs listed in SMSvcHost.exe.config (allowAccounts)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Les rares applications WCF qui partagent un port net.tcp échouent", "en": "The few WCF applications sharing a net.tcp port fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/dotnet/framework/wcf/feature-details/net-tcp-port-sharing" ]
+}

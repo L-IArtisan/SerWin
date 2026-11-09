@@ -1,0 +1,16 @@
+{
+  "name": "services.exe",
+  "displayName": { "fr": "Gestionnaire de contrôle des services", "en": "Service Control Manager" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "summary": { "fr": "Démarre, arrête et surveille tous les services de Windows.", "en": "Starts, stops and monitors all Windows services." },
+  "levels": {
+    "simple": { "fr": "C'est le chef de tous les services : SerWin lui parle pour chaque action. Indispensable.", "en": "It is the boss of all services: SerWin talks to it for every action. Essential." },
+    "avance": { "fr": "Il lit la configuration des services dans le Registre, lance les svchost.exe et autres processus de service, applique les déclencheurs et les actions de récupération.", "en": "It reads service configuration from the Registry, starts svchost.exe and other service processes, applies triggers and recovery actions." },
+    "expert": { "fr": "%SystemRoot%\\System32\\services.exe, enfant de wininit.exe, processus critique protégé. Il journalise les événements 7000-7045 (source Service Control Manager) utilisés par la chronologie de SerWin.", "en": "%SystemRoot%\\System32\\services.exe, child of wininit.exe, protected critical process. It logs events 7000-7045 (Service Control Manager source) used by SerWin's timeline." }
+  },
+  "ifDisabled": [ { "fr": "Le terminer provoque un écran bleu", "en": "Terminating it causes a blue screen" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

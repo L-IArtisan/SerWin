@@ -1,0 +1,34 @@
+{
+  "name": "TimeBrokerSvc",
+  "displayName": { "fr": "Service Broker horaire", "en": "Time Broker" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Coordonne l'exécution des tâches en arrière-plan des applications modernes.",
+    "en": "Coordinates execution of modern apps' background tasks."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Lance au bon moment les tâches de fond des applications (synchronisation, notifications). Ne pas toucher.",
+      "en": "Runs apps' background tasks (sync, notifications) at the right time. Do not touch."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par l'infrastructure des tâches en arrière-plan. Le désactiver casse silencieusement les mises à jour de tuiles, de mails et de notifications.",
+      "en": "Started on demand by the background task infrastructure. Disabling it silently breaks tile, mail and notification updates."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, TimeBrokerServer.dll, compte LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, TimeBrokerServer.dll, LocalService account."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Tâches en arrière-plan des applis bloquées", "en": "Apps' background tasks blocked" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

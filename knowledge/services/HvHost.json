@@ -1,0 +1,39 @@
+{
+  "name": "HvHost",
+  "displayName": { "fr": "Service d'hôte HV", "en": "HV Host Service" },
+  "category": "virtualization",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fournit au système hôte les compteurs de performances de l'hyperviseur Hyper-V.",
+    "en": "Provides Hyper-V hypervisor performance counters to the host system."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il ne sert que si l'hyperviseur de Windows est actif : Hyper-V, WSL 2, Windows Sandbox, Docker Desktop ou la sécurité basée sur la virtualisation. Sans ces fonctions, il est inutile.",
+      "en": "It is only used when the Windows hypervisor is active: Hyper-V, WSL 2, Windows Sandbox, Docker Desktop or virtualization-based security. Without these features it is useless."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par déclencheur quand l'hyperviseur est chargé. Microsoft le décrit comme une interface de compteurs de performances par partition ; son rôle exact pour Windows Sandbox et WSL 2 n'est pas documenté. À réactiver avant d'utiliser Windows Sandbox, en cas de doute.",
+      "en": "Started on demand by a trigger when the hypervisor is loaded. Microsoft describes it as a per-partition performance counter interface; its exact role for Windows Sandbox and WSL 2 is not documented. Re-enable it before using Windows Sandbox if in doubt."
+    },
+    "expert": {
+      "fr": "hvhostsvc.dll dans svchost, LocalSystem. Vérifier la présence de l'hyperviseur : « systeminfo » (section Hyper-V) ou Get-CimInstance Win32_ComputerSystem | Select HypervisorPresent.",
+      "en": "hvhostsvc.dll in svchost, LocalSystem. Check for the hypervisor with “systeminfo” (Hyper-V section) or Get-CimInstance Win32_ComputerSystem | Select HypervisorPresent."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Compteurs de performances Hyper-V indisponibles sur l'hôte", "en": "Hyper-V performance counters unavailable on the host" },
+    { "fr": "Possibles dysfonctionnements de Windows Sandbox, WSL 2 ou des machines virtuelles (non confirmé)", "en": "Possible issues with Windows Sandbox, WSL 2 or virtual machines (unconfirmed)" }
+  ],
+  "revivers": [],
+  "usefulIf": { "hypervisor": "present" },
+  "verdictIfNot": {
+    "fr": "L'hyperviseur Windows n'est pas actif : ce service n'a rien à faire.",
+    "en": "The Windows hypervisor is not active: this service has nothing to do."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

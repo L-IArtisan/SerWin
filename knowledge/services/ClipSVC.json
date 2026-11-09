@@ -1,0 +1,34 @@
+{
+  "name": "ClipSVC",
+  "displayName": { "fr": "Service de licences de client", "en": "Client License Service (ClipSVC)" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Vérifie les licences des applications du Microsoft Store.",
+    "en": "Checks Microsoft Store app licenses."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sans lui, les applis achetées ou installées depuis le Store peuvent refuser de s'ouvrir.",
+      "en": "Without it, apps bought or installed from the Store may refuse to open."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par le Store et les applis. Gère aussi certaines licences de Windows.",
+      "en": "Started on demand by the Store and apps. Also handles some Windows licenses."
+    },
+    "expert": {
+      "fr": "svchost -k wsappx, ClipSVC.dll, LocalSystem. Clé protégée.",
+      "en": "svchost -k wsappx, ClipSVC.dll, LocalSystem. Protected key."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applis du Store qui ne se lancent plus", "en": "Store apps no longer launch" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

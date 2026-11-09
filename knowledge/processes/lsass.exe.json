@@ -1,0 +1,16 @@
+{
+  "name": "lsass.exe",
+  "displayName": { "fr": "Autorité de sécurité locale", "en": "Local Security Authority" },
+  "category": "security",
+  "risk": "critique",
+  "bootCritical": true,
+  "summary": { "fr": "Vérifie les mots de passe, applique les règles de sécurité et gère les jetons d'accès.", "en": "Checks passwords, enforces security policy and manages access tokens." },
+  "levels": {
+    "simple": { "fr": "C'est le gardien de la sécurité : il vérifie ton mot de passe ou ton code PIN. Le terminer redémarre l'ordinateur.", "en": "It is the security guard: it checks your password or PIN. Terminating it restarts the computer." },
+    "avance": { "fr": "Il gère l'authentification (locale, Kerberos, NTLM), la stratégie de sécurité et le journal Sécurité. Cible privilégiée des voleurs d'identifiants : Windows 11 le protège (PPL, Credential Guard).", "en": "It handles authentication (local, Kerberos, NTLM), security policy and the Security log. A prime target for credential thieves: Windows 11 protects it (PPL, Credential Guard)." },
+    "expert": { "fr": "%SystemRoot%\\System32\\lsass.exe, enfant de wininit.exe. Protection LSA : HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\RunAsPPL. Un accès en lecture à sa mémoire par un outil inconnu est un indicateur d'attaque.", "en": "%SystemRoot%\\System32\\lsass.exe, child of wininit.exe. LSA protection: HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\RunAsPPL. Memory read access by an unknown tool is an attack indicator." }
+  },
+  "ifDisabled": [ { "fr": "Le terminer force le redémarrage de Windows", "en": "Terminating it forces Windows to restart" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

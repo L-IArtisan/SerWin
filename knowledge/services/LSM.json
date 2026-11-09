@@ -1,0 +1,34 @@
+{
+  "name": "LSM",
+  "displayName": { "fr": "Gestionnaire de session locale", "en": "Local Session Manager" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les sessions utilisateur (ouverture, fermeture, changement d'utilisateur).",
+    "en": "Manages user sessions (sign-in, sign-out, user switching)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il gère ta session Windows : sans lui, impossible d'ouvrir une session. SerWin bloque toute modification.",
+      "en": "It manages your Windows session: without it, you cannot sign in. SerWin blocks any change."
+    },
+    "avance": {
+      "fr": "Coordonne la création et la destruction des sessions locales et Bureau à distance, le verrouillage et le changement rapide d'utilisateur, en lien avec winlogon et les Services Bureau à distance.",
+      "en": "Coordinates creation and teardown of local and Remote Desktop sessions, locking and fast user switching, together with winlogon and Remote Desktop Services."
+    },
+    "expert": {
+      "fr": "lsm.dll dans svchost (groupe DcomLaunch), LocalSystem. Dépend de RpcEptMapper, DcomLaunch et RpcSs. Le désactiver empêche toute ouverture de session (écran noir après l'authentification).",
+      "en": "lsm.dll in svchost (DcomLaunch group), LocalSystem. Depends on RpcEptMapper, DcomLaunch and RpcSs. Disabling it prevents any sign-in (black screen after authentication)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Impossible d'ouvrir une session Windows", "en": "Cannot sign in to Windows" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

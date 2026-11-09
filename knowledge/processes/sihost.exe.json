@@ -1,0 +1,16 @@
+{
+  "name": "sihost.exe",
+  "displayName": { "fr": "Hôte de l'infrastructure de l'interpréteur de commandes", "en": "Shell Infrastructure Host" },
+  "category": "ui",
+  "risk": "moyen",
+  "bootCritical": false,
+  "summary": { "fr": "Gère des éléments de l'interface : notifications, fond d'écran, menu Démarrer moderne.", "en": "Manages interface elements: notifications, wallpaper, modern Start menu." },
+  "levels": {
+    "simple": { "fr": "Il fait fonctionner une partie de l'interface de Windows 11. Le terminer peut figer l'écran quelques secondes.", "en": "It runs part of the Windows 11 interface. Terminating it may freeze the screen for a few seconds." },
+    "avance": { "fr": "Héberge les composants « modernes » du shell (centre de notifications, thèmes, fenêtres d'applications UWP). Lancé à l'ouverture de session.", "en": "Hosts the “modern” shell components (notification center, themes, UWP app windows). Started at sign-in." },
+    "expert": { "fr": "%SystemRoot%\\System32\\sihost.exe, lancé par le service User Manager pour chaque session interactive.", "en": "%SystemRoot%\\System32\\sihost.exe, launched by the User Manager service for each interactive session." }
+  },
+  "ifDisabled": [ { "fr": "Interface instable jusqu'à sa relance", "en": "Interface unstable until it restarts" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

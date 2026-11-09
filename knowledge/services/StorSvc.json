@@ -1,0 +1,35 @@
+{
+  "name": "StorSvc",
+  "displayName": { "fr": "Service de stockage", "en": "Storage Service" },
+  "category": "storage",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les paramètres de stockage, l'Assistant Stockage et les cartes SD.",
+    "en": "Manages storage settings, Storage Sense and SD cards."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner Paramètres > Stockage et le nettoyage automatique. Le Store en a aussi besoin pour installer des applis.",
+      "en": "Runs Settings > Storage and automatic cleanup. The Store also needs it to install apps."
+    },
+    "avance": {
+      "fr": "Démarrage automatique différé. Gère l'emplacement d'installation des applis et le stockage amovible.",
+      "en": "Delayed automatic start. Manages app install location and removable storage."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, storsvc.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, storsvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Installation d'applis du Store en échec", "en": "Store app installs fail" },
+    { "fr": "Assistant Stockage inactif", "en": "Storage Sense inactive" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

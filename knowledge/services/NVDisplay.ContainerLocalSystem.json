@@ -1,0 +1,37 @@
+{
+  "name": "NVDisplay.ContainerLocalSystem",
+  "displayName": { "fr": "NVIDIA Display Container LS", "en": "NVIDIA Display Container LS" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Conteneur de NVIDIA qui fait fonctionner le Panneau de configuration NVIDIA et ses modules d'arrière-plan.",
+    "en": "NVIDIA container that runs the NVIDIA Control Panel and its background plug-ins."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ce n'est pas le pilote de la carte graphique : l'affichage et les jeux fonctionnent sans lui. En revanche, le Panneau de configuration NVIDIA ne s'ouvre plus (« paramètres d'affichage NVIDIA non disponibles »).",
+      "en": "This is not the graphics driver: display and games work without it. However, the NVIDIA Control Panel no longer opens (“NVIDIA display settings are not available”)."
+    },
+    "avance": {
+      "fr": "Service tiers installé avec le pilote NVIDIA. Il héberge des modules (plugins) : panneau de configuration, icône de notification, certaines fonctions de profils d'application. Les réglages déjà faits dans le panneau restent appliqués par le pilote. Chaque mise à jour du pilote réinstalle le service et le remet en Automatique.",
+      "en": "Third-party service installed with the NVIDIA driver. It hosts plug-ins: control panel, tray icon, some application profile features. Settings already made in the panel remain applied by the driver. Every driver update reinstalls the service and sets it back to Automatic."
+    },
+    "expert": {
+      "fr": "NVDisplay.Container.exe lancé depuis le DriverStore (nv_dispi.inf_amd64_*), compte LocalSystem. Les modules sont chargés depuis Display.NvContainer\\plugins\\LocalSystem. Une instance utilisateur de NVDisplay.Container.exe (sans service) peut aussi tourner dans la session.",
+      "en": "NVDisplay.Container.exe launched from the DriverStore (nv_dispi.inf_amd64_*), LocalSystem account. Plug-ins load from Display.NvContainer\\plugins\\LocalSystem. A per-user NVDisplay.Container.exe instance (not a service) may also run in the session."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Le Panneau de configuration NVIDIA ne s'ouvre plus", "en": "The NVIDIA Control Panel no longer opens" },
+    { "fr": "L'icône NVIDIA de la zone de notification disparaît", "en": "The NVIDIA tray icon disappears" }
+  ],
+  "revivers": [
+    { "type": "software", "target": "nvidia-driver-update", "note": { "fr": "Chaque installation du pilote NVIDIA le réactive", "en": "Every NVIDIA driver install re-enables it" } }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

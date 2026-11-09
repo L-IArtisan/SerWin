@@ -1,0 +1,32 @@
+{
+  "name": "DialogBlockingService",
+  "displayName": { "fr": "Service de blocage des boîtes de dialogue", "en": "Dialog Blocking Service" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service interne de Windows, très peu documenté, désactivé par défaut.",
+    "en": "Internal Windows service, very sparsely documented, disabled by default."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Microsoft ne documente pas ce service et il est désactivé dès l'installation. Il ne correspond à aucune fonction visible : inutile d'y toucher.",
+      "en": "Microsoft does not document this service and it is disabled out of the box. It matches no visible feature: no need to touch it."
+    },
+    "avance": {
+      "fr": "Son nom suggère le blocage de boîtes de dialogue dans des scénarios verrouillés (borne, mode kiosque), mais aucune documentation officielle ne le confirme. Fiche à compléter après observation.",
+      "en": "Its name suggests blocking dialogs in locked-down scenarios (kiosk mode), but no official documentation confirms it. Entry to be completed after observation."
+    },
+    "expert": {
+      "fr": "DialogBlockingService.dll dans svchost. Aucune dépendance ni déclencheur documentés. Comportement à observer dans Windows Sandbox (statut « Comportement observé »).",
+      "en": "DialogBlockingService.dll in svchost. No documented dependency or trigger. Behavior to be observed in Windows Sandbox (“Behavior observed” status)."
+    }
+  },
+  "ifDisabled": [ { "fr": "Aucun effet connu (état par défaut)", "en": "No known effect (default state)" } ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

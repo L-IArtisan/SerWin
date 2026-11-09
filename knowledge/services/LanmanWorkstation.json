@@ -1,0 +1,34 @@
+{
+  "name": "LanmanWorkstation",
+  "displayName": { "fr": "Station de travail", "en": "Workstation" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Client SMB : accès aux dossiers partagés et aux NAS du réseau.",
+    "en": "SMB client: access to shared folders and network NAS."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet d'ouvrir les dossiers partagés d'autres PC ou d'un NAS. Plusieurs services en dépendent.",
+      "en": "Lets you open shared folders on other PCs or a NAS. Several services depend on it."
+    },
+    "avance": {
+      "fr": "Crée et maintient les connexions SMB sortantes. Le désactiver casse les lecteurs réseau, et des services comme Netlogon ou le Navigateur.",
+      "en": "Creates and maintains outgoing SMB connections. Disabling it breaks network drives and services such as Netlogon."
+    },
+    "expert": {
+      "fr": "svchost -k NetworkService, wkssvc.dll, NetworkService. Pilotes noyau mrxsmb / mrxsmb20.",
+      "en": "svchost -k NetworkService, wkssvc.dll, NetworkService. Kernel drivers mrxsmb / mrxsmb20."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Dossiers partagés et lecteurs réseau inaccessibles", "en": "Shared folders and network drives inaccessible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,41 @@
+{
+  "name": "RemoteRegistry",
+  "displayName": { "fr": "Registre à distance", "en": "Remote Registry" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet à un autre ordinateur du réseau de lire et modifier le registre de ce PC.",
+    "en": "Lets another computer on the network read and modify this PC's registry."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il sert aux administrateurs réseau pour gérer des PC à distance. Sur un PC personnel, il n'est pas utile et vaut mieux désactivé.",
+      "en": "Network administrators use it to manage PCs remotely. On a personal PC it is not useful and is better left disabled."
+    },
+    "avance": {
+      "fr": "Un déclencheur de canal nommé (winreg) le démarre à la première connexion distante, s'il n'est pas désactivé. Les outils d'administration (regedit « Connexion au registre réseau », inventaires, certains antivirus d'entreprise) en ont besoin.",
+      "en": "A named pipe trigger (winreg) starts it on the first remote connection unless disabled. Admin tools (regedit “Connect Network Registry”, inventories, some enterprise antivirus) need it."
+    },
+    "expert": {
+      "fr": "regsvc.dll dans svchost, LocalService. Accès limité par HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurePipeServers\\winreg (ACL) et AllowedExactPaths. En domaine, il peut être réactivé par GPO.",
+      "en": "regsvc.dll in svchost, LocalService. Access restricted by HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurePipeServers\\winreg (ACL) and AllowedExactPaths. In a domain, it can be re-enabled by GPO."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "L'administration du registre à distance n'est plus possible", "en": "Remote registry administration is no longer possible" }
+  ],
+  "revivers": [
+    { "type": "trigger", "target": "named-pipe" },
+    { "type": "policy", "target": "domain-gpo" }
+  ],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": {
+    "fr": "Ton PC n'est pas dans un domaine d'entreprise : personne n'a besoin d'accéder à son registre à distance.",
+    "en": "Your PC is not in a corporate domain: no one needs remote access to its registry."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/troubleshoot/windows-server/performance/restrict-access-remote-registry" ]
+}

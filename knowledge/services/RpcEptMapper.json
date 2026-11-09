@@ -1,0 +1,34 @@
+{
+  "name": "RpcEptMapper",
+  "displayName": { "fr": "Mappeur de point de terminaison RPC", "en": "RPC Endpoint Mapper" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Indique aux programmes à quelle « adresse » joindre un service RPC. Indispensable.",
+    "en": "Tells programs at which “address” to reach an RPC service. Required."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est l'annuaire du « standard téléphonique » RPC. Sans lui, les services de Windows ne se trouvent plus entre eux. SerWin bloque toute modification.",
+      "en": "This is the directory for the RPC “switchboard”. Without it, Windows services can no longer find each other. SerWin blocks any change."
+    },
+    "avance": {
+      "fr": "Il associe les identifiants d'interfaces RPC aux points de terminaison réels (ports TCP, canaux nommés, ALPC). Il écoute sur le port TCP 135. RpcSs en dépend.",
+      "en": "It maps RPC interface identifiers to actual endpoints (TCP ports, named pipes, ALPC). It listens on TCP port 135. RpcSs depends on it."
+    },
+    "expert": {
+      "fr": "RpcEpMap.dll dans svchost (groupe RPCSS), NetworkService. Bloquer le port 135 vers l'extérieur se fait au pare-feu, pas en arrêtant ce service.",
+      "en": "RpcEpMap.dll in svchost (RPCSS group), NetworkService. Blocking port 135 from outside is done at the firewall, not by stopping this service."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Windows ne démarre plus correctement", "en": "Windows no longer starts properly" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/win32/rpc/rpc-start-page" ]
+}

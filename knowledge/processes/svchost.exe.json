@@ -1,0 +1,16 @@
+{
+  "name": "svchost.exe",
+  "displayName": { "fr": "Processus hôte pour les services Windows", "en": "Host Process for Windows Services" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": false,
+  "summary": { "fr": "Coquille qui fait tourner un ou plusieurs services Windows.", "en": "Shell that runs one or more Windows services." },
+  "levels": {
+    "simple": { "fr": "Il y en a des dizaines, c'est normal : chacun fait tourner un ou plusieurs services. Regarde les services hébergés pour savoir ce que fait chacun.", "en": "There are dozens of them, which is normal: each runs one or more services. Look at the hosted services to see what each one does." },
+    "avance": { "fr": "Pour arrêter ce que fait un svchost, il faut arrêter le service hébergé (onglet Agir du service), pas terminer le processus. Depuis Windows 10, chaque service a souvent son propre svchost si la RAM le permet.", "en": "To stop what an svchost does, stop the hosted service (the service's Act tab), not the process. Since Windows 10, each service often gets its own svchost when RAM allows." },
+    "expert": { "fr": "%SystemRoot%\\System32\\svchost.exe -k <groupe> -p ; groupes dans HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Svchost. Seuil de séparation : SvcHostSplitThresholdInKB. Un svchost.exe hors System32/SysWOW64 ou sans -k est suspect.", "en": "%SystemRoot%\\System32\\svchost.exe -k <group> -p; groups in HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Svchost. Split threshold: SvcHostSplitThresholdInKB. An svchost.exe outside System32/SysWOW64 or without -k is suspicious." }
+  },
+  "ifDisabled": [ { "fr": "Le terminer arrête brutalement tous les services hébergés (et peut faire planter Windows)", "en": "Terminating it abruptly stops all hosted services (and may crash Windows)" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

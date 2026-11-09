@@ -1,0 +1,34 @@
+{
+  "name": "BDESVC",
+  "displayName": { "fr": "Service de chiffrement de lecteur BitLocker", "en": "BitLocker Drive Encryption Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère le chiffrement BitLocker des disques.",
+    "en": "Manages BitLocker drive encryption."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Si ton disque est chiffré par BitLocker (souvent le cas sur les portables récents), ne le coupe pas.",
+      "en": "If your drive is encrypted with BitLocker (often the case on recent laptops), do not turn it off."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Sert à déverrouiller les disques secondaires et clés USB chiffrés, et à gérer BitLocker dans le Panneau de configuration.",
+      "en": "Started on demand. Used to unlock encrypted secondary drives and USB sticks, and to manage BitLocker in Control Panel."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, bdesvc.dll, LocalSystem. « manage-bde -status » affiche l'état.",
+      "en": "svchost -k netsvcs, bdesvc.dll, LocalSystem. “manage-bde -status” shows the status."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Disques et clés BitLocker impossibles à déverrouiller", "en": "BitLocker drives and sticks cannot be unlocked" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

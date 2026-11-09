@@ -1,0 +1,34 @@
+{
+  "name": "NcdAutoSetup",
+  "displayName": { "fr": "Configuration automatique des périphériques connectés au réseau", "en": "Network Connected Devices Auto-Setup" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Installe automatiquement les appareils détectés sur le réseau (imprimantes, TV).",
+    "en": "Automatically installs devices found on the network (printers, TVs)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ajoute tout seul les imprimantes ou appareils réseau détectés. Pratique, mais pas indispensable.",
+      "en": "Adds detected network printers or devices on its own. Handy but not essential."
+    },
+    "avance": {
+      "fr": "Dépend du service Liste des réseaux (netprofm). Le couper oblige à ajouter les appareils manuellement.",
+      "en": "Depends on the Network List Service (netprofm). Turning it off means adding devices manually."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNoNetwork, NcdAutoSetup.dll, LocalService.",
+      "en": "svchost -k LocalServiceNoNetwork, NcdAutoSetup.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Appareils réseau à ajouter à la main", "en": "Network devices must be added by hand" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "SCardSvr",
+  "displayName": { "fr": "Carte à puce", "en": "Smart Card" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère l'accès aux cartes à puce (carte d'identité, carte professionnelle).",
+    "en": "Manages access to smart cards (ID card, professional card)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu utilises un lecteur de carte à puce (carte professionnelle, signature électronique).",
+      "en": "Only useful if you use a smart card reader (professional card, e-signature)."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur à l'arrivée d'un lecteur. Certains jetons USB de sécurité l'utilisent aussi.",
+      "en": "Started by trigger when a reader arrives. Some USB security tokens also use it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceAndNoImpersonation, SCardSvr.dll, LocalService.",
+      "en": "svchost -k LocalServiceAndNoImpersonation, SCardSvr.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Cartes à puce et jetons inutilisables", "en": "Smart cards and tokens unusable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "smartCardReader": "present" },
+  "verdictIfNot": { "fr": "Aucun lecteur de carte à puce détecté.", "en": "No smart card reader detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

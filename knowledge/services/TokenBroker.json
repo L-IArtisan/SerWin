@@ -1,0 +1,34 @@
+{
+  "name": "TokenBroker",
+  "displayName": { "fr": "Gestionnaire de comptes web", "en": "Web Account Manager" },
+  "category": "core",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fournit l'authentification unique aux applications (Office, Teams, Store).",
+    "en": "Provides single sign-on to apps (Office, Teams, Store)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sans lui, Office, Teams et le Store demandent de se reconnecter ou n'y arrivent plus.",
+      "en": "Without it, Office, Teams and the Store ask you to sign in again or can't."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Gère les jetons des comptes Microsoft et professionnels.",
+      "en": "Started on demand. Manages Microsoft and work account tokens."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, TokenBroker.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, TokenBroker.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion à Office, Teams et au Store en échec", "en": "Office, Teams and Store sign-in fails" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

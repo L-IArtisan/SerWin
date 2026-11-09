@@ -1,0 +1,34 @@
+{
+  "name": "Wcmsvc",
+  "displayName": { "fr": "Gestionnaire des connexions Windows", "en": "Windows Connection Manager" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Choisit automatiquement la meilleure connexion (Ethernet, Wi-Fi, cellulaire).",
+    "en": "Automatically picks the best connection (Ethernet, Wi-Fi, cellular)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Décide quelle connexion utiliser. Le couper casse le Wi-Fi et l'icône réseau.",
+      "en": "Decides which connection to use. Turning it off breaks Wi-Fi and the network icon."
+    },
+    "avance": {
+      "fr": "Le service WLAN et les paramètres réseau en dépendent.",
+      "en": "The WLAN service and network settings depend on it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, wcmsvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, wcmsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Wi-Fi et icône réseau hors service", "en": "Wi-Fi and network icon broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

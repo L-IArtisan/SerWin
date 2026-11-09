@@ -1,0 +1,16 @@
+{
+  "name": "Registry",
+  "displayName": { "fr": "Registry (registre en mémoire)", "en": "Registry (in-memory registry)" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "summary": { "fr": "Conserve en mémoire les données du Registre de Windows.", "en": "Holds the Windows Registry data in memory." },
+  "levels": {
+    "simple": { "fr": "Il garde le Registre (la base de réglages de Windows) en mémoire pour qu'il soit rapide. Indispensable.", "en": "It keeps the Registry (Windows' settings database) in memory so it is fast. Essential." },
+    "avance": { "fr": "Apparu avec Windows 10 1803 : les ruches du Registre sont hébergées dans ce processus minimal plutôt que dans le pool du noyau.", "en": "Introduced in Windows 10 1803: Registry hives are hosted in this minimal process rather than in kernel pool." },
+    "expert": { "fr": "Processus minimal (pas d'exécutable, pas de code utilisateur) créé par le noyau ; sa mémoire reflète la taille des ruches chargées.", "en": "Minimal process (no executable, no user code) created by the kernel; its memory reflects the size of loaded hives." }
+  },
+  "ifDisabled": [ { "fr": "Impossible à terminer", "en": "Cannot be terminated" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

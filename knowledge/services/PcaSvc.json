@@ -1,0 +1,34 @@
+{
+  "name": "PcaSvc",
+  "displayName": { "fr": "Service de l'Assistant Compatibilité des programmes", "en": "Program Compatibility Assistant Service" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Détecte les problèmes de compatibilité des anciens programmes.",
+    "en": "Detects compatibility problems with older programs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Propose des réglages de compatibilité quand un vieux programme plante. Le couper n'a pas d'effet sur les programmes récents.",
+      "en": "Offers compatibility settings when an old program crashes. Turning it off has no effect on recent programs."
+    },
+    "avance": {
+      "fr": "Démarrage automatique différé. Surveille les installations et les échecs de lancement.",
+      "en": "Delayed automatic start. Watches installs and launch failures."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, pcasvc.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, pcasvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de propositions de compatibilité", "en": "No more compatibility suggestions" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "DispBrokerDesktopSvc",
+  "displayName": { "fr": "Service de stratégie d'affichage", "en": "Display Policy Service" },
+  "category": "ui",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère la configuration des écrans (résolution, disposition, plusieurs moniteurs).",
+    "en": "Manages display configuration (resolution, layout, multiple monitors)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour régler tes écrans. Le couper peut casser la gestion multi-écrans.",
+      "en": "Needed to configure your displays. Turning it off can break multi-monitor handling."
+    },
+    "avance": {
+      "fr": "Démarrage automatique. Paramètres > Affichage en dépend.",
+      "en": "Automatic start. Settings > Display depends on it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, DispBroker.Desktop.dll, LocalService.",
+      "en": "svchost -k LocalService, DispBroker.Desktop.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Réglages d'affichage et multi-écrans perturbés", "en": "Display and multi-monitor settings disrupted" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

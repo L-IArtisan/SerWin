@@ -1,0 +1,16 @@
+{
+  "name": "WUDFHost.exe",
+  "displayName": { "fr": "Hôte des pilotes en mode utilisateur", "en": "Windows Driver Foundation User-mode Driver Framework Host" },
+  "category": "hardware",
+  "risk": "moyen",
+  "bootCritical": false,
+  "summary": { "fr": "Fait tourner certains pilotes de périphériques hors du noyau (capteurs, lecteurs d'empreintes, appareils USB).", "en": "Runs some device drivers outside the kernel (sensors, fingerprint readers, USB devices)." },
+  "levels": {
+    "simple": { "fr": "Il fait fonctionner des périphériques comme le lecteur d'empreintes ou certains capteurs. Le terminer peut les déconnecter.", "en": "It runs devices such as the fingerprint reader or some sensors. Terminating it can disconnect them." },
+    "avance": { "fr": "Un pilote UMDF qui plante est relancé sans écran bleu, contrairement à un pilote noyau.", "en": "A crashing UMDF driver is restarted without a blue screen, unlike a kernel driver." },
+    "expert": { "fr": "%SystemRoot%\\System32\\WUDFHost.exe, lancé par le service WudfSvc / le gestionnaire PnP, un par groupe de pilotes.", "en": "%SystemRoot%\\System32\\WUDFHost.exe, launched by the WudfSvc service / PnP manager, one per driver group." }
+  },
+  "ifDisabled": [ { "fr": "Les périphériques associés cessent de fonctionner jusqu'à leur relance", "en": "Associated devices stop working until restarted" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

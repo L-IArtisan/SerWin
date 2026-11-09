@@ -1,0 +1,35 @@
+{
+  "name": "WiaRpc",
+  "displayName": { "fr": "Événements d'acquisition d'images fixes", "en": "Still Image Acquisition Events" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Lance une application quand on appuie sur le bouton d'un scanner.",
+    "en": "Launches an app when a scanner button is pressed."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Réagit au bouton « Numériser » d'un scanner. Inutile sans scanner.",
+      "en": "Reacts to a scanner's “Scan” button. Useless without a scanner."
+    },
+    "avance": {
+      "fr": "Complète le service WIA (StiSvc) pour les événements matériels. Démarré à la demande.",
+      "en": "Complements the WIA service (StiSvc) for hardware events. Started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, wiarpc.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, wiarpc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Le bouton de numérisation du scanner ne fait plus rien", "en": "The scanner's scan button does nothing" }
+  ],
+  "revivers": [],
+  "usefulIf": { "printers": ">0" },
+  "verdictIfNot": { "fr": "Aucune imprimante ou scanner détecté.", "en": "No printer or scanner detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

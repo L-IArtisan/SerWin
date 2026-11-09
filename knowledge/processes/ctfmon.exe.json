@@ -1,0 +1,16 @@
+{
+  "name": "ctfmon.exe",
+  "displayName": { "fr": "Chargeur CTF", "en": "CTF Loader" },
+  "category": "ui",
+  "risk": "moyen",
+  "bootCritical": false,
+  "summary": { "fr": "Gère les méthodes de saisie : dispositions de clavier, langues, reconnaissance d'écriture.", "en": "Handles input methods: keyboard layouts, languages, handwriting recognition." },
+  "levels": {
+    "simple": { "fr": "Il gère le clavier et les langues de saisie. Le terminer peut empêcher de taper dans certaines applications.", "en": "It manages the keyboard and input languages. Terminating it can stop typing in some apps." },
+    "avance": { "fr": "Text Services Framework : la barre de langue et les IME (chinois, japonais…) en dépendent. Lancé par le service TextInputManagementService.", "en": "Text Services Framework: the language bar and IMEs (Chinese, Japanese…) depend on it. Launched by the TextInputManagementService service." },
+    "expert": { "fr": "%SystemRoot%\\System32\\ctfmon.exe. Un ctfmon.exe hors System32 ou lancé par une clé Run inconnue est suspect.", "en": "%SystemRoot%\\System32\\ctfmon.exe. A ctfmon.exe outside System32 or started by an unknown Run key is suspicious." }
+  },
+  "ifDisabled": [ { "fr": "Saisie au clavier perturbée dans certaines applications", "en": "Keyboard input disrupted in some apps" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

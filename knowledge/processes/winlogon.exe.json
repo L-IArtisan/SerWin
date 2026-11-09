@@ -1,0 +1,16 @@
+{
+  "name": "winlogon.exe",
+  "displayName": { "fr": "Application d'ouverture de session Windows", "en": "Windows Logon Application" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "summary": { "fr": "Gère l'ouverture et la fermeture de session, le verrouillage et Ctrl+Alt+Suppr.", "en": "Handles sign-in and sign-out, locking and Ctrl+Alt+Del." },
+  "levels": {
+    "simple": { "fr": "C'est lui qui affiche l'écran de connexion et réagit à Ctrl+Alt+Suppr. Le terminer ferme brutalement ta session.", "en": "It shows the sign-in screen and responds to Ctrl+Alt+Del. Terminating it abruptly ends your session." },
+    "avance": { "fr": "Un winlogon.exe par session interactive. Il lance LogonUI.exe pour l'écran de connexion puis userinit.exe, qui démarre explorer.exe.", "en": "One winlogon.exe per interactive session. It starts LogonUI.exe for the sign-in screen, then userinit.exe, which starts explorer.exe." },
+    "expert": { "fr": "Les valeurs Shell et Userinit de HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon sont une cible classique de persistance malveillante : à surveiller.", "en": "The Shell and Userinit values under HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon are a classic malware persistence target: worth monitoring." }
+  },
+  "ifDisabled": [ { "fr": "Le terminer ferme la session ou provoque un écran bleu", "en": "Terminating it ends the session or causes a blue screen" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Themes",
+  "displayName": { "fr": "Thèmes", "en": "Themes" },
+  "category": "ui",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Applique le style visuel de Windows (fenêtres, couleurs, thème clair/sombre).",
+    "en": "Applies Windows' visual style (windows, colors, light/dark theme)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il donne à Windows son apparence moderne. Le désactiver fait revenir un style ancien et peut rendre certaines fenêtres illisibles. Gain de performance négligeable.",
+      "en": "It gives Windows its modern look. Disabling it brings back an old style and can make some windows hard to read. Negligible performance gain."
+    },
+    "avance": {
+      "fr": "Gère les styles visuels (uxtheme), les thèmes à contraste élevé et les changements clair/sombre. Les applications récentes s'attendent à sa présence ; certaines affichent des défauts graphiques sans lui.",
+      "en": "Handles visual styles (uxtheme), high-contrast themes and light/dark switching. Modern apps expect it; some show graphical glitches without it."
+    },
+    "expert": {
+      "fr": "themeservice.dll dans svchost, LocalSystem. Thèmes dans %SystemRoot%\\Resources\\Themes ; réglages utilisateur sous HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes.",
+      "en": "themeservice.dll in svchost, LocalSystem. Themes in %SystemRoot%\\Resources\\Themes; user settings under HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Apparence classique, sans styles visuels", "en": "Classic look, no visual styles" },
+    { "fr": "Défauts d'affichage dans certaines applications", "en": "Display glitches in some apps" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

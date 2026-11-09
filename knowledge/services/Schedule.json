@@ -1,0 +1,36 @@
+{
+  "name": "Schedule",
+  "displayName": { "fr": "Planificateur de tâches", "en": "Task Scheduler" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Exécute automatiquement des tâches à heure fixe ou lors d'événements (démarrage, ouverture de session…).",
+    "en": "Runs tasks automatically at set times or on events (startup, sign-in…)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Windows et de nombreux logiciels s'en servent pour leur maintenance (mises à jour, nettoyage, sauvegardes). Le couper casse énormément de choses ; Windows empêche d'ailleurs de le modifier.",
+      "en": "Windows and many programs use it for maintenance (updates, cleanup, backups). Turning it off breaks a lot; Windows actually prevents changing it."
+    },
+    "avance": {
+      "fr": "C'est aussi un mécanisme majeur de relance : des tâches planifiées redémarrent des services désactivés ou réécrivent leur configuration. Plutôt que de couper le planificateur, SerWin (mode Avancé) désactivera les tâches liées à un service précis.",
+      "en": "It is also a major revival mechanism: scheduled tasks restart disabled services or rewrite their configuration. Instead of stopping the scheduler, SerWin (Advanced mode) will disable the tasks tied to a specific service."
+    },
+    "expert": {
+      "fr": "schedsvc.dll dans svchost (groupe netsvcs), LocalSystem. Tâches stockées dans %SystemRoot%\\System32\\Tasks et HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache. Son journal opérationnel (Microsoft-Windows-TaskScheduler/Operational) est désactivé par défaut ; SerWin proposera de l'activer pour la chronologie (v0.3).",
+      "en": "schedsvc.dll in svchost (netsvcs group), LocalSystem. Tasks stored in %SystemRoot%\\System32\\Tasks and HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache. Its operational log (Microsoft-Windows-TaskScheduler/Operational) is off by default; SerWin will offer to enable it for the timeline (v0.3)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "La maintenance automatique de Windows ne fonctionne plus", "en": "Windows automatic maintenance stops working" },
+    { "fr": "Nombre de logiciels (mises à jour, sauvegardes, antivirus) cessent leurs tâches régulières", "en": "Many programs (updaters, backups, antivirus) stop their regular jobs" },
+    { "fr": "Certaines fonctions de connexion et de démarrage peuvent échouer", "en": "Some sign-in and startup features may fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/win32/taskschd/task-scheduler-start-page" ]
+}

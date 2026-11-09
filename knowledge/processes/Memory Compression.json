@@ -1,0 +1,16 @@
+{
+  "name": "Memory Compression",
+  "displayName": { "fr": "Compression de la mémoire", "en": "Memory Compression" },
+  "category": "storage",
+  "risk": "critique",
+  "bootCritical": false,
+  "summary": { "fr": "Compresse en mémoire les pages peu utilisées pour éviter d'écrire sur le disque.", "en": "Compresses rarely used pages in memory to avoid writing to disk." },
+  "levels": {
+    "simple": { "fr": "Il fait de la place en mémoire en compressant ce qui sert peu. Sa taille est normale et ne ralentit pas le PC.", "en": "It frees memory by compressing what is rarely used. Its size is normal and does not slow the PC down." },
+    "avance": { "fr": "Géré par le gestionnaire de mémoire avec SysMain. Une grande taille signifie simplement que la RAM est bien utilisée ; c'est plus rapide que la pagination sur disque.", "en": "Managed by the memory manager together with SysMain. A large size simply means RAM is well used; it is faster than paging to disk." },
+    "expert": { "fr": "Pseudo-processus (« magasin de compression »). Désactivation possible via Disable-MMAgent -MemoryCompression, rarement utile.", "en": "Pseudo-process (the “compression store”). Can be disabled with Disable-MMAgent -MemoryCompression, rarely useful." }
+  },
+  "ifDisabled": [ { "fr": "Ne peut pas être terminé", "en": "Cannot be terminated" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

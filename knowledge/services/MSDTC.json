@@ -1,0 +1,34 @@
+{
+  "name": "MSDTC",
+  "displayName": { "fr": "Coordinateur de transactions distribuées", "en": "Distributed Transaction Coordinator" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Coordonne les transactions entre bases de données et gestionnaires de ressources.",
+    "en": "Coordinates transactions across databases and resource managers."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par les logiciels de gestion et bases de données professionnelles. Rarement utile chez soi.",
+      "en": "Used by business software and professional databases. Rarely useful at home."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. SQL Server et certains logiciels comptables s'en servent.",
+      "en": "Started on demand. SQL Server and some accounting software use it."
+    },
+    "expert": {
+      "fr": "msdtc.exe, NetworkService.",
+      "en": "msdtc.exe, NetworkService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Transactions distribuées impossibles", "en": "Distributed transactions impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

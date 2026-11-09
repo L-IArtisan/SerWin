@@ -1,0 +1,35 @@
+{
+  "name": "BTAGService",
+  "displayName": { "fr": "Service de passerelle audio Bluetooth", "en": "Bluetooth Audio Gateway Service" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère le mode « mains libres » (micro) des casques Bluetooth.",
+    "en": "Handles the hands-free (microphone) mode of Bluetooth headsets."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet d'utiliser le micro d'un casque Bluetooth pour les appels. Inutile sans Bluetooth.",
+      "en": "Lets you use a Bluetooth headset's microphone for calls. Useless without Bluetooth."
+    },
+    "avance": {
+      "fr": "Profil HFP. Le désactiver laisse la musique fonctionner (A2DP) mais supprime le micro du casque.",
+      "en": "HFP profile. Disabling it keeps music working (A2DP) but removes the headset microphone."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, BTAGService.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, BTAGService.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Micro du casque Bluetooth indisponible", "en": "Bluetooth headset microphone unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "bluetooth": "present" },
+  "verdictIfNot": { "fr": "Aucun adaptateur Bluetooth détecté.", "en": "No Bluetooth adapter detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

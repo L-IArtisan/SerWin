@@ -1,0 +1,35 @@
+{
+  "name": "Dhcp",
+  "displayName": { "fr": "Client DHCP", "en": "DHCP Client" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Obtient automatiquement une adresse IP auprès de ta box ou de ton routeur.",
+    "en": "Automatically obtains an IP address from your router."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sans lui, ton PC ne reçoit plus d'adresse sur le réseau : plus d'Internet, sauf configuration manuelle de l'adresse IP. Ne pas désactiver.",
+      "en": "Without it, your PC no longer gets a network address: no Internet unless you set the IP address manually. Do not disable."
+    },
+    "avance": {
+      "fr": "Il obtient et renouvelle les baux IPv4 (et une partie de la configuration IPv6), et enregistre le nom du PC auprès du DNS dynamique. WlanSvc, Wcmsvc et d'autres services réseau en dépendent.",
+      "en": "It obtains and renews IPv4 leases (and part of the IPv6 configuration), and registers the PC's name with dynamic DNS. WlanSvc, Wcmsvc and other network services depend on it."
+    },
+    "expert": {
+      "fr": "dhcpcore.dll dans svchost (LocalServiceNetworkRestricted), LocalService. Dépend de NSI et Afd. Paramètres par interface dans HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\{GUID}.",
+      "en": "dhcpcore.dll in svchost (LocalServiceNetworkRestricted), LocalService. Depends on NSI and Afd. Per-interface settings in HKLM\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\{GUID}."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus d'accès réseau ni Internet (sauf IP fixe)", "en": "No network or Internet access (unless static IP)" },
+    { "fr": "Le Wi-Fi et d'autres services réseau ne démarrent plus", "en": "Wi-Fi and other network services no longer start" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

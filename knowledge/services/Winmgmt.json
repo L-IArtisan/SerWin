@@ -1,0 +1,34 @@
+{
+  "name": "Winmgmt",
+  "displayName": { "fr": "Infrastructure de gestion Windows", "en": "Windows Management Instrumentation" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Fournit WMI, l'interface d'information et de gestion du système.",
+    "en": "Provides WMI, the system information and management interface."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet aux programmes d'interroger le PC (matériel, disques, état). Énormément d'outils en dépendent, SerWin compris.",
+      "en": "Lets programs query the PC (hardware, disks, status). A huge number of tools depend on it, SerWin included."
+    },
+    "avance": {
+      "fr": "Service central de gestion : antivirus, Centre de sécurité, outils du fabricant, scripts PowerShell l'utilisent. Le désactiver casse le Centre de sécurité et de nombreux logiciels.",
+      "en": "Central management service: antivirus, Security Center, vendor tools and PowerShell scripts use it. Disabling it breaks Security Center and many programs."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, WMIsvc.dll, LocalSystem. Dépôt dans %windir%\\System32\\wbem\\Repository ; « winmgmt /verifyrepository » vérifie son intégrité.",
+      "en": "svchost -k netsvcs, WMIsvc.dll, LocalSystem. Repository in %windir%\\System32\\wbem\\Repository; “winmgmt /verifyrepository” checks its integrity."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Centre de sécurité, antivirus et outils système défaillants", "en": "Security Center, antivirus and system tools fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/win32/wmisdk/wmi-start-page" ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "VSS",
+  "displayName": { "fr": "Cliché instantané des volumes", "en": "Volume Shadow Copy" },
+  "category": "storage",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Crée des copies instantanées des disques pour les sauvegardes et les points de restauration.",
+    "en": "Creates disk snapshots for backups and restore points."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable aux points de restauration et à la plupart des logiciels de sauvegarde. À ne pas couper.",
+      "en": "Essential for restore points and most backup software. Do not turn off."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Sans lui, la protection du système, l'Historique des fichiers et les sauvegardes d'image échouent.",
+      "en": "Started on demand. Without it, System Protection, File History and image backups fail."
+    },
+    "expert": {
+      "fr": "vssvc.exe, LocalSystem. « vssadmin list shadows » affiche les clichés.",
+      "en": "vssvc.exe, LocalSystem. “vssadmin list shadows” lists snapshots."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Points de restauration impossibles (y compris ceux de SerWin)", "en": "Restore points impossible (including SerWin's)" },
+    { "fr": "Logiciels de sauvegarde en échec", "en": "Backup software fails" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

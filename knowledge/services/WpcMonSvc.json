@@ -1,0 +1,34 @@
+{
+  "name": "WpcMonSvc",
+  "displayName": { "fr": "Contrôle parental", "en": "Parental Controls" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Applique le contrôle parental Microsoft Family.",
+    "en": "Enforces Microsoft Family parental controls."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si un compte enfant est géré avec Microsoft Family sur ce PC.",
+      "en": "Only useful if a child account is managed with Microsoft Family on this PC."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Le couper désactive les limites de temps d'écran et le filtrage.",
+      "en": "Started on demand. Turning it off disables screen time limits and filtering."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, WpcDesktopMonSvc.dll, LocalSystem.",
+      "en": "svchost -k LocalService, WpcDesktopMonSvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Contrôle parental inactif", "en": "Parental controls inactive" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

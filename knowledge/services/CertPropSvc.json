@@ -1,0 +1,35 @@
+{
+  "name": "CertPropSvc",
+  "displayName": { "fr": "Propagation du certificat", "en": "Certificate Propagation" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Copie les certificats d'une carte à puce dans le magasin de l'utilisateur.",
+    "en": "Copies certificates from a smart card into the user's store."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile uniquement avec une carte à puce.",
+      "en": "Only useful with a smart card."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur à l'insertion d'une carte. Sans lecteur, il ne fait rien.",
+      "en": "Started by trigger when a card is inserted. Without a reader, it does nothing."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, certprop.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, certprop.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion par carte à puce dégradée", "en": "Degraded smart card sign-in" }
+  ],
+  "revivers": [],
+  "usefulIf": { "smartCardReader": "present" },
+  "verdictIfNot": { "fr": "Aucun lecteur de carte à puce détecté.", "en": "No smart card reader detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

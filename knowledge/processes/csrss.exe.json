@@ -1,0 +1,16 @@
+{
+  "name": "csrss.exe",
+  "displayName": { "fr": "Processus d'exécution client-serveur", "en": "Client Server Runtime Process" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "summary": { "fr": "Gère des fonctions de base des sessions (fenêtres de console, arrêt du système).", "en": "Handles core session functions (console windows, system shutdown)." },
+  "levels": {
+    "simple": { "fr": "Processus vital de Windows : il y en a un par session. Le terminer fait planter l'ordinateur.", "en": "Vital Windows process: there is one per session. Terminating it crashes the computer." },
+    "avance": { "fr": "Partie « utilisateur » du sous-système Win32 : création des processus et threads, gestion des consoles (avec conhost.exe), arrêt et déconnexion.", "en": "User-mode part of the Win32 subsystem: process and thread creation, console handling (with conhost.exe), shutdown and logoff." },
+    "expert": { "fr": "%SystemRoot%\\System32\\csrss.exe, processus protégé (PPL) marqué critique. Un csrss.exe ailleurs que dans System32 est un signe classique de logiciel malveillant.", "en": "%SystemRoot%\\System32\\csrss.exe, protected (PPL) process marked critical. A csrss.exe outside System32 is a classic malware sign." }
+  },
+  "ifDisabled": [ { "fr": "Le terminer provoque un écran bleu", "en": "Terminating it causes a blue screen" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

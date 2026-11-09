@@ -1,0 +1,35 @@
+{
+  "name": "tzautoupdate",
+  "displayName": { "fr": "Programme de mise à jour automatique du fuseau horaire", "en": "Auto Time Zone Updater" },
+  "category": "location",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Change automatiquement le fuseau horaire selon l'endroit où se trouve le PC.",
+    "en": "Automatically changes the time zone based on where the PC is."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu voyages avec un portable. Sur un PC fixe, le fuseau horaire se règle une fois pour toutes. L'heure elle-même reste synchronisée par un autre service.",
+      "en": "Useful if you travel with a laptop. On a desktop, the time zone is set once and for all. The clock itself stays synchronized by another service."
+    },
+    "avance": {
+      "fr": "Correspond à l'option « Définir automatiquement le fuseau horaire » des Paramètres. Il s'appuie sur la géolocalisation (lfsvc) : si celle-ci est désactivée, il ne peut rien faire. Désactivé par défaut sur de nombreuses installations.",
+      "en": "Matches the “Set time zone automatically” option in Settings. It relies on geolocation (lfsvc): if that is disabled, it can do nothing. Disabled by default on many installations."
+    },
+    "expert": {
+      "fr": "tzautoupdate.dll dans svchost, LocalService. Activer l'option dans les Paramètres repasse le service en Manuel. La synchronisation de l'heure relève de W32Time.",
+      "en": "tzautoupdate.dll in svchost, LocalService. Turning on the option in Settings sets the service back to Manual. Clock synchronization is handled by W32Time."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Le fuseau horaire ne change plus tout seul en voyage", "en": "The time zone no longer changes by itself when traveling" }
+  ],
+  "revivers": [ { "type": "software", "target": "settings-app", "note": { "fr": "L'option des Paramètres le réactive", "en": "The Settings option re-enables it" } } ],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : le fuseau horaire ne change pas.", "en": "Desktop PC: the time zone does not change." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

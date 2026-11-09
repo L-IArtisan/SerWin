@@ -1,0 +1,16 @@
+{
+  "name": "ApplicationFrameHost.exe",
+  "displayName": { "fr": "Hôte de cadre d'application", "en": "Application Frame Host" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Dessine le cadre (barre de titre, bordures) des applications du Store.", "en": "Draws the frame (title bar, borders) of Store apps." },
+  "levels": {
+    "simple": { "fr": "Il dessine les fenêtres des applications comme Paramètres ou Calculatrice. Le terminer les ferme.", "en": "It draws the windows of apps such as Settings or Calculator. Terminating it closes them." },
+    "avance": { "fr": "Un seul processus sert toutes les fenêtres UWP ouvertes.", "en": "A single process serves all open UWP windows." },
+    "expert": { "fr": "%SystemRoot%\\System32\\ApplicationFrameHost.exe, lancé via DCOM.", "en": "%SystemRoot%\\System32\\ApplicationFrameHost.exe, launched via DCOM." }
+  },
+  "ifDisabled": [ { "fr": "Ferme les applications du Store ouvertes", "en": "Closes open Store apps" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

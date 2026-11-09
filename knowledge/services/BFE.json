@@ -1,0 +1,35 @@
+{
+  "name": "BFE",
+  "displayName": { "fr": "Moteur de filtrage de base", "en": "Base Filtering Engine" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Moteur qui applique les règles de filtrage réseau du pare-feu et d'IPsec.",
+    "en": "Engine that enforces the firewall's and IPsec's network filtering rules."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Le moteur sur lequel repose le pare-feu Windows. Le couper désactive le pare-feu et casse souvent les VPN.",
+      "en": "The engine the Windows Firewall runs on. Turning it off disables the firewall and often breaks VPNs."
+    },
+    "avance": {
+      "fr": "Gère la plateforme de filtrage Windows (WFP). Le Pare-feu, IPsec (IKEEXT, PolicyAgent), de nombreux VPN et certains antivirus en dépendent.",
+      "en": "Manages the Windows Filtering Platform (WFP). The Firewall, IPsec (IKEEXT, PolicyAgent), many VPNs and some antivirus products depend on it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNoNetworkFirewall, bfe.dll, compte LocalService. Les filtres WFP sont visibles avec « netsh wfp show filters ».",
+      "en": "svchost -k LocalServiceNoNetworkFirewall, bfe.dll, LocalService account. WFP filters can be listed with “netsh wfp show filters”."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Pare-feu Windows désactivé", "en": "Windows Firewall disabled" },
+    { "fr": "VPN et IPsec en échec", "en": "VPNs and IPsec fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>SerWin</AssemblyName>
+    <RootNamespace>SerWin.App</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <NeutralLanguage>fr</NeutralLanguage>
+    <!-- Publication portable (spec §3) : dotnet publish src/SerWin.App -c Release -r win-x64 -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained Condition="'$(RuntimeIdentifier)' != ''">true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <DebugType Condition="'$(Configuration)' == 'Release'">embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SerWin.Core\SerWin.Core.csproj" />
+    <ProjectReference Include="..\SerWin.Knowledge\SerWin.Knowledge.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="WPF-UI" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Strings.tsv est la source des traductions : tools/Build-Resx.ps1 régénère les .resx -->
+    <None Include="Resources\Strings.tsv" />
+  </ItemGroup>
+</Project>

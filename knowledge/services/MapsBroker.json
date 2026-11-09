@@ -1,0 +1,38 @@
+{
+  "name": "MapsBroker",
+  "displayName": { "fr": "Gestionnaire des cartes téléchargées", "en": "Downloaded Maps Manager" },
+  "category": "location",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les cartes hors connexion téléchargées pour l'application Cartes.",
+    "en": "Manages offline maps downloaded for the Maps app."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu utilises l'application Cartes de Windows avec des cartes hors ligne. Sinon, il ne sert à rien.",
+      "en": "Only useful if you use the Windows Maps app with offline maps. Otherwise it does nothing."
+    },
+    "avance": {
+      "fr": "Démarrage automatique différé : il vérifie périodiquement les mises à jour des cartes hors connexion. L'application Cartes étant abandonnée par Microsoft, il est de moins en moins utile.",
+      "en": "Delayed automatic start: it periodically checks for offline map updates. The Maps app has been retired by Microsoft, so it is less and less useful."
+    },
+    "expert": {
+      "fr": "moshost.dll dans svchost, NetworkService. Cartes stockées dans %ProgramData%\\Microsoft\\MapData. Mise à jour automatique réglable dans Paramètres > Applications > Cartes hors connexion.",
+      "en": "moshost.dll in svchost, NetworkService. Maps stored in %ProgramData%\\Microsoft\\MapData. Automatic updates configurable in Settings > Apps > Offline maps."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Les cartes hors connexion ne sont plus gérées ni mises à jour", "en": "Offline maps are no longer managed or updated" }
+  ],
+  "revivers": [],
+  "usefulIf": { "offlineMaps": ">0" },
+  "verdictIfNot": {
+    "fr": "Aucune carte hors connexion installée.",
+    "en": "No offline maps installed."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

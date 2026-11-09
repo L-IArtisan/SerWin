@@ -1,0 +1,34 @@
+{
+  "name": "ProfSvc",
+  "displayName": { "fr": "Service de profil utilisateur", "en": "User Profile Service" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Charge et décharge le profil de chaque utilisateur à la connexion et à la déconnexion.",
+    "en": "Loads and unloads each user's profile at sign-in and sign-out."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Charge ton bureau, tes documents et tes réglages quand tu te connectes. Sans lui, impossible d'ouvrir une session normale.",
+      "en": "Loads your desktop, documents and settings when you sign in. Without it, a normal sign-in is impossible."
+    },
+    "avance": {
+      "fr": "Monte la ruche de registre de l'utilisateur (NTUSER.DAT) et prépare son dossier. S'il est absent, Windows ouvre au mieux un profil temporaire.",
+      "en": "Mounts the user's registry hive (NTUSER.DAT) and prepares their folder. If missing, Windows opens a temporary profile at best."
+    },
+    "expert": {
+      "fr": "svchost -k UserProfileService, profsvc.dll, LocalSystem. Les profils sont listés sous HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList.",
+      "en": "svchost -k UserProfileService, profsvc.dll, LocalSystem. Profiles are listed under HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion impossible ou profil temporaire", "en": "Sign-in impossible or temporary profile" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

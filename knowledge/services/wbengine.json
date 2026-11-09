@@ -1,0 +1,34 @@
+{
+  "name": "wbengine",
+  "displayName": { "fr": "Service de moteur de sauvegarde en mode bloc", "en": "Block Level Backup Engine Service" },
+  "category": "storage",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Moteur des sauvegardes d'image système (wbadmin).",
+    "en": "Engine for system image backups (wbadmin)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé pour créer une image système complète. Sinon, il reste arrêté.",
+      "en": "Used to create a full system image. Otherwise it stays stopped."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par Sauvegarde Windows ou wbadmin.",
+      "en": "Started on demand by Windows Backup or wbadmin."
+    },
+    "expert": {
+      "fr": "wbengine.exe, LocalSystem.",
+      "en": "wbengine.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Images système impossibles", "en": "System images impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

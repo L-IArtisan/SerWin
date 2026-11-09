@@ -1,0 +1,35 @@
+{
+  "name": "wscsvc",
+  "displayName": { "fr": "Centre de sécurité", "en": "Security Center" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Surveille l'état de l'antivirus, du pare-feu et des mises à jour.",
+    "en": "Monitors antivirus, firewall and update status."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est lui qui te prévient si ton antivirus est désactivé ou périmé. Le couper fait croire à Windows qu'aucune protection n'est installée.",
+      "en": "It warns you if your antivirus is off or out of date. Turning it off makes Windows believe no protection is installed."
+    },
+    "avance": {
+      "fr": "Les antivirus tiers s'y enregistrent ; c'est ainsi que Defender sait qu'il doit se mettre en retrait. Démarrage automatique différé.",
+      "en": "Third-party antivirus products register with it; that is how Defender knows to step aside. Delayed automatic start."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, wscsvc.dll, LocalService. Les produits enregistrés sont exposés en WMI dans root\\SecurityCenter2.",
+      "en": "svchost -k LocalServiceNetworkRestricted, wscsvc.dll, LocalService. Registered products are exposed in WMI under root\\SecurityCenter2."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus d'alerte si l'antivirus est désactivé", "en": "No more warning if the antivirus is off" },
+    { "fr": "Conflits possibles entre Defender et un antivirus tiers", "en": "Possible conflicts between Defender and a third-party antivirus" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

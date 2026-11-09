@@ -1,0 +1,16 @@
+{
+  "name": "WmiPrvSE.exe",
+  "displayName": { "fr": "Hôte du fournisseur WMI", "en": "WMI Provider Host" },
+  "category": "diagnostics",
+  "risk": "moyen",
+  "bootCritical": false,
+  "summary": { "fr": "Répond aux programmes qui interrogent Windows sur le matériel et le système (WMI).", "en": "Answers programs that query Windows about hardware and system (WMI)." },
+  "levels": {
+    "simple": { "fr": "Il fournit des informations sur le PC à d'autres programmes. S'il consomme beaucoup, c'est qu'un programme l'interroge en boucle.", "en": "It provides PC information to other programs. If it uses a lot, some program is querying it in a loop." },
+    "avance": { "fr": "Le coupable se trouve dans le journal Microsoft-Windows-WMI-Activity/Operational (ClientProcessId). Utilisé aussi par SerWin pour les points de restauration.", "en": "The culprit is in the Microsoft-Windows-WMI-Activity/Operational log (ClientProcessId). Also used by SerWin for restore points." },
+    "expert": { "fr": "%SystemRoot%\\System32\\wbem\\WmiPrvSE.exe, lancé par le service Winmgmt ; un par niveau d'isolation de fournisseur.", "en": "%SystemRoot%\\System32\\wbem\\WmiPrvSE.exe, launched by the Winmgmt service; one per provider isolation level." }
+  },
+  "ifDisabled": [ { "fr": "Les requêtes WMI en cours échouent ; relancé à la demande", "en": "Current WMI queries fail; restarted on demand" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

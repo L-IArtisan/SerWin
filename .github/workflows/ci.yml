@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      DOTNET_NOLOGO: 1
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore -c Release
+
+      - name: Validate knowledge base
+        run: dotnet run --no-build -c Release --project src/SerWin.Verify -- validate knowledge
+
+      - name: Test
+        run: dotnet test --no-build -c Release
+
+      - name: Publish portable executable
+        run: dotnet publish src/SerWin.App -c Release -r win-x64 -o publish
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SerWin-win-x64
+          path: publish/SerWin.exe

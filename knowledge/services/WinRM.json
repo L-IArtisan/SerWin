@@ -1,0 +1,35 @@
+{
+  "name": "WinRM",
+  "displayName": { "fr": "Gestion à distance de Windows (Gestion WSM)", "en": "Windows Remote Management (WS-Management)" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet l'administration à distance par PowerShell (WS-Management).",
+    "en": "Enables remote administration via PowerShell (WS-Management)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert aux administrateurs pour gérer le PC à distance. Chez soi, il est inutile et arrêté par défaut.",
+      "en": "Used by administrators to manage the PC remotely. At home it is useless and stopped by default."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Requis par Enter-PSSession et certains outils de gestion d'entreprise.",
+      "en": "Started on demand. Required by Enter-PSSession and some enterprise management tools."
+    },
+    "expert": {
+      "fr": "svchost -k NetworkService, WsmSvc.dll, NetworkService. Écoute TCP 5985/5986 une fois configuré (winrm quickconfig).",
+      "en": "svchost -k NetworkService, WsmSvc.dll, NetworkService. Listens on TCP 5985/5986 once configured (winrm quickconfig)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Administration PowerShell à distance impossible", "en": "Remote PowerShell administration impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non joint à un domaine : la gestion à distance n'est pas utilisée.", "en": "PC not domain-joined: remote management is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

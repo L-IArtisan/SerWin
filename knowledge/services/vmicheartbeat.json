@@ -1,0 +1,35 @@
+{
+  "name": "vmicheartbeat",
+  "aliases": [ "vmicvss", "vmicshutdown", "vmictimesync", "vmickvpexchange", "vmicrdv", "vmicvmsession", "vmicguestinterface" ],
+  "displayName": { "fr": "Services d'intégration Hyper-V (invité)", "en": "Hyper-V Guest Integration Services" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Services utilisés quand Windows tourne lui-même dans une machine virtuelle Hyper-V.",
+    "en": "Services used when Windows itself runs inside a Hyper-V virtual machine."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne servent que si ce Windows est une machine virtuelle Hyper-V. Sur un vrai PC, ils restent arrêtés et ne coûtent rien.",
+      "en": "Only used if this Windows is a Hyper-V virtual machine. On a real PC, they stay stopped and cost nothing."
+    },
+    "avance": {
+      "fr": "Huit services (pulsation, arrêt, synchronisation de l'heure, sauvegarde, échange de données, session…) démarrés par déclencheur uniquement dans une VM.",
+      "en": "Eight services (heartbeat, shutdown, time sync, backup, data exchange, session…) started by trigger only inside a VM."
+    },
+    "expert": {
+      "fr": "svchost -k ICService, icsvc.dll / vmicvss.dll, LocalSystem. Triggers sur l'interface de périphérique du VMBus.",
+      "en": "svchost -k ICService, icsvc.dll / vmicvss.dll, LocalSystem. Triggers on the VMBus device interface."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Dans une VM : arrêt, heure et sauvegarde depuis l'hôte en échec", "en": "In a VM: shutdown, time and backup from the host fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

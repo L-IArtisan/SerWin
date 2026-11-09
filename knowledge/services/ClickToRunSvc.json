@@ -1,0 +1,38 @@
+{
+  "name": "ClickToRunSvc",
+  "displayName": { "fr": "Service Microsoft Office Démarrer en un clic", "en": "Microsoft Office Click-to-Run Service" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fait fonctionner et met à jour Microsoft Office (Microsoft 365).",
+    "en": "Runs and updates Microsoft Office (Microsoft 365)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Si Office est installé, il en a besoin pour démarrer : le couper empêche Word ou Excel de s'ouvrir.",
+      "en": "If Office is installed, it needs it to start: turning it off prevents Word or Excel from opening."
+    },
+    "avance": {
+      "fr": "Gère la virtualisation et les mises à jour d'Office. La tâche « Office Automatic Updates 2.0 » et chaque lancement d'Office le réactivent.",
+      "en": "Handles Office virtualization and updates. The “Office Automatic Updates 2.0” task and every Office launch re-enable it."
+    },
+    "expert": {
+      "fr": "OfficeClickToRun.exe /service, LocalSystem.",
+      "en": "OfficeClickToRun.exe /service, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applications Office qui ne s'ouvrent plus", "en": "Office apps no longer open" },
+    { "fr": "Plus de mises à jour d'Office", "en": "No more Office updates" }
+  ],
+  "revivers": [
+    { "type": "task", "target": "\\Microsoft\\Office\\Office Automatic Updates 2.0" },
+    { "type": "software", "target": "office-update", "note": { "fr": "Le lancement d'Office le redémarre", "en": "Launching Office restarts it" } }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

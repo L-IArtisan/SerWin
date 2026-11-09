@@ -1,0 +1,16 @@
+{
+  "name": "dllhost.exe",
+  "displayName": { "fr": "COM Surrogate", "en": "COM Surrogate" },
+  "category": "core",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Exécute des composants COM à l'écart, par exemple pour générer les miniatures d'images.", "en": "Runs COM components separately, for example to generate image thumbnails." },
+  "levels": {
+    "simple": { "fr": "Un « assistant » qui fait tourner des petits morceaux de programmes (miniatures, aperçus) sans risquer de faire planter l'Explorateur.", "en": "A “helper” that runs small pieces of programs (thumbnails, previews) without risking an Explorer crash." },
+    "avance": { "fr": "Son argument /Processid:{CLSID} indique quel composant il héberge. Un dllhost.exe qui consomme beaucoup est souvent un codec vidéo ou un générateur de miniatures tiers.", "en": "Its /Processid:{CLSID} argument shows which component it hosts. A busy dllhost.exe is often a video codec or third-party thumbnail generator." },
+    "expert": { "fr": "%SystemRoot%\\System32\\dllhost.exe (ou SysWOW64 pour le 32 bits). CLSID résolu via HKCR\\CLSID\\{…} et HKCR\\AppID.", "en": "%SystemRoot%\\System32\\dllhost.exe (or SysWOW64 for 32-bit). CLSID resolved via HKCR\\CLSID\\{…} and HKCR\\AppID." }
+  },
+  "ifDisabled": [ { "fr": "Interrompt l'opération en cours (miniature, aperçu…)", "en": "Interrupts the current operation (thumbnail, preview…)" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

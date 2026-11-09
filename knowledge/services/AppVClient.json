@@ -1,0 +1,35 @@
+{
+  "name": "AppVClient",
+  "displayName": { "fr": "Client Microsoft App-V", "en": "Microsoft App-V Client" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Exécute des applications « virtualisées » diffusées par un serveur d'entreprise (App-V).",
+    "en": "Runs “virtualized” applications streamed from a company server (App-V)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Technologie d'entreprise pour distribuer des logiciels sans les installer. Inutile sur un PC personnel ; désactivé par défaut.",
+      "en": "Enterprise technology for delivering software without installing it. Useless on a personal PC; disabled by default."
+    },
+    "avance": {
+      "fr": "Le client App-V est intégré à Windows Entreprise/Éducation et s'active avec la commande PowerShell Enable-AppV. Microsoft a annoncé la fin de vie d'App-V au profit de MSIX.",
+      "en": "The App-V client is built into Windows Enterprise/Education and is turned on with the Enable-AppV PowerShell command. Microsoft has announced App-V's end of life in favor of MSIX."
+    },
+    "expert": {
+      "fr": "AppVClient.exe (processus dédié), LocalSystem. Pilotes associés AppvVfs, AppvStrm, AppvVemgr. État : Get-AppvStatus.",
+      "en": "AppVClient.exe (own process), LocalSystem. Related drivers AppvVfs, AppvStrm, AppvVemgr. Status: Get-AppvStatus."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Les applications App-V d'entreprise ne se lancent plus", "en": "Enterprise App-V applications no longer launch" }
+  ],
+  "revivers": [ { "type": "policy", "target": "domain-gpo" } ],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non géré par une entreprise : App-V n'est pas utilisé.", "en": "PC not managed by a company: App-V is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/microsoft-desktop-optimization-pack/app-v/appv-for-windows" ]
+}

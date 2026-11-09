@@ -1,0 +1,16 @@
+{
+  "name": "explorer.exe",
+  "displayName": { "fr": "Explorateur Windows", "en": "Windows Explorer" },
+  "category": "ui",
+  "risk": "moyen",
+  "bootCritical": false,
+  "summary": { "fr": "Le bureau, la barre des tâches et l'Explorateur de fichiers.", "en": "The desktop, taskbar and File Explorer." },
+  "levels": {
+    "simple": { "fr": "C'est l'interface de Windows. Si la barre des tâches est bloquée, le redémarrer (Gestionnaire des tâches → Redémarrer) règle souvent le problème.", "en": "This is Windows' interface. If the taskbar is stuck, restarting it (Task Manager → Restart) often fixes the problem." },
+    "avance": { "fr": "Le terminer fait disparaître barre des tâches et bureau ; winlogon le relance généralement tout seul. Les extensions de shell tierces (menus contextuels) tournent dans ce processus et causent souvent ses plantages.", "en": "Terminating it removes the taskbar and desktop; winlogon usually restarts it. Third-party shell extensions (context menus) run inside it and often cause its crashes." },
+    "expert": { "fr": "%SystemRoot%\\explorer.exe, lancé par userinit.exe (valeur Shell de Winlogon). Un explorer.exe hors de %SystemRoot% est suspect.", "en": "%SystemRoot%\\explorer.exe, launched by userinit.exe (Winlogon Shell value). An explorer.exe outside %SystemRoot% is suspicious." }
+  },
+  "ifDisabled": [ { "fr": "La barre des tâches et le bureau disparaissent jusqu'à sa relance", "en": "The taskbar and desktop disappear until it restarts" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

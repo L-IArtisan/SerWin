@@ -1,0 +1,16 @@
+{
+  "name": "SearchHost.exe",
+  "displayName": { "fr": "Recherche Windows (interface)", "en": "Windows Search (interface)" },
+  "category": "search",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "La fenêtre de recherche du menu Démarrer et de la barre des tâches.", "en": "The search window of the Start menu and taskbar." },
+  "levels": {
+    "simple": { "fr": "C'est la fenêtre qui s'ouvre quand tu cherches quelque chose. Elle reste en mémoire pour s'afficher vite.", "en": "It is the window that opens when you search for something. It stays in memory to show up quickly." },
+    "avance": { "fr": "Interface seulement : l'indexation est faite par SearchIndexer.exe (service WSearch). Le terminer le fait relancer à la prochaine recherche.", "en": "Interface only: indexing is done by SearchIndexer.exe (WSearch service). Terminating it gets it restarted on the next search." },
+    "expert": { "fr": "Application empaquetée MicrosoftWindows.Client.CBS, lancée en arrière-plan à l'ouverture de session (suspendue quand invisible).", "en": "Packaged app MicrosoftWindows.Client.CBS, preloaded at sign-in (suspended when not visible)." }
+  },
+  "ifDisabled": [ { "fr": "Aucun effet durable : relancé à la prochaine recherche", "en": "No lasting effect: restarted on the next search" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

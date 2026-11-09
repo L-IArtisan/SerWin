@@ -1,0 +1,32 @@
+{
+  "name": "MsKeyboardFilter",
+  "displayName": { "fr": "Filtre clavier Microsoft", "en": "Microsoft Keyboard Filter" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Bloque certaines combinaisons de touches (Ctrl+Alt+Suppr, Win+L…) sur les bornes et appareils verrouillés.",
+    "en": "Blocks some key combinations (Ctrl+Alt+Del, Win+L…) on kiosks and locked-down devices."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert aux bornes interactives et PC en libre-service. Inutile sur ton PC ; désactivé par défaut.",
+      "en": "Used by kiosks and self-service PCs. Useless on your PC; disabled by default."
+    },
+    "avance": {
+      "fr": "Fait partie de la fonctionnalité facultative « Filtre clavier » (Windows Entreprise/Éducation/IoT). Les touches à bloquer se configurent par WMI.",
+      "en": "Part of the “Keyboard Filter” optional feature (Windows Enterprise/Education/IoT). Keys to block are configured through WMI."
+    },
+    "expert": {
+      "fr": "KeyboardFilterSvc.dll dans svchost, LocalSystem. Configuration via les classes WMI root\\standardcimv2\\embedded (WEKF_PredefinedKey, WEKF_CustomKey).",
+      "en": "KeyboardFilterSvc.dll in svchost, LocalSystem. Configured through WMI classes in root\\standardcimv2\\embedded (WEKF_PredefinedKey, WEKF_CustomKey)."
+    }
+  },
+  "ifDisabled": [ { "fr": "Aucun effet si le filtre clavier n'est pas configuré", "en": "No effect if Keyboard Filter is not configured" } ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/configuration/keyboard-filter/" ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "edgeupdate",
+  "aliases": [ "edgeupdatem" ],
+  "displayName": { "fr": "Service Microsoft Edge Update", "en": "Microsoft Edge Update Service" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Met à jour Microsoft Edge et WebView2.",
+    "en": "Updates Microsoft Edge and WebView2."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde Edge à jour. Attention : WebView2, utilisé par de nombreuses applis (Teams, Outlook, widgets), est mis à jour par lui aussi.",
+      "en": "Keeps Edge up to date. Careful: WebView2, used by many apps (Teams, Outlook, widgets), is updated by it too."
+    },
+    "avance": {
+      "fr": "Deux services : edgeupdate (automatique différé) et edgeupdatem (à la demande). Des tâches planifiées « MicrosoftEdgeUpdateTaskMachine… » les relancent, et chaque mise à jour d'Edge les réactive.",
+      "en": "Two services: edgeupdate (delayed automatic) and edgeupdatem (on demand). “MicrosoftEdgeUpdateTaskMachine…” scheduled tasks start them, and every Edge update re-enables them."
+    },
+    "expert": {
+      "fr": "MicrosoftEdgeUpdate.exe /svc (/medsvc pour edgeupdatem), LocalSystem.",
+      "en": "MicrosoftEdgeUpdate.exe /svc (/medsvc for edgeupdatem), LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Edge et WebView2 plus mis à jour (risque de sécurité)", "en": "Edge and WebView2 no longer updated (security risk)" }
+  ],
+  "revivers": [
+    { "type": "task", "target": "\\MicrosoftEdgeUpdateTaskMachine*" },
+    { "type": "software", "target": "edge-update", "note": { "fr": "Chaque mise à jour d'Edge réinstalle et réactive le service", "en": "Every Edge update reinstalls and re-enables the service" } }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

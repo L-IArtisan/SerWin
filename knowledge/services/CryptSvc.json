@@ -1,0 +1,35 @@
+{
+  "name": "CryptSvc",
+  "displayName": { "fr": "Services de chiffrement", "en": "Cryptographic Services" },
+  "category": "security",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Vérifie les signatures numériques et gère les certificats racines.",
+    "en": "Checks digital signatures and manages root certificates."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Vérifie que les programmes et mises à jour sont authentiques. Sans lui, Windows Update, le Store et l'installation de pilotes échouent.",
+      "en": "Checks that programs and updates are genuine. Without it, Windows Update, the Store and driver installation fail."
+    },
+    "avance": {
+      "fr": "Gère la base des catalogues de signatures (catroot2), la mise à jour des certificats racines et l'ajout de composants signés.",
+      "en": "Manages the signature catalog database (catroot2), root certificate updates and installation of signed components."
+    },
+    "expert": {
+      "fr": "svchost -k NetworkService, cryptsvc.dll, compte NetworkService. Base de catalogues dans %windir%\\System32\\catroot2.",
+      "en": "svchost -k NetworkService, cryptsvc.dll, NetworkService account. Catalog database in %windir%\\System32\\catroot2."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Windows Update et installations de pilotes en échec", "en": "Windows Update and driver installations fail" },
+    { "fr": "Vérification des signatures dégradée", "en": "Degraded signature checking" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

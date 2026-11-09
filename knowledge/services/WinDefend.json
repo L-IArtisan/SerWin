@@ -1,0 +1,42 @@
+{
+  "name": "WinDefend",
+  "displayName": { "fr": "Service Antivirus Microsoft Defender", "en": "Microsoft Defender Antivirus Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Protège le PC contre les virus et logiciels malveillants en temps réel.",
+    "en": "Protects the PC against viruses and malware in real time."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est l'antivirus intégré à Windows. Ne le désactive pas, sauf si tu installes un autre antivirus : dans ce cas, Windows le met automatiquement en retrait.",
+      "en": "This is Windows' built-in antivirus. Do not disable it unless you install another antivirus: Windows then steps it back automatically."
+    },
+    "avance": {
+      "fr": "Protégé par la « Protection contre les falsifications » : ses réglages ne peuvent pas être modifiés par un programme, même administrateur. Quand un antivirus tiers est enregistré auprès du Centre de sécurité, Defender passe en mode passif ou s'arrête.",
+      "en": "Protected by “Tamper Protection”: its settings cannot be changed by a program, even with admin rights. When a third-party antivirus registers with Security Center, Defender switches to passive mode or stops."
+    },
+    "expert": {
+      "fr": "MsMpEng.exe (processus protégé PPL anti-malware), lancé depuis %ProgramData%\\Microsoft\\Windows Defender\\Platform\\<version>. La plateforme est mise à jour hors des mises à jour Windows. Les stratégies sont sous HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender et ignorées si la protection contre les falsifications est active.",
+      "en": "MsMpEng.exe (anti-malware PPL protected process), launched from %ProgramData%\\Microsoft\\Windows Defender\\Platform\\<version>. The platform updates separately from Windows updates. Policies live under HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender and are ignored while Tamper Protection is on."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de protection antivirus en temps réel si aucun autre antivirus n'est installé", "en": "No real-time antivirus protection if no other antivirus is installed" },
+    { "fr": "La Sécurité Windows affiche des alertes permanentes", "en": "Windows Security shows permanent alerts" }
+  ],
+  "revivers": [
+    { "type": "service", "target": "SecurityHealthService" },
+    { "type": "update", "target": "defender-platform-update" }
+  ],
+  "usefulIf": { "thirdPartyAntivirus": "none" },
+  "verdictIfNot": {
+    "fr": "Un autre antivirus est actif : Defender est déjà en retrait automatiquement, inutile d'y toucher.",
+    "en": "Another antivirus is active: Defender has already stepped back automatically, no need to touch it."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/defender-endpoint/prevent-changes-to-security-settings-with-tamper-protection" ]
+}

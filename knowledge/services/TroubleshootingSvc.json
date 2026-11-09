@@ -1,0 +1,34 @@
+{
+  "name": "TroubleshootingSvc",
+  "displayName": { "fr": "Service de résolution des problèmes recommandée", "en": "Recommended Troubleshooting Service" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Applique les correctifs « recommandés » que Microsoft pousse pour des problèmes connus.",
+    "en": "Applies the “recommended” fixes Microsoft pushes for known problems."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Peut appliquer automatiquement des corrections envoyées par Microsoft. Le couper n'empêche pas les mises à jour.",
+      "en": "Can automatically apply fixes sent by Microsoft. Turning it off does not stop updates."
+    },
+    "avance": {
+      "fr": "Lié aux données de diagnostic : sans elles, peu de recommandations arrivent. Réglable dans Paramètres > Système > Résolution des problèmes.",
+      "en": "Tied to diagnostic data: without it, few recommendations arrive. Configurable in Settings > System > Troubleshoot."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, MitigationClient.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, MitigationClient.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de résolution recommandée automatique", "en": "No more automatic recommended troubleshooting" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

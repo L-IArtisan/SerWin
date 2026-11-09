@@ -1,0 +1,34 @@
+{
+  "name": "SENS",
+  "displayName": { "fr": "Service de notification d'événements système", "en": "System Event Notification Service" },
+  "category": "core",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Prévient les programmes des connexions, de l'alimentation et du réseau.",
+    "en": "Notifies programs about sign-ins, power and network."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Prévient les programmes quand tu te connectes ou que le réseau change. Plusieurs logiciels en dépendent.",
+      "en": "Tells programs when you sign in or the network changes. Several programs depend on it."
+    },
+    "avance": {
+      "fr": "Dépend du Système d'événement COM+. Certains logiciels de synchronisation et de sauvegarde l'utilisent.",
+      "en": "Depends on COM+ Event System. Some sync and backup software uses it."
+    },
+    "expert": {
+      "fr": "svchost (groupe netsvcs, suffixé « RedirectionGuard » sur les builds récents), sens.dll, LocalSystem.",
+      "en": "svchost (netsvcs group, with a “RedirectionGuard” suffix on recent builds), sens.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Logiciels qui ne réagissent plus aux connexions ou au réseau", "en": "Programs no longer react to sign-ins or network changes" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

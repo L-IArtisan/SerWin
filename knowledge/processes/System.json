@@ -1,0 +1,16 @@
+{
+  "name": "System",
+  "displayName": { "fr": "System (noyau Windows)", "en": "System (Windows kernel)" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "summary": { "fr": "Représente le noyau de Windows et ses pilotes.", "en": "Represents the Windows kernel and its drivers." },
+  "levels": {
+    "simple": { "fr": "C'est Windows lui-même. Une forte activité vient en général d'un pilote (disque, réseau, carte graphique).", "en": "This is Windows itself. High activity usually comes from a driver (disk, network, graphics card)." },
+    "avance": { "fr": "Les threads du noyau et des pilotes s'exécutent ici (PID 4). Une consommation CPU élevée persistante se diagnostique avec l'Analyseur de performances Windows (WPA).", "en": "Kernel and driver threads run here (PID 4). Persistent high CPU is diagnosed with Windows Performance Analyzer (WPA)." },
+    "expert": { "fr": "Pseudo-processus sans exécutable : ntoskrnl.exe et les .sys chargés. Les E/S disque attribuées à System sont souvent du cache, de la pagination ou de l'indexation par un pilote de filtre.", "en": "Pseudo-process with no executable: ntoskrnl.exe and loaded .sys files. Disk I/O attributed to System is often cache, paging or filter-driver activity." }
+  },
+  "ifDisabled": [ { "fr": "Impossible à terminer : c'est le système lui-même", "en": "Cannot be terminated: it is the system itself" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "ShellHWDetection",
+  "displayName": { "fr": "Détection matériel noyau", "en": "Shell Hardware Detection" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Propose une action quand on insère une clé USB, une carte mémoire ou un CD (Exécution automatique).",
+    "en": "Offers an action when a USB stick, memory card or CD is inserted (AutoPlay)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est lui qui affiche « Que voulez-vous faire avec ce lecteur ? ». Le couper désactive l'Exécution automatique, sans autre conséquence notable.",
+      "en": "It shows “Choose what to do with this drive”. Turning it off disables AutoPlay, with no other notable consequence."
+    },
+    "avance": {
+      "fr": "Gère les notifications d'Exécution automatique pour les supports amovibles. Certains outils de webcam ou d'appareil photo s'y appuient.",
+      "en": "Handles AutoPlay notifications for removable media. Some webcam or camera tools rely on it."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, shsvcs.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, shsvcs.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de fenêtre d'Exécution automatique", "en": "No more AutoPlay window" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

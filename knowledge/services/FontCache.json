@@ -1,0 +1,34 @@
+{
+  "name": "FontCache",
+  "displayName": { "fr": "Service de cache de police Windows", "en": "Windows Font Cache Service" },
+  "category": "ui",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Accélère l'affichage des polices en gardant leurs données en cache.",
+    "en": "Speeds up font rendering by caching font data."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Rend l'ouverture des programmes plus rapide en gardant les polices prêtes. Le couper ralentit l'affichage.",
+      "en": "Makes programs open faster by keeping fonts ready. Turning it off slows down display."
+    },
+    "avance": {
+      "fr": "Partage le cache de polices entre applications. Sans lui, chaque appli recharge les polices et certaines peuvent s'afficher mal.",
+      "en": "Shares the font cache between apps. Without it, each app reloads fonts and some may display badly."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, FntCache.dll, LocalService. Cache dans %windir%\\ServiceProfiles\\LocalService\\AppData\\Local\\FontCache.",
+      "en": "svchost -k LocalService, FntCache.dll, LocalService. Cache in %windir%\\ServiceProfiles\\LocalService\\AppData\\Local\\FontCache."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Lancement des applications plus lent", "en": "Slower app launches" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

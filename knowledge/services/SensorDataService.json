@@ -1,0 +1,35 @@
+{
+  "name": "SensorDataService",
+  "displayName": { "fr": "Service de données de capteur", "en": "Sensor Data Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Transmet les données des capteurs aux applications.",
+    "en": "Delivers sensor data to apps."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Intermédiaire entre les capteurs et les applis. Inutile sur un PC fixe.",
+      "en": "Middleman between sensors and apps. Useless on a desktop PC."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par les applis qui lisent un capteur.",
+      "en": "Started on demand by apps that read a sensor."
+    },
+    "expert": {
+      "fr": "SensorDataService.exe, LocalSystem.",
+      "en": "SensorDataService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applis qui utilisent les capteurs privées de données", "en": "Apps using sensors get no data" }
+  ],
+  "revivers": [],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : aucun capteur à gérer.", "en": "Desktop PC: no sensors to manage." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

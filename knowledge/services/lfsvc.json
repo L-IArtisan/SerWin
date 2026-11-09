@@ -1,0 +1,42 @@
+{
+  "name": "lfsvc",
+  "displayName": { "fr": "Service de géolocalisation", "en": "Geolocation Service" },
+  "category": "location",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Détermine la position du PC pour les applications qui le demandent (météo, cartes, fuseau horaire).",
+    "en": "Determines the PC's location for apps that request it (weather, maps, time zone)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il fournit ta position aux applications autorisées. Le désactiver protège ta vie privée, mais le fuseau horaire automatique et « Localiser mon appareil » ne marchent plus.",
+      "en": "It gives your location to allowed apps. Disabling it protects your privacy, but automatic time zone and “Find my device” stop working."
+    },
+    "avance": {
+      "fr": "La position est calculée à partir du Wi-Fi environnant, de l'IP ou d'un GPS. L'accès se règle application par application dans Paramètres > Confidentialité > Localisation, ce qui est souvent préférable à la coupure du service.",
+      "en": "Location is computed from nearby Wi-Fi, IP address or GPS. Access is controlled per app in Settings > Privacy > Location, which is often better than stopping the service."
+    },
+    "expert": {
+      "fr": "lfsvc.dll dans svchost, LocalSystem. Plusieurs déclencheurs (RPC, changement d'état WNF, arrivée de capteur) le démarrent à la demande. Stratégie : HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors\\DisableLocation = 1.",
+      "en": "lfsvc.dll in svchost, LocalSystem. Several triggers (RPC, WNF state change, sensor arrival) start it on demand. Policy: HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\LocationAndSensors\\DisableLocation = 1."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Le fuseau horaire automatique ne fonctionne plus", "en": "Automatic time zone stops working" },
+    { "fr": "« Localiser mon appareil » et la météo locale ne fonctionnent plus", "en": "“Find my device” and local weather stop working" }
+  ],
+  "revivers": [
+    { "type": "trigger", "target": "rpc" },
+    { "type": "trigger", "target": "device-arrival" }
+  ],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": {
+    "fr": "PC fixe : la position change rarement, la géolocalisation apporte peu.",
+    "en": "Desktop PC: location rarely changes, geolocation adds little."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/privacy/manage-connections-from-windows-operating-system-components-to-microsoft-services" ]
+}

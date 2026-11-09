@@ -1,0 +1,35 @@
+{
+  "name": "iphlpsvc",
+  "displayName": { "fr": "Assistance IP", "en": "IP Helper" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fournit les technologies de transition IPv6 (6to4, Teredo, IP-HTTPS).",
+    "en": "Provides IPv6 transition technologies (6to4, Teredo, IP-HTTPS)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait passer l'IPv6 dans des tunnels quand le réseau ne le gère pas. Sur une box moderne, rarement nécessaire, mais certains jeux en ligne (Teredo) et VPN d'entreprise (DirectAccess) l'utilisent.",
+      "en": "Tunnels IPv6 when the network doesn't support it. On a modern router it is rarely needed, but some online games (Teredo) and corporate VPNs (DirectAccess) use it."
+    },
+    "avance": {
+      "fr": "Gère aussi le service de proxy de port (netsh interface portproxy). Le désactiver n'empêche pas l'IPv6 natif.",
+      "en": "Also handles port proxying (netsh interface portproxy). Disabling it does not prevent native IPv6."
+    },
+    "expert": {
+      "fr": "svchost -k NetSvcs, iphlpsvc.dll, LocalSystem.",
+      "en": "svchost -k NetSvcs, iphlpsvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Teredo (Xbox Live, chat de groupe) indisponible", "en": "Teredo (Xbox Live party chat) unavailable" },
+    { "fr": "portproxy et DirectAccess hors service", "en": "portproxy and DirectAccess broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

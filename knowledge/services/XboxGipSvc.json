@@ -1,0 +1,35 @@
+{
+  "name": "XboxGipSvc",
+  "displayName": { "fr": "Gestion des accessoires Xbox", "en": "Xbox Accessory Management Service" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Met à jour et configure les manettes et accessoires Xbox.",
+    "en": "Updates and configures Xbox controllers and accessories."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu branches une manette Xbox.",
+      "en": "Only useful if you connect an Xbox controller."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur à la connexion d'un accessoire Xbox (protocole GIP).",
+      "en": "Started by trigger when an Xbox accessory connects (GIP protocol)."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, XboxGipSvc.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, XboxGipSvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mise à jour et réglage des manettes Xbox impossibles", "en": "Xbox controllers cannot be updated or configured" }
+  ],
+  "revivers": [],
+  "usefulIf": { "xboxApps": "installed" },
+  "verdictIfNot": { "fr": "Aucune application ou jeu Xbox détecté.", "en": "No Xbox app or game detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

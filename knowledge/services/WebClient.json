@@ -1,0 +1,34 @@
+{
+  "name": "WebClient",
+  "displayName": { "fr": "WebClient", "en": "WebClient" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Accès aux dossiers web (WebDAV) depuis l'Explorateur.",
+    "en": "Access to web folders (WebDAV) from File Explorer."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu montes un dossier en ligne comme un lecteur réseau (WebDAV, ancien SharePoint).",
+      "en": "Only useful if you map an online folder as a network drive (WebDAV, older SharePoint)."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur. OneDrive ne l'utilise pas.",
+      "en": "Started by trigger. OneDrive does not use it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, webclnt.dll, LocalService.",
+      "en": "svchost -k LocalService, webclnt.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Lecteurs WebDAV inaccessibles", "en": "WebDAV drives inaccessible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

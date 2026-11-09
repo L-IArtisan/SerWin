@@ -1,0 +1,38 @@
+{
+  "name": "WSearch",
+  "displayName": { "fr": "Windows Search", "en": "Windows Search" },
+  "category": "search",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Indexe le contenu des fichiers, des e-mails et des paramètres pour accélérer les recherches.",
+    "en": "Indexes file contents, e-mail and settings to speed up searches."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Il prépare un « index » de tes fichiers pour que la recherche soit instantanée. Sans lui, la recherche marche encore, mais beaucoup plus lentement, et Outlook ne trouve plus bien ses e-mails.",
+      "en": "It builds an “index” of your files so searches are instant. Without it, search still works, but much more slowly, and Outlook struggles to find its e-mail."
+    },
+    "avance": {
+      "fr": "L'indexation consomme du disque et du processeur juste après une installation, puis se calme. Plutôt que de couper le service, on peut limiter les emplacements indexés (Paramètres > Recherche dans Windows). La recherche du menu Démarrer et de l'Explorateur s'appuie dessus.",
+      "en": "Indexing uses disk and CPU right after installation, then settles down. Rather than stopping the service, you can limit indexed locations (Settings > Searching Windows). Start menu and Explorer search rely on it."
+    },
+    "expert": {
+      "fr": "SearchIndexer.exe (processus dédié), LocalSystem, démarrage automatique différé. Index dans %ProgramData%\\Microsoft\\Search\\Data (Windows.edb / Windows.db). Les applications Microsoft 365 (Outlook) l'interrogent via le fournisseur OLE DB Search.CollatorDSO.",
+      "en": "SearchIndexer.exe (dedicated process), LocalSystem, delayed automatic start. Index in %ProgramData%\\Microsoft\\Search\\Data (Windows.edb / Windows.db). Microsoft 365 apps (Outlook) query it via the Search.CollatorDSO OLE DB provider."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Recherche beaucoup plus lente dans l'Explorateur et le menu Démarrer", "en": "Much slower search in Explorer and the Start menu" },
+    { "fr": "La recherche dans Outlook devient incomplète", "en": "Search in Outlook becomes incomplete" },
+    { "fr": "Les bibliothèques et certaines vues de l'Explorateur ne se filtrent plus", "en": "Libraries and some Explorer views can no longer be filtered" }
+  ],
+  "revivers": [
+    { "type": "update", "target": "feature-update" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/troubleshoot/windows-client/shell-experience/windows-search-performance-issues" ]
+}

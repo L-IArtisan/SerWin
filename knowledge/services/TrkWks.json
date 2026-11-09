@@ -1,0 +1,34 @@
+{
+  "name": "TrkWks",
+  "displayName": { "fr": "Client de suivi de lien distribué", "en": "Distributed Link Tracking Client" },
+  "category": "storage",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Répare les raccourcis quand un fichier est déplacé.",
+    "en": "Fixes shortcuts when a file is moved."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet à un raccourci de retrouver son fichier s'il a été déplacé. Le couper n'a qu'un effet mineur.",
+      "en": "Lets a shortcut find its file if it was moved. Turning it off has only a minor effect."
+    },
+    "avance": {
+      "fr": "Suivi des fichiers NTFS entre volumes et sur le réseau local. Démarrage automatique.",
+      "en": "Tracks NTFS files across volumes and on the local network. Automatic start."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, trkwks.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, trkwks.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Raccourcis cassés après déplacement d'un fichier", "en": "Broken shortcuts after moving a file" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

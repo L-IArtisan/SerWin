@@ -1,0 +1,34 @@
+{
+  "name": "PolicyAgent",
+  "displayName": { "fr": "Agent de stratégie IPsec", "en": "IPsec Policy Agent" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Applique les stratégies IPsec configurées.",
+    "en": "Applies configured IPsec policies."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé dans les réseaux d'entreprise qui chiffrent les échanges avec IPsec.",
+      "en": "Used on corporate networks that encrypt traffic with IPsec."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur. Le pare-feu personnel ne dépend pas de lui.",
+      "en": "Started by trigger. The personal firewall does not depend on it."
+    },
+    "expert": {
+      "fr": "svchost -k NetworkServiceNetworkRestricted, ipsecsvc.dll, NetworkService.",
+      "en": "svchost -k NetworkServiceNetworkRestricted, ipsecsvc.dll, NetworkService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Stratégies IPsec non appliquées", "en": "IPsec policies not applied" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

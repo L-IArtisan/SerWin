@@ -1,0 +1,35 @@
+{
+  "name": "NlaSvc",
+  "displayName": { "fr": "Connaissance des emplacements réseau", "en": "Network Location Awareness" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Identifie le réseau connecté et indique s'il a accès à Internet.",
+    "en": "Identifies the connected network and tells whether it has Internet access."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est lui qui décide si tu es sur un réseau « privé » ou « public » et si Internet est accessible. Le couper perturbe le pare-feu et les applis.",
+      "en": "It decides whether you are on a “private” or “public” network and whether the Internet is reachable. Turning it off disrupts the firewall and apps."
+    },
+    "avance": {
+      "fr": "Collecte les informations de réseau et choisit le profil du pare-feu. Avec la sonde de connectivité (NCSI), il alimente l'icône réseau.",
+      "en": "Collects network information and selects the firewall profile. With the connectivity probe (NCSI), it drives the network icon."
+    },
+    "expert": {
+      "fr": "svchost -k netprofm, netprofmsvc.dll, NetworkService. Sonde NCSI configurable sous HKLM\\SYSTEM\\CurrentControlSet\\Services\\NlaSvc\\Parameters\\Internet.",
+      "en": "svchost -k netprofm, netprofmsvc.dll, NetworkService. NCSI probe configurable under HKLM\\SYSTEM\\CurrentControlSet\\Services\\NlaSvc\\Parameters\\Internet."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Icône réseau « pas d'Internet » à tort", "en": "Network icon wrongly shows “no Internet”" },
+    { "fr": "Profil de pare-feu incorrect", "en": "Wrong firewall profile" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

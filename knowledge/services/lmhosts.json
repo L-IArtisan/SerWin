@@ -1,0 +1,34 @@
+{
+  "name": "lmhosts",
+  "displayName": { "fr": "Assistance NetBIOS sur TCP/IP", "en": "TCP/IP NetBIOS Helper" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Résolution de noms NetBIOS pour les anciens partages réseau.",
+    "en": "NetBIOS name resolution for older network shares."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Aide à trouver les autres PC du réseau local par leur nom avec d'anciens protocoles. Souvent inutile sur un réseau moderne.",
+      "en": "Helps find other local PCs by name with older protocols. Often unnecessary on a modern network."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur. Certains vieux NAS ou imprimantes n'apparaissent dans le réseau que grâce à lui.",
+      "en": "Started by trigger. Some old NAS devices or printers only show up in Network thanks to it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, lmhsvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, lmhsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Anciens appareils introuvables par leur nom", "en": "Older devices can't be found by name" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

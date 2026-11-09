@@ -1,0 +1,45 @@
+{
+  "name": "DiagTrack",
+  "displayName": { "fr": "Expériences des utilisateurs connectés et télémétrie", "en": "Connected User Experiences and Telemetry" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Collecte et envoie à Microsoft les données de diagnostic et d'utilisation (télémétrie).",
+    "en": "Collects and sends diagnostic and usage data (telemetry) to Microsoft."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est le service principal de télémétrie : il envoie à Microsoft des informations sur l'utilisation et le bon fonctionnement de ton PC. Le désactiver n'empêche pas Windows de fonctionner.",
+      "en": "This is the main telemetry service: it sends Microsoft information about how your PC is used and how well it works. Disabling it does not stop Windows from working."
+    },
+    "avance": {
+      "fr": "Le niveau de données envoyées se règle dans Paramètres > Confidentialité > Diagnostics. Couper le service bloque l'envoi, mais des tâches planifiées (Compatibility Appraiser, CEIP) continuent de collecter localement. Le programme Windows Insider exige ce service.",
+      "en": "The amount of data sent is set in Settings > Privacy > Diagnostics. Stopping the service blocks uploads, but scheduled tasks (Compatibility Appraiser, CEIP) keep collecting locally. The Windows Insider program requires this service."
+    },
+    "expert": {
+      "fr": "diagtrack.dll dans svchost (groupe utcsvc), LocalSystem. Stratégie officielle : HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\\AllowTelemetry (0 = sécurité, effectif seulement sur Entreprise/Éducation ; minimum 1 sur Famille/Pro). Les mises à jour de fonctionnalités réactivent souvent le service.",
+      "en": "diagtrack.dll in svchost (utcsvc group), LocalSystem. Official policy: HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\\AllowTelemetry (0 = security, only honored on Enterprise/Education; minimum 1 on Home/Pro). Feature updates often re-enable the service."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus d'envoi de données de diagnostic à Microsoft", "en": "No more diagnostic data sent to Microsoft" },
+    { "fr": "Le programme Windows Insider ne fonctionne plus", "en": "The Windows Insider program stops working" },
+    { "fr": "Certains diagnostics de dépannage proposent moins de solutions", "en": "Some troubleshooters offer fewer fixes" }
+  ],
+  "revivers": [
+    { "type": "update", "target": "feature-update" },
+    { "type": "policy", "target": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection" },
+    { "type": "task", "target": "\\Microsoft\\Windows\\Application Experience\\*" },
+    { "type": "task", "target": "\\Microsoft\\Windows\\Customer Experience Improvement Program\\*" }
+  ],
+  "usefulIf": { "insider": "true" },
+  "verdictIfNot": {
+    "fr": "Tu n'es pas inscrit au programme Insider : ce service ne t'apporte rien de concret.",
+    "en": "You are not enrolled in the Insider program: this service brings you nothing tangible."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization" ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "XblAuthManager",
+  "displayName": { "fr": "Gestionnaire d'authentification Xbox Live", "en": "Xbox Live Auth Manager" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère la connexion à ton compte Xbox pour les jeux et l'application Xbox.",
+    "en": "Handles sign-in to your Xbox account for games and the Xbox app."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu joues à des jeux Microsoft / Xbox (Game Pass, Minecraft, Forza…). Sinon, il ne sert à rien.",
+      "en": "Only useful if you play Microsoft / Xbox games (Game Pass, Minecraft, Forza…). Otherwise it does nothing."
+    },
+    "avance": {
+      "fr": "Démarre à la demande lorsqu'un jeu ou l'application Xbox demande une authentification. XblGameSave en dépend. Un service en « Manuel » qui ne tourne pas ne consomme aucune ressource.",
+      "en": "Starts on demand when a game or the Xbox app requests authentication. XblGameSave depends on it. A “Manual” service that is not running uses no resources."
+    },
+    "expert": {
+      "fr": "XblAuthManager.dll dans svchost, LocalSystem. Le désactiver casse aussi la connexion Xbox de certains jeux du Microsoft Store et le Game Bar.",
+      "en": "XblAuthManager.dll in svchost, LocalSystem. Disabling it also breaks Xbox sign-in in some Microsoft Store games and the Game Bar."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Impossible de se connecter au compte Xbox dans les jeux", "en": "Cannot sign in to the Xbox account in games" },
+    { "fr": "Les sauvegardes dans le cloud (XblGameSave) ne fonctionnent plus", "en": "Cloud saves (XblGameSave) stop working" }
+  ],
+  "revivers": [],
+  "usefulIf": { "xboxApps": "installed" },
+  "verdictIfNot": {
+    "fr": "Aucune application ou jeu Xbox détecté.",
+    "en": "No Xbox app or game detected."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

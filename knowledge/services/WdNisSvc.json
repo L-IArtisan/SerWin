@@ -1,0 +1,37 @@
+{
+  "name": "WdNisSvc",
+  "displayName": { "fr": "Service Inspection réseau de l'Antivirus Microsoft Defender", "en": "Microsoft Defender Antivirus Network Inspection Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Détecte les tentatives d'intrusion réseau pour Microsoft Defender.",
+    "en": "Detects network intrusion attempts for Microsoft Defender."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Partie de l'antivirus intégré qui surveille le trafic réseau suspect. Il est géré par Defender lui-même.",
+      "en": "Part of the built-in antivirus that watches for suspicious network traffic. Defender manages it itself."
+    },
+    "avance": {
+      "fr": "Démarre avec Defender quand celui-ci est l'antivirus actif. Si un autre antivirus est installé, il reste arrêté. Protégé contre les modifications.",
+      "en": "Starts with Defender when it is the active antivirus. If another antivirus is installed, it stays stopped. Protected against changes."
+    },
+    "expert": {
+      "fr": "NisSrv.exe, compte LocalService, processus protégé (PPL). Clé de service modifiable uniquement par TrustedInstaller ou via la stratégie Defender.",
+      "en": "NisSrv.exe, LocalService account, protected process (PPL). Service key only writable by TrustedInstaller or through Defender policy."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Protection réseau de Defender réduite", "en": "Reduced Defender network protection" }
+  ],
+  "revivers": [
+    { "type": "service", "target": "WinDefend", "note": { "fr": "Defender le relance", "en": "Defender restarts it" } }
+  ],
+  "usefulIf": { "thirdPartyAntivirus": "none" },
+  "verdictIfNot": { "fr": "Un autre antivirus est actif : ce service reste de toute façon inactif.", "en": "Another antivirus is active: this service stays inactive anyway." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

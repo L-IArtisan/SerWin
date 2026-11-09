@@ -1,0 +1,37 @@
+{
+  "name": "DoSvc",
+  "displayName": { "fr": "Optimisation de livraison", "en": "Delivery Optimization" },
+  "category": "maintenance",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Télécharge les mises à jour de Windows et du Store, éventuellement depuis d'autres PC.",
+    "en": "Downloads Windows and Store updates, possibly from other PCs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est le gestionnaire de téléchargement des mises à jour. Pour éviter le partage avec d'autres PC, mieux vaut régler « Autoriser les téléchargements à partir d'autres PC » sur Non que le couper.",
+      "en": "It is the update download manager. To avoid sharing with other PCs, better to set “Allow downloads from other PCs” to Off than to disable it."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur. Le désactiver fait échouer certaines mises à jour et installations du Store. Clé protégée sur les builds récents.",
+      "en": "Started by trigger. Disabling it makes some updates and Store installs fail. Protected key on recent builds."
+    },
+    "expert": {
+      "fr": "svchost -k NetworkService, dosvc.dll, NetworkService. Cache dans %windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization.",
+      "en": "svchost -k NetworkService, dosvc.dll, NetworkService. Cache in %windir%\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mises à jour et téléchargements du Store en échec", "en": "Updates and Store downloads fail" }
+  ],
+  "revivers": [
+    { "type": "service", "target": "WaaSMedicSvc", "note": { "fr": "Peut être réparé avec Windows Update", "en": "May be repaired along with Windows Update" } },
+    { "type": "update", "target": "cumulative-update" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

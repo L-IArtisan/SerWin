@@ -1,0 +1,38 @@
+{
+  "name": "WerSvc",
+  "displayName": { "fr": "Service de rapport d'erreurs Windows", "en": "Windows Error Reporting Service" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Signale à Microsoft les plantages et blocages d'applications, et propose parfois des solutions.",
+    "en": "Reports app crashes and hangs to Microsoft, and sometimes offers solutions."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Quand un programme plante, ce service prépare un rapport et peut l'envoyer à Microsoft. Le désactiver ne gêne pas l'usage courant.",
+      "en": "When a program crashes, this service prepares a report and may send it to Microsoft. Disabling it does not affect everyday use."
+    },
+    "avance": {
+      "fr": "Il démarre uniquement lors d'un plantage (déclencheur ETW). Les rapports alimentent l'Historique de fiabilité et peuvent contenir des fragments de mémoire du programme. Les développeurs y récupèrent des vidages (dumps) utiles.",
+      "en": "It only starts on a crash (ETW trigger). Reports feed Reliability History and may contain fragments of the program's memory. Developers use the dumps it collects."
+    },
+    "expert": {
+      "fr": "WerSvc.dll dans svchost, LocalSystem. Rapports dans %ProgramData%\\Microsoft\\Windows\\WER. Désactivation officielle : HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Error Reporting\\Disabled = 1. Vidages locaux configurables via HKLM\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps.",
+      "en": "WerSvc.dll in svchost, LocalSystem. Reports in %ProgramData%\\Microsoft\\Windows\\WER. Official off switch: HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Error Reporting\\Disabled = 1. Local dumps configurable via HKLM\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\\LocalDumps."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de rapports de plantage envoyés ni de solutions proposées", "en": "No more crash reports sent or solutions offered" },
+    { "fr": "L'Historique de fiabilité devient moins précis", "en": "Reliability History becomes less detailed" }
+  ],
+  "revivers": [
+    { "type": "trigger", "target": "custom" },
+    { "type": "task", "target": "\\Microsoft\\Windows\\Windows Error Reporting\\*" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows/win32/wer/windows-error-reporting" ]
+}

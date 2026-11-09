@@ -1,0 +1,35 @@
+{
+  "name": "TapiSrv",
+  "displayName": { "fr": "Téléphonie", "en": "Telephony" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Interface de téléphonie (TAPI) pour modems et logiciels d'appel.",
+    "en": "Telephony interface (TAPI) for modems and calling software."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert aux modems et à certains logiciels de téléphonie. Le service Télécopie en dépend.",
+      "en": "Used by modems and some telephony software. The Fax service depends on it."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Le Gestionnaire d'accès à distance (RasMan) l'utilise aussi.",
+      "en": "Started on demand. Remote Access Connection Manager (RasMan) also uses it."
+    },
+    "expert": {
+      "fr": "svchost -k NetworkService, tapisrv.dll, NetworkService.",
+      "en": "svchost -k NetworkService, tapisrv.dll, NetworkService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fax et modems inutilisables", "en": "Fax and modems unusable" },
+    { "fr": "RasMan peut échouer", "en": "RasMan may fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

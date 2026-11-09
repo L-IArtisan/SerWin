@@ -1,0 +1,34 @@
+{
+  "name": "nsi",
+  "displayName": { "fr": "Service Interface du magasin réseau", "en": "Network Store Interface Service" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Informe les programmes des changements de configuration réseau.",
+    "en": "Tells programs about network configuration changes."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable au réseau : sans lui, plus de connexion Internet.",
+      "en": "Essential to networking: without it, no Internet connection."
+    },
+    "avance": {
+      "fr": "Transmet les notifications d'interfaces réseau (adresse, état) aux composants utilisateur. DHCP, DNS et le centre réseau en dépendent.",
+      "en": "Passes network interface notifications (address, state) to user-mode components. DHCP, DNS and the network center depend on it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, nsisvc.dll, LocalService.",
+      "en": "svchost -k LocalService, nsisvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de réseau", "en": "No more network" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

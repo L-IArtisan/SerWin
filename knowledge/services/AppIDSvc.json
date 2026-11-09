@@ -1,0 +1,34 @@
+{
+  "name": "AppIDSvc",
+  "displayName": { "fr": "Identité de l'application", "en": "Application Identity" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Identifie les applications pour AppLocker.",
+    "en": "Identifies applications for AppLocker."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé seulement si des règles AppLocker sont configurées (entreprise).",
+      "en": "Only used if AppLocker rules are configured (enterprise)."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Clé protégée.",
+      "en": "Started on demand. Protected key."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, appidsvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, appidsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Règles AppLocker non appliquées", "en": "AppLocker rules not enforced" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

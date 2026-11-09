@@ -1,0 +1,37 @@
+{
+  "name": "Dnscache",
+  "displayName": { "fr": "Client DNS", "en": "DNS Client" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Traduit les noms de sites (exemple.fr) en adresses IP et garde les réponses en cache.",
+    "en": "Translates site names (example.com) into IP addresses and caches the answers."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est l'annuaire d'Internet de ton PC : il retrouve l'adresse des sites que tu visites. Sans lui, la navigation casse. Windows empêche d'ailleurs de l'arrêter.",
+      "en": "This is your PC's Internet phone book: it looks up the address of the sites you visit. Without it, browsing breaks. Windows actually prevents stopping it."
+    },
+    "avance": {
+      "fr": "Il gère le cache DNS (ipconfig /displaydns, /flushdns), DNS sur HTTPS, la table NRPT et la résolution LLMNR/mDNS. Depuis Windows 10, le désactiver casse la résolution de noms pour de nombreuses applications.",
+      "en": "It handles the DNS cache (ipconfig /displaydns, /flushdns), DNS over HTTPS, the NRPT table and LLMNR/mDNS resolution. Since Windows 10, disabling it breaks name resolution for many apps."
+    },
+    "expert": {
+      "fr": "dnsrslvr.dll dans svchost (NetworkService). Dépend de nsi et Afd. Un déclencheur personnalisé (fournisseur ETW) le démarre à la demande. L'ACL de la clé du service interdit la modification par les administrateurs.",
+      "en": "dnsrslvr.dll in svchost (NetworkService). Depends on nsi and Afd. A custom trigger (ETW provider) starts it on demand. The service key's ACL prevents administrators from changing it."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Les sites web et la plupart des applications ne trouvent plus les serveurs", "en": "Websites and most apps can no longer find servers" },
+    { "fr": "DNS sur HTTPS et le cache DNS ne fonctionnent plus", "en": "DNS over HTTPS and the DNS cache stop working" }
+  ],
+  "revivers": [
+    { "type": "trigger", "target": "custom" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": [ "https://learn.microsoft.com/windows-server/networking/dns/dns-overview" ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "autotimesvc",
+  "displayName": { "fr": "Heure du réseau cellulaire", "en": "Cellular Time" },
+  "category": "location",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Règle l'heure à partir du réseau cellulaire.",
+    "en": "Sets the time from the cellular network."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement avec un modem 4G/5G.",
+      "en": "Only useful with a 4G/5G modem."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur.",
+      "en": "Started by trigger."
+    },
+    "expert": {
+      "fr": "svchost -k autoTimeSvc, autotimesvc.dll, LocalService.",
+      "en": "svchost -k autoTimeSvc, autotimesvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Heure non réglée par le réseau cellulaire", "en": "Time not set from the cellular network" }
+  ],
+  "revivers": [],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : pas de modem cellulaire attendu.", "en": "Desktop PC: no cellular modem expected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

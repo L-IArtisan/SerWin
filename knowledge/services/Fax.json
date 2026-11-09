@@ -1,0 +1,38 @@
+{
+  "name": "Fax",
+  "displayName": { "fr": "Télécopie", "en": "Fax" },
+  "category": "printing",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet d'envoyer et de recevoir des télécopies avec un modem fax.",
+    "en": "Lets you send and receive faxes with a fax modem."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert uniquement à faxer depuis le PC avec un modem. Presque personne n'en a besoin aujourd'hui.",
+      "en": "Only used to fax from the PC with a modem. Hardly anyone needs it today."
+    },
+    "avance": {
+      "fr": "Démarre à la demande, uniquement si une application de télécopie l'appelle. Dépend du Spouleur d'impression et de la téléphonie (TapiSrv). Peut être supprimé via les fonctionnalités facultatives.",
+      "en": "Starts on demand, only when a fax app calls it. Depends on the Print Spooler and Telephony (TapiSrv). Can be removed through optional features."
+    },
+    "expert": {
+      "fr": "fxssvc.exe, compte NetworkService. Fait partie de la fonctionnalité facultative « Fax et numérisation Windows » (Print.Fax.Scan) ; la retirer supprime le service proprement.",
+      "en": "fxssvc.exe, NetworkService account. Part of the “Windows Fax and Scan” optional feature (Print.Fax.Scan); removing that feature cleanly deletes the service."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Envoi et réception de fax impossibles", "en": "Cannot send or receive faxes" }
+  ],
+  "revivers": [],
+  "usefulIf": { "faxModem": ">0" },
+  "verdictIfNot": {
+    "fr": "Aucun modem fax détecté : ce service est inutile ici.",
+    "en": "No fax modem detected: this service is useless here."
+  },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

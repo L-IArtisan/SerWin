@@ -1,0 +1,35 @@
+{
+  "name": "Netlogon",
+  "displayName": { "fr": "Accès réseau", "en": "Netlogon" },
+  "category": "enterprise",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Authentifie le PC et ses utilisateurs auprès d'un domaine Active Directory.",
+    "en": "Authenticates the PC and its users against an Active Directory domain."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne sert que sur un PC d'entreprise relié à un domaine. Chez toi, il reste arrêté.",
+      "en": "Only used on a company PC joined to a domain. At home, it stays stopped."
+    },
+    "avance": {
+      "fr": "Maintient le canal sécurisé avec un contrôleur de domaine. Automatique sur un poste joint, Manuel sinon.",
+      "en": "Maintains the secure channel with a domain controller. Automatic on a joined machine, Manual otherwise."
+    },
+    "expert": {
+      "fr": "lsass.exe (netlogon.dll), LocalSystem.",
+      "en": "lsass.exe (netlogon.dll), LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion au domaine impossible (PC d'entreprise)", "en": "Domain sign-in impossible (company PC)" }
+  ],
+  "revivers": [],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non joint à un domaine : ce service n'est pas utilisé.", "en": "PC not joined to a domain: this service is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

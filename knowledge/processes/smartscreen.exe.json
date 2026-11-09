@@ -1,0 +1,16 @@
+{
+  "name": "smartscreen.exe",
+  "displayName": { "fr": "Windows Defender SmartScreen", "en": "Windows Defender SmartScreen" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "summary": { "fr": "Vérifie la réputation des programmes téléchargés avant leur ouverture.", "en": "Checks the reputation of downloaded programs before they open." },
+  "levels": {
+    "simple": { "fr": "C'est lui qui affiche « Windows a protégé votre ordinateur » devant un programme inconnu. Utile contre les arnaques.", "en": "It shows “Windows protected your PC” in front of unknown programs. Useful against scams." },
+    "avance": { "fr": "Il interroge un service en ligne de Microsoft (envoie l'empreinte du fichier). Réglable dans Sécurité Windows > Contrôle des applications et du navigateur.", "en": "It queries a Microsoft online service (sends the file's hash). Configurable in Windows Security > App & browser control." },
+    "expert": { "fr": "%SystemRoot%\\System32\\smartscreen.exe, lancé à la demande via DCOM. Stratégie : HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\EnableSmartScreen.", "en": "%SystemRoot%\\System32\\smartscreen.exe, launched on demand via DCOM. Policy: HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\\EnableSmartScreen." }
+  },
+  "ifDisabled": [ { "fr": "Relancé à la prochaine ouverture de fichier téléchargé", "en": "Restarted at the next downloaded file opening" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

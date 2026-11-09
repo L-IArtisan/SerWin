@@ -1,0 +1,34 @@
+{
+  "name": "QWAVE",
+  "displayName": { "fr": "Expérience audio-vidéo haute qualité Windows", "en": "Quality Windows Audio Video Experience" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Améliore la diffusion audio/vidéo sur le réseau domestique.",
+    "en": "Improves audio/video streaming on the home network."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Peu d'applications l'utilisent encore. Son absence passe généralement inaperçue.",
+      "en": "Few apps still use it. Its absence usually goes unnoticed."
+    },
+    "avance": {
+      "fr": "Fournit la gestion de qualité de service (QoS) pour le streaming. Démarré à la demande.",
+      "en": "Provides quality of service (QoS) for streaming. Started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceAndNoImpersonation, qwave.dll, LocalService.",
+      "en": "svchost -k LocalServiceAndNoImpersonation, qwave.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "QoS du streaming réseau désactivée", "en": "Network streaming QoS disabled" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

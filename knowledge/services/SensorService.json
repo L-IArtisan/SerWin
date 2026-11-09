@@ -1,0 +1,35 @@
+{
+  "name": "SensorService",
+  "displayName": { "fr": "Service de capteurs", "en": "Sensor Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les capteurs (luminosité, orientation de l'écran) des portables et tablettes.",
+    "en": "Manages sensors (brightness, screen rotation) on laptops and tablets."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à la luminosité automatique et à la rotation de l'écran. Inutile sur un PC fixe.",
+      "en": "Used for auto-brightness and screen rotation. Useless on a desktop PC."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur quand un capteur est présent. Travaille avec SensrSvc et SensorDataService.",
+      "en": "Started by trigger when a sensor is present. Works with SensrSvc and SensorDataService."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, SensorService.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, SensorService.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de rotation ni de luminosité automatiques", "en": "No more auto-rotation or auto-brightness" }
+  ],
+  "revivers": [],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : aucun capteur à gérer.", "en": "Desktop PC: no sensors to manage." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

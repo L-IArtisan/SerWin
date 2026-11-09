@@ -1,0 +1,34 @@
+{
+  "name": "IKEEXT",
+  "displayName": { "fr": "Modules de génération de clés IKE et AuthIP", "en": "IKE and AuthIP IPsec Keying Modules" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Négocie les clés IPsec pour les VPN IKEv2/L2TP.",
+    "en": "Negotiates IPsec keys for IKEv2/L2TP VPNs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour les VPN de type IKEv2 ou L2TP. Sans VPN de ce type, il reste arrêté.",
+      "en": "Needed for IKEv2 or L2TP VPNs. Without such a VPN, it stays stopped."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur. Dépend du moteur de filtrage (BFE).",
+      "en": "Started by trigger. Depends on the Base Filtering Engine (BFE)."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, ikeext.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, ikeext.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "VPN IKEv2 et L2TP impossibles", "en": "IKEv2 and L2TP VPNs impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

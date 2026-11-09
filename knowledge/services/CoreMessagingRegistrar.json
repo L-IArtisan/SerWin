@@ -1,0 +1,34 @@
+{
+  "name": "CoreMessagingRegistrar",
+  "displayName": { "fr": "CoreMessaging", "en": "CoreMessaging" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Assure la communication interne entre les composants de l'interface de Windows.",
+    "en": "Handles internal communication between Windows interface components."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert de « standard téléphonique » entre les morceaux de l'interface de Windows. Le couper rend le bureau inutilisable.",
+      "en": "Acts as a “switchboard” between parts of the Windows interface. Turning it off makes the desktop unusable."
+    },
+    "avance": {
+      "fr": "Fournit le canal de messages utilisé par l'interface moderne (XAML, menu Démarrer, saisie). Démarre automatiquement et ne doit jamais être modifié.",
+      "en": "Provides the messaging channel used by the modern interface (XAML, Start menu, input). Starts automatically and must never be changed."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNoNetwork, coremessaging.dll, compte LocalService. Les clients se connectent par ALPC.",
+      "en": "svchost -k LocalServiceNoNetwork, coremessaging.dll, LocalService account. Clients connect via ALPC."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Bureau et menu Démarrer inutilisables", "en": "Desktop and Start menu unusable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

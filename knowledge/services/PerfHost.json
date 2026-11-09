@@ -1,0 +1,34 @@
+{
+  "name": "PerfHost",
+  "displayName": { "fr": "Hôte de DLL de compteur de performance", "en": "Performance Counter DLL Host" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet de lire les compteurs de performance 32 bits depuis un outil 64 bits.",
+    "en": "Lets 64-bit tools read 32-bit performance counters."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Service technique rarement utilisé.",
+      "en": "A rarely used technical service."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par les outils de supervision.",
+      "en": "Started on demand by monitoring tools."
+    },
+    "expert": {
+      "fr": "perfhost.exe, LocalService.",
+      "en": "perfhost.exe, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Certains compteurs absents des outils de supervision", "en": "Some counters missing in monitoring tools" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

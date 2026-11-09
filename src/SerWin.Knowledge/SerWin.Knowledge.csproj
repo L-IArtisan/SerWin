@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- La base de connaissances est embarquée dans l'assembly (spec §4.1) -->
+    <EmbeddedResource Include="..\..\knowledge\services\*.json" LogicalName="knowledge/services/%(Filename)%(Extension)" />
+    <EmbeddedResource Include="..\..\knowledge\processes\*.json" LogicalName="knowledge/processes/%(Filename)%(Extension)" />
+    <EmbeddedResource Include="..\..\knowledge\kb.json" LogicalName="knowledge/kb.json" />
+  </ItemGroup>
+</Project>

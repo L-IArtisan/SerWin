@@ -1,0 +1,35 @@
+{
+  "name": "SensrSvc",
+  "displayName": { "fr": "Service de surveillance des capteurs", "en": "Sensor Monitoring Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Surveille les capteurs pour adapter l'affichage (luminosité ambiante).",
+    "en": "Monitors sensors to adapt the display (ambient light)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ajuste la luminosité selon la lumière ambiante sur les appareils équipés. Inutile sur un PC fixe.",
+      "en": "Adjusts brightness to ambient light on equipped devices. Useless on a desktop PC."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur en présence d'un capteur.",
+      "en": "Started by trigger when a sensor is present."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceAndNoImpersonation, sensrsvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceAndNoImpersonation, sensrsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Luminosité adaptative désactivée", "en": "Adaptive brightness disabled" }
+  ],
+  "revivers": [],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : aucun capteur à gérer.", "en": "Desktop PC: no sensors to manage." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

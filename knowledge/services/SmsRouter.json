@@ -1,0 +1,34 @@
+{
+  "name": "SmsRouter",
+  "displayName": { "fr": "Service Routeur SMS Microsoft Windows", "en": "Microsoft Windows SMS Router Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Achemine les SMS vers les applications (modems cellulaires, Mobile connecté).",
+    "en": "Routes SMS messages to apps (cellular modems, Phone Link)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement avec un modem 4G/5G ou pour les SMS dans Mobile connecté.",
+      "en": "Only useful with a 4G/5G modem or for SMS in Phone Link."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur.",
+      "en": "Started by trigger."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, SmsRouterSvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, SmsRouterSvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "SMS non transmis aux applis", "en": "SMS not delivered to apps" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

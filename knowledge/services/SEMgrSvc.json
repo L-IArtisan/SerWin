@@ -1,0 +1,35 @@
+{
+  "name": "SEMgrSvc",
+  "displayName": { "fr": "Gestionnaire des paiements et NFC/SE", "en": "Payments and NFC/SE Manager" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère le NFC et les paiements sans contact.",
+    "en": "Manages NFC and contactless payments."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement sur un appareil avec puce NFC.",
+      "en": "Only useful on a device with an NFC chip."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur.",
+      "en": "Started by trigger."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, SEMgrSvc.dll, LocalService.",
+      "en": "svchost -k LocalService, SEMgrSvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "NFC indisponible", "en": "NFC unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : pas de puce NFC attendue.", "en": "Desktop PC: no NFC chip expected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

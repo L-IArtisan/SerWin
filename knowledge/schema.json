@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/L-IArtisan/SerWin/blob/main/knowledge/schema.json",
+  "title": "Fiche de la base de connaissances SerWin",
+  "description": "Un fichier par service (knowledge/services/<Nom>.json) ou par processus (knowledge/processes/<nom>.json). Le français est la langue source et est obligatoire.",
+  "type": "object",
+  "required": ["name", "displayName", "category", "risk", "summary", "levels", "verification"],
+  "additionalProperties": false,
+  "$defs": {
+    "text": {
+      "type": "object",
+      "required": ["fr"],
+      "properties": {
+        "fr": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "name": { "type": "string", "description": "Nom court du service (clé SCM), identique au nom du fichier." },
+    "aliases": { "type": "array", "items": { "type": "string" }, "description": "Autres noms couverts (ancien nom, variante)." },
+    "displayName": { "$ref": "#/$defs/text" },
+    "category": {
+      "enum": ["core", "maintenance", "security", "network", "hardware", "audio-video", "printing", "gaming",
+               "search", "diagnostics", "privacy", "ui", "remote", "location", "storage", "enterprise", "virtualization", "media"]
+    },
+    "risk": { "enum": ["faible", "moyen", "critique"], "description": "🟢 faible · 🟠 moyen · 🔴 critique (bloqué)" },
+    "bootCritical": { "type": "boolean", "description": "Indispensable au démarrage. Implique risk = critique." },
+    "privacy": { "type": "boolean", "description": "Concerne la vie privée (télémétrie, localisation…)." },
+    "summary": { "$ref": "#/$defs/text" },
+    "levels": {
+      "type": "object",
+      "required": ["simple", "avance", "expert"],
+      "properties": {
+        "simple": { "$ref": "#/$defs/text" },
+        "avance": { "$ref": "#/$defs/text" },
+        "expert": { "$ref": "#/$defs/text" }
+      },
+      "additionalProperties": false
+    },
+    "ifDisabled": { "type": "array", "items": { "$ref": "#/$defs/text" } },
+    "revivers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "target"],
+        "properties": {
+          "type": { "enum": ["service", "task", "trigger", "policy", "software", "update"] },
+          "target": { "type": "string" },
+          "note": { "$ref": "#/$defs/text" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "usefulIf": {
+      "type": "object",
+      "description": "Règles de contexte (v0.5), ex. { \"printers\": \">0\" }.",
+      "additionalProperties": { "type": "string" }
+    },
+    "verdictIfNot": { "$ref": "#/$defs/text" },
+    "defaults": {
+      "type": "object",
+      "description": "Configuration d'usine par « Édition:Build », ex. « Professional:26100 ».",
+      "patternProperties": {
+        "^[A-Za-z]+:\\d+$": {
+          "type": "object",
+          "properties": {
+            "startType": { "enum": ["Boot", "System", "Automatic", "AutomaticDelayed", "Manual", "Disabled"] },
+            "triggers": { "type": "array", "items": { "type": "string" } },
+            "account": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "verification": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["draft", "config-verified", "behavior-observed"] },
+        "build": { "type": "string", "pattern": "^\\d+(\\.\\d+)?$" },
+        "edition": { "type": "string" },
+        "date": { "type": "string", "format": "date" }
+      },
+      "additionalProperties": false
+    },
+    "sources": { "type": "array", "items": { "type": "string", "format": "uri" } }
+  }
+}

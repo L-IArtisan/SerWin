@@ -1,0 +1,34 @@
+{
+  "name": "DeviceAssociationService",
+  "displayName": { "fr": "Service d'association de périphériques", "en": "Device Association Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Associe le PC aux périphériques sans fil et réseau (Bluetooth, imprimantes réseau, écrans).",
+    "en": "Pairs the PC with wireless and network devices (Bluetooth, network printers, displays)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé quand tu ajoutes un périphérique dans Paramètres > Bluetooth et appareils.",
+      "en": "Used when you add a device in Settings > Bluetooth & devices."
+    },
+    "avance": {
+      "fr": "Gère l'appairage et la découverte des appareils. Le désactiver empêche d'ajouter de nouveaux appareils sans fil ou réseau.",
+      "en": "Handles device pairing and discovery. Disabling it prevents adding new wireless or network devices."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, das.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, das.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Ajout de nouveaux appareils impossible", "en": "Cannot add new devices" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "NcaSvc",
+  "displayName": { "fr": "Assistant Connectivité réseau", "en": "Network Connectivity Assistant" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Indique l'état de la connexion DirectAccess d'entreprise.",
+    "en": "Reports DirectAccess corporate connectivity status."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne sert qu'avec DirectAccess, un VPN d'entreprise. Inutile chez soi.",
+      "en": "Only used with DirectAccess, a corporate VPN. Useless at home."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur quand DirectAccess est configuré.",
+      "en": "Started by trigger when DirectAccess is configured."
+    },
+    "expert": {
+      "fr": "svchost -k NetSvcs, ncasvc.dll, LocalSystem.",
+      "en": "svchost -k NetSvcs, ncasvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "État DirectAccess indisponible", "en": "DirectAccess status unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non joint à un domaine : DirectAccess n'est pas utilisé.", "en": "PC not domain-joined: DirectAccess is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

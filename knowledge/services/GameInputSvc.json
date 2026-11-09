@@ -1,0 +1,35 @@
+{
+  "name": "GameInputSvc",
+  "displayName": { "fr": "Service GameInput", "en": "GameInput Service" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les manettes et périphériques de jeu pour l'API GameInput.",
+    "en": "Handles controllers and gaming devices for the GameInput API."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par certains jeux récents pour les manettes. Sans jeu, il reste arrêté.",
+      "en": "Used by some recent games for controllers. Without games, it stays stopped."
+    },
+    "avance": {
+      "fr": "Installé avec les jeux ou l'appli Xbox. Démarré à la demande.",
+      "en": "Installed with games or the Xbox app. Started on demand."
+    },
+    "expert": {
+      "fr": "GameInputSvc.exe, LocalSystem.",
+      "en": "GameInputSvc.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Manettes non reconnues par certains jeux", "en": "Controllers not recognized by some games" }
+  ],
+  "revivers": [],
+  "usefulIf": { "xboxApps": "installed" },
+  "verdictIfNot": { "fr": "Aucune application ou jeu Xbox détecté.", "en": "No Xbox app or game detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

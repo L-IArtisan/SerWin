@@ -1,0 +1,16 @@
+{
+  "name": "taskhostw.exe",
+  "displayName": { "fr": "Processus hôte pour les tâches Windows", "en": "Host Process for Windows Tasks" },
+  "category": "core",
+  "risk": "moyen",
+  "bootCritical": false,
+  "summary": { "fr": "Exécute les tâches planifiées implémentées sous forme de DLL.", "en": "Runs scheduled tasks implemented as DLLs." },
+  "levels": {
+    "simple": { "fr": "Il exécute des tâches de maintenance de Windows en arrière-plan. Normal d'en voir un ou plusieurs.", "en": "It runs Windows maintenance tasks in the background. Seeing one or more is normal." },
+    "avance": { "fr": "Hôte des tâches planifiées de type « gestionnaire COM » (ComHandler). Pour savoir quoi, regarde ses DLL chargées (v2) ou la chronologie du Planificateur.", "en": "Host for “COM handler” scheduled tasks. To know which, look at its loaded DLLs (v2) or the Task Scheduler timeline." },
+    "expert": { "fr": "%SystemRoot%\\System32\\taskhostw.exe, lancé par le service Schedule ; la ligne de commande contient souvent le nom de la tâche ou un GUID.", "en": "%SystemRoot%\\System32\\taskhostw.exe, launched by the Schedule service; the command line often contains the task name or a GUID." }
+  },
+  "ifDisabled": [ { "fr": "Interrompt la tâche en cours", "en": "Interrupts the running task" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

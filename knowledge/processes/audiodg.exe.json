@@ -1,0 +1,16 @@
+{
+  "name": "audiodg.exe",
+  "displayName": { "fr": "Isolation graphique de périphérique audio Windows", "en": "Windows Audio Device Graph Isolation" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "summary": { "fr": "Moteur audio : mixe les sons et applique les effets.", "en": "Audio engine: mixes sounds and applies effects." },
+  "levels": {
+    "simple": { "fr": "Il fait sortir le son. Une consommation élevée vient souvent d'effets audio du fabricant (égaliseur, « son 3D »).", "en": "It produces the sound. High usage often comes from manufacturer audio effects (equalizer, “3D sound”)." },
+    "avance": { "fr": "Lancé par le service Audiosrv. Désactiver les améliorations audio dans les propriétés du périphérique réduit souvent sa consommation.", "en": "Launched by the Audiosrv service. Turning off audio enhancements in device properties often reduces its usage." },
+    "expert": { "fr": "%SystemRoot%\\System32\\audiodg.exe, processus protégé ; les APO (Audio Processing Objects) tiers y sont chargés.", "en": "%SystemRoot%\\System32\\audiodg.exe, protected process; third-party APOs (Audio Processing Objects) load into it." }
+  },
+  "ifDisabled": [ { "fr": "Coupure du son jusqu'à sa relance", "en": "Sound cut until it restarts" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "PlugPlay",
+  "displayName": { "fr": "Plug-and-Play", "en": "Plug and Play" },
+  "category": "core",
+  "risk": "critique",
+  "bootCritical": true,
+  "privacy": false,
+  "summary": {
+    "fr": "Détecte le matériel branché et y associe les bons pilotes.",
+    "en": "Detects connected hardware and assigns the right drivers."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est lui qui reconnaît une clé USB, une souris ou une imprimante quand tu la branches. Sans lui, Windows devient instable.",
+      "en": "It recognizes a USB stick, mouse or printer when you plug it in. Without it, Windows becomes unstable."
+    },
+    "avance": {
+      "fr": "Prend en charge l'ajout et le retrait de périphériques côté utilisateur et l'installation des pilotes. Indispensable même si aucun périphérique n'est ajouté.",
+      "en": "Handles user-mode device arrival and removal and driver installation. Essential even if no device is ever added."
+    },
+    "expert": {
+      "fr": "svchost -k DcomLaunch, umpnpmgr.dll, LocalSystem. Le noyau gère une partie du PnP, mais l'énumération côté utilisateur et le Gestionnaire de périphériques dépendent de ce service.",
+      "en": "svchost -k DcomLaunch, umpnpmgr.dll, LocalSystem. The kernel handles part of PnP, but user-mode enumeration and Device Manager depend on this service."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Nouveaux périphériques non reconnus", "en": "New devices not recognized" },
+    { "fr": "Système instable", "en": "Unstable system" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

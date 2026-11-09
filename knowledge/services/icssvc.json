@@ -1,0 +1,35 @@
+{
+  "name": "icssvc",
+  "displayName": { "fr": "Service Point d'accès sans fil mobile Windows", "en": "Windows Mobile Hotspot Service" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Transforme le PC en point d'accès Wi-Fi.",
+    "en": "Turns the PC into a Wi-Fi hotspot."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu partages ta connexion en Wi-Fi depuis le PC.",
+      "en": "Only useful if you share your connection over Wi-Fi from the PC."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur quand on active le point d'accès mobile.",
+      "en": "Started by trigger when the mobile hotspot is turned on."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, tetheringservice.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, tetheringservice.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Point d'accès mobile indisponible", "en": "Mobile hotspot unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "wifi": "present" },
+  "verdictIfNot": { "fr": "Aucune carte Wi-Fi détectée.", "en": "No Wi-Fi adapter detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

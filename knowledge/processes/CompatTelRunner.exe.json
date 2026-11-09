@@ -1,0 +1,17 @@
+{
+  "name": "CompatTelRunner.exe",
+  "displayName": { "fr": "Télémétrie de compatibilité Microsoft", "en": "Microsoft Compatibility Telemetry" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": { "fr": "Analyse les programmes installés pour évaluer la compatibilité avec les futures versions de Windows, et en envoie le résultat.", "en": "Scans installed programs to assess compatibility with future Windows versions, and sends the result." },
+  "levels": {
+    "simple": { "fr": "Il fait l'inventaire de tes logiciels pour Microsoft. Il peut beaucoup solliciter le disque pendant quelques minutes.", "en": "It inventories your software for Microsoft. It can load the disk heavily for a few minutes." },
+    "avance": { "fr": "Lancé par la tâche « Microsoft Compatibility Appraiser ». Désactiver cette tâche (v0.6, neutralisation) l'empêche de revenir.", "en": "Launched by the “Microsoft Compatibility Appraiser” task. Disabling that task (v0.6, neutralization) prevents it from coming back." },
+    "expert": { "fr": "%SystemRoot%\\System32\\CompatTelRunner.exe ; tâches \\Microsoft\\Windows\\Application Experience\\*. Données envoyées via DiagTrack.", "en": "%SystemRoot%\\System32\\CompatTelRunner.exe; tasks \\Microsoft\\Windows\\Application Experience\\*. Data sent through DiagTrack." }
+  },
+  "ifDisabled": [ { "fr": "Aucun effet sur l'usage courant", "en": "No effect on everyday use" } ],
+  "revivers": [ { "type": "task", "target": "\\Microsoft\\Windows\\Application Experience\\*" } ],
+  "verification": { "status": "draft" }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "SSDPSRV",
+  "displayName": { "fr": "Découverte SSDP", "en": "SSDP Discovery" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Découvre les appareils UPnP du réseau (TV, NAS, imprimantes).",
+    "en": "Discovers UPnP devices on the network (TVs, NAS, printers)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet de voir les TV, NAS et lecteurs multimédia dans « Réseau ». Inutile si tu n'utilises pas ces appareils.",
+      "en": "Lets TVs, NAS and media players show up in “Network”. Useless if you don't use such devices."
+    },
+    "avance": {
+      "fr": "Requis par l'Hôte de périphérique UPnP (upnphost) et la diffusion multimédia.",
+      "en": "Required by UPnP Device Host (upnphost) and media streaming."
+    },
+    "expert": {
+      "fr": "svchost (groupe LocalServiceAndNoImpersonation, suffixé « RedirectionGuard » sur les builds récents), ssdpsrv.dll, LocalService. Écoute UDP 1900.",
+      "en": "svchost (LocalServiceAndNoImpersonation group, with a “RedirectionGuard” suffix on recent builds), ssdpsrv.dll, LocalService. Listens on UDP 1900."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Appareils UPnP invisibles", "en": "UPnP devices invisible" },
+    { "fr": "Diffusion vers une TV impossible", "en": "Casting to a TV impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

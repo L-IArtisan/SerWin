@@ -1,0 +1,16 @@
+{
+  "name": "MsMpEng.exe",
+  "displayName": { "fr": "Moteur antimalware de Microsoft Defender", "en": "Microsoft Defender Antimalware engine" },
+  "category": "security",
+  "risk": "critique",
+  "bootCritical": false,
+  "summary": { "fr": "Le moteur d'analyse de l'antivirus Microsoft Defender.", "en": "The scanning engine of Microsoft Defender Antivirus." },
+  "levels": {
+    "simple": { "fr": "C'est l'antivirus qui travaille. Il consomme davantage pendant une analyse ou une mise à jour, c'est normal.", "en": "This is the antivirus at work. It uses more during a scan or update, which is normal." },
+    "avance": { "fr": "Processus du service WinDefend. Protégé : même un administrateur ne peut pas le terminer. Pour réduire son impact, ajoute des exclusions dans Sécurité Windows plutôt que de le couper.", "en": "Process of the WinDefend service. Protected: even an administrator cannot terminate it. To reduce its impact, add exclusions in Windows Security rather than turning it off." },
+    "expert": { "fr": "Processus PPL antimalware lancé depuis %ProgramData%\\Microsoft\\Windows Defender\\Platform\\<version>. Analyse à l'accès via le pilote WdFilter.sys.", "en": "Antimalware PPL process launched from %ProgramData%\\Microsoft\\Windows Defender\\Platform\\<version>. On-access scanning via the WdFilter.sys driver." }
+  },
+  "ifDisabled": [ { "fr": "Ne peut pas être terminé (protection contre les falsifications)", "en": "Cannot be terminated (Tamper Protection)" } ],
+  "revivers": [],
+  "verification": { "status": "draft" }
+}
