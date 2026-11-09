@@ -8,7 +8,7 @@
                  xmlns:vm="clr-namespace:SerWin.App.ViewModels"
                  mc:Ignorable="d"
                  d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"
-                 Title="SerWin" Width="1280" Height="800" MinWidth="960" MinHeight="560"
+                 Title="{Binding WindowTitle, Mode=OneTime}" Width="1280" Height="800" MinWidth="960" MinHeight="560"
                  WindowStartupLocation="CenterScreen"
                  ExtendsContentIntoTitleBar="True"
                  WindowBackdropType="Mica"
@@ -63,7 +63,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ui:TitleBar Grid.Row="0" Title="SerWin" />
+        <ui:TitleBar Grid.Row="0" Title="{Binding TitleBarText}" />
 
         <!-- ═════════ Notification (résultat d'action) ═════════ -->
         <ui:InfoBar Grid.Row="2" Margin="16,0,16,8" IsClosable="True"
@@ -1107,6 +1107,7 @@
 
                         <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Settings_About}" />
                         <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding AppVersionText}" />
+                        <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{loc:T About_Author}" />
                         <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding KnowledgeText}" />
                         <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding OsText}" />
                         <TextBlock Style="{StaticResource Secondary}" Margin="0,6,0,0" Text="{loc:T About_Licenses}" />

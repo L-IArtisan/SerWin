@@ -273,6 +273,7 @@ public sealed partial class MainViewModel : ObservableObject
         Raise(nameof(PrivilegeText));
         Raise(nameof(DataFolderText));
         Raise(nameof(AppVersionText));
+        Raise(nameof(TitleBarText));
         RefreshActionLabels();
         RecomputeAlerts();
         _ = AnalyzeSelectedAsync();
@@ -290,6 +291,8 @@ public sealed partial class MainViewModel : ObservableObject
         typeof(MainViewModel).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion.Split('+')[0] ?? "0.1.0";
 
     public string AppVersionText => L.Format("About_Version", AppVersion);
+    public string TitleBarText => L.Format("App_TitleBar", AppVersion);
+    public static string WindowTitle => $"SerWin {AppVersion}";
     public string OsText => L.Format("Status_Os", Os.FriendlyName, Os.DisplayVersion, Os.FullBuild);
     public string KnowledgeText => L.Format("Status_Knowledge", _kb.Metadata.Version, _kb.ServiceCount);
     public string PrivilegeText => IsElevated ? L["Status_Admin"] : L["Status_Standard"];

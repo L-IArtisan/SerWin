@@ -511,3 +511,5 @@ Welcome_ChangeLater	Tu pourras changer de niveau à tout moment, en haut à droi
 Term_PidReused	Ce processus s'est déjà terminé : son numéro (PID) désigne maintenant un autre programme. Rien n'a été fait.	This process has already exited: its number (PID) now belongs to another program. Nothing was done.
 Known_office_update	Lancement ou mise à jour de Microsoft Office	Microsoft Office launch or update
 Known_firefox_update	Mises à jour de Firefox	Firefox updates
+App_TitleBar	SerWin {0} · par L'IArtisan	SerWin {0} · by L'IArtisan
+About_Author	Réalisé par L'IArtisan	Made by L'IArtisan

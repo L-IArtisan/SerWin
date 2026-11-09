@@ -518,4 +518,6 @@
   <data name="Term_PidReused" xml:space="preserve"><value>This process has already exited: its number (PID) now belongs to another program. Nothing was done.</value></data>
   <data name="Known_office_update" xml:space="preserve"><value>Microsoft Office launch or update</value></data>
   <data name="Known_firefox_update" xml:space="preserve"><value>Firefox updates</value></data>
+  <data name="App_TitleBar" xml:space="preserve"><value>SerWin {0} · by L&apos;IArtisan</value></data>
+  <data name="About_Author" xml:space="preserve"><value>Made by L&apos;IArtisan</value></data>
 </root>
