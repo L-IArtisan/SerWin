@@ -29,7 +29,7 @@ public sealed partial class MainViewModel
 {
     private static readonly TimeSpan NetworkInterval = TimeSpan.FromSeconds(3);
     private static readonly TimeSpan DnsHistory = TimeSpan.FromDays(7);
-    private const int DnsEveryTicks = 5;
+    private const int DnsEveryTicks = 1;
 
     private readonly SenderResolver _senderResolver = new();
     private NetworkObserver? _observer;
@@ -62,7 +62,11 @@ public sealed partial class MainViewModel
         get => _selectedNetworkItem;
         set
         {
-            if (Set(ref _selectedNetworkItem, value)) Raise(nameof(HasSelectedNetworkItem));
+            if (Set(ref _selectedNetworkItem, value))
+            {
+                Raise(nameof(HasSelectedNetworkItem));
+                Raise(nameof(ShowNetworkOverview));
+            }
         }
     }
     public bool HasSelectedNetworkItem => SelectedNetworkItem is not null;
@@ -90,6 +94,7 @@ public sealed partial class MainViewModel
         EnableDnsLogCommand = new RelayCommand(async () => await ConfigureDnsLogAsync(true), _ => IsElevated && !IsBusy && DnsLogDisabled);
         DisableDnsLogCommand = new RelayCommand(async () => await ConfigureDnsLogAsync(false), _ => IsElevated && !IsBusy && DnsLogEnabled);
         ShowSenderServiceCommand = ShowServiceCommand;
+        InitNetworkOverview();
     }
 
     private void RefreshNetworkLabels()
@@ -99,6 +104,8 @@ public sealed partial class MainViewModel
         Raise(nameof(DnsLogText));
         Raise(nameof(ShowDnsLogDisable));
         Raise(nameof(NetworkCountText));
+        foreach (var o in TimelineRanges) o.Refresh();
+        RebuildNetworkOverview(force: true);
     }
 
     /// <summary>Démarre l'observation à la première ouverture de la page ; ensuite, relevé toutes les 3 s tant que la page est affichée.</summary>
@@ -195,18 +202,8 @@ public sealed partial class MainViewModel
 
     private void RebuildNetworkView()
     {
-        var filter = SelectedNetworkFilter?.Value ?? NetworkFilter.All;
-        var query = SearchText.Trim();
         var visible = _networkItems.Values
-            .Where(i => filter switch
-            {
-                NetworkFilter.Privacy => i.IsPrivacy || i.Need == DestinationNeed.Unwanted,
-                NetworkFilter.Undocumented => !i.IsDocumented && !i.IsLocalNetwork,
-                NetworkFilter.Active => i.IsActive,
-                NetworkFilter.LocalNetwork => i.IsLocalNetwork,
-                _ => true,
-            })
-            .Where(i => i.Matches(query))
+            .Where(PassesNetworkFilter)
             .OrderByDescending(i => i.IsActive)
             .ThenByDescending(i => i.LastSeen)
             .ToList();
@@ -220,6 +217,7 @@ public sealed partial class MainViewModel
         if (selected is not null && NetworkItems.Contains(selected)) SelectedNetworkItem = selected;
         else if (selected is not null && !_networkItems.ContainsValue(selected)) SelectedNetworkItem = null;
         Raise(nameof(NetworkCountText));
+        RebuildNetworkOverview(force: false);
     }
 
     private async Task ConfigureDnsLogAsync(bool enable)
@@ -230,4 +228,18 @@ public sealed partial class MainViewModel
             warnings, danger: false, intro: enable ? L["Net_DnsLogIntro"] : null);
         await SampleNetworkAsync(forceDns: true);
     }
+}
+
+public sealed partial class MainViewModel
+{
+    /// <summary>Filtre et recherche de la page Réseau, partagés par la liste, le fil en direct et la frise.</summary>
+    private bool PassesNetworkFilter(NetworkItemViewModel i) =>
+        (SelectedNetworkFilter?.Value ?? NetworkFilter.All) switch
+        {
+            NetworkFilter.Privacy => i.IsPrivacy || i.Need == DestinationNeed.Unwanted,
+            NetworkFilter.Undocumented => !i.IsDocumented && !i.IsLocalNetwork,
+            NetworkFilter.Active => i.IsActive,
+            NetworkFilter.LocalNetwork => i.IsLocalNetwork,
+            _ => true,
+        } && i.Matches(SearchText.Trim());
 }

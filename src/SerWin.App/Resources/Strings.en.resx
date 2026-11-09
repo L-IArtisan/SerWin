@@ -526,7 +526,6 @@
   <data name="Change_DnsLogOff" xml:space="preserve"><value>Windows DNS log: off</value></data>
   <data name="Nav_Network" xml:space="preserve"><value>Network</value></data>
   <data name="Net_Title" xml:space="preserve"><value>Who contacts what?</value></data>
-  <data name="Net_Intro" xml:space="preserve"><value>The programs and services on your PC that talk to the Internet or your local network, and what these exchanges are for. Select a destination to see its entry.</value></data>
   <data name="Net_Privacy" xml:space="preserve"><value>SerWin connects to nothing: it only reads Windows&apos; connection table and DNS log, on your machine.</value></data>
   <data name="Net_ObserveOnly" xml:space="preserve"><value>This version observes and explains; it does not block anything. To reduce an exchange, first use the official setting shown in the entry.</value></data>
   <data name="Net_EnableDnsLog" xml:space="preserve"><value>Turn on the DNS log</value></data>
@@ -590,4 +589,15 @@
   <data name="DestCat_notifications" xml:space="preserve"><value>Notifications</value></data>
   <data name="DestCat_third_party" xml:space="preserve"><value>Third-party software</value></data>
   <data name="Net_SampleFailed" xml:space="preserve"><value>A network reading failed; SerWin retries automatically.</value></data>
+  <data name="Net_TimelineTitle" xml:space="preserve"><value>Network activity</value></data>
+  <data name="Net_LiveFeed" xml:space="preserve"><value>Live feed</value></data>
+  <data name="Net_LiveFeedHelp" xml:space="preserve"><value>Each exchange as it happens: “?” when a program asks for a server&apos;s address, “→” when it connects to it. Click a line to see the entry.</value></data>
+  <data name="Net_FeedEmpty" xml:space="preserve"><value>No exchange yet with this filter. New connections will show up here live.</value></data>
+  <data name="Net_BackToOverview" xml:space="preserve"><value>Overview</value></data>
+  <data name="TimelineRange_Day" xml:space="preserve"><value>Last 24 hours</value></data>
+  <data name="TimelineRange_Week" xml:space="preserve"><value>Last 7 days</value></data>
+  <data name="Timeline_SummaryDay" xml:space="preserve"><value>{0} exchange(s) over the last 24 h, including {1} unwanted (telemetry, ads…). Hover over a bar for details.</value></data>
+  <data name="Timeline_SummaryWeek" xml:space="preserve"><value>{0} exchange(s) over the last 7 days, including {1} unwanted (telemetry, ads…). Hover over a bar for details.</value></data>
+  <data name="Timeline_BarTip" xml:space="preserve"><value>{0} – {1}: {2} exchange(s)</value></data>
+  <data name="Timeline_HourLabel" xml:space="preserve"><value>{0}:00</value></data>
 </root>

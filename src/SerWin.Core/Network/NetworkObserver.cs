@@ -63,6 +63,17 @@ public sealed class NetworkObserver(ISenderResolver resolver)
     private readonly Dictionary<IPAddress, List<(string Name, string SenderKey, DateTime Time)>> _names = [];
     private readonly HashSet<(long, int, string)> _dnsSeen = [];
     private readonly HashSet<string> _connectionsSeen = [];
+    private readonly List<NetworkEvent> _events = [];
+    private long _sequence;
+
+    /// <summary>Nombre maximal d'événements gardés en mémoire (les plus anciens sont oubliés au-delà).</summary>
+    public const int MaxEvents = 50_000;
+
+    /// <summary>Chaque échange daté (requête DNS ou nouvelle connexion), pour le fil en direct et la frise.</summary>
+    public IReadOnlyList<NetworkEvent> Events => _events;
+
+    /// <summary>Numéro du dernier événement : change dès qu'un nouvel échange est relevé.</summary>
+    public long LastSequence => _sequence;
 
     public IReadOnlyCollection<NetworkFlow> Flows => _flows.Values;
 
@@ -75,6 +86,7 @@ public sealed class NetworkObserver(ISenderResolver resolver)
         {
             if (!_dnsSeen.Add((q.Time.Ticks, q.ProcessId, q.Name))) continue;
             var sender = resolver.Resolve(q.ProcessId, null, q.Time);
+            Record(q.Time, sender, q.Name, NetworkEventKind.Dns);
             foreach (var ip in q.Addresses) Remember(ip, q.Name, sender.Key, q.Time);
 
             var flow = GetFlow(sender, q.Name, hostName: true);
@@ -107,10 +119,20 @@ public sealed class NetworkObserver(ISenderResolver resolver)
             flow.Addresses.Add(c.RemoteAddress);
             flow.Ports.Add(c.RemotePort);
             flow.ActiveConnections++;
-            if (_connectionsSeen.Add(c.Key)) flow.Connections++;
+            if (_connectionsSeen.Add(c.Key))
+            {
+                flow.Connections++;
+                Record(c.Since is { } opened && opened <= now ? opened : now, sender, flow.Destination, NetworkEventKind.Connection);
+            }
             flow.Seen(c.Since is { } s && s <= now ? s : now);
             flow.Seen(now);
         }
+    }
+
+    private void Record(DateTime time, SenderIdentity sender, string destination, NetworkEventKind kind)
+    {
+        _events.Add(new NetworkEvent(++_sequence, time, sender, kind) { Destination = destination });
+        if (_events.Count > MaxEvents) _events.RemoveRange(0, _events.Count - MaxEvents + MaxEvents / 10);
     }
 
     /// <summary>
@@ -163,6 +185,8 @@ public sealed class NetworkObserver(ISenderResolver resolver)
             var name = flow.Addresses.Select(a => NameOf(a, flow.Sender.Key)).FirstOrDefault(n => n is not null);
             if (name is null) continue;
             _flows.Remove(key);
+            foreach (var e in _events)
+                if (e.Sender.Key == flow.Sender.Key && e.Destination == flow.Destination) e.Destination = name;
             var target = GetFlow(flow.Sender, name, hostName: true);
             foreach (var a in flow.Addresses) target.Addresses.Add(a);
             foreach (var p in flow.Ports) target.Ports.Add(p);
@@ -185,7 +209,16 @@ public sealed class SenderResolver : ISenderResolver
     private Dictionary<int, (string Name, DateTime? Start)> _processes = [];
     private Dictionary<int, List<string>> _servicesByPid = [];
 
-    public void Refresh(IEnumerable<ServiceInfo> services)
+    /// <summary>
+    /// Processus vus lors des relevés précédents, gardés une heure après leur fin : beaucoup de programmes (mises à jour,
+    /// outils en ligne de commande) font une requête DNS puis se ferment avant que le journal soit lu.
+    /// </summary>
+    private readonly Dictionary<int, (string Name, DateTime? Start, DateTime LastSeen)> _recent = [];
+    private static readonly TimeSpan RecentRetention = TimeSpan.FromHours(1);
+
+    public void Refresh(IEnumerable<ServiceInfo> services) => Refresh(services, DateTime.Now);
+
+    internal void Refresh(IEnumerable<ServiceInfo> services, DateTime now)
     {
         var processes = new Dictionary<int, (string, DateTime?)>();
         foreach (var p in Process.GetProcesses())
@@ -205,6 +238,8 @@ public sealed class SenderResolver : ISenderResolver
             }
         }
         _processes = processes;
+        foreach (var (pid, (name, start)) in processes) _recent[pid] = (name, start, now);
+        foreach (var old in _recent.Where(kv => now - kv.Value.LastSeen > RecentRetention).Select(kv => kv.Key).ToList()) _recent.Remove(old);
         _servicesByPid = services.Where(s => s.ProcessId != 0)
             .GroupBy(s => (int)s.ProcessId)
             .ToDictionary(g => g.Key, g => g.Select(s => s.Name).OrderBy(n => n, StringComparer.OrdinalIgnoreCase).ToList());
@@ -226,7 +261,7 @@ public sealed class SenderResolver : ISenderResolver
 
         var exe = alive ? proc.Name
             : ownerModule is not null && ownerModule.EndsWith(".exe", StringComparison.OrdinalIgnoreCase) ? ownerModule
-            : null;
+            : RecentName(pid, at);
         if (service is not null) return new SenderIdentity($"svc:{service.ToLowerInvariant()}", exe, service, [], pid);
         if (exe is null) return SenderIdentity.Unknown(pid);
 
@@ -234,4 +269,40 @@ public sealed class SenderResolver : ISenderResolver
         var key = hosted.Count > 1 ? $"pid:{pid}:{exe.ToLowerInvariant()}" : $"exe:{exe.ToLowerInvariant()}";
         return new SenderIdentity(key, exe, null, hosted.Count > 1 ? hosted : [], pid);
     }
+
+    /// <summary>Nom d'un processus terminé depuis, s'il a été vu vivant à l'heure de l'événement (numéro non réutilisé entre-temps).</summary>
+    private string? RecentName(int pid, DateTime? at)
+    {
+        if (!_recent.TryGetValue(pid, out var r)) return null;
+        if (at is { } t && r.Start is { } start && start > t.AddSeconds(1)) return null;
+        return r.Name;
+    }
+
+    /// <summary>Pour les tests : ajoute un processus comme s'il avait été relevé.</summary>
+    internal void Seed(int pid, string name, DateTime? start, DateTime seen, IEnumerable<string>? hosted = null)
+    {
+        _recent[pid] = (name, start, seen);
+        _processes[pid] = (name, start);
+        if (hosted is not null) _servicesByPid[pid] = hosted.ToList();
+    }
+
+    internal void Forget(int pid) => _processes.Remove(pid);
+}
+
+public enum NetworkEventKind
+{
+    /// <summary>Requête DNS : le programme a demandé l'adresse d'un serveur.</summary>
+    Dns,
+    /// <summary>Nouvelle connexion TCP observée.</summary>
+    Connection,
+}
+
+/// <summary>Un échange daté. La destination peut être renommée (adresse IP → nom d'hôte) dès que le nom est connu.</summary>
+public sealed class NetworkEvent(long sequence, DateTime time, SenderIdentity sender, NetworkEventKind kind)
+{
+    public long Sequence { get; } = sequence;
+    public DateTime Time { get; } = time;
+    public SenderIdentity Sender { get; } = sender;
+    public NetworkEventKind Kind { get; } = kind;
+    public required string Destination { get; set; }
 }

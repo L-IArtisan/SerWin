@@ -58,13 +58,16 @@ public sealed class NetworkItemViewModel(string destination, DestinationEntry? e
 
     public DestinationNeed? Need => Entry?.Need;
     public string NeedLabel => Need is { } n ? L[$"Need_{n}"] : L["Need_Unknown"];
-    public Brush NeedBrush => Need switch
+    public Brush NeedBrush => BrushFor(Need);
+
+    /// <summary>Couleur d'une utilité, partagée par la liste, le fil en direct et la frise.</summary>
+    public static Brush BrushFor(DestinationNeed? need) => need switch
     {
         DestinationNeed.Essential => Palette.Safe,
         DestinationNeed.Useful => Palette.Running,
         DestinationNeed.Optional => Palette.Neutral,
         DestinationNeed.Unwanted => Palette.Caution,
-        _ => Palette.Neutral,
+        _ => Palette.Unknown,
     };
 
     public string Summary => Entry?.Summary.Resolve(ctx.Language) ?? (IsLocalNetwork ? L["Net_LocalSummary"] : L["Net_UnknownSummary"]);

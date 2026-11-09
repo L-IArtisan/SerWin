@@ -526,7 +526,6 @@
   <data name="Change_DnsLogOff" xml:space="preserve"><value>Journal DNS de Windows : désactivé</value></data>
   <data name="Nav_Network" xml:space="preserve"><value>Réseau</value></data>
   <data name="Net_Title" xml:space="preserve"><value>Qui contacte quoi ?</value></data>
-  <data name="Net_Intro" xml:space="preserve"><value>Les programmes et services de ton PC qui communiquent avec Internet ou ton réseau local, et à quoi servent ces échanges. Sélectionne une destination pour voir sa fiche.</value></data>
   <data name="Net_Privacy" xml:space="preserve"><value>SerWin ne se connecte à rien : il lit seulement la table des connexions et le journal DNS de Windows, sur ta machine.</value></data>
   <data name="Net_ObserveOnly" xml:space="preserve"><value>Cette version observe et explique ; elle ne bloque rien. Pour réduire un échange, utilise d&apos;abord le réglage officiel indiqué dans la fiche.</value></data>
   <data name="Net_EnableDnsLog" xml:space="preserve"><value>Activer le journal DNS</value></data>
@@ -590,4 +589,15 @@
   <data name="DestCat_notifications" xml:space="preserve"><value>Notifications</value></data>
   <data name="DestCat_third_party" xml:space="preserve"><value>Logiciel tiers</value></data>
   <data name="Net_SampleFailed" xml:space="preserve"><value>Un relevé réseau a échoué ; SerWin réessaie automatiquement.</value></data>
+  <data name="Net_TimelineTitle" xml:space="preserve"><value>Activité réseau</value></data>
+  <data name="Net_LiveFeed" xml:space="preserve"><value>Fil en direct</value></data>
+  <data name="Net_LiveFeedHelp" xml:space="preserve"><value>Chaque échange au moment où il se produit : « ? » quand un programme demande l&apos;adresse d&apos;un serveur, « → » quand il s&apos;y connecte. Clique sur une ligne pour voir la fiche.</value></data>
+  <data name="Net_FeedEmpty" xml:space="preserve"><value>Aucun échange pour l&apos;instant avec ce filtre. Les nouvelles connexions apparaîtront ici en direct.</value></data>
+  <data name="Net_BackToOverview" xml:space="preserve"><value>Vue d&apos;ensemble</value></data>
+  <data name="TimelineRange_Day" xml:space="preserve"><value>24 dernières heures</value></data>
+  <data name="TimelineRange_Week" xml:space="preserve"><value>7 derniers jours</value></data>
+  <data name="Timeline_SummaryDay" xml:space="preserve"><value>{0} échange(s) sur les dernières 24 h, dont {1} indésirable(s) (télémétrie, publicité…). Survole une barre pour le détail.</value></data>
+  <data name="Timeline_SummaryWeek" xml:space="preserve"><value>{0} échange(s) sur les 7 derniers jours, dont {1} indésirable(s) (télémétrie, publicité…). Survole une barre pour le détail.</value></data>
+  <data name="Timeline_BarTip" xml:space="preserve"><value>{0} – {1} : {2} échange(s)</value></data>
+  <data name="Timeline_HourLabel" xml:space="preserve"><value>{0} h</value></data>
 </root>

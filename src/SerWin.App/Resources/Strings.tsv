@@ -519,7 +519,6 @@ Change_DnsLogOn	Journal DNS de Windows : activé (taille {0} Mo)	Windows DNS log
 Change_DnsLogOff	Journal DNS de Windows : désactivé	Windows DNS log: off
 Nav_Network	Réseau	Network
 Net_Title	Qui contacte quoi ?	Who contacts what?
-Net_Intro	Les programmes et services de ton PC qui communiquent avec Internet ou ton réseau local, et à quoi servent ces échanges. Sélectionne une destination pour voir sa fiche.	The programs and services on your PC that talk to the Internet or your local network, and what these exchanges are for. Select a destination to see its entry.
 Net_Privacy	SerWin ne se connecte à rien : il lit seulement la table des connexions et le journal DNS de Windows, sur ta machine.	SerWin connects to nothing: it only reads Windows' connection table and DNS log, on your machine.
 Net_ObserveOnly	Cette version observe et explique ; elle ne bloque rien. Pour réduire un échange, utilise d'abord le réglage officiel indiqué dans la fiche.	This version observes and explains; it does not block anything. To reduce an exchange, first use the official setting shown in the entry.
 Net_EnableDnsLog	Activer le journal DNS	Turn on the DNS log
@@ -583,3 +582,14 @@ DestCat_location	Localisation	Location
 DestCat_notifications	Notifications	Notifications
 DestCat_third_party	Logiciel tiers	Third-party software
 Net_SampleFailed	Un relevé réseau a échoué ; SerWin réessaie automatiquement.	A network reading failed; SerWin retries automatically.
+Net_TimelineTitle	Activité réseau	Network activity
+Net_LiveFeed	Fil en direct	Live feed
+Net_LiveFeedHelp	Chaque échange au moment où il se produit : « ? » quand un programme demande l'adresse d'un serveur, « → » quand il s'y connecte. Clique sur une ligne pour voir la fiche.	Each exchange as it happens: “?” when a program asks for a server's address, “→” when it connects to it. Click a line to see the entry.
+Net_FeedEmpty	Aucun échange pour l'instant avec ce filtre. Les nouvelles connexions apparaîtront ici en direct.	No exchange yet with this filter. New connections will show up here live.
+Net_BackToOverview	Vue d'ensemble	Overview
+TimelineRange_Day	24 dernières heures	Last 24 hours
+TimelineRange_Week	7 derniers jours	Last 7 days
+Timeline_SummaryDay	{0} échange(s) sur les dernières 24 h, dont {1} indésirable(s) (télémétrie, publicité…). Survole une barre pour le détail.	{0} exchange(s) over the last 24 h, including {1} unwanted (telemetry, ads…). Hover over a bar for details.
+Timeline_SummaryWeek	{0} échange(s) sur les 7 derniers jours, dont {1} indésirable(s) (télémétrie, publicité…). Survole une barre pour le détail.	{0} exchange(s) over the last 7 days, including {1} unwanted (telemetry, ads…). Hover over a bar for details.
+Timeline_BarTip	{0} – {1} : {2} échange(s)	{0} – {1}: {2} exchange(s)
+Timeline_HourLabel	{0} h	{0}:00

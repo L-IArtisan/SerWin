@@ -268,3 +268,103 @@ public sealed class DnsLogActionTests : IDisposable
         Assert.Equal(new EventLogSetting(false, DnsLog.RecommendedMaxSize), EventLogSetting.Parse(_scm.EventLogs[DnsLog.LogName]));
     }
 }
+
+public class NetworkEventTests
+{
+    private sealed class Resolver : ISenderResolver
+    {
+        public SenderIdentity Resolve(int pid, string? ownerModule, DateTime? at) =>
+            new($"exe:p{pid}", $"p{pid}.exe", null, [], pid);
+    }
+
+    private static readonly DateTime T0 = new(2026, 11, 10, 10, 30, 0);
+    private static readonly IPAddress Ip = IPAddress.Parse("20.42.65.92");
+
+    [Fact]
+    public void Each_query_and_new_connection_is_recorded_once()
+    {
+        var o = new NetworkObserver(new Resolver());
+        var q = new DnsQuery(T0, 1, "a.example.com", [Ip], [], 0);
+        o.AddDns([q]);
+        o.AddDns([q]);
+        var c = new TcpConnection(2, null, IPAddress.Parse("1.1.1.1"), 443, 50000, T0.AddMinutes(1));
+        o.AddConnections([c], T0.AddMinutes(2));
+        o.AddConnections([c], T0.AddMinutes(3));
+
+        Assert.Equal(2, o.Events.Count);
+        Assert.Equal(NetworkEventKind.Dns, o.Events[0].Kind);
+        Assert.Equal(T0.AddMinutes(1), o.Events[1].Time); // heure d'ouverture de la connexion
+        Assert.Equal(2, o.LastSequence);
+    }
+
+    [Fact]
+    public void Event_destination_follows_the_rename_from_ip_to_host()
+    {
+        var o = new NetworkObserver(new Resolver());
+        o.AddConnections([new TcpConnection(2, null, Ip, 443, 50000, T0)], T0);
+        Assert.Equal(Ip.ToString(), Assert.Single(o.Events).Destination);
+        o.AddDns([new DnsQuery(T0.AddSeconds(1), 2, "b.example.com", [Ip], [], 0)]);
+        Assert.All(o.Events, e => Assert.Equal("b.example.com", e.Destination));
+    }
+
+    [Fact]
+    public void Timeline_groups_events_in_aligned_buckets()
+    {
+        var o = new NetworkObserver(new Resolver());
+        o.AddDns([
+            new DnsQuery(T0, 1, "a.example.com", [], [], 0),
+            new DnsQuery(T0.AddMinutes(5), 1, "b.example.com", [], [], 0),
+            new DnsQuery(T0.AddHours(-3), 1, "c.example.com", [], [], 0),
+            new DnsQuery(T0.AddDays(-2), 1, "old.example.com", [], [], 0), // hors période
+        ]);
+        var buckets = NetworkTimeline.Build(o.Events, e => e.Destination == "a.example.com" ? "A" : "other", T0, TimeSpan.FromHours(1), 24);
+
+        Assert.Equal(24, buckets.Count);
+        Assert.Equal(new DateTime(2026, 11, 10, 10, 0, 0), buckets[^1].Start);   // tranche en cours, alignée sur l'heure
+        Assert.Equal(new DateTime(2026, 11, 9, 11, 0, 0), buckets[0].Start);
+        Assert.Equal(1, buckets[^1].Counts["A"]);
+        Assert.Equal(1, buckets[^1].Counts["other"]);
+        Assert.Equal(1, buckets[^4].Total);
+        Assert.Equal(3, buckets.Sum(b => b.Total));
+    }
+
+    [Fact]
+    public void Four_hour_buckets_start_at_midnight_multiples()
+    {
+        var buckets = NetworkTimeline.Build<string>([], _ => "", new DateTime(2026, 11, 10, 10, 30, 0), TimeSpan.FromHours(4), 42);
+        Assert.Equal(new DateTime(2026, 11, 10, 8, 0, 0), buckets[^1].Start);
+        Assert.Equal(new DateTime(2026, 11, 3, 12, 0, 0), buckets[0].Start);
+    }
+}
+
+public class SenderResolverTests
+{
+    private static readonly DateTime T0 = new(2026, 11, 10, 0, 29, 41);
+
+    [Fact]
+    public void Ended_process_keeps_its_name()
+    {
+        var r = new SenderResolver();
+        r.Seed(2488, "dotnet.exe", T0.AddSeconds(-2), T0.AddSeconds(1));
+        r.Forget(2488); // le processus s'est terminé avant la lecture du journal
+        var s = r.Resolve(2488, null, T0);
+        Assert.Equal("dotnet.exe", s.ProcessName);
+        Assert.Equal("exe:dotnet.exe", s.Key);
+    }
+
+    [Fact]
+    public void Reused_pid_is_not_blamed_for_an_older_event()
+    {
+        var r = new SenderResolver();
+        r.Seed(2488, "notepad.exe", T0.AddMinutes(5), T0.AddMinutes(6)); // démarré après l'événement
+        Assert.False(r.Resolve(2488, null, T0).IsKnown);
+    }
+
+    [Fact]
+    public void Single_service_process_is_identified_as_the_service()
+    {
+        var r = new SenderResolver();
+        r.Seed(1200, "svchost.exe", null, T0, ["DiagTrack"]);
+        Assert.Equal("DiagTrack", r.Resolve(1200, null, T0).Service);
+    }
+}

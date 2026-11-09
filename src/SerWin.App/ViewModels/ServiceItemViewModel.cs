@@ -338,6 +338,7 @@ internal static class Palette
     public static readonly Brush Blocked = Freeze(new SolidColorBrush(Color.FromRgb(0xD1, 0x34, 0x38)));
     public static readonly Brush Running = Freeze(new SolidColorBrush(Color.FromRgb(0x2B, 0x88, 0xD8)));
     public static readonly Brush Neutral = Freeze(new SolidColorBrush(Color.FromRgb(0x8A, 0x8A, 0x8A)));
+    public static readonly Brush Unknown = Freeze(new SolidColorBrush(Color.FromRgb(0xC4, 0xC4, 0xC4)));
     public static readonly Brush CautionSoft = Freeze(new SolidColorBrush(Color.FromArgb(0x26, 0xE8, 0x8A, 0x1A)));
     public static readonly Brush BlockedSoft = Freeze(new SolidColorBrush(Color.FromArgb(0x26, 0xD1, 0x34, 0x38)));
     public static readonly Brush SafeSoft = Freeze(new SolidColorBrush(Color.FromArgb(0x26, 0x3F, 0xA3, 0x4D)));

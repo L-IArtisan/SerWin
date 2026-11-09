@@ -77,6 +77,7 @@ public class LocalizationTests
         foreach (var v in Enum.GetNames<DestinationNeed>()) keys.Add($"Need_{v}");
         keys.Add("Need_Unknown");
         foreach (var v in new[] { "All", "Privacy", "Undocumented", "Active", "LocalNetwork" }) keys.Add($"NetFilter_{v}");
+        foreach (var v in new[] { "Day", "Week" }) keys.Add($"TimelineRange_{v}");
         foreach (var n in new[] { "FirstIpAddressArrival", "LastIpAddressRemoval", "DomainJoin", "DomainLeave", "FirewallPortOpen",
                      "FirewallPortClose", "MachinePolicyPresent", "UserPolicyPresent", "RpcInterfaceEvent", "NamedPipeEvent" })
             keys.Add($"TriggerSub_{n}");

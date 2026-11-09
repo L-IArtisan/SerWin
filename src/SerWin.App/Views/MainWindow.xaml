@@ -922,15 +922,126 @@
                     BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
                     Visibility="{Binding IsNetworkPage, Converter={StaticResource BoolToVis}}">
                 <Grid>
-                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="460"
-                                Visibility="{Binding HasSelectedNetworkItem, Converter={StaticResource BoolToVis}, ConverterParameter=invert}">
-                        <TextBlock FontSize="18" FontWeight="SemiBold" HorizontalAlignment="Center" Text="{loc:T Net_Title}" />
-                        <TextBlock Style="{StaticResource Body}" Margin="0,8,0,0" TextAlignment="Center" Text="{loc:T Net_Intro}" />
-                        <TextBlock Style="{StaticResource Secondary}" Margin="0,12,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="{loc:T Net_Privacy}" />
-                    </StackPanel>
+                    <!-- Vue d'ensemble : frise + fil en direct (aucune destination sélectionnée) -->
+                    <Grid Margin="20,16,20,12" Visibility="{Binding ShowNetworkOverview, Converter={StaticResource BoolToVis}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0">
+                            <TextBlock FontSize="22" FontWeight="SemiBold" Text="{loc:T Net_Title}" />
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,2,0,0" TextWrapping="Wrap" Text="{loc:T Net_Privacy}" />
+                        </StackPanel>
+
+                        <DockPanel Grid.Row="1" Margin="0,14,0,6">
+                            <ComboBox DockPanel.Dock="Right" MinWidth="170" ItemsSource="{Binding TimelineRanges}"
+                                      SelectedItem="{Binding SelectedTimelineRange}" DisplayMemberPath="Label" />
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Style="{StaticResource Body}" FontWeight="SemiBold" Text="{loc:T Net_TimelineTitle}" />
+                                <TextBlock Style="{StaticResource Secondary}" TextWrapping="Wrap" Text="{Binding TimelineSummary}" />
+                            </StackPanel>
+                        </DockPanel>
+
+                        <!-- Frise : barres empilées par utilité, alignées en bas -->
+                        <ItemsControl Grid.Row="2" Height="132" ItemsSource="{Binding TimelineBars}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Rows="1" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type vm:TimelineBar}">
+                                    <Grid Margin="1,0" Background="Transparent" ToolTip="{Binding ToolTip}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="20" />
+                                        </Grid.RowDefinitions>
+                                        <Border Grid.Row="0" VerticalAlignment="Bottom" CornerRadius="2,2,0,0" ClipToBounds="True">
+                                            <ItemsControl ItemsSource="{Binding Segments}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type vm:TimelineSegment}">
+                                                        <Rectangle Height="{Binding Height}" Fill="{Binding Brush}" />
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Border>
+                                        <Border Grid.Row="0" VerticalAlignment="Bottom" Height="1" Background="{DynamicResource CardStrokeColorDefaultBrush}" />
+                                        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="0,3,-40,0" FontSize="10"
+                                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding Label}"
+                                                   Visibility="{Binding HasLabel, Converter={StaticResource BoolToVis}}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <ItemsControl Grid.Row="3" Margin="0,4,0,0" ItemsSource="{Binding TimelineLegend}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type vm:TimelineLegendItem}">
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,14,0">
+                                        <Rectangle Width="10" Height="10" RadiusX="2" RadiusY="2" Fill="{Binding Brush}" VerticalAlignment="Center" />
+                                        <TextBlock Margin="5,0,0,0" FontSize="12" VerticalAlignment="Center">
+                                            <Run Text="{Binding Label, Mode=OneWay}" />
+                                            <Run Text="{Binding Count, Mode=OneWay, StringFormat=' ({0})'}" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <StackPanel Grid.Row="4" Margin="0,16,0,6">
+                            <TextBlock Style="{StaticResource Body}" FontWeight="SemiBold" Text="{loc:T Net_LiveFeed}" />
+                            <TextBlock Style="{StaticResource Secondary}" TextWrapping="Wrap" Text="{loc:T Net_LiveFeedHelp}" />
+                        </StackPanel>
+
+                        <TextBlock Grid.Row="5" Style="{StaticResource Secondary}" Margin="0,8,0,0" TextWrapping="Wrap" Text="{loc:T Net_FeedEmpty}"
+                                   Visibility="{Binding HasFeed, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
+                        <ListBox Grid.Row="5" ItemsSource="{Binding NetworkFeed}" SelectedItem="{Binding SelectedFeedItem}"
+                                 VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
+                                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0"
+                                 Visibility="{Binding HasFeed, Converter={StaticResource BoolToVis}}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type vm:NetworkFeedItem}">
+                                    <Grid Margin="0,1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" MinWidth="72" />
+                                            <ColumnDefinition Width="16" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="22" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Margin="0,0,8,0" FontSize="12" Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                                                   FontFamily="Consolas" VerticalAlignment="Center" Text="{Binding TimeText}" />
+                                        <Ellipse Grid.Column="1" Width="8" Height="8" Fill="{Binding Brush}" ToolTip="{Binding NeedLabel}" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="2" FontSize="13" FontWeight="SemiBold" MaxWidth="220" TextTrimming="CharacterEllipsis"
+                                                   VerticalAlignment="Center" Text="{Binding SenderLabel}" />
+                                        <TextBlock Grid.Column="3" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding KindGlyph}" />
+                                        <TextBlock Grid.Column="4" FontSize="13" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"
+                                                   Text="{Binding DestinationTitle}" ToolTip="{Binding Destination}" />
+                                        <TextBlock Grid.Column="5" Margin="8,0,4,0" FontSize="12" VerticalAlignment="Center"
+                                                   Foreground="{DynamicResource TextFillColorSecondaryBrush}" Text="{Binding CountText}"
+                                                   Visibility="{Binding HasCount, Converter={StaticResource BoolToVis}}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
                     <ScrollViewer VerticalScrollBarVisibility="Auto"
                                   Visibility="{Binding HasSelectedNetworkItem, Converter={StaticResource BoolToVis}}">
                         <StackPanel Margin="20,16,20,16" DataContext="{Binding SelectedNetworkItem}">
+                            <ui:Button HorizontalAlignment="Left" Margin="0,0,0,8" Padding="8,3" Icon="{ui:SymbolIcon ArrowLeft24}"
+                                       Content="{loc:T Net_BackToOverview}"
+                                       Command="{Binding DataContext.ShowNetworkOverviewCommand, RelativeSource={RelativeSource AncestorType=Window}}" />
                             <TextBlock FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap" Text="{Binding Title}" />
                             <TextBlock Style="{StaticResource Secondary}" Margin="0,2,0,0" TextWrapping="Wrap" Text="{Binding Destination}"
                                        Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}" />
