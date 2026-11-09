@@ -2,13 +2,13 @@
   "name": "windows-telemetry",
   "patterns": [ "*.events.data.microsoft.com", "*.vortex.data.microsoft.com", "*.vortex-win.data.microsoft.com", "*.telemetry.microsoft.com" ],
   "owner": "Microsoft",
-  "displayName": { "fr": "Télémétrie de Windows (données de diagnostic)", "en": "Windows telemetry (diagnostic data)" },
+  "displayName": { "fr": "Télémétrie Microsoft (Windows et applications)", "en": "Microsoft telemetry (Windows and apps)" },
   "category": "telemetry",
   "need": "indesirable",
   "privacy": true,
   "summary": {
-    "fr": "Envoi des données de diagnostic de Windows à Microsoft : état du système, plantages, usage des fonctionnalités.",
-    "en": "Sends Windows diagnostic data to Microsoft: system health, crashes, feature usage."
+    "fr": "Serveurs de collecte de Microsoft, partagés par Windows et de nombreuses applications (Office, Edge, Teams, Visual Studio Code…) : état, plantages, usage. Regarde « Qui la contacte » pour savoir qui envoie.",
+    "en": "Microsoft collection servers, shared by Windows and many apps (Office, Edge, Teams, Visual Studio Code…): health, crashes, usage. Check “Who contacts it” to see who is sending."
   },
   "levels": {
     "simple": {
@@ -28,7 +28,7 @@
     { "fr": "Microsoft ne reçoit plus de diagnostic de ce PC (aucun effet visible pour toi)", "en": "Microsoft no longer receives diagnostics from this PC (no visible effect for you)" },
     { "fr": "Le programme Windows Insider exige les données facultatives", "en": "The Windows Insider Program requires optional data" }
   ],
-  "senders": [ "DiagTrack", "svchost.exe", "CompatTelRunner.exe", "msedge.exe", "OfficeClickToRun.exe" ],
+  "senders": [ "DiagTrack", "svchost.exe", "CompatTelRunner.exe", "msedge.exe", "msedgewebview2.exe", "OfficeClickToRun.exe", "ms-teams.exe", "Code.exe" ],
   "control": { "fr": "Paramètres > Confidentialité et sécurité > Diagnostics et commentaires : désactiver « Envoyer des données de diagnostic facultatives ».", "en": "Settings > Privacy & security > Diagnostics & feedback: turn off “Send optional diagnostic data”." },
   "usefulIf": {},
   "verification": { "status": "draft" },

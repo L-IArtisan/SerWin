@@ -547,7 +547,7 @@
   <data name="Net_IfBlocked" xml:space="preserve"><value>Si tu la bloques</value></data>
   <data name="Net_HowToReduce" xml:space="preserve"><value>Pour réduire ces échanges</value></data>
   <data name="Net_Senders" xml:space="preserve"><value>Qui la contacte</value></data>
-  <data name="Net_UnexpectedSender" xml:space="preserve"><value>⚠️ Au moins un programme n&apos;est pas celui qui contacte habituellement cette destination.</value></data>
+  <data name="Net_UnexpectedSender" xml:space="preserve"><value>ℹ️ Au moins un programme ne fait pas partie des émetteurs habituels de cette destination : regarde lequel.</value></data>
   <data name="Net_EndedProcess" xml:space="preserve"><value>Processus terminé (PID {0})</value></data>
   <data name="Net_HostedServices" xml:space="preserve"><value>svchost partagé : {0} ({1} services)</value></data>
   <data name="Net_Addresses" xml:space="preserve"><value>Adresses</value></data>

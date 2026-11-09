@@ -540,7 +540,7 @@ Net_NotUsefulHere	D'après ce que SerWin a détecté, ce service ne sert à rien
 Net_IfBlocked	Si tu la bloques	If you block it
 Net_HowToReduce	Pour réduire ces échanges	To reduce these exchanges
 Net_Senders	Qui la contacte	Who contacts it
-Net_UnexpectedSender	⚠️ Au moins un programme n'est pas celui qui contacte habituellement cette destination.	⚠️ At least one program is not the one that usually contacts this destination.
+Net_UnexpectedSender	ℹ️ Au moins un programme ne fait pas partie des émetteurs habituels de cette destination : regarde lequel.	ℹ️ At least one program is not among the usual senders of this destination: check which one.
 Net_EndedProcess	Processus terminé (PID {0})	Ended process (PID {0})
 Net_HostedServices	svchost partagé : {0} ({1} services)	Shared svchost: {0} ({1} services)
 Net_Addresses	Adresses	Addresses
