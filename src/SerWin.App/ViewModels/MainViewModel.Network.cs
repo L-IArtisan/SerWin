@@ -38,6 +38,7 @@ public sealed partial class MainViewModel
     private DateTime _dnsReadUntil;
     private int _networkTick;
     private bool _networkSampling;
+    private bool _networkErrorShown;
 
     public bool IsNetworkPage => CurrentPage == "network";
 
@@ -154,6 +155,16 @@ public sealed partial class MainViewModel
                 CommandManager.InvalidateRequerySuggested();
             }
             UpdateNetworkItems(observer);
+        }
+        catch (Exception ex) when (ex is not OutOfMemoryException)
+        {
+            // Un relevé raté ne doit jamais bloquer l'appli ni ouvrir une fenêtre d'erreur toutes les 3 s :
+            // on le signale une seule fois et le relevé suivant réessaie.
+            if (!_networkErrorShown)
+            {
+                _networkErrorShown = true;
+                Notify(InfoBarSeverity.Warning, L["Net_SampleFailed"], ex.Message);
+            }
         }
         finally
         {

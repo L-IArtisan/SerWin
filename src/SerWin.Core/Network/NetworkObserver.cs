@@ -120,12 +120,13 @@ public sealed class NetworkObserver(ISenderResolver resolver)
     public string? NameOf(IPAddress address, string? senderKey = null)
     {
         if (!_names.TryGetValue(NetAddress.Normalize(address), out var names) || names.Count == 0) return null;
+        // Attention : MaxBy lève une exception sur une séquence vide de tuples (type valeur) ; on trie à la place.
         if (senderKey is not null)
         {
-            var own = names.Where(n => n.SenderKey == senderKey).MaxBy(n => n.Time);
-            if (own.Name is not null) return own.Name;
+            var own = names.Where(n => n.SenderKey == senderKey).OrderByDescending(n => n.Time).Select(n => n.Name).FirstOrDefault();
+            if (own is not null) return own;
         }
-        return names.MaxBy(n => n.Time).Name;
+        return names.OrderByDescending(n => n.Time).Select(n => n.Name).FirstOrDefault();
     }
 
     private void Remember(IPAddress ip, string name, string senderKey, DateTime time)

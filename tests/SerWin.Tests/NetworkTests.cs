@@ -160,6 +160,29 @@ public class NetworkObserverTests
     }
 
     [Fact]
+    public void Address_resolved_by_another_program_is_still_named()
+    {
+        // Régression v1.1 : le navigateur se connecte à une adresse que seul DiagTrack a résolue
+        // (« Sequence contains no elements »).
+        var o = new NetworkObserver(new FakeResolver());
+        o.AddDns([Query(100, "v10.events.data.microsoft.com", Ip)]);
+        Assert.Equal("v10.events.data.microsoft.com", o.NameOf(Ip, "exe:msedge.exe"));
+
+        o.AddConnections([Conn(200, Ip)], T0.AddSeconds(5));
+        Assert.Contains(o.Flows, f => f.Sender.Key == "exe:msedge.exe" && f.Destination == "v10.events.data.microsoft.com");
+    }
+
+    [Fact]
+    public void Address_named_only_by_the_cache_is_named_for_everyone()
+    {
+        var o = new NetworkObserver(new FakeResolver());
+        o.AddCache([("www.msftconnecttest.com", Ip)], T0);
+        o.AddConnections([Conn(100, Ip), Conn(300, Ip, 50001)], T0);
+        Assert.All(o.Flows, f => Assert.Equal("www.msftconnecttest.com", f.Destination));
+        Assert.Null(o.NameOf(IPAddress.Parse("1.2.3.4"), "svc:diagtrack"));
+    }
+
+    [Fact]
     public void Same_connection_seen_twice_counts_once_and_loopback_is_ignored()
     {
         var o = new NetworkObserver(new FakeResolver());

@@ -589,4 +589,5 @@
   <data name="DestCat_location" xml:space="preserve"><value>Localisation</value></data>
   <data name="DestCat_notifications" xml:space="preserve"><value>Notifications</value></data>
   <data name="DestCat_third_party" xml:space="preserve"><value>Logiciel tiers</value></data>
+  <data name="Net_SampleFailed" xml:space="preserve"><value>Un relevé réseau a échoué ; SerWin réessaie automatiquement.</value></data>
 </root>

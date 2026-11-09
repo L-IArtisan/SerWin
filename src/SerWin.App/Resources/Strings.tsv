@@ -582,3 +582,4 @@ DestCat_cdn	Distribution de contenu (CDN)	Content delivery (CDN)
 DestCat_location	Localisation	Location
 DestCat_notifications	Notifications	Notifications
 DestCat_third_party	Logiciel tiers	Third-party software
+Net_SampleFailed	Un relevé réseau a échoué ; SerWin réessaie automatiquement.	A network reading failed; SerWin retries automatically.
