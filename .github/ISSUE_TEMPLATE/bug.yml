@@ -1,0 +1,48 @@
+name: "🐞 Bug"
+description: "SerWin ne fait pas ce qu'il devrait · SerWin does something wrong"
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: "Que s'est-il passé ? · What happened?"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Étapes pour reproduire · Steps to reproduce"
+      placeholder: |
+        1. …
+        2. …
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Résultat attendu · Expected result"
+  - type: dropdown
+    id: mode
+    attributes:
+      label: "Mode"
+      options:
+        - "Standard (consultation / read-only)"
+        - "Administrateur / Administrator"
+  - type: input
+    id: version
+    attributes:
+      label: "Version de SerWin · SerWin version"
+      description: "Réglages → À propos · Settings → About"
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: "Windows"
+      placeholder: "Windows 11 Pro 24H2 — build 26100.4061"
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        💡 L'historique et les sauvegardes sont dans `%ProgramData%\SerWin` : tu peux joindre `history.json` si une action est en cause (relis-le avant, il contient les noms de tes services).
+        History and backups are in `%ProgramData%\SerWin`: you can attach `history.json` if an action is involved (review it first, it contains your service names).

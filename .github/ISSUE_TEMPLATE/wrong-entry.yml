@@ -1,0 +1,32 @@
+name: "📝 Fiche incorrecte / Wrong entry"
+description: "Une explication fausse, incomplète ou dépassée · An explanation that is wrong, incomplete or outdated"
+labels: ["knowledge-base"]
+body:
+  - type: input
+    id: service
+    attributes:
+      label: "Service"
+      description: "Nom court du service (affiché sous le titre de la fiche) · Short service name (shown under the entry title)"
+      placeholder: "wuauserv"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Qu'est-ce qui est faux ? · What is wrong?"
+      description: "Cite le passage concerné et le niveau (Simple, Avancé, Expert) · Quote the passage and the level (Simple, Advanced, Expert)"
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: "Correction proposée · Suggested fix"
+      description: "Si possible avec une source (documentation Microsoft, test sur ta machine…) · Ideally with a source (Microsoft docs, test on your machine…)"
+  - type: input
+    id: windows
+    attributes:
+      label: "Windows"
+      description: "Édition et build, affichés en bas de la fenêtre de SerWin · Edition and build, shown at the bottom of the SerWin window"
+      placeholder: "Windows 11 Pro 24H2 — build 26100.4061"
+    validations:
+      required: true

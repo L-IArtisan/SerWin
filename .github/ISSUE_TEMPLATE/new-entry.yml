@@ -1,0 +1,33 @@
+name: "➕ Nouvelle fiche / New entry"
+description: "Un service ou un processus sans fiche · A service or process without an entry"
+labels: ["knowledge-base", "new-entry"]
+body:
+  - type: input
+    id: service
+    attributes:
+      label: "Service ou processus · Service or process"
+      description: "Nom court et nom affiché · Short name and display name"
+      placeholder: "SgrmBroker — System Guard Runtime Monitor Broker"
+    validations:
+      required: true
+  - type: input
+    id: publisher
+    attributes:
+      label: "Éditeur · Publisher"
+      placeholder: "Microsoft Corporation"
+  - type: textarea
+    id: what
+    attributes:
+      label: "À quoi sert-il ? · What does it do?"
+      description: "Ce que tu sais, avec des sources si possible · What you know, with sources if possible"
+  - type: textarea
+    id: dump
+    attributes:
+      label: "Configuration réelle · Real configuration"
+      description: "Sortie de `SerWin.Verify.exe dump <nom>` (optionnel) · Output of `SerWin.Verify.exe dump <name>` (optional)"
+      render: text
+  - type: input
+    id: windows
+    attributes:
+      label: "Windows"
+      placeholder: "Windows 11 Home 24H2 — build 26100.4061"
