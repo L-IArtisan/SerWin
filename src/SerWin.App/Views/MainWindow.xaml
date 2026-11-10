@@ -303,6 +303,26 @@
                                         <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_WhatFor}" />
                                         <TextBlock Style="{StaticResource Body}" Text="{Binding Summary}" />
 
+                                        <!-- Fiche déduite : service sans fiche rédigée (faits locaux + rôle probable, jamais présenté comme sûr) -->
+                                        <Border Margin="0,12,0,0" Padding="12,10" CornerRadius="6" Background="#1A8A8A8A"
+                                                Visibility="{Binding IsUndocumented, Converter={StaticResource BoolToVis}}">
+                                            <StackPanel>
+                                                <TextBlock Style="{StaticResource Body}" FontWeight="SemiBold" Text="{loc:T Deduced_Title}" />
+                                                <TextBlock Style="{StaticResource Secondary}" Margin="0,2,0,6" TextWrapping="Wrap" Text="{loc:T Deduced_Intro}" />
+                                                <ItemsControl ItemsSource="{Binding DeducedLines}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <DockPanel Margin="2,1">
+                                                                <TextBlock DockPanel.Dock="Left" Width="16" Text="•" />
+                                                                <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding}" />
+                                                            </DockPanel>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                                <TextBlock Style="{StaticResource Body}" FontSize="13" Margin="0,8,0,0" Text="{Binding DeducedAdvice}" />
+                                            </StackPanel>
+                                        </Border>
+
                                         <StackPanel Visibility="{Binding IsDocumented, Converter={StaticResource BoolToVis}}">
                                             <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_Explanation}" />
                                             <TextBlock Style="{StaticResource Body}" Text="{Binding LevelText}" />

@@ -604,3 +604,46 @@ Link_AllExchangesHelp	Voir toutes les destinations contactées par ce programme	
 Net_SenderFilter	Échanges de : {0}	Exchanges of: {0}
 Net_ClearSenderFilter	Afficher tous les programmes	Show all programs
 Nav_ProcessGone	Ce processus n'est plus en cours d'exécution.	This process is no longer running.
+Deduced_Title	🤖 Fiche déduite automatiquement	🤖 Automatically deduced entry
+Deduced_Intro	SerWin n'a pas encore de fiche rédigée pour ce service. Voici ce qu'il en sait d'après ta machine ; le rôle est une supposition, pas une certitude.	SerWin has no written entry for this service yet. Here is what it knows from your machine; the role is a guess, not a certainty.
+Deduced_Program	Installé avec : {0}	Installed with: {0}
+Deduced_Publisher	Éditeur : {0}	Publisher: {0}
+Deduced_Role	Rôle probable : {0} (indice : « {1} » dans son nom ou sa description)	Probable role: {0} (clue: “{1}” in its name or description)
+Deduced_RoleUnknown	Rôle : impossible à deviner d'après son nom	Role: cannot be guessed from its name
+Deduced_SummaryProgram	{0}, installé avec « {1} ».	{0}, installed with “{1}”.
+Deduced_SummaryPublisher	{0}, de l'éditeur « {1} ».	{0}, from publisher “{1}”.
+Role_Unknown	Service	Service
+Role_Updater	Service de mise à jour	Update service
+Role_Elevation	Service d'élévation (installations sans fenêtre UAC)	Elevation service (installs without a UAC prompt)
+Role_Telemetry	Service de télémétrie ou de rapports d'erreurs	Telemetry or error reporting service
+Role_Licensing	Service de licences	Licensing service
+Role_Vpn	Service de VPN	VPN service
+Role_AntiCheat	Service anti-triche pour les jeux	Game anti-cheat service
+Role_Security	Service de sécurité	Security service
+Role_RemoteAccess	Service d'accès à distance	Remote access service
+Role_Virtualization	Service de virtualisation	Virtualization service
+Role_Bluetooth	Service Bluetooth	Bluetooth service
+Role_Audio	Service audio	Audio service
+Role_Graphics	Service graphique	Graphics service
+Role_Printing	Service d'impression ou de numérisation	Printing or scanning service
+Role_Hardware	Service lié à un matériel	Hardware-related service
+Role_Sync	Service de synchronisation ou de sauvegarde	Sync or backup service
+Role_Helper	Service d'assistance d'un logiciel	Software helper service
+Deduced_Advice_Unknown	Avant d'y toucher, regarde le logiciel qui l'a installé et ses échanges réseau (bouton « Réseau »). En cas de doute, le passer en « Manuel » plutôt que « Désactivé » est plus prudent.	Before touching it, check the software that installed it and its network exchanges (“Network” button). If in doubt, setting it to “Manual” rather than “Disabled” is safer.
+Deduced_Advice_Updater	Le désactiver empêche ce logiciel de se mettre à jour tout seul. Acceptable si tu fais ses mises à jour à la main, mais tu risques de garder des failles de sécurité.	Disabling it stops this software from updating itself. Acceptable if you update it by hand, but you may keep security flaws.
+Deduced_Advice_Elevation	Ne sert en général qu'aux installations et mises à jour du logiciel. En « Manuel », il démarre seulement quand c'est nécessaire.	Usually only used for the software's installs and updates. Set to “Manual”, it only starts when needed.
+Deduced_Advice_Telemetry	Envoie probablement des statistiques ou des rapports de plantage à l'éditeur. Le couper n'empêche en général pas le logiciel de fonctionner.	Probably sends statistics or crash reports to the publisher. Turning it off usually does not stop the software from working.
+Deduced_Advice_Licensing	Nécessaire pour que les logiciels sous licence de cet éditeur (plugins, instruments…) s'ouvrent. À laisser si tu les utilises.	Needed for this publisher's licensed software (plugins, instruments…) to open. Keep it if you use them.
+Deduced_Advice_Vpn	Indispensable au fonctionnement du VPN. Le désactiver coupe le VPN.	Essential for the VPN to work. Disabling it cuts the VPN.
+Deduced_Advice_AntiCheat	Utilisé seulement par les jeux qui l'exigent ; il démarre en général à la demande. Le désactiver empêche ces jeux de se lancer en ligne.	Only used by games that require it; it usually starts on demand. Disabling it prevents those games from launching online.
+Deduced_Advice_Security	Fait partie d'une protection de sécurité : ne le désactive pas sans savoir précisément ce qu'il fait.	Part of a security protection: do not disable it without knowing exactly what it does.
+Deduced_Advice_RemoteAccess	Permet de prendre le contrôle du PC à distance. Si tu n'utilises pas ce logiciel, le désactiver réduit les risques.	Allows remote control of the PC. If you do not use this software, disabling it reduces risks.
+Deduced_Advice_Virtualization	Nécessaire aux machines virtuelles de ce logiciel. Inutile si tu ne t'en sers pas.	Needed for this software's virtual machines. Useless if you do not use them.
+Deduced_Advice_Bluetooth	Lié à l'adaptateur Bluetooth. Le désactiver peut casser le Bluetooth ou ses fonctions avancées.	Tied to the Bluetooth adapter. Disabling it can break Bluetooth or its advanced features.
+Deduced_Advice_Audio	Lié à la carte son ou à un logiciel audio. Le désactiver peut couper le son ou des réglages audio.	Tied to the sound card or audio software. Disabling it can cut sound or audio settings.
+Deduced_Advice_Graphics	Lié à la carte graphique. Le désactiver peut supprimer des réglages ou des fonctions du pilote, sans en général empêcher l'affichage.	Tied to the graphics card. Disabling it can remove driver settings or features, usually without preventing display.
+Deduced_Advice_Printing	Lié à une imprimante ou un scanner. Inutile sans ce matériel.	Tied to a printer or scanner. Useless without that hardware.
+Deduced_Advice_Hardware	Lié à un matériel (contrôleur, périphérique, clé USB…). Inutile si ce matériel n'est plus branché ; sinon, il peut en avoir besoin.	Tied to hardware (controller, device, USB dongle…). Useless if that hardware is no longer connected; otherwise it may need it.
+Deduced_Advice_Sync	Synchronise ou sauvegarde des fichiers. Le désactiver arrête cette synchronisation.	Syncs or backs up files. Disabling it stops this sync.
+Deduced_Advice_Helper	Service d'assistance du logiciel (intégration, tâches de fond). Souvent non indispensable, mais certaines fonctions du logiciel peuvent en dépendre.	Software helper (integration, background tasks). Often not essential, but some features of the software may depend on it.
+Deduced_Advice_Microsoft	Service de Microsoft sans fiche rédigée pour l'instant : par prudence, ne le désactive pas sans t'être renseigné.	Microsoft service without a written entry yet: to be safe, do not disable it without looking it up.

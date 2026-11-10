@@ -25,6 +25,8 @@ public sealed class DisplayContext
     public required OsInfo Os { get; init; }
     /// <summary>Contexte détecté (v0.5) ; null tant que la détection n'est pas terminée.</summary>
     public MachineContext? Machine { get; set; }
+    /// <summary>Logiciels installés, pour les fiches déduites ; null tant qu'ils ne sont pas lus.</summary>
+    public InstalledPrograms? Programs { get; set; }
     public string Language => Loc.Instance.Language;
 }
 
@@ -207,7 +209,37 @@ public sealed class ServiceItemViewModel(ServiceInfo info, KnowledgeEntry? entry
     public Brush SafetyBackground => Safety == SafetyLevel.Red ? Palette.BlockedSoft : Palette.CautionSoft;
 
     // ── Onglet Comprendre ────────────────────────────────────
-    public string Summary => Entry?.Summary.Resolve(ctx.Language) ?? Info.Description ?? L["Undocumented_NoDescription"];
+    public string Summary => Entry?.Summary.Resolve(ctx.Language) ?? Info.Description ?? DeducedSummary;
+
+    // ── Fiche déduite (services sans fiche rédigée) ───────────
+    private DeducedProfile? _deduced;
+    public DeducedProfile? Deduced => Entry is null ? _deduced ??= ServiceDeduction.Deduce(Info, ctx.Programs) : null;
+
+    private string RoleLabel => L[$"Role_{Deduced?.Role ?? ServiceRole.Unknown}"];
+
+    private string DeducedSummary => Deduced is not { } d ? L["Undocumented_NoDescription"]
+        : d.Program is { } p ? L.Format("Deduced_SummaryProgram", RoleLabel, p.Name)
+        : d.Publisher is { } pub ? L.Format("Deduced_SummaryPublisher", RoleLabel, pub)
+        : L["Undocumented_NoDescription"];
+
+    /// <summary>Faits locaux et rôle probable, chacun sur une ligne.</summary>
+    public IReadOnlyList<string> DeducedLines
+    {
+        get
+        {
+            if (Deduced is not { } d) return [];
+            var lines = new List<string>();
+            if (d.Program is { } p) lines.Add(L.Format("Deduced_Program", string.IsNullOrWhiteSpace(p.Version) ? p.Name : $"{p.Name} {p.Version}"));
+            if (d.Publisher is { } pub) lines.Add(L.Format("Deduced_Publisher", pub));
+            lines.Add(d.Role == ServiceRole.Unknown ? L["Deduced_RoleUnknown"] : L.Format("Deduced_Role", RoleLabel, d.RoleClue));
+            return lines;
+        }
+    }
+
+    public string DeducedAdvice => Deduced is not { } d ? ""
+        : d.IsSecurityProduct ? L["Deduced_Advice_Security"]
+        : d.IsMicrosoft && d.Role == ServiceRole.Unknown ? L["Deduced_Advice_Microsoft"]
+        : L[$"Deduced_Advice_{d.Role}"];
 
     public string LevelText
     {
@@ -331,7 +363,11 @@ public sealed class ServiceItemViewModel(ServiceInfo info, KnowledgeEntry? entry
     }
 
     /// <summary>Rafraîchit tous les libellés (changement de langue ou de niveau).</summary>
-    public void Refresh() => Raise(null);
+    public void Refresh()
+    {
+        _deduced = null; // les logiciels installés ont pu être lus entre-temps
+        Raise(null);
+    }
 }
 
 internal static class Palette

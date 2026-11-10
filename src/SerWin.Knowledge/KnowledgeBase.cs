@@ -16,6 +16,8 @@ public sealed class KnowledgeBase
 
     private readonly Dictionary<string, KnowledgeEntry> _services = new(StringComparer.OrdinalIgnoreCase);
     private readonly Dictionary<string, KnowledgeEntry> _processes = new(StringComparer.OrdinalIgnoreCase);
+    /// <summary>Alias à joker (« BraveElevationService* ») : noms qui changent d'un PC à l'autre.</summary>
+    private readonly List<(System.Text.RegularExpressions.Regex Pattern, KnowledgeEntry Entry)> _serviceWildcards = [];
     private readonly List<DestinationEntry> _destinations = [];
     private DestinationCatalog? _catalog;
 
@@ -28,7 +30,13 @@ public sealed class KnowledgeBase
     /// <summary>Erreurs de chargement (fichier JSON invalide…) : la fiche est ignorée, l'app continue.</summary>
     public List<string> LoadErrors { get; } = [];
 
-    public KnowledgeEntry? FindService(string name) => _services.GetValueOrDefault(name);
+    public KnowledgeEntry? FindService(string name) =>
+        _services.GetValueOrDefault(name) ?? _serviceWildcards.FirstOrDefault(w => w.Pattern.IsMatch(name)).Entry;
+
+    /// <summary>« Brave* » → ^Brave.*$ (insensible à la casse) ; « ? » remplace un caractère.</summary>
+    internal static System.Text.RegularExpressions.Regex WildcardToRegex(string pattern) =>
+        new("^" + System.Text.RegularExpressions.Regex.Escape(pattern).Replace(@"\*", ".*").Replace(@"\?", ".") + "$",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase | System.Text.RegularExpressions.RegexOptions.CultureInvariant);
     public KnowledgeEntry? FindProcess(string name) => _processes.GetValueOrDefault(name);
 
     /// <summary>Fiches « destinations » (v1.1, page Réseau).</summary>
@@ -94,7 +102,14 @@ public sealed class KnowledgeBase
                 return;
             }
             target[entry.Name] = entry;
-            foreach (var alias in entry.Aliases) target.TryAdd(alias, entry);
+            foreach (var alias in entry.Aliases)
+            {
+                if (alias.Contains('*') || alias.Contains('?'))
+                {
+                    if (target == _services) _serviceWildcards.Add((WildcardToRegex(alias), entry));
+                }
+                else target.TryAdd(alias, entry);
+            }
         }
         catch (JsonException ex)
         {

@@ -168,3 +168,14 @@ public sealed partial class MainViewModel
         BuildSuggestions();
     }
 }
+
+public sealed partial class MainViewModel
+{
+    /// <summary>Logiciels installés (fiches déduites des services sans fiche), lus une fois en arrière-plan.</summary>
+    private async Task LoadInstalledProgramsAsync()
+    {
+        if (_ctx.Programs is not null) return;
+        _ctx.Programs = await Task.Run(InstalledPrograms.Load);
+        foreach (var s in Services.Where(s => s.IsUndocumented)) s.Refresh();
+    }
+}

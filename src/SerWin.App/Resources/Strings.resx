@@ -611,4 +611,47 @@
   <data name="Net_SenderFilter" xml:space="preserve"><value>Échanges de : {0}</value></data>
   <data name="Net_ClearSenderFilter" xml:space="preserve"><value>Afficher tous les programmes</value></data>
   <data name="Nav_ProcessGone" xml:space="preserve"><value>Ce processus n&apos;est plus en cours d&apos;exécution.</value></data>
+  <data name="Deduced_Title" xml:space="preserve"><value>🤖 Fiche déduite automatiquement</value></data>
+  <data name="Deduced_Intro" xml:space="preserve"><value>SerWin n&apos;a pas encore de fiche rédigée pour ce service. Voici ce qu&apos;il en sait d&apos;après ta machine ; le rôle est une supposition, pas une certitude.</value></data>
+  <data name="Deduced_Program" xml:space="preserve"><value>Installé avec : {0}</value></data>
+  <data name="Deduced_Publisher" xml:space="preserve"><value>Éditeur : {0}</value></data>
+  <data name="Deduced_Role" xml:space="preserve"><value>Rôle probable : {0} (indice : « {1} » dans son nom ou sa description)</value></data>
+  <data name="Deduced_RoleUnknown" xml:space="preserve"><value>Rôle : impossible à deviner d&apos;après son nom</value></data>
+  <data name="Deduced_SummaryProgram" xml:space="preserve"><value>{0}, installé avec « {1} ».</value></data>
+  <data name="Deduced_SummaryPublisher" xml:space="preserve"><value>{0}, de l&apos;éditeur « {1} ».</value></data>
+  <data name="Role_Unknown" xml:space="preserve"><value>Service</value></data>
+  <data name="Role_Updater" xml:space="preserve"><value>Service de mise à jour</value></data>
+  <data name="Role_Elevation" xml:space="preserve"><value>Service d&apos;élévation (installations sans fenêtre UAC)</value></data>
+  <data name="Role_Telemetry" xml:space="preserve"><value>Service de télémétrie ou de rapports d&apos;erreurs</value></data>
+  <data name="Role_Licensing" xml:space="preserve"><value>Service de licences</value></data>
+  <data name="Role_Vpn" xml:space="preserve"><value>Service de VPN</value></data>
+  <data name="Role_AntiCheat" xml:space="preserve"><value>Service anti-triche pour les jeux</value></data>
+  <data name="Role_Security" xml:space="preserve"><value>Service de sécurité</value></data>
+  <data name="Role_RemoteAccess" xml:space="preserve"><value>Service d&apos;accès à distance</value></data>
+  <data name="Role_Virtualization" xml:space="preserve"><value>Service de virtualisation</value></data>
+  <data name="Role_Bluetooth" xml:space="preserve"><value>Service Bluetooth</value></data>
+  <data name="Role_Audio" xml:space="preserve"><value>Service audio</value></data>
+  <data name="Role_Graphics" xml:space="preserve"><value>Service graphique</value></data>
+  <data name="Role_Printing" xml:space="preserve"><value>Service d&apos;impression ou de numérisation</value></data>
+  <data name="Role_Hardware" xml:space="preserve"><value>Service lié à un matériel</value></data>
+  <data name="Role_Sync" xml:space="preserve"><value>Service de synchronisation ou de sauvegarde</value></data>
+  <data name="Role_Helper" xml:space="preserve"><value>Service d&apos;assistance d&apos;un logiciel</value></data>
+  <data name="Deduced_Advice_Unknown" xml:space="preserve"><value>Avant d&apos;y toucher, regarde le logiciel qui l&apos;a installé et ses échanges réseau (bouton « Réseau »). En cas de doute, le passer en « Manuel » plutôt que « Désactivé » est plus prudent.</value></data>
+  <data name="Deduced_Advice_Updater" xml:space="preserve"><value>Le désactiver empêche ce logiciel de se mettre à jour tout seul. Acceptable si tu fais ses mises à jour à la main, mais tu risques de garder des failles de sécurité.</value></data>
+  <data name="Deduced_Advice_Elevation" xml:space="preserve"><value>Ne sert en général qu&apos;aux installations et mises à jour du logiciel. En « Manuel », il démarre seulement quand c&apos;est nécessaire.</value></data>
+  <data name="Deduced_Advice_Telemetry" xml:space="preserve"><value>Envoie probablement des statistiques ou des rapports de plantage à l&apos;éditeur. Le couper n&apos;empêche en général pas le logiciel de fonctionner.</value></data>
+  <data name="Deduced_Advice_Licensing" xml:space="preserve"><value>Nécessaire pour que les logiciels sous licence de cet éditeur (plugins, instruments…) s&apos;ouvrent. À laisser si tu les utilises.</value></data>
+  <data name="Deduced_Advice_Vpn" xml:space="preserve"><value>Indispensable au fonctionnement du VPN. Le désactiver coupe le VPN.</value></data>
+  <data name="Deduced_Advice_AntiCheat" xml:space="preserve"><value>Utilisé seulement par les jeux qui l&apos;exigent ; il démarre en général à la demande. Le désactiver empêche ces jeux de se lancer en ligne.</value></data>
+  <data name="Deduced_Advice_Security" xml:space="preserve"><value>Fait partie d&apos;une protection de sécurité : ne le désactive pas sans savoir précisément ce qu&apos;il fait.</value></data>
+  <data name="Deduced_Advice_RemoteAccess" xml:space="preserve"><value>Permet de prendre le contrôle du PC à distance. Si tu n&apos;utilises pas ce logiciel, le désactiver réduit les risques.</value></data>
+  <data name="Deduced_Advice_Virtualization" xml:space="preserve"><value>Nécessaire aux machines virtuelles de ce logiciel. Inutile si tu ne t&apos;en sers pas.</value></data>
+  <data name="Deduced_Advice_Bluetooth" xml:space="preserve"><value>Lié à l&apos;adaptateur Bluetooth. Le désactiver peut casser le Bluetooth ou ses fonctions avancées.</value></data>
+  <data name="Deduced_Advice_Audio" xml:space="preserve"><value>Lié à la carte son ou à un logiciel audio. Le désactiver peut couper le son ou des réglages audio.</value></data>
+  <data name="Deduced_Advice_Graphics" xml:space="preserve"><value>Lié à la carte graphique. Le désactiver peut supprimer des réglages ou des fonctions du pilote, sans en général empêcher l&apos;affichage.</value></data>
+  <data name="Deduced_Advice_Printing" xml:space="preserve"><value>Lié à une imprimante ou un scanner. Inutile sans ce matériel.</value></data>
+  <data name="Deduced_Advice_Hardware" xml:space="preserve"><value>Lié à un matériel (contrôleur, périphérique, clé USB…). Inutile si ce matériel n&apos;est plus branché ; sinon, il peut en avoir besoin.</value></data>
+  <data name="Deduced_Advice_Sync" xml:space="preserve"><value>Synchronise ou sauvegarde des fichiers. Le désactiver arrête cette synchronisation.</value></data>
+  <data name="Deduced_Advice_Helper" xml:space="preserve"><value>Service d&apos;assistance du logiciel (intégration, tâches de fond). Souvent non indispensable, mais certaines fonctions du logiciel peuvent en dépendre.</value></data>
+  <data name="Deduced_Advice_Microsoft" xml:space="preserve"><value>Service de Microsoft sans fiche rédigée pour l&apos;instant : par prudence, ne le désactive pas sans t&apos;être renseigné.</value></data>
 </root>

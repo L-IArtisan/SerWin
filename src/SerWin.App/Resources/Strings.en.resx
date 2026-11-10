@@ -611,4 +611,47 @@
   <data name="Net_SenderFilter" xml:space="preserve"><value>Exchanges of: {0}</value></data>
   <data name="Net_ClearSenderFilter" xml:space="preserve"><value>Show all programs</value></data>
   <data name="Nav_ProcessGone" xml:space="preserve"><value>This process is no longer running.</value></data>
+  <data name="Deduced_Title" xml:space="preserve"><value>🤖 Automatically deduced entry</value></data>
+  <data name="Deduced_Intro" xml:space="preserve"><value>SerWin has no written entry for this service yet. Here is what it knows from your machine; the role is a guess, not a certainty.</value></data>
+  <data name="Deduced_Program" xml:space="preserve"><value>Installed with: {0}</value></data>
+  <data name="Deduced_Publisher" xml:space="preserve"><value>Publisher: {0}</value></data>
+  <data name="Deduced_Role" xml:space="preserve"><value>Probable role: {0} (clue: “{1}” in its name or description)</value></data>
+  <data name="Deduced_RoleUnknown" xml:space="preserve"><value>Role: cannot be guessed from its name</value></data>
+  <data name="Deduced_SummaryProgram" xml:space="preserve"><value>{0}, installed with “{1}”.</value></data>
+  <data name="Deduced_SummaryPublisher" xml:space="preserve"><value>{0}, from publisher “{1}”.</value></data>
+  <data name="Role_Unknown" xml:space="preserve"><value>Service</value></data>
+  <data name="Role_Updater" xml:space="preserve"><value>Update service</value></data>
+  <data name="Role_Elevation" xml:space="preserve"><value>Elevation service (installs without a UAC prompt)</value></data>
+  <data name="Role_Telemetry" xml:space="preserve"><value>Telemetry or error reporting service</value></data>
+  <data name="Role_Licensing" xml:space="preserve"><value>Licensing service</value></data>
+  <data name="Role_Vpn" xml:space="preserve"><value>VPN service</value></data>
+  <data name="Role_AntiCheat" xml:space="preserve"><value>Game anti-cheat service</value></data>
+  <data name="Role_Security" xml:space="preserve"><value>Security service</value></data>
+  <data name="Role_RemoteAccess" xml:space="preserve"><value>Remote access service</value></data>
+  <data name="Role_Virtualization" xml:space="preserve"><value>Virtualization service</value></data>
+  <data name="Role_Bluetooth" xml:space="preserve"><value>Bluetooth service</value></data>
+  <data name="Role_Audio" xml:space="preserve"><value>Audio service</value></data>
+  <data name="Role_Graphics" xml:space="preserve"><value>Graphics service</value></data>
+  <data name="Role_Printing" xml:space="preserve"><value>Printing or scanning service</value></data>
+  <data name="Role_Hardware" xml:space="preserve"><value>Hardware-related service</value></data>
+  <data name="Role_Sync" xml:space="preserve"><value>Sync or backup service</value></data>
+  <data name="Role_Helper" xml:space="preserve"><value>Software helper service</value></data>
+  <data name="Deduced_Advice_Unknown" xml:space="preserve"><value>Before touching it, check the software that installed it and its network exchanges (“Network” button). If in doubt, setting it to “Manual” rather than “Disabled” is safer.</value></data>
+  <data name="Deduced_Advice_Updater" xml:space="preserve"><value>Disabling it stops this software from updating itself. Acceptable if you update it by hand, but you may keep security flaws.</value></data>
+  <data name="Deduced_Advice_Elevation" xml:space="preserve"><value>Usually only used for the software&apos;s installs and updates. Set to “Manual”, it only starts when needed.</value></data>
+  <data name="Deduced_Advice_Telemetry" xml:space="preserve"><value>Probably sends statistics or crash reports to the publisher. Turning it off usually does not stop the software from working.</value></data>
+  <data name="Deduced_Advice_Licensing" xml:space="preserve"><value>Needed for this publisher&apos;s licensed software (plugins, instruments…) to open. Keep it if you use them.</value></data>
+  <data name="Deduced_Advice_Vpn" xml:space="preserve"><value>Essential for the VPN to work. Disabling it cuts the VPN.</value></data>
+  <data name="Deduced_Advice_AntiCheat" xml:space="preserve"><value>Only used by games that require it; it usually starts on demand. Disabling it prevents those games from launching online.</value></data>
+  <data name="Deduced_Advice_Security" xml:space="preserve"><value>Part of a security protection: do not disable it without knowing exactly what it does.</value></data>
+  <data name="Deduced_Advice_RemoteAccess" xml:space="preserve"><value>Allows remote control of the PC. If you do not use this software, disabling it reduces risks.</value></data>
+  <data name="Deduced_Advice_Virtualization" xml:space="preserve"><value>Needed for this software&apos;s virtual machines. Useless if you do not use them.</value></data>
+  <data name="Deduced_Advice_Bluetooth" xml:space="preserve"><value>Tied to the Bluetooth adapter. Disabling it can break Bluetooth or its advanced features.</value></data>
+  <data name="Deduced_Advice_Audio" xml:space="preserve"><value>Tied to the sound card or audio software. Disabling it can cut sound or audio settings.</value></data>
+  <data name="Deduced_Advice_Graphics" xml:space="preserve"><value>Tied to the graphics card. Disabling it can remove driver settings or features, usually without preventing display.</value></data>
+  <data name="Deduced_Advice_Printing" xml:space="preserve"><value>Tied to a printer or scanner. Useless without that hardware.</value></data>
+  <data name="Deduced_Advice_Hardware" xml:space="preserve"><value>Tied to hardware (controller, device, USB dongle…). Useless if that hardware is no longer connected; otherwise it may need it.</value></data>
+  <data name="Deduced_Advice_Sync" xml:space="preserve"><value>Syncs or backs up files. Disabling it stops this sync.</value></data>
+  <data name="Deduced_Advice_Helper" xml:space="preserve"><value>Software helper (integration, background tasks). Often not essential, but some features of the software may depend on it.</value></data>
+  <data name="Deduced_Advice_Microsoft" xml:space="preserve"><value>Microsoft service without a written entry yet: to be safe, do not disable it without looking it up.</value></data>
 </root>

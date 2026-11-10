@@ -350,6 +350,7 @@ public sealed partial class MainViewModel : ObservableObject
             StartSampling();
             if (_observer is not null) _ = SampleNetworkAsync(forceDns: true);
             _ = LoadContextAsync();
+            _ = LoadInstalledProgramsAsync();
         }
         catch (Exception ex)
         {
