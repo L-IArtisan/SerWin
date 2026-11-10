@@ -1,0 +1,34 @@
+{
+  "name": "ESRV_SVC_QUEENCREEK",
+  "displayName": { "fr": "Intel Energy Server Service (System Usage Report)", "en": "Intel Energy Server Service (System Usage Report)" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Collecte d'usage du système par Intel (Computing Improvement Program).",
+    "en": "System usage collection by Intel (Computing Improvement Program)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Collecte des statistiques d'utilisation pour Intel. Rien ne casse sans lui.",
+      "en": "Collects usage statistics for Intel. Nothing breaks without it."
+    },
+    "avance": {
+      "fr": "Installé avec Intel Driver & Support Assistant ou des outils OEM ; lié au programme d'amélioration d'Intel.",
+      "en": "Installed with Intel Driver & Support Assistant or OEM tools; tied to Intel's improvement program."
+    },
+    "expert": {
+      "fr": "esrv_svc.exe, LocalSystem.",
+      "en": "esrv_svc.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Aucune fonction perdue", "en": "No feature lost" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

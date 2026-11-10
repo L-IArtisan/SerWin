@@ -1,0 +1,34 @@
+{
+  "name": "vgc",
+  "displayName": { "fr": "Riot Vanguard", "en": "Riot Vanguard" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Anti-triche Riot Vanguard (Valorant, League of Legends).",
+    "en": "Riot Vanguard anti-cheat (Valorant, League of Legends)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour Valorant et League of Legends. Son pilote (vgk) se charge dès le démarrage de Windows.",
+      "en": "Required for Valorant and League of Legends. Its driver (vgk) loads at Windows startup."
+    },
+    "avance": {
+      "fr": "Le service vgc dialogue avec le pilote noyau vgk ; les jeux Riot refusent de démarrer sans eux.",
+      "en": "The vgc service talks to the vgk kernel driver; Riot games refuse to start without them."
+    },
+    "expert": {
+      "fr": "vgc.exe, LocalSystem ; pilote vgk.sys.",
+      "en": "vgc.exe, LocalSystem; vgk.sys driver."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Jeux Riot impossibles à lancer", "en": "Riot games cannot be launched" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

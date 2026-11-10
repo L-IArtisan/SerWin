@@ -1,0 +1,34 @@
+{
+  "name": "EpicOnlineServices",
+  "displayName": { "fr": "Epic Online Services", "en": "Epic Online Services" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Services en ligne d'Epic Games pour les jeux.",
+    "en": "Epic Games online services for games."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par les jeux qui s'appuient sur les services d'Epic. Il démarre à la demande.",
+      "en": "Used by games relying on Epic's services. It starts on demand."
+    },
+    "avance": {
+      "fr": "Installé avec l'Epic Games Launcher ou certains jeux.",
+      "en": "Installed with the Epic Games Launcher or some games."
+    },
+    "expert": {
+      "fr": "EpicOnlineServicesUserHelper / EOS, LocalSystem.",
+      "en": "EpicOnlineServicesUserHelper / EOS, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fonctions en ligne de certains jeux indisponibles", "en": "Online features of some games unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

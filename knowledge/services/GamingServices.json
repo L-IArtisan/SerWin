@@ -1,0 +1,36 @@
+{
+  "name": "GamingServices",
+  "aliases": [ "GamingServicesNet" ],
+  "displayName": { "fr": "Gaming Services", "en": "Gaming Services" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Services de jeu de Microsoft (application Xbox, jeux du Game Pass).",
+    "en": "Microsoft gaming services (Xbox app, Game Pass games)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour installer et lancer les jeux de l'application Xbox ou du Game Pass. Inutile sinon.",
+      "en": "Needed to install and run games from the Xbox app or Game Pass. Useless otherwise."
+    },
+    "avance": {
+      "fr": "Installé et mis à jour par le Microsoft Store (paquet Microsoft.GamingServices). GamingServicesNet gère sa partie réseau.",
+      "en": "Installed and updated by the Microsoft Store (Microsoft.GamingServices package). GamingServicesNet handles its network part."
+    },
+    "expert": {
+      "fr": "GamingServices.exe / GamingServicesNet.exe, LocalSystem.",
+      "en": "GamingServices.exe / GamingServicesNet.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Jeux Xbox / Game Pass impossibles à installer ou lancer", "en": "Xbox / Game Pass games cannot be installed or launched" }
+  ],
+  "revivers": [],
+  "usefulIf": { "xboxApps": "installed" },
+  "verdictIfNot": { "fr": "Aucune application ou jeu Xbox détecté.", "en": "No Xbox app or game detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

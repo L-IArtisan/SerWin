@@ -1,0 +1,34 @@
+{
+  "name": "LMS",
+  "displayName": { "fr": "Intel Management and Security Application Local Management Service", "en": "Intel Management and Security Application Local Management Service" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service local de l'Intel AMT / vPro (gestion à distance d'entreprise).",
+    "en": "Local service for Intel AMT / vPro (enterprise remote management)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à la gestion à distance des PC d'entreprise (vPro). Sur un PC personnel, rarement utile.",
+      "en": "Used for remote management of company PCs (vPro). On a personal PC, rarely useful."
+    },
+    "avance": {
+      "fr": "Installé avec les pilotes Intel ME ; écoute localement pour les outils de gestion.",
+      "en": "Installed with Intel ME drivers; listens locally for management tools."
+    },
+    "expert": {
+      "fr": "LMS.exe, LocalSystem.",
+      "en": "LMS.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Gestion vPro / AMT locale indisponible", "en": "Local vPro / AMT management unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

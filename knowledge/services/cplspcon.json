@@ -1,0 +1,35 @@
+{
+  "name": "cplspcon",
+  "aliases": [ "cphs" ],
+  "displayName": { "fr": "Intel Content Protection (HDCP / HECI)", "en": "Intel Content Protection (HDCP / HECI)" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Protection des contenus vidéo (HDCP) du pilote graphique Intel.",
+    "en": "Video content protection (HDCP) for the Intel graphics driver."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour lire certaines vidéos protégées (streaming en haute définition, Blu-ray) avec une puce graphique Intel.",
+      "en": "Needed to play some protected videos (HD streaming, Blu-ray) with Intel graphics."
+    },
+    "avance": {
+      "fr": "cplspcon (HDCP) et cphs (HECI) sont installés avec le pilote graphique Intel.",
+      "en": "cplspcon (HDCP) and cphs (HECI) are installed with the Intel graphics driver."
+    },
+    "expert": {
+      "fr": "IntelCpHDCPSvc.exe / IntelCpHeciSvc.exe, LocalSystem.",
+      "en": "IntelCpHDCPSvc.exe / IntelCpHeciSvc.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Vidéos protégées refusées", "en": "Protected videos refused" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

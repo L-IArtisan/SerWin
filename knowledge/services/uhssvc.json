@@ -1,0 +1,34 @@
+{
+  "name": "uhssvc",
+  "displayName": { "fr": "Microsoft Update Health Service", "en": "Microsoft Update Health Service" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Surveille et répare l'état de Windows Update (installé par une mise à jour).",
+    "en": "Monitors and repairs Windows Update health (installed by an update)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé par Microsoft pour garder Windows Update en état de marche. Fait partie des mécanismes qui peuvent réactiver les mises à jour.",
+      "en": "Installed by Microsoft to keep Windows Update working. One of the mechanisms that can re-enable updates."
+    },
+    "avance": {
+      "fr": "Installé via la mise à jour KB4023057 (« Update Health Tools »).",
+      "en": "Installed through update KB4023057 (“Update Health Tools”)."
+    },
+    "expert": {
+      "fr": "uhssvc.exe dans Program Files\\Microsoft Update Health Tools, LocalSystem.",
+      "en": "uhssvc.exe in Program Files\\Microsoft Update Health Tools, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Réparation automatique de Windows Update réduite", "en": "Reduced automatic repair of Windows Update" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

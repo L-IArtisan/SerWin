@@ -1,0 +1,34 @@
+{
+  "name": "Apple Mobile Device Service",
+  "displayName": { "fr": "Apple Mobile Device Service", "en": "Apple Mobile Device Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Communication avec les iPhone et iPad branchés.",
+    "en": "Communication with connected iPhones and iPads."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour qu'iTunes ou l'appli Appareils Apple reconnaisse ton iPhone. Inutile sans appareil Apple.",
+      "en": "Needed for iTunes or the Apple Devices app to recognize your iPhone. Useless without an Apple device."
+    },
+    "avance": {
+      "fr": "Installé avec iTunes / Appareils Apple.",
+      "en": "Installed with iTunes / Apple Devices."
+    },
+    "expert": {
+      "fr": "AppleMobileDeviceService.exe, LocalSystem.",
+      "en": "AppleMobileDeviceService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "iPhone et iPad non reconnus", "en": "iPhone and iPad not recognized" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

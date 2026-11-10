@@ -1,0 +1,35 @@
+{
+  "name": "Razer Synapse Service",
+  "aliases": [ "RzActionSvc" ],
+  "displayName": { "fr": "Razer Synapse", "en": "Razer Synapse" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Services de Razer Synapse (réglages et éclairage des périphériques Razer).",
+    "en": "Razer Synapse services (Razer device settings and lighting)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour régler les périphériques Razer (macros, éclairage). Ils fonctionnent en mode basique sans lui.",
+      "en": "Needed to configure Razer devices (macros, lighting). They work in basic mode without it."
+    },
+    "avance": {
+      "fr": "Installé avec Razer Synapse.",
+      "en": "Installed with Razer Synapse."
+    },
+    "expert": {
+      "fr": "Exécutables Razer Synapse, LocalSystem.",
+      "en": "Razer Synapse executables, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Macros et éclairage Razer indisponibles", "en": "Razer macros and lighting unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

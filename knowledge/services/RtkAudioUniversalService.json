@@ -1,0 +1,34 @@
+{
+  "name": "RtkAudioUniversalService",
+  "displayName": { "fr": "Realtek Audio Universal Service", "en": "Realtek Audio Universal Service" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service du pilote audio Realtek (détection des prises, console audio).",
+    "en": "Realtek audio driver service (jack detection, audio console)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec le pilote audio Realtek. Le couper peut désactiver la détection des prises jack ou la console audio.",
+      "en": "Installed with the Realtek audio driver. Turning it off can disable jack detection or the audio console."
+    },
+    "avance": {
+      "fr": "Communique avec l'application Realtek Audio Console.",
+      "en": "Communicates with the Realtek Audio Console app."
+    },
+    "expert": {
+      "fr": "RtkAudUService64.exe, LocalSystem.",
+      "en": "RtkAudUService64.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Détection des prises et réglages audio Realtek dégradés", "en": "Degraded Realtek jack detection and audio settings" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

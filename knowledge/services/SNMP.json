@@ -1,0 +1,34 @@
+{
+  "name": "SNMP",
+  "displayName": { "fr": "Service SNMP", "en": "SNMP Service" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Agent SNMP : expose l'état du PC aux outils de supervision réseau.",
+    "en": "SNMP agent: exposes the PC's status to network monitoring tools."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction facultative de supervision d'entreprise. Inutile chez soi, et à éviter s'il n'est pas configuré.",
+      "en": "An optional enterprise monitoring feature. Useless at home, and best avoided if not configured."
+    },
+    "avance": {
+      "fr": "Écoute sur le port UDP 161.",
+      "en": "Listens on UDP port 161."
+    },
+    "expert": {
+      "fr": "snmp.exe, LocalSystem.",
+      "en": "snmp.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Supervision SNMP impossible", "en": "SNMP monitoring impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

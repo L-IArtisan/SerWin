@@ -1,0 +1,34 @@
+{
+  "name": "NvTelemetryContainer",
+  "displayName": { "fr": "NVIDIA Telemetry Container", "en": "NVIDIA Telemetry Container" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Télémétrie des anciennes versions de GeForce Experience.",
+    "en": "Telemetry of older GeForce Experience versions."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Envoie des statistiques d'usage à NVIDIA. Rien ne casse sans lui.",
+      "en": "Sends usage statistics to NVIDIA. Nothing breaks without it."
+    },
+    "avance": {
+      "fr": "Présent sur les anciennes installations de GeForce Experience ; absent des pilotes récents.",
+      "en": "Present on older GeForce Experience installs; absent from recent drivers."
+    },
+    "expert": {
+      "fr": "nvcontainer.exe (NvTelemetry), LocalSystem.",
+      "en": "nvcontainer.exe (NvTelemetry), LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Aucune fonction perdue", "en": "No feature lost" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

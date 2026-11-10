@@ -1,0 +1,34 @@
+{
+  "name": "diagnosticshub.standardcollector.service",
+  "displayName": { "fr": "Service Collecteur standard du concentrateur de diagnostic Microsoft", "en": "Microsoft Diagnostics Hub Standard Collector Service" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Collecte des traces de diagnostic pour Visual Studio et les outils de développement.",
+    "en": "Collects diagnostic traces for Visual Studio and developer tools."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par les outils de développement (profilage). Inutile pour un usage courant.",
+      "en": "Used by developer tools (profiling). Useless for everyday use."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par Visual Studio et les outils de performance.",
+      "en": "Started on demand by Visual Studio and performance tools."
+    },
+    "expert": {
+      "fr": "DiagnosticsHub.StandardCollector.Service.exe, LocalSystem.",
+      "en": "DiagnosticsHub.StandardCollector.Service.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Outils de profilage de Visual Studio en échec", "en": "Visual Studio profiling tools fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

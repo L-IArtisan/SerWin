@@ -1,0 +1,34 @@
+{
+  "name": "VBoxSDS",
+  "displayName": { "fr": "VirtualBox System Service", "en": "VirtualBox System Service" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service système d'Oracle VirtualBox.",
+    "en": "Oracle VirtualBox system service."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour VirtualBox. Il démarre à la demande.",
+      "en": "Needed for VirtualBox. It starts on demand."
+    },
+    "avance": {
+      "fr": "Installé avec VirtualBox.",
+      "en": "Installed with VirtualBox."
+    },
+    "expert": {
+      "fr": "VBoxSDS.exe, LocalSystem.",
+      "en": "VBoxSDS.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "VirtualBox ne démarre plus", "en": "VirtualBox no longer starts" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

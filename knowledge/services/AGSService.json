@@ -1,0 +1,35 @@
+{
+  "name": "AGSService",
+  "aliases": [ "AGMService" ],
+  "displayName": { "fr": "Adobe Genuine Software", "en": "Adobe Genuine Software" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Vérifie que les logiciels Adobe installés sont authentiques.",
+    "en": "Checks that installed Adobe software is genuine."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Contrôle de licence d'Adobe. Il n'apporte rien à l'utilisateur ; certains logiciels Adobe peuvent le réinstaller.",
+      "en": "Adobe license check. It brings nothing to the user; some Adobe software may reinstall it."
+    },
+    "avance": {
+      "fr": "Adobe Genuine Software Integrity (AGSService) et Adobe Genuine Monitor (AGMService).",
+      "en": "Adobe Genuine Software Integrity (AGSService) and Adobe Genuine Monitor (AGMService)."
+    },
+    "expert": {
+      "fr": "AGSService.exe / AGMService.exe, LocalSystem.",
+      "en": "AGSService.exe / AGMService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Peut être réinstallé par les logiciels Adobe", "en": "May be reinstalled by Adobe software" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

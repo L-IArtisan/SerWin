@@ -1,0 +1,34 @@
+{
+  "name": "AUEPLauncher",
+  "displayName": { "fr": "AMD User Experience Program Launcher", "en": "AMD User Experience Program Launcher" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Programme d'amélioration de l'expérience utilisateur d'AMD (télémétrie).",
+    "en": "AMD User Experience Program (telemetry)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Envoie des statistiques d'usage à AMD. Rien ne casse sans lui.",
+      "en": "Sends usage statistics to AMD. Nothing breaks without it."
+    },
+    "avance": {
+      "fr": "La participation se règle aussi dans AMD Software (Préférences).",
+      "en": "Participation can also be set in AMD Software (Preferences)."
+    },
+    "expert": {
+      "fr": "AUEPLauncher.exe, LocalSystem.",
+      "en": "AUEPLauncher.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Aucune fonction perdue", "en": "No feature lost" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

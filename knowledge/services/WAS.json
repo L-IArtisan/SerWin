@@ -1,0 +1,34 @@
+{
+  "name": "WAS",
+  "displayName": { "fr": "Service d'activation des processus Windows", "en": "Windows Process Activation Service" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les processus des applications web (IIS, WCF).",
+    "en": "Manages web application processes (IIS, WCF)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec IIS ou certaines fonctionnalités .NET. Inutile sans serveur web.",
+      "en": "Installed with IIS or some .NET features. Useless without a web server."
+    },
+    "avance": {
+      "fr": "IIS (W3SVC) et les activateurs WCF en dépendent.",
+      "en": "IIS (W3SVC) and WCF activators depend on it."
+    },
+    "expert": {
+      "fr": "svchost -k iissvcs, iisw3adm.dll, LocalSystem.",
+      "en": "svchost -k iissvcs, iisw3adm.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "IIS et applications WCF hébergées hors service", "en": "IIS and hosted WCF apps broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

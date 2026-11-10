@@ -1,0 +1,34 @@
+{
+  "name": "Bonjour Service",
+  "displayName": { "fr": "Service Bonjour", "en": "Bonjour Service" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Découverte d'appareils sur le réseau local (protocole Apple mDNS).",
+    "en": "Device discovery on the local network (Apple mDNS protocol)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec des logiciels Apple ou Adobe. Utile pour trouver certaines imprimantes ou appareils Apple sur le réseau.",
+      "en": "Installed with Apple or Adobe software. Useful to find some printers or Apple devices on the network."
+    },
+    "avance": {
+      "fr": "Windows gère lui-même mDNS ; Bonjour n'est nécessaire qu'aux logiciels qui l'exigent.",
+      "en": "Windows handles mDNS itself; Bonjour is only needed by software that requires it."
+    },
+    "expert": {
+      "fr": "mDNSResponder.exe, LocalSystem.",
+      "en": "mDNSResponder.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Certains appareils réseau introuvables par les logiciels Apple", "en": "Some network devices not found by Apple software" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

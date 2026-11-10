@@ -1,0 +1,35 @@
+{
+  "name": "VMAuthdService",
+  "aliases": [ "VMnetDHCP", "VMware NAT Service", "VMUSBArbService" ],
+  "displayName": { "fr": "VMware Workstation", "en": "VMware Workstation" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Services de VMware Workstation (authentification, réseau, USB).",
+    "en": "VMware Workstation services (authorization, networking, USB)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaires pour les machines virtuelles VMware. Inutiles si tu n'en utilises pas ; ils peuvent passer en Manuel.",
+      "en": "Needed for VMware virtual machines. Useless if you do not use them; they can be set to Manual."
+    },
+    "avance": {
+      "fr": "Authentification (VMAuthdService), DHCP et NAT des réseaux virtuels, partage USB (VMUSBArbService).",
+      "en": "Authorization (VMAuthdService), DHCP and NAT for virtual networks, USB sharing (VMUSBArbService)."
+    },
+    "expert": {
+      "fr": "vmware-authd.exe, vmnetdhcp.exe, vmnat.exe, vmware-usbarbitrator64.exe, LocalSystem.",
+      "en": "vmware-authd.exe, vmnetdhcp.exe, vmnat.exe, vmware-usbarbitrator64.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Machines virtuelles VMware sans réseau ou impossibles à démarrer", "en": "VMware VMs without networking or unable to start" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

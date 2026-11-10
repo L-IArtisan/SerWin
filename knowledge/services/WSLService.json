@@ -1,0 +1,35 @@
+{
+  "name": "WSLService",
+  "aliases": [ "LxssManager" ],
+  "displayName": { "fr": "Service du sous-système Windows pour Linux (WSL)", "en": "Windows Subsystem for Linux Service" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fait fonctionner les distributions Linux de WSL.",
+    "en": "Runs WSL Linux distributions."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire seulement si tu utilises Linux dans Windows (WSL).",
+      "en": "Only needed if you use Linux in Windows (WSL)."
+    },
+    "avance": {
+      "fr": "WSLService (WSL distribué par le Store) ou LxssManager (ancienne version intégrée).",
+      "en": "WSLService (Store-distributed WSL) or LxssManager (older built-in version)."
+    },
+    "expert": {
+      "fr": "wslservice.exe, LocalSystem ; démarrage à la demande.",
+      "en": "wslservice.exe, LocalSystem; on-demand start."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "WSL inutilisable", "en": "WSL unusable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

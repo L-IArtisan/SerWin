@@ -1,0 +1,34 @@
+{
+  "name": "BEService",
+  "displayName": { "fr": "BattlEye Service", "en": "BattlEye Service" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Anti-triche BattlEye pour les jeux en ligne.",
+    "en": "BattlEye anti-cheat for online games."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour les jeux qui l'utilisent ; il ne démarre qu'avec eux.",
+      "en": "Required by games that use it; it only starts with them."
+    },
+    "avance": {
+      "fr": "Installé par les jeux concernés.",
+      "en": "Installed by the games concerned."
+    },
+    "expert": {
+      "fr": "BEService.exe, LocalSystem.",
+      "en": "BEService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Jeux protégés par BattlEye injouables en ligne", "en": "BattlEye-protected games unplayable online" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

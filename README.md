@@ -16,7 +16,7 @@
 
 Most "Windows optimizers" offer a big button that disables dozens of services at once, without telling you what you lose — and half of those services quietly come back after the next update. SerWin takes the opposite approach:
 
-- **It explains.** 196 services described at three levels — *Simple*, *Advanced*, *Expert* — in English and French: what it does, what stops working without it, whether it touches your privacy.
+- **It explains.** 347 services described at three levels — *Simple*, *Advanced*, *Expert* — in English and French: what it does, what stops working without it, whether it touches your privacy. Services without a written entry get an automatic one, deduced from what is installed on your PC.
 - **It adapts to *your* PC.** SerWin detects your hardware locally (printer, Bluetooth, Wi-Fi, laptop or desktop, Xbox apps, third-party antivirus…) and tells you which services are useless *on this machine*.
 - **It shows who restarts a service.** Triggers, scheduled tasks, repair services (WaaSMedic…), recovery actions, updates: SerWin lists every mechanism that can bring a service back, and alerts you when one actually did.
 - **It shows who talks to the Internet.** The Network page lists which program or service contacts which server, and explains what each destination is for — without SerWin itself ever connecting to anything.
@@ -72,7 +72,7 @@ Browsing needs no admin rights. To make changes, the 🛡️ button restarts Ser
 
 ## Status
 
-Version 1.1 — 196 service entries, 38 process entries and 61 network destinations, all marked 📝 **Draft**: written from public documentation and checked against a real Windows 11 configuration, but not yet verified on a clean install of every edition. SerWin always shows the verification level of each entry.
+Version 1.1 — 347 service entries, 38 process entries and 61 network destinations, all marked 📝 **Draft**: written from public documentation and checked against a real Windows 11 configuration, but not yet verified on a clean install of every edition. SerWin always shows the verification level of each entry.
 
 Found a wrong explanation, or a service without an entry? [Open an issue](https://github.com/L-IArtisan/SerWin/issues/new/choose) — it is the most useful contribution.
 

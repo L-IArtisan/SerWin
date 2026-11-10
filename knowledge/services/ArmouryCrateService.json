@@ -1,0 +1,35 @@
+{
+  "name": "ArmouryCrateService",
+  "aliases": [ "AsusAppService", "ASUSOptimization", "ASUSSystemAnalysis", "ASUSSystemDiagnosis", "ASUSSwitch", "ASUSSoftwareManager" ],
+  "displayName": { "fr": "ASUS Armoury Crate / MyASUS", "en": "ASUS Armoury Crate / MyASUS" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Services des logiciels ASUS (éclairage, profils de performance, diagnostics, mises à jour).",
+    "en": "ASUS software services (lighting, performance profiles, diagnostics, updates)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaires pour Armoury Crate ou MyASUS (profils de ventilation, éclairage, touches spéciales). Certains envoient des diagnostics à ASUS.",
+      "en": "Needed for Armoury Crate or MyASUS (fan profiles, lighting, special keys). Some send diagnostics to ASUS."
+    },
+    "avance": {
+      "fr": "Installés par les logiciels ASUS ou via Windows Update (ASUS System Control Interface).",
+      "en": "Installed by ASUS software or through Windows Update (ASUS System Control Interface)."
+    },
+    "expert": {
+      "fr": "Exécutables ASUS, LocalSystem.",
+      "en": "ASUS executables, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Profils, éclairage et fonctions ASUS indisponibles", "en": "ASUS profiles, lighting and features unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

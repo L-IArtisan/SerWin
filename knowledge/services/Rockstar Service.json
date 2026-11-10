@@ -1,0 +1,34 @@
+{
+  "name": "Rockstar Service",
+  "displayName": { "fr": "Rockstar Game Library Service", "en": "Rockstar Game Library Service" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service du Rockstar Games Launcher.",
+    "en": "Rockstar Games Launcher service."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu joues aux jeux Rockstar.",
+      "en": "Useful if you play Rockstar games."
+    },
+    "avance": {
+      "fr": "Installe et met à jour les jeux du launcher Rockstar.",
+      "en": "Installs and updates Rockstar launcher games."
+    },
+    "expert": {
+      "fr": "RockstarService.exe, LocalSystem.",
+      "en": "RockstarService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Installations de jeux Rockstar en échec", "en": "Rockstar game installs fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

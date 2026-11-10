@@ -16,7 +16,7 @@
 
 La plupart des « optimiseurs » Windows proposent un gros bouton qui désactive des dizaines de services d'un coup, sans dire ce qu'on perd — et la moitié revient discrètement à la mise à jour suivante. SerWin fait l'inverse :
 
-- **Il explique.** 196 services décrits à trois niveaux — *Simple*, *Avancé*, *Expert* — en français et en anglais : à quoi il sert, ce qui ne marche plus sans lui, s'il touche à ta vie privée.
+- **Il explique.** 347 services décrits à trois niveaux — *Simple*, *Avancé*, *Expert* — en français et en anglais : à quoi il sert, ce qui ne marche plus sans lui, s'il touche à ta vie privée. Les services sans fiche rédigée ont une fiche déduite automatiquement de ce qui est installé sur ton PC.
 - **Il s'adapte à *ton* PC.** SerWin détecte ton matériel localement (imprimante, Bluetooth, Wi-Fi, portable ou fixe, applis Xbox, antivirus tiers…) et te dit quels services sont inutiles *sur cette machine*.
 - **Il montre qui relance un service.** Déclencheurs, tâches planifiées, services réparateurs (WaaSMedic…), actions de récupération, mises à jour : SerWin liste tout ce qui peut faire revenir un service, et t'alerte quand c'est arrivé.
 - **Il montre qui parle à Internet.** La page Réseau liste quel programme ou service contacte quel serveur, et explique à quoi sert chaque destination — sans que SerWin ne se connecte jamais lui-même.
@@ -74,7 +74,7 @@ Consulter ne demande aucun droit administrateur. Pour modifier, le bouton 🛡�
 
 ## État
 
-Version 1.1 — 196 fiches services, 38 fiches processus et 61 fiches destinations réseau, toutes au niveau 📝 **Brouillon** : rédigées à partir de la documentation publique et contrôlées sur une vraie configuration Windows 11, mais pas encore vérifiées sur une installation vierge de chaque édition. SerWin affiche toujours le niveau de vérification de chaque fiche.
+Version 1.1 — 347 fiches services, 38 fiches processus et 61 fiches destinations réseau, toutes au niveau 📝 **Brouillon** : rédigées à partir de la documentation publique et contrôlées sur une vraie configuration Windows 11, mais pas encore vérifiées sur une installation vierge de chaque édition. SerWin affiche toujours le niveau de vérification de chaque fiche.
 
 Une explication fausse, un service sans fiche ? [Ouvre un ticket](https://github.com/L-IArtisan/SerWin/issues/new/choose) : c'est la contribution la plus utile.
 

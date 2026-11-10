@@ -1,0 +1,34 @@
+{
+  "name": "com.docker.service",
+  "displayName": { "fr": "Docker Desktop Service", "en": "Docker Desktop Service" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service de Docker Desktop.",
+    "en": "Docker Desktop service."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour Docker Desktop. Inutile si tu ne développes pas avec Docker.",
+      "en": "Needed for Docker Desktop. Useless if you do not develop with Docker."
+    },
+    "avance": {
+      "fr": "S'appuie sur WSL 2 ou Hyper-V.",
+      "en": "Relies on WSL 2 or Hyper-V."
+    },
+    "expert": {
+      "fr": "com.docker.service.exe, LocalSystem.",
+      "en": "com.docker.service.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Docker Desktop ne démarre plus", "en": "Docker Desktop no longer starts" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

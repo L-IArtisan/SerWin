@@ -1,0 +1,35 @@
+{
+  "name": "W3SVC",
+  "aliases": [ "IISADMIN" ],
+  "displayName": { "fr": "Service World Wide Web Publishing (IIS)", "en": "World Wide Web Publishing Service (IIS)" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Serveur web IIS : publie des sites depuis ce PC.",
+    "en": "IIS web server: publishes websites from this PC."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction facultative pour développeurs. Si tu ne l'as pas installée volontairement, ce PC n'a pas à servir de serveur web.",
+      "en": "An optional feature for developers. If you did not install it on purpose, this PC does not need to act as a web server."
+    },
+    "avance": {
+      "fr": "Écoute sur les ports 80/443 quand des sites sont configurés. Dépend du Service d'activation des processus Windows (WAS).",
+      "en": "Listens on ports 80/443 when sites are configured. Depends on Windows Process Activation Service (WAS)."
+    },
+    "expert": {
+      "fr": "svchost -k iissvcs, iisw3adm.dll, LocalSystem.",
+      "en": "svchost -k iissvcs, iisw3adm.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Sites IIS hors ligne", "en": "IIS sites offline" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

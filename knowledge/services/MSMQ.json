@@ -1,0 +1,34 @@
+{
+  "name": "MSMQ",
+  "displayName": { "fr": "Message Queuing", "en": "Message Queuing" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Files de messages entre applications (MSMQ).",
+    "en": "Message queues between applications (MSMQ)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction d'entreprise pour des logiciels métier. Inutile chez soi.",
+      "en": "An enterprise feature for business software. Useless at home."
+    },
+    "avance": {
+      "fr": "Installé par la fonctionnalité facultative MSMQ. Écoute sur le port TCP 1801.",
+      "en": "Installed by the MSMQ optional feature. Listens on TCP port 1801."
+    },
+    "expert": {
+      "fr": "mqsvc.exe, NetworkService.",
+      "en": "mqsvc.exe, NetworkService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Logiciels utilisant MSMQ en échec", "en": "Software using MSMQ fails" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

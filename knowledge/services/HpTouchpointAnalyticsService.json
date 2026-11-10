@@ -1,0 +1,34 @@
+{
+  "name": "HpTouchpointAnalyticsService",
+  "displayName": { "fr": "HP Insights Analytics", "en": "HP Insights Analytics" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Collecte d'informations d'usage et de diagnostic pour HP.",
+    "en": "Usage and diagnostic data collection for HP."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Envoie des données sur l'utilisation et l'état du PC à HP. Rien d'essentiel ne dépend de lui.",
+      "en": "Sends data about PC usage and health to HP. Nothing essential depends on it."
+    },
+    "avance": {
+      "fr": "Installé sur les PC HP via Windows Update ou les outils HP ; peut être réinstallé par HP Support Assistant.",
+      "en": "Installed on HP PCs through Windows Update or HP tools; may be reinstalled by HP Support Assistant."
+    },
+    "expert": {
+      "fr": "TouchpointAnalyticsClientService.exe, LocalSystem.",
+      "en": "TouchpointAnalyticsClientService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Aucune fonction perdue", "en": "No feature lost" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

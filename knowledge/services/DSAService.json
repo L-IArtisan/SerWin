@@ -1,0 +1,35 @@
+{
+  "name": "DSAService",
+  "aliases": [ "DSAUpdateService" ],
+  "displayName": { "fr": "Intel Driver & Support Assistant", "en": "Intel Driver & Support Assistant" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Recherche les mises à jour de pilotes Intel.",
+    "en": "Checks for Intel driver updates."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Propose les nouveaux pilotes Intel. Pratique mais pas indispensable : Windows Update fournit aussi des pilotes.",
+      "en": "Offers new Intel drivers. Handy but not essential: Windows Update also provides drivers."
+    },
+    "avance": {
+      "fr": "DSAService (assistant) et DSAUpdateService (mise à jour de l'assistant). Communique avec les serveurs d'Intel.",
+      "en": "DSAService (assistant) and DSAUpdateService (assistant updater). Communicates with Intel's servers."
+    },
+    "expert": {
+      "fr": "DSAService.exe / DSAUpdateService.exe, LocalSystem.",
+      "en": "DSAService.exe / DSAUpdateService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de proposition de pilotes Intel", "en": "No more Intel driver offers" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

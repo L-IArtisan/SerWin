@@ -1,0 +1,34 @@
+{
+  "name": "ImControllerService",
+  "displayName": { "fr": "Lenovo System Interface Foundation", "en": "Lenovo System Interface Foundation" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Base des logiciels Lenovo (Vantage, touches de fonction, gestion de la batterie).",
+    "en": "Foundation for Lenovo software (Vantage, function keys, battery management)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire à Lenovo Vantage et à certaines touches de fonction sur les PC Lenovo.",
+      "en": "Needed by Lenovo Vantage and some function keys on Lenovo PCs."
+    },
+    "avance": {
+      "fr": "Installé via Windows Update sur les PC Lenovo ; télécharge des modules complémentaires.",
+      "en": "Installed through Windows Update on Lenovo PCs; downloads add-on modules."
+    },
+    "expert": {
+      "fr": "ImController.Service.exe, LocalSystem.",
+      "en": "ImController.Service.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Lenovo Vantage et certaines touches spéciales indisponibles", "en": "Lenovo Vantage and some special keys unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "NetTcpActivator",
+  "aliases": [ "NetPipeActivator", "NetMsmqActivator" ],
+  "displayName": { "fr": "Adaptateurs d'écoute WCF (Net.Tcp, Net.Pipe, Net.Msmq)", "en": "WCF listener adapters (Net.Tcp, Net.Pipe, Net.Msmq)" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Activent des applications WCF hébergées sur demande réseau.",
+    "en": "Activate hosted WCF applications on network requests."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonctions .NET pour serveurs d'applications. Inutiles sur un PC personnel.",
+      "en": ".NET features for application servers. Useless on a personal PC."
+    },
+    "avance": {
+      "fr": "Installés avec les fonctionnalités « Activation WCF » de .NET Framework.",
+      "en": "Installed with .NET Framework “WCF Activation” features."
+    },
+    "expert": {
+      "fr": "SMSvcHost.exe, LocalService.",
+      "en": "SMSvcHost.exe, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applications WCF hébergées injoignables", "en": "Hosted WCF apps unreachable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

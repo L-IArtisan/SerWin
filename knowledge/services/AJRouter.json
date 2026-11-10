@@ -1,0 +1,34 @@
+{
+  "name": "AJRouter",
+  "displayName": { "fr": "Service de routeur AllJoyn", "en": "AllJoyn Router Service" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Routage AllJoyn pour les objets connectés (protocole abandonné).",
+    "en": "AllJoyn routing for connected devices (abandoned protocol)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Protocole d'objets connectés abandonné. Inutile.",
+      "en": "An abandoned IoT protocol. Useless."
+    },
+    "avance": {
+      "fr": "Démarré par déclencheur ; retiré des versions récentes de Windows 11.",
+      "en": "Started by trigger; removed from recent Windows 11 versions."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, AJRouter.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, AJRouter.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Objets AllJoyn injoignables (rares)", "en": "AllJoyn devices unreachable (rare)" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

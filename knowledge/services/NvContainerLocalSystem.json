@@ -1,0 +1,34 @@
+{
+  "name": "NvContainerLocalSystem",
+  "displayName": { "fr": "NVIDIA LocalSystem Container", "en": "NVIDIA LocalSystem Container" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Conteneur de services NVIDIA (GeForce Experience / application NVIDIA, overlay, mises à jour).",
+    "en": "NVIDIA services container (GeForce Experience / NVIDIA app, overlay, updates)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner l'application NVIDIA (overlay, enregistrement, mises à jour de pilotes). L'affichage marche sans lui.",
+      "en": "Powers the NVIDIA app (overlay, recording, driver updates). Display works without it."
+    },
+    "avance": {
+      "fr": "Installé avec GeForce Experience ou l'application NVIDIA. Le pilote graphique lui-même n'en dépend pas.",
+      "en": "Installed with GeForce Experience or the NVIDIA app. The graphics driver itself does not depend on it."
+    },
+    "expert": {
+      "fr": "nvcontainer.exe, LocalSystem.",
+      "en": "nvcontainer.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Overlay, enregistrement et mises à jour de l'application NVIDIA indisponibles", "en": "NVIDIA app overlay, recording and updates unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

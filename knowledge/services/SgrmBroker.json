@@ -1,0 +1,34 @@
+{
+  "name": "SgrmBroker",
+  "displayName": { "fr": "Service Broker du moniteur d'exécution System Guard", "en": "System Guard Runtime Monitor Broker" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Vérifie l'intégrité du système au démarrage et pendant l'exécution (System Guard).",
+    "en": "Checks system integrity at boot and at runtime (System Guard)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction de sécurité de Windows. Protégée : à ne pas toucher.",
+      "en": "A Windows security feature. Protected: do not touch."
+    },
+    "avance": {
+      "fr": "Fait partie de Windows Defender System Guard ; n'existe plus sur certaines versions récentes de Windows 11.",
+      "en": "Part of Windows Defender System Guard; no longer present on some recent Windows 11 versions."
+    },
+    "expert": {
+      "fr": "SgrmBroker.exe, LocalSystem, clé protégée.",
+      "en": "SgrmBroker.exe, LocalSystem, protected key."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Attestation d'intégrité System Guard indisponible", "en": "System Guard integrity attestation unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

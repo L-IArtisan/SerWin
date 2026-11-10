@@ -1,0 +1,35 @@
+{
+  "name": "WireGuardManager",
+  "aliases": [ "WireGuardTunnel$*" ],
+  "displayName": { "fr": "WireGuard", "en": "WireGuard" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Client VPN WireGuard (gestionnaire et tunnels).",
+    "en": "WireGuard VPN client (manager and tunnels)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour les VPN WireGuard configurés sur ce PC.",
+      "en": "Needed for WireGuard VPNs configured on this PC."
+    },
+    "avance": {
+      "fr": "WireGuardManager gère l'interface ; chaque tunnel actif crée un service WireGuardTunnel$<nom>.",
+      "en": "WireGuardManager handles the interface; each active tunnel creates a WireGuardTunnel$<name> service."
+    },
+    "expert": {
+      "fr": "wireguard.exe, LocalSystem.",
+      "en": "wireguard.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Tunnels WireGuard impossibles", "en": "WireGuard tunnels impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "DbxSvc",
+  "aliases": [ "dbupdate", "dbupdatem" ],
+  "displayName": { "fr": "Dropbox", "en": "Dropbox" },
+  "category": "storage",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Services de Dropbox (intégration système et mises à jour).",
+    "en": "Dropbox services (system integration and updates)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu utilises Dropbox.",
+      "en": "Useful if you use Dropbox."
+    },
+    "avance": {
+      "fr": "DbxSvc gère l'intégration au système ; dbupdate et dbupdatem les mises à jour.",
+      "en": "DbxSvc handles system integration; dbupdate and dbupdatem handle updates."
+    },
+    "expert": {
+      "fr": "DbxSvc.exe / DropboxUpdate.exe, LocalSystem.",
+      "en": "DbxSvc.exe / DropboxUpdate.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Dropbox dégradé ou plus mis à jour", "en": "Dropbox degraded or no longer updated" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

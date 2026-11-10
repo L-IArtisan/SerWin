@@ -1,0 +1,35 @@
+{
+  "name": "p2psvc",
+  "aliases": [ "p2pimsvc", "PNRPsvc", "PNRPAutoReg" ],
+  "displayName": { "fr": "Services de mise en réseau pair à pair", "en": "Peer Networking services" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Ancienne infrastructure pair à pair de Windows (groupement, identité, résolution PNRP).",
+    "en": "Legacy Windows peer-to-peer infrastructure (grouping, identity, PNRP resolution)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Technologie ancienne, quasiment plus utilisée (elle servait au Groupe résidentiel). Inutile aujourd'hui.",
+      "en": "Old technology, practically unused (it served HomeGroup). Useless today."
+    },
+    "avance": {
+      "fr": "Quatre services liés : p2psvc (groupement), p2pimsvc (identité), PNRPsvc (résolution de noms) et PNRPAutoReg. Retirés des versions récentes de Windows 11.",
+      "en": "Four related services: p2psvc (grouping), p2pimsvc (identity), PNRPsvc (name resolution) and PNRPAutoReg. Removed from recent Windows 11 versions."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServicePeerNet, LocalService.",
+      "en": "svchost -k LocalServicePeerNet, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applications pair à pair anciennes en échec", "en": "Old peer-to-peer applications fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

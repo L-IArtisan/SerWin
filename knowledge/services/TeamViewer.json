@@ -1,0 +1,34 @@
+{
+  "name": "TeamViewer",
+  "displayName": { "fr": "TeamViewer", "en": "TeamViewer" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Accès à distance TeamViewer.",
+    "en": "TeamViewer remote access."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet de prendre le contrôle du PC à distance. S'il démarre avec Windows alors que tu ne t'en sers pas, mieux vaut le passer en Manuel.",
+      "en": "Allows remote control of the PC. If it starts with Windows while you do not use it, better set it to Manual."
+    },
+    "avance": {
+      "fr": "En démarrage automatique, il permet l'accès sans surveillance (le PC est joignable à tout moment).",
+      "en": "Set to automatic, it allows unattended access (the PC is reachable at any time)."
+    },
+    "expert": {
+      "fr": "TeamViewer_Service.exe, LocalSystem.",
+      "en": "TeamViewer_Service.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Accès à distance TeamViewer impossible", "en": "TeamViewer remote access impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

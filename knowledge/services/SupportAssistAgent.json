@@ -1,0 +1,35 @@
+{
+  "name": "SupportAssistAgent",
+  "aliases": [ "DellClientManagementService", "Dell SupportAssist Remediation" ],
+  "displayName": { "fr": "Dell SupportAssist", "en": "Dell SupportAssist" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Assistance et diagnostics Dell (pilotes, analyses, envoi d'informations au support).",
+    "en": "Dell support and diagnostics (drivers, scans, sending information to support)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Outil de Dell pour les pilotes et le diagnostic. Pratique en cas de panne, mais il tourne en permanence et envoie des informations à Dell.",
+      "en": "Dell's tool for drivers and diagnostics. Handy when something breaks, but it runs all the time and sends information to Dell."
+    },
+    "avance": {
+      "fr": "Plusieurs services selon les versions (SupportAssistAgent, Dell Client Management Service, Remediation).",
+      "en": "Several services depending on version (SupportAssistAgent, Dell Client Management Service, Remediation)."
+    },
+    "expert": {
+      "fr": "Exécutables Dell SupportAssist, LocalSystem.",
+      "en": "Dell SupportAssist executables, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mises à jour de pilotes Dell et diagnostics automatiques indisponibles", "en": "Dell driver updates and automatic diagnostics unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

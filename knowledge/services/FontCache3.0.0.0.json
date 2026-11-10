@@ -1,0 +1,34 @@
+{
+  "name": "FontCache3.0.0.0",
+  "displayName": { "fr": "Cache de police de Windows Presentation Foundation", "en": "Windows Presentation Foundation Font Cache" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Cache de polices des applications WPF (.NET).",
+    "en": "Font cache for WPF (.NET) applications."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Accélère l'ouverture de certaines applications .NET. Le couper ne casse rien, ces applis démarrent juste un peu plus lentement.",
+      "en": "Speeds up some .NET apps. Turning it off breaks nothing; those apps just start a bit slower."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par les applications WPF. SerWin lui-même est une application WPF.",
+      "en": "Started on demand by WPF apps. SerWin itself is a WPF app."
+    },
+    "expert": {
+      "fr": "PresentationFontCache.exe (.NET Framework 3.0), LocalService.",
+      "en": "PresentationFontCache.exe (.NET Framework 3.0), LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applications WPF un peu plus lentes au démarrage", "en": "WPF apps a bit slower to start" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

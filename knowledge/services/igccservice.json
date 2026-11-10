@@ -1,0 +1,34 @@
+{
+  "name": "igccservice",
+  "displayName": { "fr": "Intel Graphics Command Center Service", "en": "Intel Graphics Command Center Service" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service de l'application de réglages graphiques Intel.",
+    "en": "Service for Intel's graphics settings app."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner l'application de réglages graphiques Intel. L'affichage marche sans lui.",
+      "en": "Powers Intel's graphics settings app. Display works without it."
+    },
+    "avance": {
+      "fr": "Installé avec le pilote graphique Intel.",
+      "en": "Installed with the Intel graphics driver."
+    },
+    "expert": {
+      "fr": "OneApp.IGCC.WinService.exe, LocalSystem.",
+      "en": "OneApp.IGCC.WinService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Réglages graphiques Intel indisponibles", "en": "Intel graphics settings unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

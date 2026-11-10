@@ -1,0 +1,34 @@
+{
+  "name": "AnyDesk",
+  "displayName": { "fr": "AnyDesk", "en": "AnyDesk" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Accès à distance AnyDesk.",
+    "en": "AnyDesk remote access."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet de prendre le contrôle du PC à distance. Méfiance si tu ne l'as pas installé toi-même : c'est un outil souvent utilisé dans les arnaques au faux support.",
+      "en": "Allows remote control of the PC. Be wary if you did not install it yourself: it is often used in fake support scams."
+    },
+    "avance": {
+      "fr": "Installé, il rend le PC joignable à tout moment par AnyDesk.",
+      "en": "Once installed, it makes the PC reachable at any time through AnyDesk."
+    },
+    "expert": {
+      "fr": "AnyDesk.exe --service, LocalSystem.",
+      "en": "AnyDesk.exe --service, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Accès à distance AnyDesk impossible", "en": "AnyDesk remote access impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

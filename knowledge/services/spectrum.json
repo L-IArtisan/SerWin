@@ -1,0 +1,35 @@
+{
+  "name": "spectrum",
+  "aliases": [ "perceptionsimulation" ],
+  "displayName": { "fr": "Service de perception Windows", "en": "Windows Perception Service" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Perception spatiale pour la réalité mixte (casques).",
+    "en": "Spatial perception for mixed reality (headsets)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne sert qu'avec un casque de réalité mixte Windows. Inutile sinon.",
+      "en": "Only used with a Windows mixed reality headset. Useless otherwise."
+    },
+    "avance": {
+      "fr": "spectrum (perception) et perceptionsimulation (simulation pour les développeurs). La plateforme Windows Mixed Reality est abandonnée.",
+      "en": "spectrum (perception) and perceptionsimulation (simulation for developers). The Windows Mixed Reality platform is discontinued."
+    },
+    "expert": {
+      "fr": "spectrum.exe, LocalService.",
+      "en": "spectrum.exe, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Casques de réalité mixte inutilisables", "en": "Mixed reality headsets unusable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

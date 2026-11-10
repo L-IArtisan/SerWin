@@ -1,0 +1,35 @@
+{
+  "name": "CorsairService",
+  "aliases": [ "CorsairLLAService", "CorsairGamingAudioConfig" ],
+  "displayName": { "fr": "Corsair iCUE", "en": "Corsair iCUE" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Services de Corsair iCUE (périphériques, éclairage, ventilateurs).",
+    "en": "Corsair iCUE services (devices, lighting, fans)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour régler les périphériques et l'éclairage Corsair. Les ventilateurs pilotés par iCUE peuvent en dépendre.",
+      "en": "Needed to configure Corsair devices and lighting. Fans controlled by iCUE may depend on it."
+    },
+    "avance": {
+      "fr": "Installé avec iCUE ; CorsairLLAService accède au matériel à bas niveau.",
+      "en": "Installed with iCUE; CorsairLLAService accesses hardware at low level."
+    },
+    "expert": {
+      "fr": "Exécutables iCUE, LocalSystem.",
+      "en": "iCUE executables, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Éclairage et réglages Corsair indisponibles", "en": "Corsair lighting and settings unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

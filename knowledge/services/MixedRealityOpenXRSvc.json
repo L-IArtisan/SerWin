@@ -1,0 +1,35 @@
+{
+  "name": "MixedRealityOpenXRSvc",
+  "aliases": [ "SharedRealitySvc", "VacSvc" ],
+  "displayName": { "fr": "Services de réalité mixte", "en": "Mixed reality services" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Services de réalité mixte : OpenXR, données spatiales, audio volumétrique.",
+    "en": "Mixed reality services: OpenXR, spatial data, volumetric audio."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne servent qu'avec un casque de réalité mixte. Inutiles sinon.",
+      "en": "Only used with a mixed reality headset. Useless otherwise."
+    },
+    "avance": {
+      "fr": "MixedRealityOpenXRSvc (OpenXR), SharedRealitySvc (données spatiales), VacSvc (compositeur audio volumétrique).",
+      "en": "MixedRealityOpenXRSvc (OpenXR), SharedRealitySvc (spatial data), VacSvc (volumetric audio compositor)."
+    },
+    "expert": {
+      "fr": "Démarrés à la demande ; LocalSystem ou LocalService selon le service.",
+      "en": "Started on demand; LocalSystem or LocalService depending on the service."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fonctions de réalité mixte indisponibles", "en": "Mixed reality features unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

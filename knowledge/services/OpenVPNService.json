@@ -1,0 +1,35 @@
+{
+  "name": "OpenVPNService",
+  "aliases": [ "OpenVPNServiceInteractive", "OpenVPNServiceLegacy", "ovpnconnect", "agent_ovpnconnect" ],
+  "displayName": { "fr": "OpenVPN", "en": "OpenVPN" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Client VPN OpenVPN (communautaire ou OpenVPN Connect).",
+    "en": "OpenVPN VPN client (community or OpenVPN Connect)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour les VPN OpenVPN.",
+      "en": "Needed for OpenVPN VPNs."
+    },
+    "avance": {
+      "fr": "OpenVPNServiceInteractive permet à l'interface de créer des tunnels sans droits administrateur.",
+      "en": "OpenVPNServiceInteractive lets the interface create tunnels without administrator rights."
+    },
+    "expert": {
+      "fr": "openvpnserv.exe / ovpnconnect, LocalSystem.",
+      "en": "openvpnserv.exe / ovpnconnect, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexions OpenVPN impossibles", "en": "OpenVPN connections impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

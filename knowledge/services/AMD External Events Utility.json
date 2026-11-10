@@ -1,0 +1,34 @@
+{
+  "name": "AMD External Events Utility",
+  "displayName": { "fr": "AMD External Events Utility", "en": "AMD External Events Utility" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Événements du pilote graphique AMD (raccourcis, FreeSync, écrans).",
+    "en": "AMD graphics driver events (hotkeys, FreeSync, displays)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec le pilote AMD. Utile pour certaines fonctions d'affichage (FreeSync, raccourcis).",
+      "en": "Installed with the AMD driver. Useful for some display features (FreeSync, hotkeys)."
+    },
+    "avance": {
+      "fr": "Rôle exact peu documenté ; le désactiver peut affecter FreeSync sur certains écrans.",
+      "en": "Exact role poorly documented; disabling it can affect FreeSync on some monitors."
+    },
+    "expert": {
+      "fr": "atiesrxx.exe, LocalSystem.",
+      "en": "atiesrxx.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Certaines fonctions d'affichage AMD dégradées", "en": "Some AMD display features degraded" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

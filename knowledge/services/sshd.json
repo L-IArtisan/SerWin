@@ -1,0 +1,34 @@
+{
+  "name": "sshd",
+  "displayName": { "fr": "Serveur OpenSSH", "en": "OpenSSH SSH Server" },
+  "category": "remote",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet de se connecter à ce PC à distance en SSH.",
+    "en": "Allows connecting to this PC remotely over SSH."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction facultative : ouvre l'accès à distance à ton PC en ligne de commande. Si tu ne l'as pas installé volontairement, il n'a rien à faire là.",
+      "en": "Optional feature: opens command-line remote access to your PC. If you did not install it on purpose, it has no business being there."
+    },
+    "avance": {
+      "fr": "Écoute sur le port TCP 22. Visible dans la page Réseau s'il tourne.",
+      "en": "Listens on TCP port 22. Visible on the Network page if running."
+    },
+    "expert": {
+      "fr": "sshd.exe (C:\\Windows\\System32\\OpenSSH), LocalSystem. Configuration dans %ProgramData%\\ssh\\sshd_config.",
+      "en": "sshd.exe (C:\\Windows\\System32\\OpenSSH), LocalSystem. Configuration in %ProgramData%\\ssh\\sshd_config."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexions SSH entrantes impossibles", "en": "Incoming SSH connections impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

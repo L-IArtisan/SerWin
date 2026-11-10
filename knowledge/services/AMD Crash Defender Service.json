@@ -1,0 +1,35 @@
+{
+  "name": "AMD Crash Defender Service",
+  "aliases": [ "amdfendrsr" ],
+  "displayName": { "fr": "AMD Crash Defender", "en": "AMD Crash Defender" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Récupération et rapport des plantages du pilote AMD.",
+    "en": "Recovery and reporting of AMD driver crashes."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Aide le pilote AMD à se relever d'un plantage et en garde la trace.",
+      "en": "Helps the AMD driver recover from a crash and keeps a record of it."
+    },
+    "avance": {
+      "fr": "Installé avec le pilote AMD ; peut envoyer des rapports de plantage.",
+      "en": "Installed with the AMD driver; may send crash reports."
+    },
+    "expert": {
+      "fr": "amdfendrsr.exe, LocalSystem.",
+      "en": "amdfendrsr.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Récupération après plantage du pilote AMD moins efficace", "en": "Less effective AMD driver crash recovery" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

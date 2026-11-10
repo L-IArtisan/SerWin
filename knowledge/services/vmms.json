@@ -1,0 +1,35 @@
+{
+  "name": "vmms",
+  "displayName": { "fr": "Gestion d'ordinateurs virtuels Hyper-V", "en": "Hyper-V Virtual Machine Management" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les machines virtuelles Hyper-V.",
+    "en": "Manages Hyper-V virtual machines."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Présent quand Hyper-V est activé. Nécessaire pour faire tourner des machines virtuelles Hyper-V.",
+      "en": "Present when Hyper-V is turned on. Needed to run Hyper-V virtual machines."
+    },
+    "avance": {
+      "fr": "Le Gestionnaire Hyper-V et PowerShell (module Hyper-V) dépendent de lui. Sans machine virtuelle, il peut rester en Manuel.",
+      "en": "Hyper-V Manager and PowerShell (Hyper-V module) depend on it. Without virtual machines, it can stay on Manual."
+    },
+    "expert": {
+      "fr": "vmms.exe, LocalSystem. Installé par la fonctionnalité facultative Microsoft-Hyper-V.",
+      "en": "vmms.exe, LocalSystem. Installed by the Microsoft-Hyper-V optional feature."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Machines virtuelles Hyper-V impossibles à démarrer ou gérer", "en": "Hyper-V virtual machines cannot be started or managed" }
+  ],
+  "revivers": [],
+  "usefulIf": { "hypervisor": "present" },
+  "verdictIfNot": { "fr": "Aucun hyperviseur actif.", "en": "No active hypervisor." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}
