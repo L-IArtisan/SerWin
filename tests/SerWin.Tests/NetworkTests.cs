@@ -90,7 +90,7 @@ public class DestinationCatalogTests
     public void File_name_matches_destination_name()
     {
         var dir = Path.Combine(KnowledgeTests.RepoRoot(), "knowledge", "destinations");
-        var files = Directory.EnumerateFiles(dir, "*.json").Select(Path.GetFileNameWithoutExtension).Order().ToList();
+        var files = Directory.EnumerateFiles(dir, "*.json").Select(f => Path.GetFileNameWithoutExtension(f)!).Order().ToList();
         Assert.Equal(files, Kb.Destinations.Select(d => d.Name).Order().ToList());
     }
 

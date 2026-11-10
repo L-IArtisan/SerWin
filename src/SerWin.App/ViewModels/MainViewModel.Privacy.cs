@@ -128,7 +128,7 @@ public sealed partial class MainViewModel
         OpenPrivacySettingsCommand = new RelayCommand(p =>
         {
             // Ouvre la page correspondante des Paramètres Windows (protocole local, aucune connexion).
-            var page = p as string switch
+            var page = (p as string) switch
             {
                 "webcam" => "privacy-webcam",
                 "microphone" => "privacy-microphone",
