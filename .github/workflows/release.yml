@@ -73,7 +73,7 @@ jobs:
         shell: pwsh
         run: |
           $v = '${{ github.ref_name }}'
-          $notes = "docs/releases/$v.md"
+          $notes = "docs/release-notes/$v.md"
           if (Test-Path $notes) {
             gh release create $v "SerWin-$v-win-x64.exe" "SerWin-$v-win-x64.zip" SHA256SUMS.txt --title "SerWin $v" --notes-file $notes
           } else {

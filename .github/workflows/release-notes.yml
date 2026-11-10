@@ -1,0 +1,28 @@
+name: Release notes
+
+# Met à jour le texte d'une release déjà publiée quand docs/release-notes/<version>.md change.
+
+on:
+  push:
+    branches: [main]
+    paths: ['docs/release-notes/*.md']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  notes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update existing releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for f in docs/release-notes/*.md; do
+            v=$(basename "$f" .md)
+            if gh release view "$v" >/dev/null 2>&1; then
+              gh release edit "$v" --notes-file "$f" && echo "Notes mises à jour : $v"
+            fi
+          done
