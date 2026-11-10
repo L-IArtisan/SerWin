@@ -133,6 +133,12 @@
                     </ListBoxItem>
                     <ListBoxItem>
                         <StackPanel Orientation="Horizontal">
+                            <ui:SymbolIcon Symbol="Eye24" Margin="0,0,10,0" />
+                            <TextBlock Text="{loc:T Nav_Privacy}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
                             <ui:SymbolIcon Symbol="Lightbulb24" Margin="0,0,10,0" />
                             <TextBlock Text="{Binding SuggestionsNavLabel}" VerticalAlignment="Center" />
                         </StackPanel>
@@ -1057,6 +1063,147 @@
                                                Command="{Binding ShowNetworkByExeCommand}" CommandParameter="{Binding SelectedStartupEntry}" />
                                 </WrapPanel>
                             </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Confidentialité : liste ───── -->
+            <Border Grid.Column="1" Margin="0,0,8,0" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsPrivacyPage, Converter={StaticResource BoolToVis}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <DockPanel Margin="10,10,10,6">
+                        <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Margin="0,0,8,0" Text="{loc:T Filter_Label}" />
+                        <ComboBox ItemsSource="{Binding PrivacyFilters}" SelectedItem="{Binding SelectedPrivacyFilter}" DisplayMemberPath="Label" />
+                    </DockPanel>
+                    <ListBox Grid.Row="1" Margin="4,0" ItemsSource="{Binding PrivacyUses}" SelectedItem="{Binding SelectedPrivacyUse}"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="{x:Type vm:PrivacyUseViewModel}">
+                                <Grid Margin="0,2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="26" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock FontSize="15" VerticalAlignment="Center" Text="{Binding Icon}" />
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock FontSize="13" TextTrimming="CharacterEllipsis" Text="{Binding Title}" />
+                                        <TextBlock Style="{StaticResource Secondary}" FontSize="11" TextTrimming="CharacterEllipsis" Text="{Binding Subtitle}" />
+                                    </StackPanel>
+                                    <Ellipse Grid.Column="2" Width="9" Height="9" Margin="6,0,2,0" VerticalAlignment="Center" Fill="{Binding StateBrush}"
+                                             Visibility="{Binding InUse, Converter={StaticResource BoolToVis}}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+
+            <!-- ───── Page Confidentialité : vue d'ensemble / détail ───── -->
+            <Border Grid.Column="2" CornerRadius="8" BorderThickness="1"
+                    Background="{DynamicResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{DynamicResource CardStrokeColorDefaultBrush}"
+                    Visibility="{Binding IsPrivacyPage, Converter={StaticResource BoolToVis}}">
+                <Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                  Visibility="{Binding HasSelectedPrivacyUse, Converter={StaticResource BoolToVis}, ConverterParameter=invert}">
+                        <StackPanel Margin="20,16,20,16">
+                            <TextBlock FontSize="22" FontWeight="SemiBold" Text="{loc:T Privacy_Title}" />
+                            <TextBlock Style="{StaticResource Body}" Margin="0,6,0,0" Text="{loc:T Privacy_Intro}" />
+                            <Border Margin="0,12,0,0" Padding="12,10" CornerRadius="6" Background="#26D13438"
+                                    Visibility="{Binding HasPrivacyInUse, Converter={StaticResource BoolToVis}}">
+                                <TextBlock Style="{StaticResource Body}" FontSize="13" FontWeight="SemiBold" Text="{Binding PrivacyInUseText}" />
+                            </Border>
+                            <ItemsControl Margin="0,8,0,0" ItemsSource="{Binding PrivacySummaries}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:PrivacyCapabilitySummary}">
+                                        <Border Margin="0,6,0,0" Padding="12,10" CornerRadius="6" Background="#1A8A8A8A">
+                                            <DockPanel>
+                                                <ui:Button DockPanel.Dock="Right" VerticalAlignment="Center" Padding="8,3" Icon="{ui:SymbolIcon Settings24}"
+                                                           Content="{loc:T Privacy_OpenSettings}"
+                                                           Command="{Binding DataContext.OpenPrivacySettingsCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                           CommandParameter="{Binding Capability}" />
+                                                <StackPanel>
+                                                    <TextBlock Style="{StaticResource Body}" FontSize="14" FontWeight="SemiBold">
+                                                        <Run Text="{Binding Icon, Mode=OneWay}" />
+                                                        <Run Text="{Binding Title, Mode=OneWay}" />
+                                                        <Run Text="—" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                                                        <Run Text="{Binding Status, Mode=OneWay}" FontWeight="Normal" />
+                                                    </TextBlock>
+                                                    <TextBlock Style="{StaticResource Secondary}" Margin="0,2,0,0" TextWrapping="Wrap" Text="{Binding LastUse}" />
+                                                </StackPanel>
+                                            </DockPanel>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,16,0,0" TextWrapping="Wrap" Text="{loc:T Privacy_HowTo}" />
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                  Visibility="{Binding HasSelectedPrivacyUse, Converter={StaticResource BoolToVis}}">
+                        <StackPanel Margin="20,16,20,16" DataContext="{Binding SelectedPrivacyUse}">
+                            <ui:Button HorizontalAlignment="Left" Margin="0,0,0,8" Padding="8,3" Icon="{ui:SymbolIcon ArrowLeft24}"
+                                       Content="{loc:T Startup_BackToOverview}"
+                                       Command="{Binding DataContext.ShowPrivacyOverviewCommand, RelativeSource={RelativeSource AncestorType=Window}}" />
+                            <TextBlock FontSize="22" FontWeight="SemiBold" TextWrapping="Wrap">
+                                <Run Text="{Binding Icon, Mode=OneWay}" />
+                                <Run Text="{Binding Title, Mode=OneWay}" />
+                            </TextBlock>
+                            <WrapPanel Margin="0,8,0,0">
+                                <Border Style="{StaticResource Badge}" Background="{Binding StateBrush}" BorderThickness="0"
+                                        Visibility="{Binding InUse, Converter={StaticResource BoolToVis}}">
+                                    <TextBlock Text="{loc:T Privacy_InUseNow}" Foreground="White" FontWeight="SemiBold" FontSize="12" />
+                                </Border>
+                                <Border Style="{StaticResource Badge}">
+                                    <TextBlock Text="{Binding CapabilityLabel}" FontSize="12" />
+                                </Border>
+                            </WrapPanel>
+                            <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T Section_Observed}" />
+                            <DockPanel Style="{StaticResource KvRow}">
+                                <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Privacy_Path}" />
+                                <TextBlock Style="{StaticResource ValueText}" Text="{Binding PathText}" />
+                            </DockPanel>
+                            <DockPanel Style="{StaticResource KvRow}">
+                                <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Privacy_LastStart}" />
+                                <TextBlock Style="{StaticResource ValueText}" Text="{Binding StartText}" />
+                            </DockPanel>
+                            <DockPanel Style="{StaticResource KvRow}">
+                                <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Privacy_LastStop}" />
+                                <TextBlock Style="{StaticResource ValueText}" Text="{Binding StopText}" />
+                            </DockPanel>
+                            <DockPanel Style="{StaticResource KvRow}">
+                                <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Privacy_Duration}" />
+                                <TextBlock Style="{StaticResource ValueText}" Text="{Binding DurationText}" />
+                            </DockPanel>
+                            <DockPanel Style="{StaticResource KvRow}">
+                                <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Privacy_Permission}" />
+                                <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding PermissionText}" />
+                            </DockPanel>
+                            <DockPanel Style="{StaticResource KvRow}">
+                                <TextBlock Style="{StaticResource KeyText}" Text="{loc:T Privacy_Scope}" />
+                                <TextBlock Style="{StaticResource Body}" FontSize="13" Text="{Binding ScopeText}" />
+                            </DockPanel>
+                            <WrapPanel Margin="0,14,0,0">
+                                <ui:Button Margin="0,0,8,8" Icon="{ui:SymbolIcon Settings24}" Content="{loc:T Privacy_OpenSettings}"
+                                           Command="{Binding DataContext.OpenPrivacySettingsCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                           CommandParameter="{Binding Use.Capability}" />
+                                <ui:Button Margin="0,0,8,8" Padding="8,3" Icon="{ui:SymbolIcon Board24}" Content="{loc:T Link_Process}"
+                                           Command="{Binding DataContext.ShowPrivacyProcessCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                           CommandParameter="{Binding}" Visibility="{Binding HasExecutable, Converter={StaticResource BoolToVis}}" />
+                                <ui:Button Margin="0,0,8,8" Padding="8,3" Icon="{ui:SymbolIcon Globe24}" Content="{loc:T Link_Network}"
+                                           Command="{Binding DataContext.ShowPrivacyNetworkCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                           CommandParameter="{Binding}" Visibility="{Binding HasExecutable, Converter={StaticResource BoolToVis}}" />
+                            </WrapPanel>
+                            <TextBlock Style="{StaticResource Secondary}" Margin="0,8,0,0" TextWrapping="Wrap" Text="{loc:T Privacy_HowTo}" />
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>

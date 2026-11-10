@@ -708,3 +708,40 @@ History_StartupOn	« {0} » réactivé au démarrage	“{0}” re-enabled at sta
 History_StartupOff	« {0} » désactivé au démarrage	“{0}” disabled at startup
 Change_StartupOn	{0} : lancé au démarrage	{0}: launched at startup
 Change_StartupOff	{0} : ne se lance plus au démarrage	{0}: no longer launched at startup
+Nav_Privacy	Confidentialité	Privacy
+Privacy_Title	Caméra, micro, localisation	Camera, microphone, location
+Privacy_Intro	Les applications qui ont utilisé ta caméra, ton micro ou ta position, et quand. SerWin lit le journal que Windows tient lui-même (celui de l'icône « micro utilisé » de la barre des tâches) ; rien n'est envoyé.	The apps that used your camera, microphone or location, and when. SerWin reads the log Windows keeps itself (the one behind the taskbar “microphone in use” icon); nothing is sent.
+Privacy_InUseBanner	🔴 En ce moment : {0}	🔴 Right now: {0}
+Privacy_InUseNow	en cours d'utilisation	in use right now
+Privacy_JustNow	à l'instant	just now
+Privacy_MinutesAgo	il y a {0} min	{0} min ago
+Privacy_HoursAgo	il y a {0} h	{0} h ago
+Privacy_DaysAgo	il y a {0} jour(s)	{0} day(s) ago
+Privacy_StoreApp	Application du Store ({0})	Store app ({0})
+Privacy_PermAllow	Autorisée pour cette application	Allowed for this app
+Privacy_PermDeny	Refusée pour cette application	Denied for this app
+Privacy_PermDesktop	Application de bureau : suit le réglage global « Autoriser les applications de bureau »	Desktop app: follows the global “Let desktop apps access” setting
+Privacy_ScopeUser	Ton compte	Your account
+Privacy_ScopeMachine	Tout l'appareil (services ou autres comptes)	Whole device (services or other accounts)
+Privacy_GlobalOn	autorisé pour les applications	allowed for apps
+Privacy_GlobalUserOff	désactivé pour ton compte	turned off for your account
+Privacy_GlobalDeviceOff	désactivé pour tout l'appareil	turned off for the whole device
+Privacy_NeverUsed	Aucune utilisation enregistrée.	No use recorded.
+Privacy_LastUse	Dernière utilisation : {0}, {1} · {2} application(s) au total	Last use: {0}, {1} · {2} app(s) in total
+Privacy_OpenSettings	Gérer dans les Paramètres	Manage in Settings
+Privacy_Capability	Fonction	Capability
+Privacy_LastStart	Dernier début	Last start
+Privacy_LastStop	Dernière fin	Last stop
+Privacy_Duration	Durée	Duration
+Privacy_Permission	Autorisation	Permission
+Privacy_Scope	Concerne	Applies to
+Privacy_Path	Application	Application
+Privacy_HowTo	Pour retirer l'accès à une application, utilise « Gérer dans les Paramètres » : Windows y règle chaque fonction, application par application.	To remove an app's access, use “Manage in Settings”: Windows sets each capability there, app by app.
+Cap_webcam	Caméra	Camera
+Cap_microphone	Micro	Microphone
+Cap_location	Localisation	Location
+PrivacyFilter_All	Tout	Everything
+PrivacyFilter_InUse	En cours d'utilisation	In use right now
+PrivacyFilter_Webcam	Caméra	Camera
+PrivacyFilter_Microphone	Micro	Microphone
+PrivacyFilter_Location	Localisation	Location

@@ -715,4 +715,41 @@
   <data name="History_StartupOff" xml:space="preserve"><value>“{0}” disabled at startup</value></data>
   <data name="Change_StartupOn" xml:space="preserve"><value>{0}: launched at startup</value></data>
   <data name="Change_StartupOff" xml:space="preserve"><value>{0}: no longer launched at startup</value></data>
+  <data name="Nav_Privacy" xml:space="preserve"><value>Privacy</value></data>
+  <data name="Privacy_Title" xml:space="preserve"><value>Camera, microphone, location</value></data>
+  <data name="Privacy_Intro" xml:space="preserve"><value>The apps that used your camera, microphone or location, and when. SerWin reads the log Windows keeps itself (the one behind the taskbar “microphone in use” icon); nothing is sent.</value></data>
+  <data name="Privacy_InUseBanner" xml:space="preserve"><value>🔴 Right now: {0}</value></data>
+  <data name="Privacy_InUseNow" xml:space="preserve"><value>in use right now</value></data>
+  <data name="Privacy_JustNow" xml:space="preserve"><value>just now</value></data>
+  <data name="Privacy_MinutesAgo" xml:space="preserve"><value>{0} min ago</value></data>
+  <data name="Privacy_HoursAgo" xml:space="preserve"><value>{0} h ago</value></data>
+  <data name="Privacy_DaysAgo" xml:space="preserve"><value>{0} day(s) ago</value></data>
+  <data name="Privacy_StoreApp" xml:space="preserve"><value>Store app ({0})</value></data>
+  <data name="Privacy_PermAllow" xml:space="preserve"><value>Allowed for this app</value></data>
+  <data name="Privacy_PermDeny" xml:space="preserve"><value>Denied for this app</value></data>
+  <data name="Privacy_PermDesktop" xml:space="preserve"><value>Desktop app: follows the global “Let desktop apps access” setting</value></data>
+  <data name="Privacy_ScopeUser" xml:space="preserve"><value>Your account</value></data>
+  <data name="Privacy_ScopeMachine" xml:space="preserve"><value>Whole device (services or other accounts)</value></data>
+  <data name="Privacy_GlobalOn" xml:space="preserve"><value>allowed for apps</value></data>
+  <data name="Privacy_GlobalUserOff" xml:space="preserve"><value>turned off for your account</value></data>
+  <data name="Privacy_GlobalDeviceOff" xml:space="preserve"><value>turned off for the whole device</value></data>
+  <data name="Privacy_NeverUsed" xml:space="preserve"><value>No use recorded.</value></data>
+  <data name="Privacy_LastUse" xml:space="preserve"><value>Last use: {0}, {1} · {2} app(s) in total</value></data>
+  <data name="Privacy_OpenSettings" xml:space="preserve"><value>Manage in Settings</value></data>
+  <data name="Privacy_Capability" xml:space="preserve"><value>Capability</value></data>
+  <data name="Privacy_LastStart" xml:space="preserve"><value>Last start</value></data>
+  <data name="Privacy_LastStop" xml:space="preserve"><value>Last stop</value></data>
+  <data name="Privacy_Duration" xml:space="preserve"><value>Duration</value></data>
+  <data name="Privacy_Permission" xml:space="preserve"><value>Permission</value></data>
+  <data name="Privacy_Scope" xml:space="preserve"><value>Applies to</value></data>
+  <data name="Privacy_Path" xml:space="preserve"><value>Application</value></data>
+  <data name="Privacy_HowTo" xml:space="preserve"><value>To remove an app&apos;s access, use “Manage in Settings”: Windows sets each capability there, app by app.</value></data>
+  <data name="Cap_webcam" xml:space="preserve"><value>Camera</value></data>
+  <data name="Cap_microphone" xml:space="preserve"><value>Microphone</value></data>
+  <data name="Cap_location" xml:space="preserve"><value>Location</value></data>
+  <data name="PrivacyFilter_All" xml:space="preserve"><value>Everything</value></data>
+  <data name="PrivacyFilter_InUse" xml:space="preserve"><value>In use right now</value></data>
+  <data name="PrivacyFilter_Webcam" xml:space="preserve"><value>Camera</value></data>
+  <data name="PrivacyFilter_Microphone" xml:space="preserve"><value>Microphone</value></data>
+  <data name="PrivacyFilter_Location" xml:space="preserve"><value>Location</value></data>
 </root>

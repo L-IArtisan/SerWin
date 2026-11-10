@@ -715,4 +715,41 @@
   <data name="History_StartupOff" xml:space="preserve"><value>« {0} » désactivé au démarrage</value></data>
   <data name="Change_StartupOn" xml:space="preserve"><value>{0} : lancé au démarrage</value></data>
   <data name="Change_StartupOff" xml:space="preserve"><value>{0} : ne se lance plus au démarrage</value></data>
+  <data name="Nav_Privacy" xml:space="preserve"><value>Confidentialité</value></data>
+  <data name="Privacy_Title" xml:space="preserve"><value>Caméra, micro, localisation</value></data>
+  <data name="Privacy_Intro" xml:space="preserve"><value>Les applications qui ont utilisé ta caméra, ton micro ou ta position, et quand. SerWin lit le journal que Windows tient lui-même (celui de l&apos;icône « micro utilisé » de la barre des tâches) ; rien n&apos;est envoyé.</value></data>
+  <data name="Privacy_InUseBanner" xml:space="preserve"><value>🔴 En ce moment : {0}</value></data>
+  <data name="Privacy_InUseNow" xml:space="preserve"><value>en cours d&apos;utilisation</value></data>
+  <data name="Privacy_JustNow" xml:space="preserve"><value>à l&apos;instant</value></data>
+  <data name="Privacy_MinutesAgo" xml:space="preserve"><value>il y a {0} min</value></data>
+  <data name="Privacy_HoursAgo" xml:space="preserve"><value>il y a {0} h</value></data>
+  <data name="Privacy_DaysAgo" xml:space="preserve"><value>il y a {0} jour(s)</value></data>
+  <data name="Privacy_StoreApp" xml:space="preserve"><value>Application du Store ({0})</value></data>
+  <data name="Privacy_PermAllow" xml:space="preserve"><value>Autorisée pour cette application</value></data>
+  <data name="Privacy_PermDeny" xml:space="preserve"><value>Refusée pour cette application</value></data>
+  <data name="Privacy_PermDesktop" xml:space="preserve"><value>Application de bureau : suit le réglage global « Autoriser les applications de bureau »</value></data>
+  <data name="Privacy_ScopeUser" xml:space="preserve"><value>Ton compte</value></data>
+  <data name="Privacy_ScopeMachine" xml:space="preserve"><value>Tout l&apos;appareil (services ou autres comptes)</value></data>
+  <data name="Privacy_GlobalOn" xml:space="preserve"><value>autorisé pour les applications</value></data>
+  <data name="Privacy_GlobalUserOff" xml:space="preserve"><value>désactivé pour ton compte</value></data>
+  <data name="Privacy_GlobalDeviceOff" xml:space="preserve"><value>désactivé pour tout l&apos;appareil</value></data>
+  <data name="Privacy_NeverUsed" xml:space="preserve"><value>Aucune utilisation enregistrée.</value></data>
+  <data name="Privacy_LastUse" xml:space="preserve"><value>Dernière utilisation : {0}, {1} · {2} application(s) au total</value></data>
+  <data name="Privacy_OpenSettings" xml:space="preserve"><value>Gérer dans les Paramètres</value></data>
+  <data name="Privacy_Capability" xml:space="preserve"><value>Fonction</value></data>
+  <data name="Privacy_LastStart" xml:space="preserve"><value>Dernier début</value></data>
+  <data name="Privacy_LastStop" xml:space="preserve"><value>Dernière fin</value></data>
+  <data name="Privacy_Duration" xml:space="preserve"><value>Durée</value></data>
+  <data name="Privacy_Permission" xml:space="preserve"><value>Autorisation</value></data>
+  <data name="Privacy_Scope" xml:space="preserve"><value>Concerne</value></data>
+  <data name="Privacy_Path" xml:space="preserve"><value>Application</value></data>
+  <data name="Privacy_HowTo" xml:space="preserve"><value>Pour retirer l&apos;accès à une application, utilise « Gérer dans les Paramètres » : Windows y règle chaque fonction, application par application.</value></data>
+  <data name="Cap_webcam" xml:space="preserve"><value>Caméra</value></data>
+  <data name="Cap_microphone" xml:space="preserve"><value>Micro</value></data>
+  <data name="Cap_location" xml:space="preserve"><value>Localisation</value></data>
+  <data name="PrivacyFilter_All" xml:space="preserve"><value>Tout</value></data>
+  <data name="PrivacyFilter_InUse" xml:space="preserve"><value>En cours d&apos;utilisation</value></data>
+  <data name="PrivacyFilter_Webcam" xml:space="preserve"><value>Caméra</value></data>
+  <data name="PrivacyFilter_Microphone" xml:space="preserve"><value>Micro</value></data>
+  <data name="PrivacyFilter_Location" xml:space="preserve"><value>Localisation</value></data>
 </root>

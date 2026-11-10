@@ -98,6 +98,7 @@ public sealed partial class MainViewModel : ObservableObject
         InitNetwork();
         InitNavigation();
         InitStartup();
+        InitPrivacy();
     }
 
     // ── Données ──────────────────────────────────────────────
@@ -132,10 +133,10 @@ public sealed partial class MainViewModel : ObservableObject
     /// <summary>Index dans la barre de navigation : 0 = Services, 5 = Réglages (1-4 : versions futures).</summary>
     public int NavIndex
     {
-        get => CurrentPage switch { "settings" => 7, "history" => 6, "alerts" => 5, "suggestions" => 4, "network" => 3, "startup" => 2, "processes" => 1, _ => 0 };
+        get => CurrentPage switch { "settings" => 8, "history" => 7, "alerts" => 6, "suggestions" => 5, "privacy" => 4, "network" => 3, "startup" => 2, "processes" => 1, _ => 0 };
         set
         {
-            CurrentPage = value switch { 7 => "settings", 6 => "history", 5 => "alerts", 4 => "suggestions", 3 => "network", 2 => "startup", 1 => "processes", _ => "services" };
+            CurrentPage = value switch { 8 => "settings", 7 => "history", 6 => "alerts", 5 => "suggestions", 4 => "privacy", 3 => "network", 2 => "startup", 1 => "processes", _ => "services" };
             Raise();
         }
     }
@@ -159,6 +160,8 @@ public sealed partial class MainViewModel : ObservableObject
                 Raise(nameof(IsSuggestionsPage));
                 Raise(nameof(IsNetworkPage));
                 Raise(nameof(IsStartupPage));
+                Raise(nameof(IsPrivacyPage));
+                if (IsPrivacyPage) StartPrivacy();
                 if (IsStartupPage) _ = LoadStartupAsync();
                 if (IsNetworkPage) StartNetwork();
                 if (IsHistoryPage) _ = RefreshHistoryAsync();
@@ -183,6 +186,7 @@ public sealed partial class MainViewModel : ObservableObject
                 RebuildProcessView();
                 RebuildNetworkView();
                 RebuildStartupView();
+                RebuildPrivacyView();
             }
         }
     }
@@ -289,6 +293,7 @@ public sealed partial class MainViewModel : ObservableObject
         RefreshActionLabels();
         RefreshNetworkLabels();
         RefreshStartupLabels();
+        RefreshPrivacyLabels();
         RecomputeAlerts();
         _ = AnalyzeSelectedAsync();
         Raise(nameof(TaskInventoryText));
