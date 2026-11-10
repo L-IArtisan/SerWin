@@ -655,4 +655,64 @@
   <data name="Deduced_Advice_Helper" xml:space="preserve"><value>Service d&apos;assistance du logiciel (intégration, tâches de fond). Souvent non indispensable, mais certaines fonctions du logiciel peuvent en dépendre.</value></data>
   <data name="Deduced_Advice_Microsoft" xml:space="preserve"><value>Service de Microsoft sans fiche rédigée pour l&apos;instant : par prudence, ne le désactive pas sans t&apos;être renseigné.</value></data>
   <data name="Known_bitdefender_agent" xml:space="preserve"><value>Agent Bitdefender</value></data>
+  <data name="Nav_Startup" xml:space="preserve"><value>Démarrage</value></data>
+  <data name="Startup_Title" xml:space="preserve"><value>Ce qui se lance au démarrage</value></data>
+  <data name="Startup_Intro" xml:space="preserve"><value>Programmes ouverts à l&apos;ouverture de session, tâches planifiées au démarrage et services tiers en démarrage automatique. Sélectionne un élément pour savoir à quoi il sert et s&apos;il peut attendre.</value></data>
+  <data name="Startup_HowItWorks" xml:space="preserve"><value>Désactiver un programme ne le désinstalle pas : SerWin utilise le même réglage que le Gestionnaire des tâches, et tout s&apos;annule depuis l&apos;Historique. Différer un service le fait démarrer environ deux minutes après Windows, pour libérer le démarrage.</value></data>
+  <data name="Startup_Summary" xml:space="preserve"><value>{0} programme(s) lancé(s) à l&apos;ouverture de session ({1} désactivé(s)) · {2} tâche(s) au démarrage · {3} service(s) tiers automatique(s)</value></data>
+  <data name="Startup_SuggestionCount" xml:space="preserve"><value>💡 {0} piste(s) d&apos;optimisation : filtre « Pistes d&apos;optimisation » pour les voir.</value></data>
+  <data name="Startup_Boot" xml:space="preserve"><value>Dernier démarrage : {0} s, dont {1} s après l&apos;ouverture de session · moyenne des {3} derniers : {2} s.</value></data>
+  <data name="Startup_BootUnknown" xml:space="preserve"><value>Windows n&apos;a pas encore enregistré de mesure de démarrage.</value></data>
+  <data name="Startup_BootAdmin" xml:space="preserve"><value>La durée des démarrages et les programmes qui les ralentissent sont visibles en mode administrateur.</value></data>
+  <data name="Startup_SlowTitle" xml:space="preserve"><value>Ralentissements mesurés par Windows</value></data>
+  <data name="Startup_SuggestionTitle" xml:space="preserve"><value>Piste d&apos;optimisation</value></data>
+  <data name="Startup_Command" xml:space="preserve"><value>Commande</value></data>
+  <data name="Startup_Source" xml:space="preserve"><value>Emplacement</value></data>
+  <data name="Startup_BackToOverview" xml:space="preserve"><value>Vue d&apos;ensemble</value></data>
+  <data name="StartupSource_RunUser" xml:space="preserve"><value>Registre (ton compte)</value></data>
+  <data name="StartupSource_RunMachine" xml:space="preserve"><value>Registre (tous les utilisateurs)</value></data>
+  <data name="StartupSource_RunMachine32" xml:space="preserve"><value>Registre (tous les utilisateurs, 32 bits)</value></data>
+  <data name="StartupSource_FolderUser" xml:space="preserve"><value>Dossier Démarrage (ton compte)</value></data>
+  <data name="StartupSource_FolderCommon" xml:space="preserve"><value>Dossier Démarrage (tous les utilisateurs)</value></data>
+  <data name="StartupKind_Program" xml:space="preserve"><value>Programme</value></data>
+  <data name="StartupKind_Task" xml:space="preserve"><value>Tâche planifiée</value></data>
+  <data name="StartupKind_Service" xml:space="preserve"><value>Service</value></data>
+  <data name="Startup_StateOn" xml:space="preserve"><value>activé</value></data>
+  <data name="Startup_StateOff" xml:space="preserve"><value>désactivé</value></data>
+  <data name="Startup_StateAuto" xml:space="preserve"><value>automatique</value></data>
+  <data name="Startup_StateDelayed" xml:space="preserve"><value>automatique différé</value></data>
+  <data name="Startup_SuggestDisable" xml:space="preserve"><value>Peut sans doute attendre que tu l&apos;ouvres toi-même : le désactiver au démarrage allège l&apos;ouverture de session.</value></data>
+  <data name="Startup_SuggestDelay" xml:space="preserve"><value>Peut démarrer un peu plus tard : le passer en « automatique différé » libère le démarrage sans le couper.</value></data>
+  <data name="Startup_SummaryProgram" xml:space="preserve"><value>{0}, installé avec « {1} ».</value></data>
+  <data name="Startup_SummaryPublisher" xml:space="preserve"><value>{0}, de l&apos;éditeur « {1} ».</value></data>
+  <data name="Startup_SummaryUnknown" xml:space="preserve"><value>SerWin ne connaît pas encore ce programme. Regarde son éditeur et son emplacement avant de décider.</value></data>
+  <data name="Startup_Degradation" xml:space="preserve"><value>Windows estime qu&apos;il a ralenti le démarrage d&apos;environ {0} s.</value></data>
+  <data name="Startup_DisabledSince" xml:space="preserve"><value>Désactivé au démarrage depuis le {0}.</value></data>
+  <data name="Startup_Advice_Security" xml:space="preserve"><value>Fait partie de ta protection : à garder au démarrage.</value></data>
+  <data name="Startup_Advice_Windows" xml:space="preserve"><value>Composant de Windows : à laisser tel quel.</value></data>
+  <data name="Startup_Advice_Service" xml:space="preserve"><value>Ce service démarre avec Windows. S&apos;il n&apos;est pas urgent (mise à jour, assistant, lanceur de jeux…), le différer accélère le démarrage sans rien casser.</value></data>
+  <data name="Startup_Advice_Updater" xml:space="preserve"><value>Ce programme de mise à jour se relancera aussi par ses tâches planifiées ou à l&apos;ouverture du logiciel : le désactiver au démarrage est sans risque.</value></data>
+  <data name="Startup_Advice_Hardware" xml:space="preserve"><value>Peut gérer un périphérique (touches, éclairage, carte son…). Si tu le désactives, vérifie ensuite que tout fonctionne encore.</value></data>
+  <data name="Startup_Advice_Sync" xml:space="preserve"><value>Sans lancement au démarrage, la synchronisation ne se fera que quand tu ouvriras le logiciel.</value></data>
+  <data name="Startup_Advice_Vpn" xml:space="preserve"><value>Si tu veux être protégé par le VPN dès l&apos;ouverture de session, garde-le au démarrage.</value></data>
+  <data name="Startup_Advice_Remote" xml:space="preserve"><value>Permet d&apos;être joint à distance. Si tu ne t&apos;en sers pas, le désactiver réduit les risques.</value></data>
+  <data name="Startup_Advice_Default" xml:space="preserve"><value>Désactiver au démarrage ne désinstalle rien : le programme s&apos;ouvre toujours quand tu le lances toi-même, il ne se lancera simplement plus tout seul.</value></data>
+  <data name="Startup_Disable" xml:space="preserve"><value>Désactiver au démarrage</value></data>
+  <data name="Startup_Enable" xml:space="preserve"><value>Réactiver au démarrage</value></data>
+  <data name="Startup_DisableTask" xml:space="preserve"><value>Désactiver la tâche</value></data>
+  <data name="Startup_EnableTask" xml:space="preserve"><value>Réactiver la tâche</value></data>
+  <data name="Startup_Delay" xml:space="preserve"><value>Démarrage différé</value></data>
+  <data name="Startup_Undelay" xml:space="preserve"><value>Démarrage automatique normal</value></data>
+  <data name="Startup_WarnSecurity" xml:space="preserve"><value>⚠️ Cet élément fait partie d&apos;une protection de sécurité : ton PC sera moins protégé juste après le démarrage.</value></data>
+  <data name="Startup_WarnNothingDeleted" xml:space="preserve"><value>Rien n&apos;est supprimé : l&apos;élément reste installé et pourra être réactivé d&apos;un clic.</value></data>
+  <data name="StartupFilter_All" xml:space="preserve"><value>Tout</value></data>
+  <data name="StartupFilter_Suggested" xml:space="preserve"><value>Pistes d&apos;optimisation</value></data>
+  <data name="StartupFilter_Programs" xml:space="preserve"><value>Programmes</value></data>
+  <data name="StartupFilter_Tasks" xml:space="preserve"><value>Tâches planifiées</value></data>
+  <data name="StartupFilter_Services" xml:space="preserve"><value>Services tiers</value></data>
+  <data name="StartupFilter_Disabled" xml:space="preserve"><value>Désactivés</value></data>
+  <data name="History_StartupOn" xml:space="preserve"><value>« {0} » réactivé au démarrage</value></data>
+  <data name="History_StartupOff" xml:space="preserve"><value>« {0} » désactivé au démarrage</value></data>
+  <data name="Change_StartupOn" xml:space="preserve"><value>{0} : lancé au démarrage</value></data>
+  <data name="Change_StartupOff" xml:space="preserve"><value>{0} : ne se lance plus au démarrage</value></data>
 </root>

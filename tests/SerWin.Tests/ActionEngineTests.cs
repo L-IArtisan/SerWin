@@ -61,6 +61,14 @@ internal sealed class FakeServiceControl : IServiceControl
 
     public string? GetEventLog(string log) => EventLogs.GetValueOrDefault(log);
 
+    public Dictionary<string, string> StartupValues { get; } = new(StringComparer.OrdinalIgnoreCase);
+    public string? GetStartupApproved(string target) => StartupValues.GetValueOrDefault(target, "absent");
+    public void SetStartupApproved(string target, string value)
+    {
+        Calls.Add($"startup {target} {value}");
+        if (value == "absent") StartupValues.Remove(target); else StartupValues[target] = value;
+    }
+
     public void SetEventLog(string log, string setting)
     {
         Calls.Add($"eventlog {log} {setting}");

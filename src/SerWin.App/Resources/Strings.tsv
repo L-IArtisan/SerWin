@@ -648,3 +648,63 @@ Deduced_Advice_Sync	Synchronise ou sauvegarde des fichiers. Le désactiver arrê
 Deduced_Advice_Helper	Service d'assistance du logiciel (intégration, tâches de fond). Souvent non indispensable, mais certaines fonctions du logiciel peuvent en dépendre.	Software helper (integration, background tasks). Often not essential, but some features of the software may depend on it.
 Deduced_Advice_Microsoft	Service de Microsoft sans fiche rédigée pour l'instant : par prudence, ne le désactive pas sans t'être renseigné.	Microsoft service without a written entry yet: to be safe, do not disable it without looking it up.
 Known_bitdefender_agent	Agent Bitdefender	Bitdefender agent
+Nav_Startup	Démarrage	Startup
+Startup_Title	Ce qui se lance au démarrage	What starts with Windows
+Startup_Intro	Programmes ouverts à l'ouverture de session, tâches planifiées au démarrage et services tiers en démarrage automatique. Sélectionne un élément pour savoir à quoi il sert et s'il peut attendre.	Programs opened at sign-in, scheduled tasks at startup and third-party services set to start automatically. Select an item to learn what it does and whether it can wait.
+Startup_HowItWorks	Désactiver un programme ne le désinstalle pas : SerWin utilise le même réglage que le Gestionnaire des tâches, et tout s'annule depuis l'Historique. Différer un service le fait démarrer environ deux minutes après Windows, pour libérer le démarrage.	Disabling a program does not uninstall it: SerWin uses the same setting as Task Manager, and everything can be undone from History. Delaying a service makes it start about two minutes after Windows, freeing up startup.
+Startup_Summary	{0} programme(s) lancé(s) à l'ouverture de session ({1} désactivé(s)) · {2} tâche(s) au démarrage · {3} service(s) tiers automatique(s)	{0} program(s) launched at sign-in ({1} disabled) · {2} startup task(s) · {3} automatic third-party service(s)
+Startup_SuggestionCount	💡 {0} piste(s) d'optimisation : filtre « Pistes d'optimisation » pour les voir.	💡 {0} optimization suggestion(s): use the “Optimization suggestions” filter to see them.
+Startup_Boot	Dernier démarrage : {0} s, dont {1} s après l'ouverture de session · moyenne des {3} derniers : {2} s.	Last startup: {0} s, including {1} s after sign-in · average of the last {3}: {2} s.
+Startup_BootUnknown	Windows n'a pas encore enregistré de mesure de démarrage.	Windows has not recorded a startup measurement yet.
+Startup_BootAdmin	La durée des démarrages et les programmes qui les ralentissent sont visibles en mode administrateur.	Startup durations and the programs slowing them down are visible in administrator mode.
+Startup_SlowTitle	Ralentissements mesurés par Windows	Slowdowns measured by Windows
+Startup_SuggestionTitle	Piste d'optimisation	Optimization suggestion
+Startup_Command	Commande	Command
+Startup_Source	Emplacement	Location
+Startup_BackToOverview	Vue d'ensemble	Overview
+StartupSource_RunUser	Registre (ton compte)	Registry (your account)
+StartupSource_RunMachine	Registre (tous les utilisateurs)	Registry (all users)
+StartupSource_RunMachine32	Registre (tous les utilisateurs, 32 bits)	Registry (all users, 32-bit)
+StartupSource_FolderUser	Dossier Démarrage (ton compte)	Startup folder (your account)
+StartupSource_FolderCommon	Dossier Démarrage (tous les utilisateurs)	Startup folder (all users)
+StartupKind_Program	Programme	Program
+StartupKind_Task	Tâche planifiée	Scheduled task
+StartupKind_Service	Service	Service
+Startup_StateOn	activé	enabled
+Startup_StateOff	désactivé	disabled
+Startup_StateAuto	automatique	automatic
+Startup_StateDelayed	automatique différé	delayed automatic
+Startup_SuggestDisable	Peut sans doute attendre que tu l'ouvres toi-même : le désactiver au démarrage allège l'ouverture de session.	Can probably wait until you open it yourself: disabling it at startup lightens sign-in.
+Startup_SuggestDelay	Peut démarrer un peu plus tard : le passer en « automatique différé » libère le démarrage sans le couper.	Can start a little later: setting it to “delayed automatic” frees up startup without turning it off.
+Startup_SummaryProgram	{0}, installé avec « {1} ».	{0}, installed with “{1}”.
+Startup_SummaryPublisher	{0}, de l'éditeur « {1} ».	{0}, from publisher “{1}”.
+Startup_SummaryUnknown	SerWin ne connaît pas encore ce programme. Regarde son éditeur et son emplacement avant de décider.	SerWin does not know this program yet. Check its publisher and location before deciding.
+Startup_Degradation	Windows estime qu'il a ralenti le démarrage d'environ {0} s.	Windows estimates it slowed startup by about {0} s.
+Startup_DisabledSince	Désactivé au démarrage depuis le {0}.	Disabled at startup since {0}.
+Startup_Advice_Security	Fait partie de ta protection : à garder au démarrage.	Part of your protection: keep it at startup.
+Startup_Advice_Windows	Composant de Windows : à laisser tel quel.	A Windows component: leave it as is.
+Startup_Advice_Service	Ce service démarre avec Windows. S'il n'est pas urgent (mise à jour, assistant, lanceur de jeux…), le différer accélère le démarrage sans rien casser.	This service starts with Windows. If it is not urgent (updater, helper, game launcher…), delaying it speeds up startup without breaking anything.
+Startup_Advice_Updater	Ce programme de mise à jour se relancera aussi par ses tâches planifiées ou à l'ouverture du logiciel : le désactiver au démarrage est sans risque.	This updater will also run through its scheduled tasks or when the software opens: disabling it at startup is safe.
+Startup_Advice_Hardware	Peut gérer un périphérique (touches, éclairage, carte son…). Si tu le désactives, vérifie ensuite que tout fonctionne encore.	May manage a device (keys, lighting, sound card…). If you disable it, check afterwards that everything still works.
+Startup_Advice_Sync	Sans lancement au démarrage, la synchronisation ne se fera que quand tu ouvriras le logiciel.	Without starting at sign-in, sync will only happen when you open the software.
+Startup_Advice_Vpn	Si tu veux être protégé par le VPN dès l'ouverture de session, garde-le au démarrage.	If you want VPN protection from sign-in, keep it at startup.
+Startup_Advice_Remote	Permet d'être joint à distance. Si tu ne t'en sers pas, le désactiver réduit les risques.	Makes the PC reachable remotely. If you do not use it, disabling it reduces risks.
+Startup_Advice_Default	Désactiver au démarrage ne désinstalle rien : le programme s'ouvre toujours quand tu le lances toi-même, il ne se lancera simplement plus tout seul.	Disabling at startup uninstalls nothing: the program still opens when you launch it yourself, it just no longer starts on its own.
+Startup_Disable	Désactiver au démarrage	Disable at startup
+Startup_Enable	Réactiver au démarrage	Re-enable at startup
+Startup_DisableTask	Désactiver la tâche	Disable the task
+Startup_EnableTask	Réactiver la tâche	Re-enable the task
+Startup_Delay	Démarrage différé	Delayed start
+Startup_Undelay	Démarrage automatique normal	Normal automatic start
+Startup_WarnSecurity	⚠️ Cet élément fait partie d'une protection de sécurité : ton PC sera moins protégé juste après le démarrage.	⚠️ This item is part of a security protection: your PC will be less protected right after startup.
+Startup_WarnNothingDeleted	Rien n'est supprimé : l'élément reste installé et pourra être réactivé d'un clic.	Nothing is deleted: the item stays installed and can be re-enabled in one click.
+StartupFilter_All	Tout	Everything
+StartupFilter_Suggested	Pistes d'optimisation	Optimization suggestions
+StartupFilter_Programs	Programmes	Programs
+StartupFilter_Tasks	Tâches planifiées	Scheduled tasks
+StartupFilter_Services	Services tiers	Third-party services
+StartupFilter_Disabled	Désactivés	Disabled
+History_StartupOn	« {0} » réactivé au démarrage	“{0}” re-enabled at startup
+History_StartupOff	« {0} » désactivé au démarrage	“{0}” disabled at startup
+Change_StartupOn	{0} : lancé au démarrage	{0}: launched at startup
+Change_StartupOff	{0} : ne se lance plus au démarrage	{0}: no longer launched at startup

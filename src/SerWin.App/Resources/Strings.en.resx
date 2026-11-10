@@ -655,4 +655,64 @@
   <data name="Deduced_Advice_Helper" xml:space="preserve"><value>Software helper (integration, background tasks). Often not essential, but some features of the software may depend on it.</value></data>
   <data name="Deduced_Advice_Microsoft" xml:space="preserve"><value>Microsoft service without a written entry yet: to be safe, do not disable it without looking it up.</value></data>
   <data name="Known_bitdefender_agent" xml:space="preserve"><value>Bitdefender agent</value></data>
+  <data name="Nav_Startup" xml:space="preserve"><value>Startup</value></data>
+  <data name="Startup_Title" xml:space="preserve"><value>What starts with Windows</value></data>
+  <data name="Startup_Intro" xml:space="preserve"><value>Programs opened at sign-in, scheduled tasks at startup and third-party services set to start automatically. Select an item to learn what it does and whether it can wait.</value></data>
+  <data name="Startup_HowItWorks" xml:space="preserve"><value>Disabling a program does not uninstall it: SerWin uses the same setting as Task Manager, and everything can be undone from History. Delaying a service makes it start about two minutes after Windows, freeing up startup.</value></data>
+  <data name="Startup_Summary" xml:space="preserve"><value>{0} program(s) launched at sign-in ({1} disabled) · {2} startup task(s) · {3} automatic third-party service(s)</value></data>
+  <data name="Startup_SuggestionCount" xml:space="preserve"><value>💡 {0} optimization suggestion(s): use the “Optimization suggestions” filter to see them.</value></data>
+  <data name="Startup_Boot" xml:space="preserve"><value>Last startup: {0} s, including {1} s after sign-in · average of the last {3}: {2} s.</value></data>
+  <data name="Startup_BootUnknown" xml:space="preserve"><value>Windows has not recorded a startup measurement yet.</value></data>
+  <data name="Startup_BootAdmin" xml:space="preserve"><value>Startup durations and the programs slowing them down are visible in administrator mode.</value></data>
+  <data name="Startup_SlowTitle" xml:space="preserve"><value>Slowdowns measured by Windows</value></data>
+  <data name="Startup_SuggestionTitle" xml:space="preserve"><value>Optimization suggestion</value></data>
+  <data name="Startup_Command" xml:space="preserve"><value>Command</value></data>
+  <data name="Startup_Source" xml:space="preserve"><value>Location</value></data>
+  <data name="Startup_BackToOverview" xml:space="preserve"><value>Overview</value></data>
+  <data name="StartupSource_RunUser" xml:space="preserve"><value>Registry (your account)</value></data>
+  <data name="StartupSource_RunMachine" xml:space="preserve"><value>Registry (all users)</value></data>
+  <data name="StartupSource_RunMachine32" xml:space="preserve"><value>Registry (all users, 32-bit)</value></data>
+  <data name="StartupSource_FolderUser" xml:space="preserve"><value>Startup folder (your account)</value></data>
+  <data name="StartupSource_FolderCommon" xml:space="preserve"><value>Startup folder (all users)</value></data>
+  <data name="StartupKind_Program" xml:space="preserve"><value>Program</value></data>
+  <data name="StartupKind_Task" xml:space="preserve"><value>Scheduled task</value></data>
+  <data name="StartupKind_Service" xml:space="preserve"><value>Service</value></data>
+  <data name="Startup_StateOn" xml:space="preserve"><value>enabled</value></data>
+  <data name="Startup_StateOff" xml:space="preserve"><value>disabled</value></data>
+  <data name="Startup_StateAuto" xml:space="preserve"><value>automatic</value></data>
+  <data name="Startup_StateDelayed" xml:space="preserve"><value>delayed automatic</value></data>
+  <data name="Startup_SuggestDisable" xml:space="preserve"><value>Can probably wait until you open it yourself: disabling it at startup lightens sign-in.</value></data>
+  <data name="Startup_SuggestDelay" xml:space="preserve"><value>Can start a little later: setting it to “delayed automatic” frees up startup without turning it off.</value></data>
+  <data name="Startup_SummaryProgram" xml:space="preserve"><value>{0}, installed with “{1}”.</value></data>
+  <data name="Startup_SummaryPublisher" xml:space="preserve"><value>{0}, from publisher “{1}”.</value></data>
+  <data name="Startup_SummaryUnknown" xml:space="preserve"><value>SerWin does not know this program yet. Check its publisher and location before deciding.</value></data>
+  <data name="Startup_Degradation" xml:space="preserve"><value>Windows estimates it slowed startup by about {0} s.</value></data>
+  <data name="Startup_DisabledSince" xml:space="preserve"><value>Disabled at startup since {0}.</value></data>
+  <data name="Startup_Advice_Security" xml:space="preserve"><value>Part of your protection: keep it at startup.</value></data>
+  <data name="Startup_Advice_Windows" xml:space="preserve"><value>A Windows component: leave it as is.</value></data>
+  <data name="Startup_Advice_Service" xml:space="preserve"><value>This service starts with Windows. If it is not urgent (updater, helper, game launcher…), delaying it speeds up startup without breaking anything.</value></data>
+  <data name="Startup_Advice_Updater" xml:space="preserve"><value>This updater will also run through its scheduled tasks or when the software opens: disabling it at startup is safe.</value></data>
+  <data name="Startup_Advice_Hardware" xml:space="preserve"><value>May manage a device (keys, lighting, sound card…). If you disable it, check afterwards that everything still works.</value></data>
+  <data name="Startup_Advice_Sync" xml:space="preserve"><value>Without starting at sign-in, sync will only happen when you open the software.</value></data>
+  <data name="Startup_Advice_Vpn" xml:space="preserve"><value>If you want VPN protection from sign-in, keep it at startup.</value></data>
+  <data name="Startup_Advice_Remote" xml:space="preserve"><value>Makes the PC reachable remotely. If you do not use it, disabling it reduces risks.</value></data>
+  <data name="Startup_Advice_Default" xml:space="preserve"><value>Disabling at startup uninstalls nothing: the program still opens when you launch it yourself, it just no longer starts on its own.</value></data>
+  <data name="Startup_Disable" xml:space="preserve"><value>Disable at startup</value></data>
+  <data name="Startup_Enable" xml:space="preserve"><value>Re-enable at startup</value></data>
+  <data name="Startup_DisableTask" xml:space="preserve"><value>Disable the task</value></data>
+  <data name="Startup_EnableTask" xml:space="preserve"><value>Re-enable the task</value></data>
+  <data name="Startup_Delay" xml:space="preserve"><value>Delayed start</value></data>
+  <data name="Startup_Undelay" xml:space="preserve"><value>Normal automatic start</value></data>
+  <data name="Startup_WarnSecurity" xml:space="preserve"><value>⚠️ This item is part of a security protection: your PC will be less protected right after startup.</value></data>
+  <data name="Startup_WarnNothingDeleted" xml:space="preserve"><value>Nothing is deleted: the item stays installed and can be re-enabled in one click.</value></data>
+  <data name="StartupFilter_All" xml:space="preserve"><value>Everything</value></data>
+  <data name="StartupFilter_Suggested" xml:space="preserve"><value>Optimization suggestions</value></data>
+  <data name="StartupFilter_Programs" xml:space="preserve"><value>Programs</value></data>
+  <data name="StartupFilter_Tasks" xml:space="preserve"><value>Scheduled tasks</value></data>
+  <data name="StartupFilter_Services" xml:space="preserve"><value>Third-party services</value></data>
+  <data name="StartupFilter_Disabled" xml:space="preserve"><value>Disabled</value></data>
+  <data name="History_StartupOn" xml:space="preserve"><value>“{0}” re-enabled at startup</value></data>
+  <data name="History_StartupOff" xml:space="preserve"><value>“{0}” disabled at startup</value></data>
+  <data name="Change_StartupOn" xml:space="preserve"><value>{0}: launched at startup</value></data>
+  <data name="Change_StartupOff" xml:space="preserve"><value>{0}: no longer launched at startup</value></data>
 </root>

@@ -44,6 +44,11 @@ public sealed record ScheduledTaskInfo
     public List<TaskActionInfo> Actions { get; init; } = [];
     /// <summary>Descriptions des déclencheurs (texte fourni par le planificateur).</summary>
     public List<string> Triggers { get; init; } = [];
+    /// <summary>Types de déclencheurs (Logon, Boot, Time…), indépendants de la langue.</summary>
+    public List<string> TriggerTypes { get; init; } = [];
+
+    /// <summary>Tâche lancée au démarrage de Windows ou à l'ouverture de session.</summary>
+    public bool RunsAtStartup => TriggerTypes.Contains("Logon") || TriggerTypes.Contains("Boot");
     /// <summary>Définition XML complète : permet une restauration exacte (sauvegardes).</summary>
     [JsonIgnore]
     public string? Xml { get; init; }
@@ -131,6 +136,7 @@ public sealed class TaskIndex
                 Author = def.RegistrationInfo.Author,
                 Actions = def.Actions.Select(ToInfo).ToList(),
                 Triggers = def.Triggers.Select(tr => tr.ToString()).ToList(),
+                TriggerTypes = def.Triggers.Where(tr => tr.Enabled).Select(tr => tr.TriggerType.ToString()).Distinct().ToList(),
                 Xml = t.Xml,
             };
         }

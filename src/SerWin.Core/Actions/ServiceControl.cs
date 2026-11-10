@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.ServiceProcess;
+using Microsoft.Win32;
 using SerWin.Core.Services;
 using ServiceStartMode = SerWin.Core.Services.ServiceStartMode;
 using static SerWin.Core.Interop.NativeMethods;
@@ -30,6 +31,11 @@ public interface IServiceControl
     /// <summary>Réglage encodé (EventLogSetting) d'un journal d'événements, null si illisible.</summary>
     string? GetEventLog(string log);
     void SetEventLog(string log, string setting);
+
+    // ── v1.1 : programmes au démarrage ────────────────────────
+    /// <summary>Valeur StartupApproved actuelle (hexadécimal, ou « absent »), null si illisible.</summary>
+    string? GetStartupApproved(string target);
+    void SetStartupApproved(string target, string value);
 }
 
 /// <summary>Implémentation réelle (advapi32 + ServiceController). Requiert les droits administrateur.</summary>
@@ -298,6 +304,50 @@ public sealed class WindowsServiceControl : IServiceControl
         catch (Exception ex) when (ex is UnauthorizedAccessException or System.Diagnostics.Eventing.Reader.EventLogException)
         {
             throw new ServiceActionException(log, ServiceActionError.AccessDenied, 5, ex.Message);
+        }
+    }
+
+    /// <summary>« HKCU\sous-clé|nom » → (ruche, sous-clé, nom de valeur).</summary>
+    private static (RegistryKey Hive, string Path, string Name) ParseApprovalTarget(string target)
+    {
+        var bar = target.LastIndexOf('|');
+        var slash = target.IndexOf('\\');
+        if (bar < 0 || slash < 0) throw new ServiceActionException(target, ServiceActionError.NotFound, 2, "Cible invalide");
+        var hive = target[..slash] switch
+        {
+            "HKCU" => Registry.CurrentUser,
+            "HKLM" => Registry.LocalMachine,
+            _ => throw new ServiceActionException(target, ServiceActionError.NotFound, 2, "Ruche inconnue"),
+        };
+        return (hive, target[(slash + 1)..bar], target[(bar + 1)..]);
+    }
+
+    public string? GetStartupApproved(string target)
+    {
+        try
+        {
+            var (hive, path, name) = ParseApprovalTarget(target);
+            using var key = hive.OpenSubKey(path);
+            return Startup.StartupApproval.ToText(key?.GetValue(name) as byte[]);
+        }
+        catch (Exception ex) when (ex is UnauthorizedAccessException or System.Security.SecurityException or IOException)
+        {
+            return null;
+        }
+    }
+
+    public void SetStartupApproved(string target, string value)
+    {
+        var (hive, path, name) = ParseApprovalTarget(target);
+        try
+        {
+            using var key = hive.CreateSubKey(path, writable: true);
+            if (Startup.StartupApproval.FromText(value) is { } bytes) key.SetValue(name, bytes, RegistryValueKind.Binary);
+            else key.DeleteValue(name, throwOnMissingValue: false);
+        }
+        catch (Exception ex) when (ex is UnauthorizedAccessException or System.Security.SecurityException or IOException)
+        {
+            throw new ServiceActionException(name, ServiceActionError.AccessDenied, 5, ex.Message);
         }
     }
 

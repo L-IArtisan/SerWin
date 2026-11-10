@@ -267,7 +267,7 @@ public sealed partial class MainViewModel
     private async Task RefreshServicesAsync(IEnumerable<string> names)
     {
         var reader = new ServiceReader();
-        foreach (var name in names.Distinct(StringComparer.OrdinalIgnoreCase))
+        foreach (var name in names.Where(n => n.Length > 0).Distinct(StringComparer.OrdinalIgnoreCase))
         {
             var info = await Task.Run(() => reader.Read(name));
             var item = Services.FirstOrDefault(s => s.Name.Equals(name, StringComparison.OrdinalIgnoreCase));

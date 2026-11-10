@@ -21,6 +21,8 @@ public enum ChangeKind
     RegistryAcl,
     /// <summary>Réglage d'un journal d'événements (v1.1, journal DNS) : Target = nom du journal, Before/After = EventLogSetting encodé.</summary>
     EventLog,
+    /// <summary>Programme lancé à l'ouverture de session activé / désactivé (v1.1, page Démarrage) : Target = valeur StartupApproved, Before/After = octets en hexadécimal ou « absent ».</summary>
+    StartupApproved,
 }
 
 /// <summary>
@@ -52,6 +54,10 @@ public enum ActionKind
     UnlockAcl,
     /// <summary>Activation ou désactivation du journal DNS (v1.1, page Réseau).</summary>
     ConfigureDnsLog,
+    /// <summary>Programme au démarrage activé / désactivé (v1.1, page Démarrage).</summary>
+    StartupToggle,
+    /// <summary>Tâche planifiée lancée au démarrage activée / désactivée (v1.1, page Démarrage).</summary>
+    TaskToggle,
 }
 
 public sealed record ActionRequest(string Service, ActionKind Kind, ServiceStartMode? StartMode = null);

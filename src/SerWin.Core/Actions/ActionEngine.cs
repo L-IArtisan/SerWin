@@ -244,7 +244,7 @@ public sealed class ActionEngine(
         return list.Where(c => c.Kind == ChangeKind.RegistryAcl && !AclLock.IsLocked(c.After))
             .Concat(list.Where(c => c.Kind == ChangeKind.StartMode && c.After != disable))
             .Concat(list.Where(c => c.Kind == ChangeKind.State))
-            .Concat(list.Where(c => c.Kind is ChangeKind.Triggers or ChangeKind.Recovery or ChangeKind.TaskEnabled or ChangeKind.EventLog))
+            .Concat(list.Where(c => c.Kind is ChangeKind.Triggers or ChangeKind.Recovery or ChangeKind.TaskEnabled or ChangeKind.EventLog or ChangeKind.StartupApproved))
             .Concat(list.Where(c => c.Kind == ChangeKind.StartMode && c.After == disable))
             .Concat(list.Where(c => c.Kind == ChangeKind.RegistryAcl && AclLock.IsLocked(c.After)));
     }
@@ -277,6 +277,9 @@ public sealed class ActionEngine(
             case ChangeKind.EventLog:
                 control.SetEventLog(change.Target!, change.After);
                 break;
+            case ChangeKind.StartupApproved:
+                control.SetStartupApproved(change.Target!, change.After);
+                break;
         }
     }
 
@@ -284,6 +287,7 @@ public sealed class ActionEngine(
     {
         if (c.Kind == ChangeKind.TaskEnabled) return control.IsTaskEnabled(c.Target!)?.ToString();
         if (c.Kind == ChangeKind.EventLog) return control.GetEventLog(c.Target!);
+        if (c.Kind == ChangeKind.StartupApproved) return control.GetStartupApproved(c.Target!);
         var s = control.Read(c.Service);
         if (s is null) return null;
         return c.Kind switch
@@ -312,6 +316,7 @@ public sealed class ActionEngine(
             ChangeKind.RegistryAcl => AclLock.IsLocked(actual) == AclLock.IsLocked(expected),
             ChangeKind.TaskEnabled => string.Equals(actual, expected, StringComparison.OrdinalIgnoreCase),
             ChangeKind.EventLog => EventLogMatches(actual, expected),
+            ChangeKind.StartupApproved => Startup.StartupApproval.IsEnabled(actual) == Startup.StartupApproval.IsEnabled(expected),
             _ => actual == expected,
         };
     }
@@ -408,6 +413,38 @@ public sealed class ActionEngine(
         {
             Request = request,
             Changes = [new("", ChangeKind.EventLog, before.Encode(), after.Encode(), Network.DnsLog.LogName)],
+        };
+    }
+
+    // ── v1.1 : page Démarrage ────────────────────────────────
+    /// <summary>
+    /// Active ou désactive un programme lancé à l'ouverture de session, comme le Gestionnaire des tâches : seule la valeur
+    /// StartupApproved change, l'entrée elle-même n'est jamais supprimée. Annulable.
+    /// </summary>
+    public ActionPlan PlanStartup(Startup.StartupItem item, bool enable, DateTime now)
+    {
+        var request = new ActionRequest(item.Name, ActionKind.StartupToggle);
+        var before = control.GetStartupApproved(item.ApprovalTarget);
+        if (before is null) return new ActionPlan { Request = request, Blocked = BlockReason.NotFound };
+        if (Startup.StartupApproval.IsEnabled(before) == enable) return new ActionPlan { Request = request };
+        var after = Startup.StartupApproval.ToText(Startup.StartupApproval.Encode(enable, now));
+        return new ActionPlan
+        {
+            Request = request,
+            Changes = [new("", ChangeKind.StartupApproved, before, after, item.ApprovalTarget)],
+        };
+    }
+
+    /// <summary>Active ou désactive une tâche planifiée lancée au démarrage. Annulable.</summary>
+    public ActionPlan PlanTask(string path, bool enable)
+    {
+        var request = new ActionRequest(path, ActionKind.TaskToggle);
+        if (control.IsTaskEnabled(path) is not { } current) return new ActionPlan { Request = request, Blocked = BlockReason.NotFound };
+        if (current == enable) return new ActionPlan { Request = request };
+        return new ActionPlan
+        {
+            Request = request,
+            Changes = [new("", ChangeKind.TaskEnabled, current.ToString(), enable.ToString(), path)],
         };
     }
 

@@ -79,6 +79,9 @@ public class LocalizationTests
         foreach (var v in new[] { "All", "Privacy", "Undocumented", "Active", "LocalNetwork" }) keys.Add($"NetFilter_{v}");
         foreach (var v in new[] { "Day", "Week" }) keys.Add($"TimelineRange_{v}");
         foreach (var v in Enum.GetNames<ServiceRole>()) { keys.Add($"Role_{v}"); keys.Add($"Deduced_Advice_{v}"); }
+        foreach (var v in Enum.GetNames<SerWin.Core.Startup.StartupSource>()) keys.Add($"StartupSource_{v}");
+        foreach (var v in new[] { "Program", "Task", "Service" }) keys.Add($"StartupKind_{v}");
+        foreach (var v in new[] { "All", "Suggested", "Programs", "Tasks", "Services", "Disabled" }) keys.Add($"StartupFilter_{v}");
         foreach (var n in new[] { "FirstIpAddressArrival", "LastIpAddressRemoval", "DomainJoin", "DomainLeave", "FirewallPortOpen",
                      "FirewallPortClose", "MachinePolicyPresent", "UserPolicyPresent", "RpcInterfaceEvent", "NamedPipeEvent" })
             keys.Add($"TriggerSub_{n}");

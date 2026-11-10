@@ -97,6 +97,7 @@ public sealed partial class MainViewModel : ObservableObject
         InitExpert();
         InitNetwork();
         InitNavigation();
+        InitStartup();
     }
 
     // ── Données ──────────────────────────────────────────────
@@ -131,10 +132,10 @@ public sealed partial class MainViewModel : ObservableObject
     /// <summary>Index dans la barre de navigation : 0 = Services, 5 = Réglages (1-4 : versions futures).</summary>
     public int NavIndex
     {
-        get => CurrentPage switch { "settings" => 6, "history" => 5, "alerts" => 4, "suggestions" => 3, "network" => 2, "processes" => 1, _ => 0 };
+        get => CurrentPage switch { "settings" => 7, "history" => 6, "alerts" => 5, "suggestions" => 4, "network" => 3, "startup" => 2, "processes" => 1, _ => 0 };
         set
         {
-            CurrentPage = value switch { 6 => "settings", 5 => "history", 4 => "alerts", 3 => "suggestions", 2 => "network", 1 => "processes", _ => "services" };
+            CurrentPage = value switch { 7 => "settings", 6 => "history", 5 => "alerts", 4 => "suggestions", 3 => "network", 2 => "startup", 1 => "processes", _ => "services" };
             Raise();
         }
     }
@@ -157,6 +158,8 @@ public sealed partial class MainViewModel : ObservableObject
                 Raise(nameof(IsProcessesPage));
                 Raise(nameof(IsSuggestionsPage));
                 Raise(nameof(IsNetworkPage));
+                Raise(nameof(IsStartupPage));
+                if (IsStartupPage) _ = LoadStartupAsync();
                 if (IsNetworkPage) StartNetwork();
                 if (IsHistoryPage) _ = RefreshHistoryAsync();
             }
@@ -179,6 +182,7 @@ public sealed partial class MainViewModel : ObservableObject
                 ApplyFilter();
                 RebuildProcessView();
                 RebuildNetworkView();
+                RebuildStartupView();
             }
         }
     }
@@ -240,6 +244,7 @@ public sealed partial class MainViewModel : ObservableObject
             _settings.Save();
             foreach (var s in Services) s.Refresh();
             foreach (var n in _networkItems.Values) n.Refresh();
+            foreach (var e in _startupAll) e.Refresh();
             Raise(nameof(ShowDnsLogDisable));
             RebuildStartModeOptions();
             RefreshExpertLabels();
@@ -283,6 +288,7 @@ public sealed partial class MainViewModel : ObservableObject
         Raise(nameof(TitleBarText));
         RefreshActionLabels();
         RefreshNetworkLabels();
+        RefreshStartupLabels();
         RecomputeAlerts();
         _ = AnalyzeSelectedAsync();
         Raise(nameof(TaskInventoryText));
@@ -349,6 +355,7 @@ public sealed partial class MainViewModel : ObservableObject
             _ = LoadReviverDataAsync();
             StartSampling();
             if (_observer is not null) _ = SampleNetworkAsync(forceDns: true);
+            if (IsStartupPage) _ = LoadStartupAsync();
             _ = LoadContextAsync();
             _ = LoadInstalledProgramsAsync();
         }
