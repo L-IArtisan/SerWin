@@ -1,0 +1,35 @@
+{
+  "name": "PenService",
+  "displayName": { "fr": "Service de stylet", "en": "Pen Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Réglages et fonctions du stylet.",
+    "en": "Pen settings and features."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement avec un stylet (tablette, écran tactile).",
+      "en": "Only useful with a pen (tablet, touchscreen)."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (PenService_xxxxx), démarré par déclencheur.",
+      "en": "Per-user service (PenService_xxxxx), started by trigger."
+    },
+    "expert": {
+      "fr": "svchost -k PenService, PenService.dll.",
+      "en": "svchost -k PenService, PenService.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fonctions du stylet indisponibles", "en": "Pen features unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "touch": "present" },
+  "verdictIfNot": { "fr": "Aucun écran tactile détecté : pas de stylet attendu.", "en": "No touchscreen detected: no pen expected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

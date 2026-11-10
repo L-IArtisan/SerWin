@@ -1,0 +1,34 @@
+{
+  "name": "MDCoreSvc",
+  "displayName": { "fr": "Microsoft Defender - service de base", "en": "Microsoft Defender Core Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Surveille la disponibilité et l'intégrité des composants de sécurité de Defender.",
+    "en": "Monitors the availability and health of Defender's security components."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait partie de l'antivirus intégré. Il est protégé par Windows : ne pas y toucher.",
+      "en": "Part of the built-in antivirus. Protected by Windows: do not touch it."
+    },
+    "avance": {
+      "fr": "Mis à jour avec la plateforme Defender, en dehors des mises à jour de Windows. Démarré à la demande.",
+      "en": "Updated with the Defender platform, outside of Windows updates. Started on demand."
+    },
+    "expert": {
+      "fr": "MpDefenderCoreService.exe dans %ProgramData%\\Microsoft\\Windows Defender\\Platform\\<version>, LocalSystem, processus protégé.",
+      "en": "MpDefenderCoreService.exe in %ProgramData%\\Microsoft\\Windows Defender\\Platform\\<version>, LocalSystem, protected process."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Surveillance de l'état de Defender dégradée", "en": "Degraded Defender health monitoring" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

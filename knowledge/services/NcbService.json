@@ -1,0 +1,34 @@
+{
+  "name": "NcbService",
+  "displayName": { "fr": "Service Broker pour les connexions réseau", "en": "Network Connection Broker" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet aux applications du Store de recevoir des notifications d'Internet en arrière-plan.",
+    "en": "Lets Store apps receive Internet notifications in the background."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour que les applis modernes restent informées (messages, mails) en arrière-plan.",
+      "en": "Needed for modern apps to stay updated (messages, mail) in the background."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Gère les déclencheurs réseau des tâches en arrière-plan des applications empaquetées.",
+      "en": "Started on demand. Handles network triggers for packaged apps' background tasks."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, ncbservice.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, ncbservice.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applis du Store sans notifications en arrière-plan", "en": "Store apps without background notifications" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

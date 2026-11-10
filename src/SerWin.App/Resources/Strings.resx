@@ -654,4 +654,5 @@
   <data name="Deduced_Advice_Sync" xml:space="preserve"><value>Synchronise ou sauvegarde des fichiers. Le désactiver arrête cette synchronisation.</value></data>
   <data name="Deduced_Advice_Helper" xml:space="preserve"><value>Service d&apos;assistance du logiciel (intégration, tâches de fond). Souvent non indispensable, mais certaines fonctions du logiciel peuvent en dépendre.</value></data>
   <data name="Deduced_Advice_Microsoft" xml:space="preserve"><value>Service de Microsoft sans fiche rédigée pour l&apos;instant : par prudence, ne le désactive pas sans t&apos;être renseigné.</value></data>
+  <data name="Known_bitdefender_agent" xml:space="preserve"><value>Agent Bitdefender</value></data>
 </root>

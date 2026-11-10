@@ -1,0 +1,34 @@
+{
+  "name": "UPDATESRV",
+  "displayName": { "fr": "Bitdefender Desktop Update Service", "en": "Bitdefender Desktop Update Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Télécharge les mises à jour et nouvelles signatures de Bitdefender.",
+    "en": "Downloads Bitdefender updates and new signatures."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde l'antivirus Bitdefender à jour. Sans lui, la protection vieillit vite.",
+      "en": "Keeps the Bitdefender antivirus up to date. Without it, protection ages fast."
+    },
+    "avance": {
+      "fr": "Vérifie régulièrement les mises à jour auprès des serveurs de Bitdefender (visible dans la page Réseau).",
+      "en": "Regularly checks for updates with Bitdefender's servers (visible on the Network page)."
+    },
+    "expert": {
+      "fr": "updatesrv.exe /service, LocalSystem.",
+      "en": "updatesrv.exe /service, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Signatures de virus périmées", "en": "Outdated virus signatures" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

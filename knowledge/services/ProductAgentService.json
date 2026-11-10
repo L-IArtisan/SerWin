@@ -1,0 +1,36 @@
+{
+  "name": "ProductAgentService",
+  "displayName": { "fr": "Bitdefender Product Agent Service", "en": "Bitdefender Product Agent Service" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Agent de Bitdefender qui gère l'installation et l'état du produit.",
+    "en": "Bitdefender agent managing the product's installation and state."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Petit agent de Bitdefender qui surveille l'installation de l'antivirus. Il se réactive tout seul si on le désactive.",
+      "en": "A small Bitdefender agent that monitors the antivirus installation. It re-enables itself if disabled."
+    },
+    "avance": {
+      "fr": "Installé dans « Bitdefender Agent ». Communique avec les serveurs de Bitdefender (licence, version).",
+      "en": "Installed in “Bitdefender Agent”. Communicates with Bitdefender's servers (license, version)."
+    },
+    "expert": {
+      "fr": "ProductAgentService.exe, LocalSystem.",
+      "en": "ProductAgentService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Gestion du produit Bitdefender dégradée", "en": "Degraded Bitdefender product management" }
+  ],
+  "revivers": [
+    { "type": "software", "target": "bitdefender-agent", "note": { "fr": "Bitdefender le réactive", "en": "Bitdefender re-enables it" } }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

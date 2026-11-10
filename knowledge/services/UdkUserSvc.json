@@ -1,0 +1,34 @@
+{
+  "name": "UdkUserSvc",
+  "displayName": { "fr": "Service utilisateur Udk", "en": "Udk User Service" },
+  "category": "ui",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Composants de l'interface du shell (menu Démarrer, barre des tâches, panneaux).",
+    "en": "Shell interface components (Start menu, taskbar, flyouts)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait partie de l'interface de Windows 11. Le couper peut casser le menu Démarrer ou la barre des tâches.",
+      "en": "Part of the Windows 11 interface. Turning it off can break the Start menu or taskbar."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (UdkUserSvc_xxxxx) lié au framework d'interface du shell. Rôle exact peu documenté : à laisser tel quel.",
+      "en": "Per-user service (UdkUserSvc_xxxxx) tied to the shell interface framework. Exact role poorly documented: leave it as is."
+    },
+    "expert": {
+      "fr": "svchost -k UdkSvcGroup, windowsudkservices.shellcommon.dll.",
+      "en": "svchost -k UdkSvcGroup, windowsudkservices.shellcommon.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Éléments de l'interface (Démarrer, barre des tâches) défaillants", "en": "Interface elements (Start, taskbar) fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

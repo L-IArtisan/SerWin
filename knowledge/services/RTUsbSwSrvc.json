@@ -1,0 +1,34 @@
+{
+  "name": "RTUsbSwSrvc",
+  "displayName": { "fr": "Service de la carte Wi-Fi USB Realtek", "en": "Realtek USB Wi-Fi service" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service installé avec le pilote Wi-Fi USB Realtek.",
+    "en": "Service installed with the Realtek USB Wi-Fi driver."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec le pilote d'une clé Wi-Fi USB Realtek. À laisser si tu utilises cette clé.",
+      "en": "Installed with the driver of a Realtek USB Wi-Fi stick. Keep it if you use that stick."
+    },
+    "avance": {
+      "fr": "Rôle exact non documenté publiquement (probablement le changement de mode de la clé ou le WPS).",
+      "en": "Exact role not publicly documented (probably mode switching or WPS for the stick)."
+    },
+    "expert": {
+      "fr": "RTUWPSrvcMain.exe dans DriverStore\\FileRepository\\netrtwlanu.inf_*, LocalSystem.",
+      "en": "RTUWPSrvcMain.exe in DriverStore\\FileRepository\\netrtwlanu.inf_*, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fonctions de la clé Wi-Fi Realtek possiblement dégradées", "en": "Realtek Wi-Fi stick features possibly degraded" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

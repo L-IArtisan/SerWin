@@ -1,0 +1,34 @@
+{
+  "name": "VSSERV",
+  "displayName": { "fr": "Bitdefender Virus Shield", "en": "Bitdefender Virus Shield" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Protection antivirus en temps réel de Bitdefender.",
+    "en": "Bitdefender's real-time antivirus protection."
+  },
+  "levels": {
+    "simple": {
+      "fr": "C'est le cœur de l'antivirus Bitdefender : il analyse les fichiers à la volée. Ne pas le désactiver.",
+      "en": "The heart of the Bitdefender antivirus: it scans files on the fly. Do not disable it."
+    },
+    "avance": {
+      "fr": "Hébergé par bdservicehost.exe avec la configuration bdshieldsrv. Bitdefender protège ses services contre l'arrêt ; pour le couper, passer par l'interface de Bitdefender.",
+      "en": "Hosted by bdservicehost.exe with the bdshieldsrv configuration. Bitdefender protects its services against stopping; to turn it off, use Bitdefender's interface."
+    },
+    "expert": {
+      "fr": "bdservicehost.exe \"settings/services/configs/bdshieldsrv_config.json\", LocalSystem, démarrage automatique.",
+      "en": "bdservicehost.exe \"settings/services/configs/bdshieldsrv_config.json\", LocalSystem, automatic start."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de protection antivirus en temps réel", "en": "No more real-time antivirus protection" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

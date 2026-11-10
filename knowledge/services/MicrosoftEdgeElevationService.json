@@ -1,0 +1,34 @@
+{
+  "name": "MicrosoftEdgeElevationService",
+  "displayName": { "fr": "Microsoft Edge Elevation Service", "en": "Microsoft Edge Elevation Service" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fournit des droits élevés à Microsoft Edge pour certaines opérations.",
+    "en": "Provides elevated rights to Microsoft Edge for some operations."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé ponctuellement par Edge. Il démarre à la demande.",
+      "en": "Used occasionally by Edge. It starts on demand."
+    },
+    "avance": {
+      "fr": "Équivalent de l'Elevation Service de Chrome, installé avec Edge.",
+      "en": "Equivalent of Chrome's Elevation Service, installed with Edge."
+    },
+    "expert": {
+      "fr": "elevation_service.exe dans le dossier de version d'Edge, LocalSystem.",
+      "en": "elevation_service.exe in Edge's version folder, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Certaines fonctions d'Edge échouent", "en": "Some Edge features fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

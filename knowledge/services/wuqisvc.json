@@ -1,0 +1,34 @@
+{
+  "name": "wuqisvc",
+  "displayName": { "fr": "Informations sur l'utilisation et la qualité de Microsoft", "en": "Microsoft Usage and Quality Insights" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Produit des synthèses d'utilisation pour la réparation automatique et des « offres personnalisées ».",
+    "en": "Produces usage summaries for automatic repair and “personalized offers”."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Analyse ta façon d'utiliser le PC. Windows indique que ces résultats servent à la réparation automatique, mais aussi à des offres personnalisées.",
+      "en": "Analyzes how you use the PC. Windows states that the results are used for automatic repair, but also for personalized offers."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Service récent ; son lien exact avec les données de diagnostic n'est pas documenté publiquement.",
+      "en": "Started on demand. A recent service; its exact link with diagnostic data is not publicly documented."
+    },
+    "expert": {
+      "fr": "svchost -k WuqiSvcGroup, Microsoft.Data.UsageAndQualityInsights.dll, LocalService.",
+      "en": "svchost -k WuqiSvcGroup, Microsoft.Data.UsageAndQualityInsights.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Moins de réparations automatiques et d'offres personnalisées", "en": "Fewer automatic repairs and personalized offers" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

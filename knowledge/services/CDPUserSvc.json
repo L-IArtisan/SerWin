@@ -1,0 +1,34 @@
+{
+  "name": "CDPUserSvc",
+  "displayName": { "fr": "Service utilisateur de plateforme d'appareils connectés", "en": "Connected Devices Platform User Service" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Partie « utilisateur » de la plateforme des appareils connectés : Mobile connecté, partage de proximité.",
+    "en": "User part of the Connected Devices Platform: Phone Link, Nearby sharing."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Relie ta session à tes autres appareils (téléphone, autres PC). Inutile si tu n'utilises ni Mobile connecté ni le partage de proximité.",
+      "en": "Links your session to your other devices (phone, other PCs). Useless if you use neither Phone Link nor Nearby sharing."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (CDPUserSvc_xxxxx), dépend de CDPSvc. Certaines fonctions de notifications et de synchronisation l'utilisent aussi.",
+      "en": "Per-user service (CDPUserSvc_xxxxx), depends on CDPSvc. Some notification and sync features also use it."
+    },
+    "expert": {
+      "fr": "svchost -k UnistackSvcGroup, cdpusersvc.dll. Type de démarrage réglé sur le modèle CDPUserSvc.",
+      "en": "svchost -k UnistackSvcGroup, cdpusersvc.dll. Startup type set on the CDPUserSvc template."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mobile connecté et partage de proximité hors service", "en": "Phone Link and Nearby sharing broken" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

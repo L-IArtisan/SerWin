@@ -1,0 +1,34 @@
+{
+  "name": "BDAuxSrv",
+  "displayName": { "fr": "Bitdefender Auxiliary Service", "en": "Bitdefender Auxiliary Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Composants auxiliaires de l'antivirus Bitdefender.",
+    "en": "Auxiliary components of the Bitdefender antivirus."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait partie de l'antivirus Bitdefender. Ne pas le désactiver.",
+      "en": "Part of the Bitdefender antivirus. Do not disable it."
+    },
+    "avance": {
+      "fr": "Hébergé par bdservicehost.exe (configuration bdauxsrv).",
+      "en": "Hosted by bdservicehost.exe (bdauxsrv configuration)."
+    },
+    "expert": {
+      "fr": "bdservicehost.exe \"settings/services/configs/bdauxsrv_config.json\", LocalSystem.",
+      "en": "bdservicehost.exe \"settings/services/configs/bdauxsrv_config.json\", LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fonctions de Bitdefender dégradées", "en": "Degraded Bitdefender features" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

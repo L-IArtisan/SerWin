@@ -1,0 +1,35 @@
+{
+  "name": "BraveElevationService",
+  "aliases": [ "BraveElevationService*" ],
+  "displayName": { "fr": "Brave Elevation Service", "en": "Brave Elevation Service" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fournit des droits élevés au navigateur Brave pour certaines opérations.",
+    "en": "Provides elevated rights to the Brave browser for some operations."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé ponctuellement par Brave (mises à jour, certaines fonctions). Il démarre à la demande.",
+      "en": "Used occasionally by Brave (updates, some features). It starts on demand."
+    },
+    "avance": {
+      "fr": "Son nom se termine par un identifiant propre à chaque installation (BraveElevationService1d8c…). Équivalent de l'Elevation Service de Chrome.",
+      "en": "Its name ends with an installation-specific identifier (BraveElevationService1d8c…). Equivalent of Chrome's Elevation Service."
+    },
+    "expert": {
+      "fr": "elevation_service.exe dans le dossier de version de Brave, LocalSystem.",
+      "en": "elevation_service.exe in Brave's version folder, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Certaines mises à jour et fonctions de Brave échouent", "en": "Some Brave updates and features fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "PrintScanBrokerService",
+  "displayName": { "fr": "Service intermédiaire d'impression et de numérisation", "en": "Print Scan Broker Service" },
+  "category": "printing",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Effectue les opérations privilégiées pour le spouleur d'impression à droits réduits.",
+    "en": "Performs privileged operations for the low-privilege print spooler."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Partie récente du système d'impression, conçue pour le rendre plus sûr. Utile si tu imprimes.",
+      "en": "A recent part of the printing system, designed to make it safer. Useful if you print."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par le spouleur, qui tourne avec moins de droits sur les versions récentes de Windows.",
+      "en": "Started on demand by the spooler, which runs with fewer rights on recent Windows versions."
+    },
+    "expert": {
+      "fr": "svchost -k PrintScanBrokerService, PrintScanBrokerService.dll, LocalSystem.",
+      "en": "svchost -k PrintScanBrokerService, PrintScanBrokerService.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Certaines opérations d'impression échouent", "en": "Some printing operations fail" }
+  ],
+  "revivers": [],
+  "usefulIf": { "printers": ">0" },
+  "verdictIfNot": { "fr": "Aucune imprimante détectée.", "en": "No printer detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

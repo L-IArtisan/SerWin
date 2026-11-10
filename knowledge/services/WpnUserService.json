@@ -1,0 +1,34 @@
+{
+  "name": "WpnUserService",
+  "displayName": { "fr": "Service utilisateur de notifications Push Windows", "en": "Windows Push Notifications User Service" },
+  "category": "ui",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Partie « utilisateur » des notifications : affiche les notifications de ta session.",
+    "en": "User part of notifications: shows your session's notifications."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sans lui, plus de notifications (mails, rappels, messages) ni de badges sur la barre des tâches.",
+      "en": "Without it, no more notifications (mail, reminders, messages) or taskbar badges."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (WpnUserService_xxxxx), dépend du service système WpnService.",
+      "en": "Per-user service (WpnUserService_xxxxx), depends on the system WpnService."
+    },
+    "expert": {
+      "fr": "svchost -k UnistackSvcGroup, WpnUserService.dll. Type de démarrage réglé sur le modèle WpnUserService.",
+      "en": "svchost -k UnistackSvcGroup, WpnUserService.dll. Startup type set on the WpnUserService template."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus aucune notification", "en": "No more notifications" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

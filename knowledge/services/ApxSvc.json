@@ -1,0 +1,34 @@
+{
+  "name": "ApxSvc",
+  "displayName": { "fr": "Service proxy de périphérique audio virtuel Windows", "en": "Windows Virtual Audio Device Proxy Service" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les périphériques audio virtuels utilisés par les programmes Windows.",
+    "en": "Manages virtual audio devices used by Windows programs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner les périphériques audio « virtuels » de Windows. Mieux vaut le laisser tel quel.",
+      "en": "Powers Windows' “virtual” audio devices. Better left as is."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Windows indique que, s'il est arrêté, les périphériques audio virtuels ne fonctionnent plus correctement.",
+      "en": "Started on demand. Windows states that if it is stopped, virtual audio devices no longer work properly."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, ApxSvc.dll, LocalService.",
+      "en": "svchost -k LocalService, ApxSvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Périphériques audio virtuels défaillants", "en": "Virtual audio devices fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "WEPHOSTSVC",
+  "displayName": { "fr": "Service hôte du fournisseur de chiffrement Windows", "en": "Windows Encryption Provider Host Service" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Vérifie le chiffrement pour les stratégies Exchange ActiveSync des comptes de messagerie.",
+    "en": "Checks encryption for the Exchange ActiveSync policies of mail accounts."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert quand un compte mail professionnel (Exchange) exige que l'appareil soit chiffré. Rarement utile chez soi.",
+      "en": "Used when a work mail account (Exchange) requires the device to be encrypted. Rarely useful at home."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Interroge les fournisseurs de chiffrement (y compris tiers) pour les vérifications de conformité EAS.",
+      "en": "Started on demand. Queries encryption providers (including third-party) for EAS compliance checks."
+    },
+    "expert": {
+      "fr": "svchost -k WepHostSvcGroup, wephostsvc.dll, LocalService.",
+      "en": "svchost -k WepHostSvcGroup, wephostsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Comptes mail d'entreprise exigeant le chiffrement refusés", "en": "Work mail accounts requiring encryption refused" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

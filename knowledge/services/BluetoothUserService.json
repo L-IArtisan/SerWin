@@ -1,0 +1,35 @@
+{
+  "name": "BluetoothUserService",
+  "displayName": { "fr": "Service de prise en charge des utilisateurs Bluetooth", "en": "Bluetooth User Support Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fonctions Bluetooth propres à chaque session utilisateur.",
+    "en": "Bluetooth features specific to each user session."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Complément du service Bluetooth. Inutile sans Bluetooth.",
+      "en": "Companion of the Bluetooth service. Useless without Bluetooth."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (BluetoothUserService_xxxxx), démarré par déclencheur.",
+      "en": "Per-user service (BluetoothUserService_xxxxx), started by trigger."
+    },
+    "expert": {
+      "fr": "svchost -k BthAppGroup, Microsoft.Bluetooth.UserService.dll.",
+      "en": "svchost -k BthAppGroup, Microsoft.Bluetooth.UserService.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Certaines fonctions Bluetooth de la session indisponibles", "en": "Some session Bluetooth features unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "bluetooth": "present" },
+  "verdictIfNot": { "fr": "Aucun adaptateur Bluetooth détecté.", "en": "No Bluetooth adapter detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "vmcompute",
+  "displayName": { "fr": "Service de calcul hôte Hyper-V", "en": "Hyper-V Host Compute Service" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Exécute les conteneurs Windows et les machines virtuelles légères (WSL 2, Sandbox, Docker).",
+    "en": "Runs Windows containers and lightweight VMs (WSL 2, Sandbox, Docker)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour WSL 2, Windows Sandbox ou Docker. Inutile si tu n'utilises aucun de ces outils.",
+      "en": "Needed for WSL 2, Windows Sandbox or Docker. Useless if you use none of these tools."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Fait partie de la plateforme de conteneurs et machines virtuelles de Windows.",
+      "en": "Started on demand. Part of Windows' container and virtual machine platform."
+    },
+    "expert": {
+      "fr": "vmcompute.exe, LocalSystem (Host Compute Service, HCS).",
+      "en": "vmcompute.exe, LocalSystem (Host Compute Service, HCS)."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "WSL 2, Windows Sandbox et Docker ne démarrent plus", "en": "WSL 2, Windows Sandbox and Docker no longer start" }
+  ],
+  "revivers": [],
+  "usefulIf": { "hypervisor": "present" },
+  "verdictIfNot": { "fr": "Aucun hyperviseur actif : ni WSL 2, ni Sandbox, ni machine virtuelle.", "en": "No active hypervisor: no WSL 2, Sandbox or virtual machine." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

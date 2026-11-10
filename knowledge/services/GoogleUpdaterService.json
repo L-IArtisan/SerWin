@@ -1,0 +1,38 @@
+{
+  "name": "GoogleUpdaterService",
+  "aliases": [ "GoogleUpdaterService*", "GoogleUpdaterInternalService*", "gupdate", "gupdatem" ],
+  "displayName": { "fr": "Google Updater", "en": "Google Updater" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Mises à jour de Chrome et des autres logiciels Google.",
+    "en": "Updates for Chrome and other Google software."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde Chrome et les logiciels Google à jour. Le désactiver laisse des failles non corrigées.",
+      "en": "Keeps Chrome and Google software up to date. Disabling it leaves flaws unfixed."
+    },
+    "avance": {
+      "fr": "Nouveau programme de mise à jour (GoogleUpdaterService<version>, GoogleUpdaterInternalService<version>) ou ancien (gupdate, gupdatem), lancés aussi par des tâches planifiées.",
+      "en": "New updater (GoogleUpdaterService<version>, GoogleUpdaterInternalService<version>) or old one (gupdate, gupdatem), also launched by scheduled tasks."
+    },
+    "expert": {
+      "fr": "updater.exe --system --windows-service, LocalSystem.",
+      "en": "updater.exe --system --windows-service, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Chrome plus mis à jour", "en": "Chrome no longer updated" }
+  ],
+  "revivers": [
+    { "type": "task", "target": "\\GoogleUpdater*" },
+    { "type": "task", "target": "\\GoogleUpdateTask*" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

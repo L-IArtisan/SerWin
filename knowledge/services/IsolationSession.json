@@ -1,0 +1,35 @@
+{
+  "name": "IsolationSession",
+  "aliases": [ "IsoSessionCore" ],
+  "displayName": { "fr": "Sessions isolées (IsolationSession, IsoSessionCore)", "en": "Isolated sessions (IsolationSession, IsoSessionCore)" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Services récents liés aux sessions isolées de Windows ; sans description fournie par Windows.",
+    "en": "Recent services tied to Windows isolated sessions; no description provided by Windows."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Windows ne fournit aucune description pour ces deux services récents. Ils sont arrêtés et démarrent à la demande : mieux vaut ne pas y toucher.",
+      "en": "Windows provides no description for these two recent services. They are stopped and start on demand: better not to touch them."
+    },
+    "avance": {
+      "fr": "Leur nom suggère un lien avec l'exécution d'applications dans des environnements isolés (sécurité basée sur la virtualisation), sans confirmation officielle.",
+      "en": "Their name suggests a link with running apps in isolated environments (virtualization-based security), without official confirmation."
+    },
+    "expert": {
+      "fr": "svchost -k IsolationSession (IsoSessionServer.dll) et -k IsoSessionCore (IsoSessionCoreServer.dll), LocalSystem.",
+      "en": "svchost -k IsolationSession (IsoSessionServer.dll) and -k IsoSessionCore (IsoSessionCoreServer.dll), LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Effet non documenté", "en": "Effect not documented" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

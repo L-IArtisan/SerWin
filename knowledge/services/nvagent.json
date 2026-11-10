@@ -1,0 +1,35 @@
+{
+  "name": "nvagent",
+  "displayName": { "fr": "Service de virtualisation de réseau", "en": "Network Virtualization Service" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Virtualisation de réseau pour les conteneurs et machines virtuelles.",
+    "en": "Network virtualization for containers and VMs."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par les conteneurs et machines virtuelles. Inutile sans ces outils.",
+      "en": "Used by containers and virtual machines. Useless without these tools."
+    },
+    "avance": {
+      "fr": "Démarré à la demande, avec le Service de réseau hôte (hns).",
+      "en": "Started on demand, alongside the Host Network Service (hns)."
+    },
+    "expert": {
+      "fr": "svchost -k NetSvcs, NvAgent.dll, LocalSystem.",
+      "en": "svchost -k NetSvcs, NvAgent.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Réseau des conteneurs dégradé", "en": "Degraded container networking" }
+  ],
+  "revivers": [],
+  "usefulIf": { "hypervisor": "present" },
+  "verdictIfNot": { "fr": "Aucun hyperviseur actif.", "en": "No active hypervisor." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

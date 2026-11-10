@@ -1,0 +1,35 @@
+{
+  "name": "DisplayEnhancementService",
+  "displayName": { "fr": "Service d'amélioration de l'affichage", "en": "Display Enhancement Service" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les améliorations d'affichage comme la luminosité.",
+    "en": "Manages display enhancements such as brightness."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Gère la luminosité de l'écran, surtout sur les portables. Peu utile sur un PC fixe.",
+      "en": "Manages screen brightness, mostly on laptops. Of little use on a desktop PC."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Inclut la luminosité adaptative au contenu sur les écrans compatibles.",
+      "en": "Started on demand. Includes content-adaptive brightness on compatible screens."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, Microsoft.Graphics.Display.DisplayEnhancementService.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, Microsoft.Graphics.Display.DisplayEnhancementService.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Réglage de luminosité dégradé (portables)", "en": "Degraded brightness control (laptops)" }
+  ],
+  "revivers": [],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : la luminosité est réglée par l'écran lui-même.", "en": "Desktop PC: brightness is set on the monitor itself." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

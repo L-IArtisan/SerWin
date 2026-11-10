@@ -1,0 +1,34 @@
+{
+  "name": "smphost",
+  "displayName": { "fr": "Fournisseur de gestion des Espaces de stockage", "en": "Microsoft Storage Spaces SMP" },
+  "category": "storage",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet de gérer les Espaces de stockage.",
+    "en": "Allows managing Storage Spaces."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement si tu utilises les Espaces de stockage (regroupement de disques).",
+      "en": "Only useful if you use Storage Spaces (pooling drives)."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par les outils de gestion de stockage (Paramètres, PowerShell Storage).",
+      "en": "Started on demand by storage management tools (Settings, PowerShell Storage)."
+    },
+    "expert": {
+      "fr": "svchost -k smphost, smphost.dll, NetworkService.",
+      "en": "svchost -k smphost, smphost.dll, NetworkService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Espaces de stockage impossibles à gérer", "en": "Storage Spaces cannot be managed" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

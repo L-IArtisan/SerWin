@@ -1,0 +1,35 @@
+{
+  "name": "McpManagementService",
+  "displayName": { "fr": "Service de gestion Impression universelle", "en": "Universal Print Management Service" },
+  "category": "printing",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les imprimantes cloud « Impression universelle » de Microsoft 365.",
+    "en": "Manages Microsoft 365 “Universal Print” cloud printers."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction d'entreprise pour imprimer via le cloud Microsoft. Inutile pour une imprimante à la maison.",
+      "en": "An enterprise feature to print through Microsoft's cloud. Useless for a home printer."
+    },
+    "avance": {
+      "fr": "Démarré à la demande quand une imprimante Impression universelle est installée.",
+      "en": "Started on demand when a Universal Print printer is installed."
+    },
+    "expert": {
+      "fr": "svchost -k McpManagementServiceGroup, McpManagementService.dll, LocalSystem.",
+      "en": "svchost -k McpManagementServiceGroup, McpManagementService.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Imprimantes Impression universelle indisponibles", "en": "Universal Print printers unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "mdmEnrolled": "true" },
+  "verdictIfNot": { "fr": "PC non géré par une entreprise : l'Impression universelle n'est pas utilisée.", "en": "PC not managed by a company: Universal Print is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

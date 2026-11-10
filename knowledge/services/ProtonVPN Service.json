@@ -1,0 +1,34 @@
+{
+  "name": "ProtonVPN Service",
+  "displayName": { "fr": "ProtonVPN Service", "en": "ProtonVPN Service" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service principal du VPN Proton.",
+    "en": "Main Proton VPN service."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Indispensable pour utiliser ProtonVPN.",
+      "en": "Essential to use ProtonVPN."
+    },
+    "avance": {
+      "fr": "Démarré par l'application ProtonVPN. Gère la connexion et le « kill switch ».",
+      "en": "Started by the ProtonVPN app. Handles the connection and the kill switch."
+    },
+    "expert": {
+      "fr": "ProtonVPNService.exe, dossier de version de ProtonVPN, LocalSystem.",
+      "en": "ProtonVPNService.exe, ProtonVPN version folder, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion ProtonVPN impossible", "en": "ProtonVPN connection impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

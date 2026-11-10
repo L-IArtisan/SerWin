@@ -1,0 +1,34 @@
+{
+  "name": "FvSvc",
+  "displayName": { "fr": "NVIDIA FrameView SDK service", "en": "NVIDIA FrameView SDK service" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Mesure des performances des jeux (images par seconde, consommation) pour les outils NVIDIA.",
+    "en": "Game performance measurement (frames per second, power) for NVIDIA tools."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par l'application NVIDIA pour afficher les performances en jeu. Inutile si tu ne t'en sers pas.",
+      "en": "Used by the NVIDIA app to show in-game performance. Useless if you do not use it."
+    },
+    "avance": {
+      "fr": "Démarré à la demande.",
+      "en": "Started on demand."
+    },
+    "expert": {
+      "fr": "nvfvsdksvc_x64.exe -service, NVIDIA Corporation\\FrameViewSDK, LocalSystem.",
+      "en": "nvfvsdksvc_x64.exe -service, NVIDIA Corporation\\FrameViewSDK, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Statistiques de performance NVIDIA indisponibles", "en": "NVIDIA performance statistics unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

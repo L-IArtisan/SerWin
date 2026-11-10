@@ -1,0 +1,35 @@
+{
+  "name": "cbdhsvc",
+  "displayName": { "fr": "Service utilisateur du Presse-papiers", "en": "Clipboard User Service" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Historique du presse-papiers (Win+V) et presse-papiers synchronisé entre appareils.",
+    "en": "Clipboard history (Win+V) and clipboard sync across devices."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner l'historique du presse-papiers (touches Win+V). Le copier-coller simple marche sans lui.",
+      "en": "Powers clipboard history (Win+V keys). Simple copy-paste works without it."
+    },
+    "avance": {
+      "fr": "Service par utilisateur : une copie « cbdhsvc_xxxxx » est créée à chaque session. Gère aussi la synchronisation du presse-papiers via le compte Microsoft, si elle est activée.",
+      "en": "Per-user service: a “cbdhsvc_xxxxx” copy is created for each session. Also handles clipboard sync through the Microsoft account, if turned on."
+    },
+    "expert": {
+      "fr": "svchost -k ClipboardSvcGroup, cbdhsvc.dll. Le type de démarrage se règle sur le modèle (HKLM\\SYSTEM\\CurrentControlSet\\Services\\cbdhsvc, valeur Start) ; SerWin ne modifie pas les copies par session.",
+      "en": "svchost -k ClipboardSvcGroup, cbdhsvc.dll. The startup type is set on the template (HKLM\\SYSTEM\\CurrentControlSet\\Services\\cbdhsvc, Start value); SerWin does not change per-session copies."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus d'historique du presse-papiers (Win+V)", "en": "No more clipboard history (Win+V)" },
+    { "fr": "Presse-papiers non synchronisé entre appareils", "en": "Clipboard not synced across devices" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

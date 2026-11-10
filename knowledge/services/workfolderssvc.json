@@ -1,0 +1,35 @@
+{
+  "name": "workfolderssvc",
+  "displayName": { "fr": "Dossiers de travail", "en": "Work Folders" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Synchronise des fichiers avec un serveur Dossiers de travail d'entreprise.",
+    "en": "Syncs files with a corporate Work Folders server."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction d'entreprise. Inutile chez soi.",
+      "en": "An enterprise feature. Useless at home."
+    },
+    "avance": {
+      "fr": "Ne fonctionne que si un serveur Dossiers de travail (Windows Server) a été configuré.",
+      "en": "Only works if a Work Folders server (Windows Server) has been configured."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, workfolderssvc.dll, LocalService.",
+      "en": "svchost -k LocalService, workfolderssvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Dossiers de travail non synchronisés", "en": "Work Folders not synced" }
+  ],
+  "revivers": [],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non joint à un domaine : les Dossiers de travail ne sont pas utilisés.", "en": "PC not domain-joined: Work Folders are not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

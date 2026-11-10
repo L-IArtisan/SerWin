@@ -1,0 +1,34 @@
+{
+  "name": "Steam Client Service",
+  "displayName": { "fr": "Steam Client Service", "en": "Steam Client Service" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Surveille et met à jour les contenus Steam.",
+    "en": "Monitors and updates Steam content."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu utilises Steam. Il démarre avec Steam.",
+      "en": "Useful if you use Steam. It starts with Steam."
+    },
+    "avance": {
+      "fr": "Permet à Steam d'installer jeux et composants (DirectX, redistribuables) sans demander les droits administrateur.",
+      "en": "Lets Steam install games and components (DirectX, redistributables) without asking for administrator rights."
+    },
+    "expert": {
+      "fr": "steamservice.exe /RunAsService, LocalSystem.",
+      "en": "steamservice.exe /RunAsService, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Installations et réparations de jeux Steam en échec", "en": "Steam game installs and repairs fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

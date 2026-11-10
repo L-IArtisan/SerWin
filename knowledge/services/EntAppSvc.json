@@ -1,0 +1,35 @@
+{
+  "name": "EntAppSvc",
+  "displayName": { "fr": "Service de gestion des applications d'entreprise", "en": "Enterprise App Management Service" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les applications déployées par une entreprise.",
+    "en": "Manages apps deployed by a company."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction d'entreprise. Inutile sur un PC personnel non géré.",
+      "en": "An enterprise feature. Useless on an unmanaged personal PC."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Utilisé par la gestion des appareils (MDM) pour installer des applications.",
+      "en": "Started on demand. Used by device management (MDM) to install apps."
+    },
+    "expert": {
+      "fr": "svchost (groupe appmodel, suffixé « RedirectionGuard » sur les builds récents), EnterpriseAppMgmtSvc.dll, LocalSystem.",
+      "en": "svchost (appmodel group, with a “RedirectionGuard” suffix on recent builds), EnterpriseAppMgmtSvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applications d'entreprise non installées", "en": "Enterprise apps not installed" }
+  ],
+  "revivers": [],
+  "usefulIf": { "mdmEnrolled": "true" },
+  "verdictIfNot": { "fr": "PC non géré par une entreprise.", "en": "PC not managed by a company." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "InventorySvc",
+  "displayName": { "fr": "Service d'Appraisal inventaire et compatibilité", "en": "Inventory and Compatibility Appraisal Service" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Inventorie le matériel et les logiciels pour vérifier la compatibilité avec les mises à jour.",
+    "en": "Inventories hardware and software to check compatibility with updates."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait l'inventaire de ton PC pour savoir si une grande mise à jour de Windows y fonctionnera. Ces informations alimentent aussi les données de diagnostic.",
+      "en": "Takes an inventory of your PC to know whether a major Windows update will work on it. This information also feeds diagnostic data."
+    },
+    "avance": {
+      "fr": "Démarrage automatique différé. Successeur de « Microsoft Compatibility Appraiser » (CompatTelRunner) pour une partie des vérifications.",
+      "en": "Delayed automatic start. Successor of “Microsoft Compatibility Appraiser” (CompatTelRunner) for part of the checks."
+    },
+    "expert": {
+      "fr": "svchost -k InvSvcGroup, inventorysvc.dll, LocalSystem.",
+      "en": "svchost -k InvSvcGroup, inventorysvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Vérifications de compatibilité avant mise à jour moins complètes", "en": "Less complete compatibility checks before updates" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

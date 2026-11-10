@@ -1,0 +1,35 @@
+{
+  "name": "wlpasvc",
+  "displayName": { "fr": "Service de l'Assistant de profil local", "en": "Local Profile Assistant Service" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les profils eSIM des modules d'identité d'abonné.",
+    "en": "Manages eSIM profiles for subscriber identity modules."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile seulement sur un PC avec eSIM (connexion 4G/5G).",
+      "en": "Only useful on a PC with an eSIM (4G/5G connection)."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Sans modem cellulaire, il ne sert pas.",
+      "en": "Started on demand. Without a cellular modem, it is not used."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, lpasvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, lpasvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Gestion des profils eSIM impossible", "en": "eSIM profile management impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : pas d'eSIM attendue.", "en": "Desktop PC: no eSIM expected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

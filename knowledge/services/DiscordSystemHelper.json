@@ -1,0 +1,34 @@
+{
+  "name": "DiscordSystemHelper",
+  "displayName": { "fr": "Discord System Helper", "en": "Discord System Helper" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Donne des droits administrateur à certains composants de Discord.",
+    "en": "Gives administrator rights to some Discord components."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par Discord pour certaines fonctions avancées. Il démarre à la demande.",
+      "en": "Used by Discord for some advanced features. It starts on demand."
+    },
+    "avance": {
+      "fr": "Selon Discord, améliore le fonctionnement de certains composants qui demandent des droits élevés.",
+      "en": "According to Discord, improves some components that need elevated rights."
+    },
+    "expert": {
+      "fr": "DiscordSystemHelper.exe service, LocalSystem.",
+      "en": "DiscordSystemHelper.exe service, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Certaines fonctions de Discord dégradées", "en": "Some Discord features degraded" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

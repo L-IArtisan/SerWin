@@ -1,0 +1,34 @@
+{
+  "name": "OneSyncSvc",
+  "displayName": { "fr": "Hôte de synchronisation", "en": "Sync Host" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Synchronise mails, contacts et agenda des applis intégrées.",
+    "en": "Syncs mail, contacts and calendar for built-in apps."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Synchronise les comptes mail, contacts et agendas des applis Windows. Si tu utilises un autre logiciel (Thunderbird, Outlook classique, Gmail en ligne), il ne sert pas.",
+      "en": "Syncs mail accounts, contacts and calendars for Windows apps. If you use other software (Thunderbird, classic Outlook, web Gmail), it is not used."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (OneSyncSvc_xxxxx). Le nouvel Outlook n'en dépend pas.",
+      "en": "Per-user service (OneSyncSvc_xxxxx). The new Outlook does not depend on it."
+    },
+    "expert": {
+      "fr": "svchost -k UnistackSvcGroup, APHostService.dll.",
+      "en": "svchost -k UnistackSvcGroup, APHostService.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Mails, contacts et agenda des applis intégrées non synchronisés", "en": "Built-in apps' mail, contacts and calendar not synced" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

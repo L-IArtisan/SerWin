@@ -1,0 +1,34 @@
+{
+  "name": "AarSvc",
+  "displayName": { "fr": "Runtime d'activation de l'agent", "en": "Agent Activation Runtime" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Activation des assistants vocaux (mot d'éveil, raccourci clavier).",
+    "en": "Activation of voice assistants (wake word, keyboard shortcut)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet à un assistant vocal de se lancer à la voix ou par raccourci. Inutile si tu n'en utilises pas.",
+      "en": "Lets a voice assistant start by voice or shortcut. Useless if you do not use one."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (AarSvc_xxxxx), démarré à la demande. Les autorisations d'activation vocale se règlent dans Paramètres > Confidentialité > Activation vocale.",
+      "en": "Per-user service (AarSvc_xxxxx), started on demand. Voice activation permissions are set in Settings > Privacy > Voice activation."
+    },
+    "expert": {
+      "fr": "svchost -k AarSvcGroup, AarSvc.dll.",
+      "en": "svchost -k AarSvcGroup, AarSvc.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Activation vocale des assistants impossible", "en": "Voice activation of assistants impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

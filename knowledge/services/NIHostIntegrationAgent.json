@@ -1,0 +1,34 @@
+{
+  "name": "NIHostIntegrationAgent",
+  "displayName": { "fr": "Native Instruments Host Integration Agent", "en": "Native Instruments Host Integration Agent" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les claviers Komplete Kontrol S et leur intégration aux logiciels musicaux.",
+    "en": "Manages Komplete Kontrol S keyboards and their integration with music software."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour un clavier Komplete Kontrol S. Sans ce clavier, inutile.",
+      "en": "Needed for a Komplete Kontrol S keyboard. Without that keyboard, useless."
+    },
+    "avance": {
+      "fr": "Assure l'intégration du clavier avec les logiciels hôtes (DAW).",
+      "en": "Integrates the keyboard with host software (DAW)."
+    },
+    "expert": {
+      "fr": "NIHostIntegrationAgent.exe, Common Files\\Native Instruments\\Hardware, LocalSystem.",
+      "en": "NIHostIntegrationAgent.exe, Common Files\\Native Instruments\\Hardware, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Clavier Komplete Kontrol S indisponible", "en": "Komplete Kontrol S keyboard unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

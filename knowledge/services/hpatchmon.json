@@ -1,0 +1,34 @@
+{
+  "name": "hpatchmon",
+  "displayName": { "fr": "Service de surveillance Hotpatch", "en": "Hotpatch Monitoring Service" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Surveille les mises à jour « à chaud » (sans redémarrage) et signale leurs échecs.",
+    "en": "Monitors “hot” updates (without reboot) and reports their failures."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Lié aux mises à jour qui s'installent sans redémarrer le PC. Rarement actif.",
+      "en": "Tied to updates that install without restarting the PC. Rarely active."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Le Hotpatch concerne surtout les éditions Entreprise et certaines configurations récentes.",
+      "en": "Started on demand. Hotpatch mostly concerns Enterprise editions and some recent configurations."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, hpatchmon.dll, LocalSystem. Écoute des fournisseurs ETW Hotpatch.",
+      "en": "svchost -k LocalSystemNetworkRestricted, hpatchmon.dll, LocalSystem. Listens to Hotpatch ETW providers."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Échecs de Hotpatch non signalés", "en": "Hotpatch failures not reported" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

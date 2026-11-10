@@ -1,0 +1,35 @@
+{
+  "name": "WFDSConMgrSvc",
+  "displayName": { "fr": "Gestionnaire de connexions Wi-Fi Direct", "en": "Wi-Fi Direct Services Connection Manager" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les connexions Wi-Fi Direct : affichage sans fil (Miracast), stations d'accueil sans fil.",
+    "en": "Manages Wi-Fi Direct connections: wireless display (Miracast), wireless docks."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile pour projeter ton écran sans fil sur une TV (Miracast). Sinon, rarement nécessaire.",
+      "en": "Useful to cast your screen wirelessly to a TV (Miracast). Otherwise rarely needed."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Nécessite une carte Wi-Fi compatible Wi-Fi Direct.",
+      "en": "Started on demand. Requires a Wi-Fi Direct-capable adapter."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, wfdsconmgrsvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, wfdsconmgrsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Projection sans fil (Miracast) impossible", "en": "Wireless display (Miracast) impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "wifi": "present" },
+  "verdictIfNot": { "fr": "Aucune carte Wi-Fi détectée.", "en": "No Wi-Fi adapter detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

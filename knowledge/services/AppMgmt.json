@@ -1,0 +1,35 @@
+{
+  "name": "AppMgmt",
+  "displayName": { "fr": "Gestion d'applications", "en": "Application Management" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Installe ou supprime les logiciels déployés par stratégie de groupe.",
+    "en": "Installs or removes software deployed through Group Policy."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction d'entreprise : sert quand un administrateur installe des logiciels à distance. Inutile chez soi.",
+      "en": "An enterprise feature: used when an administrator installs software remotely. Useless at home."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Traite les paquets MSI publiés ou attribués par GPO.",
+      "en": "Started on demand. Handles MSI packages published or assigned through GPO."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, appmgmts.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, appmgmts.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Logiciels déployés par stratégie non installables", "en": "Policy-deployed software cannot be installed" }
+  ],
+  "revivers": [],
+  "usefulIf": { "domainJoined": "true" },
+  "verdictIfNot": { "fr": "PC non joint à un domaine : aucun logiciel n'est déployé par stratégie.", "en": "PC not domain-joined: no software is deployed through policy." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

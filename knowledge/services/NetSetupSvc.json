@@ -1,0 +1,34 @@
+{
+  "name": "NetSetupSvc",
+  "displayName": { "fr": "Service de configuration réseau", "en": "Network Setup Service" },
+  "category": "network",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Installe et configure les pilotes et composants réseau.",
+    "en": "Installs and configures network drivers and components."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Intervient quand une carte réseau ou un VPN est installé. À laisser tel quel.",
+      "en": "Steps in when a network adapter or VPN is installed. Leave it as is."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Gère l'installation des composants réseau (protocoles, filtres).",
+      "en": "Started on demand. Handles installing network components (protocols, filters)."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, NetSetupSvc.dll, LocalSystem. Sa configuration est souvent illisible sans droits administrateur.",
+      "en": "svchost -k netsvcs, NetSetupSvc.dll, LocalSystem. Its configuration is often unreadable without administrator rights."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Installation de cartes réseau et de VPN en échec", "en": "Network adapter and VPN installs fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

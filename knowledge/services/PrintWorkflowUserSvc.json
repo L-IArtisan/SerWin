@@ -1,0 +1,35 @@
+{
+  "name": "PrintWorkflowUserSvc",
+  "displayName": { "fr": "Flux de travail d'impression", "en": "Print Workflow" },
+  "category": "printing",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Applications d'assistance d'imprimante pendant l'impression.",
+    "en": "Printer support apps during printing."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet aux applis du fabricant d'imprimante d'intervenir pendant l'impression. Inutile sans imprimante.",
+      "en": "Lets printer maker apps step in during printing. Useless without a printer."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (PrintWorkflowUserSvc_xxxxx), démarré à la demande.",
+      "en": "Per-user service (PrintWorkflowUserSvc_xxxxx), started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k PrintWorkflow, PrintWorkflowService.dll.",
+      "en": "svchost -k PrintWorkflow, PrintWorkflowService.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Options avancées de certaines imprimantes indisponibles", "en": "Advanced options of some printers unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": { "printers": ">0" },
+  "verdictIfNot": { "fr": "Aucune imprimante détectée.", "en": "No printer detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

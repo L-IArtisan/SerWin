@@ -1,0 +1,34 @@
+{
+  "name": "WMIRegistrationService",
+  "displayName": { "fr": "Intel Management Engine WMI Provider Registration", "en": "Intel Management Engine WMI Provider Registration" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Enregistre le fournisseur WMI de l'Intel Management Engine.",
+    "en": "Registers the Intel Management Engine WMI provider."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec les pilotes Intel ME. Sert aux outils d'administration ; peu utile chez soi.",
+      "en": "Installed with Intel ME drivers. Used by administration tools; of little use at home."
+    },
+    "avance": {
+      "fr": "Expose des informations de l'Intel ME via WMI (gestion d'entreprise, vPro).",
+      "en": "Exposes Intel ME information through WMI (enterprise management, vPro)."
+    },
+    "expert": {
+      "fr": "WMIRegistrationService.exe dans DriverStore\\FileRepository\\mewmiprov.inf_*, LocalSystem.",
+      "en": "WMIRegistrationService.exe in DriverStore\\FileRepository\\mewmiprov.inf_*, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Informations Intel ME absentes des outils de gestion", "en": "Intel ME information missing from management tools" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

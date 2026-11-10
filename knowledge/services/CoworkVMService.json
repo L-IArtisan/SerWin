@@ -1,0 +1,34 @@
+{
+  "name": "CoworkVMService",
+  "displayName": { "fr": "Claude (Cowork)", "en": "Claude (Cowork)" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service de l'application de bureau Claude (fonction Cowork).",
+    "en": "Claude desktop app service (Cowork feature)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec l'application Claude d'Anthropic. Utile seulement si tu utilises Claude sur ton PC.",
+      "en": "Installed with Anthropic's Claude app. Only useful if you use Claude on your PC."
+    },
+    "avance": {
+      "fr": "Démarrage automatique. Son nom suggère une machine virtuelle pour la fonction « Cowork » ; rôle exact non documenté publiquement.",
+      "en": "Automatic start. Its name suggests a virtual machine for the “Cowork” feature; exact role not publicly documented."
+    },
+    "expert": {
+      "fr": "cowork-svc.exe dans le dossier WindowsApps de l'application Claude, LocalSystem.",
+      "en": "cowork-svc.exe in the Claude app's WindowsApps folder, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fonction Cowork de Claude indisponible", "en": "Claude's Cowork feature unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

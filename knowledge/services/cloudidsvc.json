@@ -1,0 +1,35 @@
+{
+  "name": "cloudidsvc",
+  "displayName": { "fr": "Service d'identité de Microsoft Cloud", "en": "Microsoft Cloud Identity Service" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Intégration avec les services d'identité cloud de Microsoft (restrictions de locataire).",
+    "en": "Integration with Microsoft cloud identity services (tenant restrictions)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction d'entreprise liée aux comptes professionnels. Rarement utile chez soi.",
+      "en": "An enterprise feature tied to work accounts. Rarely useful at home."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Applique les « restrictions de locataire » configurées par une entreprise.",
+      "en": "Started on demand. Enforces “tenant restrictions” configured by a company."
+    },
+    "expert": {
+      "fr": "svchost -k CloudIdServiceGroup, cloudidsvc.dll, NetworkService.",
+      "en": "svchost -k CloudIdServiceGroup, cloudidsvc.dll, NetworkService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Restrictions de locataire non appliquées", "en": "Tenant restrictions not enforced" }
+  ],
+  "revivers": [],
+  "usefulIf": { "mdmEnrolled": "true" },
+  "verdictIfNot": { "fr": "PC non géré par une entreprise.", "en": "PC not managed by a company." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

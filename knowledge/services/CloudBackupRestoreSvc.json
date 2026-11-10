@@ -1,0 +1,34 @@
+{
+  "name": "CloudBackupRestoreSvc",
+  "displayName": { "fr": "Service de sauvegarde et restauration dans le cloud", "en": "Cloud Backup and Restore Service" },
+  "category": "storage",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Sauvegarde et restauration des paramètres et applis via l'application Sauvegarde Windows.",
+    "en": "Backs up and restores settings and apps through the Windows Backup app."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé par « Sauvegarde Windows » pour enregistrer tes paramètres dans ton compte Microsoft et les restaurer sur un nouveau PC.",
+      "en": "Used by “Windows Backup” to save your settings to your Microsoft account and restore them on a new PC."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (CloudBackupRestoreSvc_xxxxx), démarré à la demande.",
+      "en": "Per-user service (CloudBackupRestoreSvc_xxxxx), started on demand."
+    },
+    "expert": {
+      "fr": "svchost, CloudRestoreLauncher.dll.",
+      "en": "svchost, CloudRestoreLauncher.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Sauvegarde et restauration Windows dans le cloud indisponibles", "en": "Windows cloud backup and restore unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

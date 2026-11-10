@@ -1,0 +1,34 @@
+{
+  "name": "Intel(R) TPM Provisioning Service",
+  "displayName": { "fr": "Intel TPM Provisioning Service", "en": "Intel TPM Provisioning Service" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Préparation du TPM intégré (Intel PTT) par le pilote Intel.",
+    "en": "Provisioning of the built-in TPM (Intel PTT) by the Intel driver."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec les pilotes Intel pour préparer la puce de sécurité (TPM). À laisser tel quel si tu utilises BitLocker ou Windows Hello.",
+      "en": "Installed with Intel drivers to prepare the security chip (TPM). Leave it as is if you use BitLocker or Windows Hello."
+    },
+    "avance": {
+      "fr": "Fait partie du composant Intel ICLS (iclsclient.inf).",
+      "en": "Part of the Intel ICLS component (iclsclient.inf)."
+    },
+    "expert": {
+      "fr": "TPMProvisioningService.exe dans DriverStore\\FileRepository\\iclsclient.inf_*, LocalSystem.",
+      "en": "TPMProvisioningService.exe in DriverStore\\FileRepository\\iclsclient.inf_*, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Préparation du TPM Intel non effectuée", "en": "Intel TPM provisioning not done" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

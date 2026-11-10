@@ -1,0 +1,34 @@
+{
+  "name": "WSAIFabricSvc",
+  "displayName": { "fr": "Hôte des composants IA Windows", "en": "Windows AI Components Host" },
+  "category": "core",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fournit les composants d'intelligence artificielle de Windows aux applications et services.",
+    "en": "Provides Windows AI components to apps and services."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner les fonctions d'IA intégrées à Windows (par exemple certaines recherches ou effets). Service récent : son rôle exact évolue d'une version à l'autre.",
+      "en": "Powers the AI features built into Windows (for example some search features or effects). A recent service: its exact role changes from one version to another."
+    },
+    "avance": {
+      "fr": "Démarrage automatique. Les fonctions qui en dépendent varient selon le matériel (PC Copilot+ avec NPU) et la version de Windows ; l'impact d'un arrêt n'est pas encore bien documenté.",
+      "en": "Automatic start. The features depending on it vary with hardware (Copilot+ PCs with an NPU) and Windows version; the impact of stopping it is not well documented yet."
+    },
+    "expert": {
+      "fr": "svchost -k WSAIFabricSvcGroup, WSAIFabricHost.dll, LocalService.",
+      "en": "svchost -k WSAIFabricSvcGroup, WSAIFabricHost.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fonctions d'IA de Windows indisponibles (liste non documentée)", "en": "Windows AI features unavailable (list not documented)" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

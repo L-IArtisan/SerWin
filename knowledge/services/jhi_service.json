@@ -1,0 +1,34 @@
+{
+  "name": "jhi_service",
+  "displayName": { "fr": "Intel Dynamic Application Loader Host Interface", "en": "Intel Dynamic Application Loader Host Interface" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet aux applications d'utiliser les applets sécurisées du moteur Intel ME (DAL).",
+    "en": "Lets apps use secure applets in the Intel ME engine (DAL)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec les pilotes Intel. Quelques logiciels (sécurité, lecture vidéo protégée) s'en servent ; la plupart des PC fonctionnent sans.",
+      "en": "Installed with Intel drivers. A few programs (security, protected video playback) use it; most PCs work without it."
+    },
+    "avance": {
+      "fr": "Fait partie de l'Intel Management Engine. Installé par le pilote dal.inf (DriverStore).",
+      "en": "Part of the Intel Management Engine. Installed by the dal.inf driver (DriverStore)."
+    },
+    "expert": {
+      "fr": "jhi_service.exe dans DriverStore\\FileRepository\\dal.inf_*, LocalSystem.",
+      "en": "jhi_service.exe in DriverStore\\FileRepository\\dal.inf_*, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Logiciels utilisant Intel DAL en échec (rare)", "en": "Software using Intel DAL fails (rare)" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

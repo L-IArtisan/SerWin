@@ -1,0 +1,34 @@
+{
+  "name": "ConsentUxUserSvc",
+  "displayName": { "fr": "ConsentUX", "en": "ConsentUX" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Demande ton accord avant une connexion à un appareil sans fil (affichage, Bluetooth).",
+    "en": "Asks for your consent before connecting to a wireless device (display, Bluetooth)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Affiche la fenêtre « Autoriser la connexion ? » pour les appareils sans fil.",
+      "en": "Shows the “Allow connection?” window for wireless devices."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (ConsentUxUserSvc_xxxxx), démarré à la demande.",
+      "en": "Per-user service (ConsentUxUserSvc_xxxxx), started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k DevicesFlow, ConsentUxClient.dll.",
+      "en": "svchost -k DevicesFlow, ConsentUxClient.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion à certains appareils sans fil impossible", "en": "Connecting to some wireless devices impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

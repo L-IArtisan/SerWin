@@ -1,0 +1,34 @@
+{
+  "name": "LocalKdc",
+  "displayName": { "fr": "Centre local de distribution de clés Kerberos", "en": "Local Kerberos Key Distribution Center" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet l'authentification Kerberos pour les comptes locaux de la machine.",
+    "en": "Enables Kerberos authentication for the machine's local accounts."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Composant récent de sécurité qui modernise la connexion avec les comptes locaux. À laisser tel quel.",
+      "en": "A recent security component that modernizes sign-in with local accounts. Leave it as is."
+    },
+    "avance": {
+      "fr": "Fait partie du remplacement progressif de NTLM par Kerberos, y compris hors domaine. Windows indique que, s'il est arrêté, les connexions locales qui en dépendent échouent.",
+      "en": "Part of the gradual replacement of NTLM by Kerberos, including outside a domain. Windows states that if it is stopped, local sign-ins that depend on it fail."
+    },
+    "expert": {
+      "fr": "Hébergé dans lsass.exe (localkdcsvc.dll), LocalSystem. Démarré à la demande.",
+      "en": "Hosted in lsass.exe (localkdcsvc.dll), LocalSystem. Started on demand."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexions locales par Kerberos impossibles", "en": "Local Kerberos sign-ins impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

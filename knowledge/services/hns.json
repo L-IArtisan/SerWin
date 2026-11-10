@@ -1,0 +1,35 @@
+{
+  "name": "hns",
+  "displayName": { "fr": "Service de réseau hôte", "en": "Host Network Service" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Réseau virtuel des conteneurs et machines virtuelles (WSL 2, Docker, Sandbox).",
+    "en": "Virtual networking for containers and VMs (WSL 2, Docker, Sandbox)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fournit le réseau à WSL 2, Docker ou Windows Sandbox. Inutile sans ces outils.",
+      "en": "Provides networking to WSL 2, Docker or Windows Sandbox. Useless without these tools."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Crée les réseaux NAT virtuels utilisés par les conteneurs.",
+      "en": "Started on demand. Creates the virtual NAT networks used by containers."
+    },
+    "expert": {
+      "fr": "svchost -k NetSvcs, HostNetSvc.dll, LocalSystem.",
+      "en": "svchost -k NetSvcs, HostNetSvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de réseau dans WSL 2, Docker et Sandbox", "en": "No networking in WSL 2, Docker and Sandbox" }
+  ],
+  "revivers": [],
+  "usefulIf": { "hypervisor": "present" },
+  "verdictIfNot": { "fr": "Aucun hyperviseur actif.", "en": "No active hypervisor." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

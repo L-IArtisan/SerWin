@@ -1,0 +1,37 @@
+{
+  "name": "brave",
+  "aliases": [ "bravem" ],
+  "displayName": { "fr": "Service Brave Update", "en": "Brave Update Service" },
+  "category": "maintenance",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Mises à jour du navigateur Brave.",
+    "en": "Brave browser updates."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Garde Brave à jour. Le désactiver laisse des failles de sécurité non corrigées.",
+      "en": "Keeps Brave up to date. Disabling it leaves security flaws unfixed."
+    },
+    "avance": {
+      "fr": "Deux services (brave et bravem) et des tâches planifiées « BraveSoftwareUpdateTask… » qui les lancent. Se désinstallent quand Brave est supprimé.",
+      "en": "Two services (brave and bravem) and “BraveSoftwareUpdateTask…” scheduled tasks that launch them. Uninstalled when Brave is removed."
+    },
+    "expert": {
+      "fr": "BraveUpdate.exe /svc et /medsvc (Omaha), LocalSystem.",
+      "en": "BraveUpdate.exe /svc and /medsvc (Omaha), LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Brave plus mis à jour", "en": "Brave no longer updated" }
+  ],
+  "revivers": [
+    { "type": "task", "target": "\\BraveSoftwareUpdateTask*" }
+  ],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

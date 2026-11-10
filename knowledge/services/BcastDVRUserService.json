@@ -1,0 +1,35 @@
+{
+  "name": "BcastDVRUserService",
+  "displayName": { "fr": "Service utilisateur de diffusion et GameDVR", "en": "GameDVR and Broadcast User Service" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Enregistrement et diffusion de jeux (Xbox Game Bar).",
+    "en": "Game recording and broadcasting (Xbox Game Bar)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert à enregistrer des clips de jeu avec la Xbox Game Bar (Win+G). Inutile si tu ne t'en sers pas.",
+      "en": "Used to record game clips with the Xbox Game Bar (Win+G). Useless if you do not use it."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (BcastDVRUserService_xxxxx). La capture en arrière-plan se désactive dans Paramètres > Jeux > Captures.",
+      "en": "Per-user service (BcastDVRUserService_xxxxx). Background capture can be turned off in Settings > Gaming > Captures."
+    },
+    "expert": {
+      "fr": "svchost -k BcastDVRUserService, BcastDVRUserService.dll.",
+      "en": "svchost -k BcastDVRUserService, BcastDVRUserService.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Enregistrement et diffusion de jeux impossibles", "en": "Game recording and broadcasting impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": { "xboxApps": "installed" },
+  "verdictIfNot": { "fr": "Aucune application ou jeu Xbox détecté.", "en": "No Xbox app or game detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

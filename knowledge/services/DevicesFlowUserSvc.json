@@ -1,0 +1,34 @@
+{
+  "name": "DevicesFlowUserSvc",
+  "displayName": { "fr": "DevicesFlow", "en": "DevicesFlow" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Interface d'ajout et de connexion d'appareils (Bluetooth, écrans sans fil).",
+    "en": "Interface to add and connect devices (Bluetooth, wireless displays)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner la fenêtre « Ajouter un appareil ».",
+      "en": "Powers the “Add a device” window."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (DevicesFlowUserSvc_xxxxx), démarré à la demande.",
+      "en": "Per-user service (DevicesFlowUserSvc_xxxxx), started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k DevicesFlow, DevicesFlowBroker.dll.",
+      "en": "svchost -k DevicesFlow, DevicesFlowBroker.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Ajout d'appareils sans fil impossible", "en": "Adding wireless devices impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

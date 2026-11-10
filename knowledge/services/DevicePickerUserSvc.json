@@ -1,0 +1,34 @@
+{
+  "name": "DevicePickerUserSvc",
+  "displayName": { "fr": "Sélecteur de périphériques", "en": "Device Picker" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Fenêtre de choix d'un appareil (projection, Cast).",
+    "en": "Device selection window (projection, Cast)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Affiche la liste des écrans ou appareils disponibles, par exemple pour projeter.",
+      "en": "Shows the list of available displays or devices, for example to project."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (DevicePickerUserSvc_xxxxx), démarré à la demande.",
+      "en": "Per-user service (DevicePickerUserSvc_xxxxx), started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k DevicesFlow, Windows.Devices.Picker.dll.",
+      "en": "svchost -k DevicesFlow, Windows.Devices.Picker.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Choix d'un appareil de projection impossible", "en": "Choosing a projection device impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

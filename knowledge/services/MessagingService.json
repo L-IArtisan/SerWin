@@ -1,0 +1,35 @@
+{
+  "name": "MessagingService",
+  "displayName": { "fr": "Service de messagerie", "en": "Messaging Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Prend en charge la messagerie texte (SMS/MMS) et ses fonctions associées.",
+    "en": "Supports text messaging (SMS/MMS) and related features."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne sert que pour les SMS sur un PC avec carte SIM. Inutile sinon.",
+      "en": "Only used for SMS on a PC with a SIM card. Useless otherwise."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (MessagingService_xxxxx).",
+      "en": "Per-user service (MessagingService_xxxxx)."
+    },
+    "expert": {
+      "fr": "svchost -k UnistackSvcGroup, MessagingService.dll.",
+      "en": "svchost -k UnistackSvcGroup, MessagingService.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "SMS indisponibles (PC avec carte SIM)", "en": "SMS unavailable (PC with a SIM card)" }
+  ],
+  "revivers": [],
+  "usefulIf": { "laptop": "true" },
+  "verdictIfNot": { "fr": "PC fixe : pas de carte SIM attendue.", "en": "Desktop PC: no SIM card expected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

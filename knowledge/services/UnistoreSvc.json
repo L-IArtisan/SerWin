@@ -1,0 +1,34 @@
+{
+  "name": "UnistoreSvc",
+  "displayName": { "fr": "Stockage des données utilisateur", "en": "User Data Storage" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Stocke les données structurées de l'utilisateur : contacts, agenda, messages.",
+    "en": "Stores the user's structured data: contacts, calendar, messages."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Base de données des contacts, agendas et messages utilisés par les applis Windows. À laisser si tu utilises ces applis.",
+      "en": "Database of contacts, calendars and messages used by Windows apps. Keep it if you use those apps."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (UnistoreSvc_xxxxx), utilisé avec UserDataSvc et OneSyncSvc.",
+      "en": "Per-user service (UnistoreSvc_xxxxx), used with UserDataSvc and OneSyncSvc."
+    },
+    "expert": {
+      "fr": "svchost -k UnistackSvcGroup, unistore.dll.",
+      "en": "svchost -k UnistackSvcGroup, unistore.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Contacts et agenda des applis indisponibles", "en": "Apps' contacts and calendar unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "EasyAntiCheat",
+  "aliases": [ "EasyAntiCheat_EOS" ],
+  "displayName": { "fr": "EasyAntiCheat", "en": "EasyAntiCheat" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Anti-triche d'Epic Games pour les jeux multijoueurs.",
+    "en": "Epic Games anti-cheat for multiplayer games."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour les jeux en ligne qui l'utilisent. Il ne démarre qu'avec ces jeux.",
+      "en": "Required by online games that use it. It only starts with those games."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par les jeux. Le désactiver empêche ces jeux de se connecter à leurs serveurs.",
+      "en": "Started on demand by games. Disabling it prevents those games from connecting to their servers."
+    },
+    "expert": {
+      "fr": "EasyAntiCheat.exe (ou EasyAntiCheat_EOS.exe), LocalSystem.",
+      "en": "EasyAntiCheat.exe (or EasyAntiCheat_EOS.exe), LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Jeux protégés par EasyAntiCheat injouables en ligne", "en": "EasyAntiCheat-protected games unplayable online" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

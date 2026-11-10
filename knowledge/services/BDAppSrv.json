@@ -1,0 +1,34 @@
+{
+  "name": "BDAppSrv",
+  "displayName": { "fr": "Bitdefender App Service", "en": "Bitdefender App Service" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Modules (plugins) de l'application Bitdefender.",
+    "en": "Plugins of the Bitdefender app."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner l'interface et les modules de l'application Bitdefender.",
+      "en": "Powers the Bitdefender app interface and plugins."
+    },
+    "avance": {
+      "fr": "Hébergé par bdservicehost.exe (configuration bdappsrv), dossier « Bitdefender Security App ».",
+      "en": "Hosted by bdservicehost.exe (bdappsrv configuration), “Bitdefender Security App” folder."
+    },
+    "expert": {
+      "fr": "bdservicehost.exe \"settings/services/configs/bdappsrv_config.json\", LocalSystem.",
+      "en": "bdservicehost.exe \"settings/services/configs/bdappsrv_config.json\", LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Application Bitdefender incomplète", "en": "Incomplete Bitdefender app" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

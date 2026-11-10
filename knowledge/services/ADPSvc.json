@@ -1,0 +1,34 @@
+{
+  "name": "ADPSvc",
+  "displayName": { "fr": "Service de plateforme de données agrégées", "en": "Aggregated Data Platform Service" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Service récent pour des scénarios de « plateforme de données agrégées », peu documenté.",
+    "en": "A recent service for “aggregated data platform” scenarios, poorly documented."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Windows ne donne qu'une description très vague de ce service récent. Il démarre à la demande.",
+      "en": "Windows gives only a very vague description of this recent service. It starts on demand."
+    },
+    "avance": {
+      "fr": "Son rôle exact n'est pas documenté publiquement ; prudence avant de le modifier.",
+      "en": "Its exact role is not publicly documented; be careful before changing it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceAndNoImpersonation, adpsvc.dll, LocalService.",
+      "en": "svchost -k LocalServiceAndNoImpersonation, adpsvc.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Effet non documenté", "en": "Effect not documented" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

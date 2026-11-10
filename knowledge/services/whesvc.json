@@ -1,0 +1,34 @@
+{
+  "name": "whesvc",
+  "displayName": { "fr": "Intégrité de Windows et expériences optimisées", "en": "Windows Health and Optimized Experiences" },
+  "category": "diagnostics",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Surveille l'appareil pour améliorer l'expérience utilisateur.",
+    "en": "Monitors the device to improve the user experience."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Surveille l'état du PC pour proposer des améliorations. Service récent, peu documenté.",
+      "en": "Monitors the PC's health to suggest improvements. A recent, poorly documented service."
+    },
+    "avance": {
+      "fr": "Démarrage automatique. Microsoft ne détaille pas publiquement les données collectées ni les fonctions qui en dépendent.",
+      "en": "Automatic start. Microsoft does not publicly detail the data collected or the features that depend on it."
+    },
+    "expert": {
+      "fr": "svchost -k whesvc, whesvc.dll, LocalSystem.",
+      "en": "svchost -k whesvc, whesvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Effet non documenté", "en": "Effect not documented" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

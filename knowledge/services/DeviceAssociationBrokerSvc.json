@@ -1,0 +1,34 @@
+{
+  "name": "DeviceAssociationBrokerSvc",
+  "displayName": { "fr": "Service Broker d'association de périphériques", "en": "Device Association Broker" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Permet aux applis d'associer de nouveaux appareils.",
+    "en": "Lets apps pair new devices."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utilisé quand une appli te propose d'associer un appareil (casque, montre…).",
+      "en": "Used when an app offers to pair a device (headphones, watch…)."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (DeviceAssociationBrokerSvc_xxxxx), démarré à la demande.",
+      "en": "Per-user service (DeviceAssociationBrokerSvc_xxxxx), started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k DevicesFlow, deviceaccess.dll.",
+      "en": "svchost -k DevicesFlow, deviceaccess.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Association d'appareils depuis les applis impossible", "en": "Pairing devices from apps impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

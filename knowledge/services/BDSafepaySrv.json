@@ -1,0 +1,34 @@
+{
+  "name": "BDSafepaySrv",
+  "displayName": { "fr": "Bitdefender Safepay Service", "en": "Bitdefender Safepay Service" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Navigateur sécurisé Safepay de Bitdefender pour les paiements en ligne.",
+    "en": "Bitdefender's Safepay secure browser for online payments."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait fonctionner Safepay, le navigateur protégé pour la banque en ligne. Inutile si tu ne t'en sers pas, mais il fait partie de Bitdefender.",
+      "en": "Powers Safepay, the protected browser for online banking. Useless if you do not use it, but it is part of Bitdefender."
+    },
+    "avance": {
+      "fr": "Hébergé par bdservicehost.exe (configuration bdsafepaysrv).",
+      "en": "Hosted by bdservicehost.exe (bdsafepaysrv configuration)."
+    },
+    "expert": {
+      "fr": "bdservicehost.exe \"settings/services/configs/bdsafepaysrv_config.json\", LocalSystem.",
+      "en": "bdservicehost.exe \"settings/services/configs/bdsafepaysrv_config.json\", LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Safepay indisponible", "en": "Safepay unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

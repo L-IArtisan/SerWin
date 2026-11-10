@@ -1,0 +1,34 @@
+{
+  "name": "midisrv",
+  "displayName": { "fr": "Service MIDI de Windows", "en": "Windows MIDI Service" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Achemine les messages MIDI 1.0 et 2.0 et énumère les appareils MIDI.",
+    "en": "Routes MIDI 1.0 and 2.0 messages and enumerates MIDI devices."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu utilises des instruments ou contrôleurs MIDI (claviers, contrôleurs DJ).",
+      "en": "Useful if you use MIDI instruments or controllers (keyboards, DJ controllers)."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Nouveau service des « Windows MIDI Services », qui permet à plusieurs applis de partager un même appareil MIDI.",
+      "en": "Started on demand. New service of “Windows MIDI Services”, which lets several apps share the same MIDI device."
+    },
+    "expert": {
+      "fr": "midisrv.exe, LocalService.",
+      "en": "midisrv.exe, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Appareils MIDI non reconnus par les applis récentes", "en": "MIDI devices not recognized by recent apps" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

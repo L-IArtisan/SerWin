@@ -1,0 +1,34 @@
+{
+  "name": "svsvc",
+  "displayName": { "fr": "Vérificateur de points", "en": "Spot Verifier" },
+  "category": "storage",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Vérifie les dommages potentiels du système de fichiers.",
+    "en": "Checks for potential file system damage."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Contrôle discrètement l'état des disques quand Windows soupçonne un problème. À laisser tel quel.",
+      "en": "Quietly checks drive health when Windows suspects a problem. Leave it as is."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Vérifie les secteurs signalés avant de planifier une réparation (chkdsk).",
+      "en": "Started on demand. Checks flagged sectors before scheduling a repair (chkdsk)."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, svsvc.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, svsvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Problèmes de disque détectés plus tard", "en": "Disk problems detected later" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

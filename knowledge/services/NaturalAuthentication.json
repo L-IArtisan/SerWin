@@ -1,0 +1,35 @@
+{
+  "name": "NaturalAuthentication",
+  "displayName": { "fr": "Authentification naturelle", "en": "Natural Authentication" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Évalue des signaux (heure, réseau, Bluetooth) pour le verrouillage dynamique et le déverrouillage d'appareil.",
+    "en": "Evaluates signals (time, network, Bluetooth) for Dynamic Lock and device unlock."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Sert au « Verrouillage dynamique », qui verrouille le PC quand ton téléphone Bluetooth s'éloigne. Si tu n'utilises pas cette fonction, il ne sert à rien.",
+      "en": "Used by “Dynamic lock”, which locks the PC when your Bluetooth phone moves away. If you do not use this feature, it is useless."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Agrège des signaux (Bluetooth, réseau, heure) pour les stratégies Verrouillage dynamique et Déverrouillage d'appareil, y compris gérées par MDM.",
+      "en": "Started on demand. Aggregates signals (Bluetooth, network, time) for the Dynamic Lock and Device Unlock policies, including MDM-managed ones."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, NaturalAuth.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, NaturalAuth.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Verrouillage dynamique inopérant", "en": "Dynamic lock stops working" }
+  ],
+  "revivers": [],
+  "usefulIf": { "bluetooth": "present" },
+  "verdictIfNot": { "fr": "Aucun Bluetooth détecté : le verrouillage dynamique est impossible ici.", "en": "No Bluetooth detected: dynamic lock is impossible here." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "NPSMSvc",
+  "displayName": { "fr": "Gestionnaire de session « En cours de lecture »", "en": "Now Playing Session Manager" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Commandes multimédia du système (lecture en cours dans les paramètres rapides et l'écran de verrouillage).",
+    "en": "System media controls (now playing in quick settings and the lock screen)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Affiche ce qui est en cours de lecture et les boutons lecture/pause dans Windows. Sans lui, ces commandes disparaissent ; la lecture elle-même continue.",
+      "en": "Shows what is playing and the play/pause buttons in Windows. Without it, these controls disappear; playback itself continues."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (NPSMSvc_xxxxx). Les touches multimédia du clavier passent aussi par lui.",
+      "en": "Per-user service (NPSMSvc_xxxxx). Keyboard media keys also go through it."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, npsm.dll.",
+      "en": "svchost -k LocalService, npsm.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Plus de commandes multimédia système ni de touches multimédia", "en": "No more system media controls or media keys" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

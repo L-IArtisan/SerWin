@@ -1,0 +1,34 @@
+{
+  "name": "webthreatdefusersvc",
+  "displayName": { "fr": "Service utilisateur Web Threat Defense", "en": "Web Threat Defense User Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Partie « utilisateur » de la protection contre le vol de mots de passe.",
+    "en": "User part of password theft protection."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Complément du service Web Threat Defense (protection contre l'hameçonnage). À laisser tel quel.",
+      "en": "Companion of the Web Threat Defense service (phishing protection). Leave it as is."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (webthreatdefusersvc_xxxxx), lié à la protection améliorée contre l'hameçonnage de SmartScreen.",
+      "en": "Per-user service (webthreatdefusersvc_xxxxx), tied to SmartScreen's enhanced phishing protection."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, webthreatdefusersvc.dll.",
+      "en": "svchost -k LocalSystemNetworkRestricted, webthreatdefusersvc.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Protection contre l'hameçonnage réduite", "en": "Reduced phishing protection" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

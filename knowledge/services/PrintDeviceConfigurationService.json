@@ -1,0 +1,35 @@
+{
+  "name": "PrintDeviceConfigurationService",
+  "displayName": { "fr": "Service de configuration du périphérique d'impression", "en": "Print Device Configuration Service" },
+  "category": "printing",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère l'installation des imprimantes réseau modernes (IPP, Impression universelle).",
+    "en": "Manages installation of modern network printers (IPP, Universal Print)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Intervient quand tu ajoutes une imprimante réseau. Utile si tu imprimes.",
+      "en": "Steps in when you add a network printer. Useful if you print."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Windows indique que l'arrêter annule les installations d'imprimantes en cours.",
+      "en": "Started on demand. Windows states that stopping it cancels printer installations in progress."
+    },
+    "expert": {
+      "fr": "svchost -k LocalSystemNetworkRestricted, PrintDeviceConfigurationService.dll, LocalSystem.",
+      "en": "svchost -k LocalSystemNetworkRestricted, PrintDeviceConfigurationService.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Ajout d'imprimantes réseau en échec", "en": "Adding network printers fails" }
+  ],
+  "revivers": [],
+  "usefulIf": { "printers": ">0" },
+  "verdictIfNot": { "fr": "Aucune imprimante détectée.", "en": "No printer detected." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "BDProtSrv",
+  "displayName": { "fr": "Bitdefender Protected Service", "en": "Bitdefender Protected Service" },
+  "category": "security",
+  "risk": "moyen",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Composants protégés de Bitdefender (autoprotection, modules sensibles).",
+    "en": "Bitdefender's protected components (self-protection, sensitive modules)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait partie de l'antivirus Bitdefender. Ne pas le désactiver.",
+      "en": "Part of the Bitdefender antivirus. Do not disable it."
+    },
+    "avance": {
+      "fr": "Hébergé par bdservicehost.exe (configuration bdprotsrv). Bitdefender ne documente pas publiquement la liste exacte de ses modules.",
+      "en": "Hosted by bdservicehost.exe (bdprotsrv configuration). Bitdefender does not publicly document the exact list of its modules."
+    },
+    "expert": {
+      "fr": "bdservicehost.exe \"settings\\services\\configs\\bdprotsrv_config.json\", LocalSystem.",
+      "en": "bdservicehost.exe \"settings\\services\\configs\\bdprotsrv_config.json\", LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Protection Bitdefender incomplète", "en": "Incomplete Bitdefender protection" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

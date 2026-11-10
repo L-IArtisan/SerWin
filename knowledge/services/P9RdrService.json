@@ -1,0 +1,35 @@
+{
+  "name": "P9RdrService",
+  "displayName": { "fr": "Redirecteur de fichiers Plan 9", "en": "Plan 9 File Redirector" },
+  "category": "virtualization",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Accès aux fichiers Linux de WSL depuis l'Explorateur (\\\\wsl$).",
+    "en": "Access to WSL Linux files from File Explorer (\\\\wsl$)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne sert que si tu utilises WSL (Linux dans Windows).",
+      "en": "Only used if you use WSL (Linux in Windows)."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (P9RdrService_xxxxx), démarré à la demande.",
+      "en": "Per-user service (P9RdrService_xxxxx), started on demand."
+    },
+    "expert": {
+      "fr": "svchost -k P9RdrService, p9rdrservice.dll. Protocole 9P.",
+      "en": "svchost -k P9RdrService, p9rdrservice.dll. 9P protocol."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fichiers WSL invisibles dans l'Explorateur", "en": "WSL files invisible in File Explorer" }
+  ],
+  "revivers": [],
+  "usefulIf": { "hypervisor": "present" },
+  "verdictIfNot": { "fr": "Aucun hyperviseur actif : WSL 2 n'est pas utilisé.", "en": "No active hypervisor: WSL 2 is not used." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

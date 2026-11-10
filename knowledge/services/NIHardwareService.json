@@ -1,0 +1,34 @@
+{
+  "name": "NIHardwareService",
+  "displayName": { "fr": "Native Instruments Hardware Service", "en": "Native Instruments Hardware Service" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Gère les contrôleurs matériels Native Instruments.",
+    "en": "Manages Native Instruments controller hardware."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire pour utiliser un contrôleur ou une interface audio Native Instruments. Sans ce matériel, inutile.",
+      "en": "Needed to use a Native Instruments controller or audio interface. Without that hardware, useless."
+    },
+    "avance": {
+      "fr": "Selon sa description, le matériel devient indisponible s'il est arrêté.",
+      "en": "According to its description, the hardware becomes unavailable if it is stopped."
+    },
+    "expert": {
+      "fr": "NIHardwareService.exe, Common Files\\Native Instruments\\Hardware, LocalSystem.",
+      "en": "NIHardwareService.exe, Common Files\\Native Instruments\\Hardware, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Contrôleurs Native Instruments indisponibles", "en": "Native Instruments controllers unavailable" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

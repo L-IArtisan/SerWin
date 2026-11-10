@@ -1,0 +1,34 @@
+{
+  "name": "UserDataSvc",
+  "displayName": { "fr": "Accès aux données utilisateur", "en": "User Data Access" },
+  "category": "privacy",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": true,
+  "summary": {
+    "fr": "Donne aux applis l'accès (autorisé) aux contacts, à l'agenda et aux messages.",
+    "en": "Gives apps (authorized) access to contacts, calendar and messages."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Intermédiaire entre les applis et tes contacts / agenda. Les autorisations se règlent dans Paramètres > Confidentialité.",
+      "en": "Middleman between apps and your contacts / calendar. Permissions are set in Settings > Privacy."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (UserDataSvc_xxxxx).",
+      "en": "Per-user service (UserDataSvc_xxxxx)."
+    },
+    "expert": {
+      "fr": "svchost -k UnistackSvcGroup, userdataservice.dll.",
+      "en": "svchost -k UnistackSvcGroup, userdataservice.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Applis privées d'accès aux contacts et à l'agenda", "en": "Apps lose access to contacts and calendar" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

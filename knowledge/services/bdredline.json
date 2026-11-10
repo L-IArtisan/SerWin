@@ -1,0 +1,35 @@
+{
+  "name": "bdredline",
+  "aliases": [ "bdredline_agent" ],
+  "displayName": { "fr": "Bitdefender RedLine", "en": "Bitdefender RedLine" },
+  "category": "security",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Composants d'installation et de maintenance de Bitdefender (RedLine).",
+    "en": "Bitdefender installation and maintenance components (RedLine)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fait partie de l'installation de Bitdefender (réparation, mise à niveau). À laisser tel quel.",
+      "en": "Part of Bitdefender's installation (repair, upgrade). Leave it as is."
+    },
+    "avance": {
+      "fr": "Deux services : bdredline (dans SetupInformation) et bdredline_agent (dans Bitdefender Agent). Rôle exact non documenté publiquement.",
+      "en": "Two services: bdredline (in SetupInformation) and bdredline_agent (in Bitdefender Agent). Exact role not publicly documented."
+    },
+    "expert": {
+      "fr": "bdredline.exe, LocalSystem, démarrage automatique différé.",
+      "en": "bdredline.exe, LocalSystem, delayed automatic start."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Réparations et mises à niveau de Bitdefender perturbées", "en": "Bitdefender repairs and upgrades disrupted" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

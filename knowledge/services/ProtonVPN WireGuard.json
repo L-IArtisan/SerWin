@@ -1,0 +1,34 @@
+{
+  "name": "ProtonVPN WireGuard",
+  "displayName": { "fr": "ProtonVPN WireGuard", "en": "ProtonVPN WireGuard" },
+  "category": "network",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Tunnel WireGuard de ProtonVPN.",
+    "en": "ProtonVPN's WireGuard tunnel."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Nécessaire quand ProtonVPN utilise le protocole WireGuard.",
+      "en": "Needed when ProtonVPN uses the WireGuard protocol."
+    },
+    "avance": {
+      "fr": "Démarré par ProtonVPN au moment de la connexion.",
+      "en": "Started by ProtonVPN when connecting."
+    },
+    "expert": {
+      "fr": "ProtonVPN.WireGuardService.exe avec le fichier de configuration du tunnel, LocalSystem.",
+      "en": "ProtonVPN.WireGuardService.exe with the tunnel configuration file, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Connexion WireGuard de ProtonVPN impossible", "en": "ProtonVPN WireGuard connection impossible" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

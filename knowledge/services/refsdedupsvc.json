@@ -1,0 +1,34 @@
+{
+  "name": "refsdedupsvc",
+  "displayName": { "fr": "Service de déduplication ReFS", "en": "ReFS Dedup Service" },
+  "category": "storage",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Déduplication et compression des données sur les volumes ReFS.",
+    "en": "Data deduplication and compression on ReFS volumes."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Ne sert que si tu as un disque formaté en ReFS (rare chez soi, les disques sont en NTFS).",
+      "en": "Only used if you have a drive formatted as ReFS (rare at home, drives are NTFS)."
+    },
+    "avance": {
+      "fr": "Démarré à la demande par les tâches d'optimisation ReFS (Dev Drive peut utiliser ReFS).",
+      "en": "Started on demand by ReFS optimization tasks (Dev Drive may use ReFS)."
+    },
+    "expert": {
+      "fr": "ReFsDedupSvc.exe, LocalSystem.",
+      "en": "ReFsDedupSvc.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Volumes ReFS non optimisés", "en": "ReFS volumes not optimized" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,34 @@
+{
+  "name": "CaptureService",
+  "displayName": { "fr": "Service de capture", "en": "Capture Service" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Capture d'écran pour les applis (Outil Capture, partage d'écran).",
+    "en": "Screen capture for apps (Snipping Tool, screen sharing)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Permet aux applis de capturer l'écran : Outil Capture, partage d'écran dans Teams ou le navigateur.",
+      "en": "Lets apps capture the screen: Snipping Tool, screen sharing in Teams or the browser."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (CaptureService_xxxxx), démarré à la demande via l'API Windows.Graphics.Capture.",
+      "en": "Per-user service (CaptureService_xxxxx), started on demand through the Windows.Graphics.Capture API."
+    },
+    "expert": {
+      "fr": "svchost -k LocalService, CaptureService.dll.",
+      "en": "svchost -k LocalService, CaptureService.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Captures et partage d'écran en échec dans certaines applis", "en": "Screenshots and screen sharing fail in some apps" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

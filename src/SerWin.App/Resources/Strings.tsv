@@ -647,3 +647,4 @@ Deduced_Advice_Hardware	Lié à un matériel (contrôleur, périphérique, clé 
 Deduced_Advice_Sync	Synchronise ou sauvegarde des fichiers. Le désactiver arrête cette synchronisation.	Syncs or backs up files. Disabling it stops this sync.
 Deduced_Advice_Helper	Service d'assistance du logiciel (intégration, tâches de fond). Souvent non indispensable, mais certaines fonctions du logiciel peuvent en dépendre.	Software helper (integration, background tasks). Often not essential, but some features of the software may depend on it.
 Deduced_Advice_Microsoft	Service de Microsoft sans fiche rédigée pour l'instant : par prudence, ne le désactive pas sans t'être renseigné.	Microsoft service without a written entry yet: to be safe, do not disable it without looking it up.
+Known_bitdefender_agent	Agent Bitdefender	Bitdefender agent

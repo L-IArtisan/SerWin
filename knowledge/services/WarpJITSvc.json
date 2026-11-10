@@ -1,0 +1,34 @@
+{
+  "name": "WarpJITSvc",
+  "displayName": { "fr": "Service JIT WARP", "en": "Warp JIT Service" },
+  "category": "ui",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Compilation à la volée pour le rendu graphique logiciel (WARP) dans les processus protégés.",
+    "en": "Just-in-time compilation for software graphics rendering (WARP) in protected processes."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Service technique d'affichage, utilisé quand la carte graphique ne peut pas faire le rendu. À laisser tel quel.",
+      "en": "A technical display service, used when the graphics card cannot do the rendering. Leave it as is."
+    },
+    "avance": {
+      "fr": "Démarré à la demande pour les processus où la génération de code est interdite (sécurité renforcée).",
+      "en": "Started on demand for processes where code generation is disabled (hardened security)."
+    },
+    "expert": {
+      "fr": "svchost -k LocalServiceNetworkRestricted, Windows.WARP.JITService.dll, LocalService.",
+      "en": "svchost -k LocalServiceNetworkRestricted, Windows.WARP.JITService.dll, LocalService."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Affichage logiciel lent ou en échec dans certaines applis", "en": "Slow or failing software rendering in some apps" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

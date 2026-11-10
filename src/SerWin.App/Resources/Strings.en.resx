@@ -654,4 +654,5 @@
   <data name="Deduced_Advice_Sync" xml:space="preserve"><value>Syncs or backs up files. Disabling it stops this sync.</value></data>
   <data name="Deduced_Advice_Helper" xml:space="preserve"><value>Software helper (integration, background tasks). Often not essential, but some features of the software may depend on it.</value></data>
   <data name="Deduced_Advice_Microsoft" xml:space="preserve"><value>Microsoft service without a written entry yet: to be safe, do not disable it without looking it up.</value></data>
+  <data name="Known_bitdefender_agent" xml:space="preserve"><value>Bitdefender agent</value></data>
 </root>

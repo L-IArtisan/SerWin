@@ -1,0 +1,35 @@
+{
+  "name": "RtkBtManServ",
+  "displayName": { "fr": "Realtek Bluetooth Device Manager Service", "en": "Realtek Bluetooth Device Manager Service" },
+  "category": "hardware",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service du pilote Bluetooth Realtek.",
+    "en": "Realtek Bluetooth driver service."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec le pilote Bluetooth Realtek. Utile si tu utilises le Bluetooth de cet adaptateur.",
+      "en": "Installed with the Realtek Bluetooth driver. Useful if you use this adapter's Bluetooth."
+    },
+    "avance": {
+      "fr": "Gère des fonctions de l'adaptateur Bluetooth Realtek (rôle exact non documenté publiquement).",
+      "en": "Manages features of the Realtek Bluetooth adapter (exact role not publicly documented)."
+    },
+    "expert": {
+      "fr": "C:\\Windows\\RtkBtManServ.exe, LocalSystem.",
+      "en": "C:\\Windows\\RtkBtManServ.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Fonctions de l'adaptateur Bluetooth Realtek dégradées", "en": "Realtek Bluetooth adapter features degraded" }
+  ],
+  "revivers": [],
+  "usefulIf": { "bluetooth": "present" },
+  "verdictIfNot": { "fr": "Aucun Bluetooth détecté : ce service reste d'un ancien pilote.", "en": "No Bluetooth detected: this service is left over from an old driver." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

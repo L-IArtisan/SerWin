@@ -1,0 +1,34 @@
+{
+  "name": "PimIndexMaintenanceSvc",
+  "displayName": { "fr": "Données de contacts", "en": "Contact Data" },
+  "category": "search",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Indexe les contacts pour une recherche rapide.",
+    "en": "Indexes contacts for fast search."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Rend tes contacts trouvables rapidement dans la recherche. Peu utile si tu ne gardes pas de contacts dans Windows.",
+      "en": "Makes your contacts quickly searchable. Of little use if you do not keep contacts in Windows."
+    },
+    "avance": {
+      "fr": "Service par utilisateur (PimIndexMaintenanceSvc_xxxxx).",
+      "en": "Per-user service (PimIndexMaintenanceSvc_xxxxx)."
+    },
+    "expert": {
+      "fr": "svchost -k UnistackSvcGroup, PimIndexMaintenance.dll.",
+      "en": "svchost -k UnistackSvcGroup, PimIndexMaintenance.dll."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Recherche de contacts plus lente", "en": "Slower contact search" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

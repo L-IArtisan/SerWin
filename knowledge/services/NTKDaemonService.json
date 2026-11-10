@@ -1,0 +1,34 @@
+{
+  "name": "NTKDaemonService",
+  "displayName": { "fr": "Native Instruments NTK Daemon", "en": "Native Instruments NTK Daemon" },
+  "category": "audio-video",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service d'arrière-plan de Native Instruments (téléchargements et gestion des produits).",
+    "en": "Native Instruments background service (downloads and product management)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Installé avec Native Access. Sert aux installations et mises à jour des produits Native Instruments.",
+      "en": "Installed with Native Access. Used for installing and updating Native Instruments products."
+    },
+    "avance": {
+      "fr": "Rôle exact non documenté publiquement ; associé à Native Access 2.",
+      "en": "Exact role not publicly documented; associated with Native Access 2."
+    },
+    "expert": {
+      "fr": "NTKDaemon.exe, Common Files\\Native Instruments\\NTK, LocalSystem, démarrage automatique différé.",
+      "en": "NTKDaemon.exe, Common Files\\Native Instruments\\NTK, LocalSystem, delayed automatic start."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Native Access ne peut plus installer ni mettre à jour", "en": "Native Access can no longer install or update" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dcsvc",
+  "displayName": { "fr": "Service de configuration déclarée", "en": "Declared Configuration Service" },
+  "category": "enterprise",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Applique les documents de configuration reçus d'un outil de gestion (MDM).",
+    "en": "Applies configuration documents received from a management tool (MDM)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Fonction d'entreprise : applique des réglages envoyés par un administrateur. Inutile sur un PC personnel non géré.",
+      "en": "An enterprise feature: applies settings sent by an administrator. Useless on an unmanaged personal PC."
+    },
+    "avance": {
+      "fr": "Démarré à la demande. Fait partie de la gestion déclarative des appareils.",
+      "en": "Started on demand. Part of declarative device management."
+    },
+    "expert": {
+      "fr": "svchost -k netsvcs, dcsvc.dll, LocalSystem.",
+      "en": "svchost -k netsvcs, dcsvc.dll, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Configurations d'entreprise non appliquées", "en": "Enterprise configurations not applied" }
+  ],
+  "revivers": [],
+  "usefulIf": { "mdmEnrolled": "true" },
+  "verdictIfNot": { "fr": "PC non géré par une entreprise.", "en": "PC not managed by a company." },
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}

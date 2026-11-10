@@ -1,0 +1,34 @@
+{
+  "name": "EABackgroundService",
+  "displayName": { "fr": "EA app Background Service", "en": "EA app Background Service" },
+  "category": "gaming",
+  "risk": "faible",
+  "bootCritical": false,
+  "privacy": false,
+  "summary": {
+    "fr": "Service d'arrière-plan de l'application EA (installations et mises à jour de jeux).",
+    "en": "EA app background service (game installs and updates)."
+  },
+  "levels": {
+    "simple": {
+      "fr": "Utile si tu joues à des jeux EA. Il démarre à la demande.",
+      "en": "Useful if you play EA games. It starts on demand."
+    },
+    "avance": {
+      "fr": "Installe et met à jour les jeux sans demander les droits administrateur à chaque fois.",
+      "en": "Installs and updates games without asking for administrator rights every time."
+    },
+    "expert": {
+      "fr": "EABackgroundService.exe, LocalSystem.",
+      "en": "EABackgroundService.exe, LocalSystem."
+    }
+  },
+  "ifDisabled": [
+    { "fr": "Installations et mises à jour de jeux EA en échec", "en": "EA game installs and updates fail" }
+  ],
+  "revivers": [],
+  "usefulIf": {},
+  "defaults": {},
+  "verification": { "status": "draft" },
+  "sources": []
+}
