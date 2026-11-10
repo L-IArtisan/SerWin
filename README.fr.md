@@ -45,6 +45,8 @@ Rien n'est coché d'office : lis chaque explication et choisis seulement ce que 
 | **Qui le relance** | Analyse de 7 familles de mécanismes de relance + chronologie des journaux d'événements, alertes « désactivé puis relancé » |
 | **Processus** | Arbre parent → enfant, svchost dépliés, CPU / RAM / disque par service, signatures Authenticode vérifiées hors ligne, emplacements suspects |
 | **Réseau** *(v1.1)* | Qui contacte quoi : connexions TCP en direct avec le programme ou le service Windows exact, nom des serveurs grâce au journal DNS de Windows (facultatif, annulable), 61 fiches générales qui expliquent à quoi sert chaque destination (télémétrie, mises à jour, certificats, publicité…), ce qui casse si on la bloque et le réglage officiel qui la réduit. Observation seulement : rien n'est bloqué |
+| **Démarrage** *(v1.1)* | Programmes lancés à l'ouverture de session, tâches au démarrage et services tiers automatiques, avec ce qu'est chacun et des pistes d'optimisation : désactiver au démarrage (même réglage que le Gestionnaire des tâches) ou démarrage différé ; ralentissements mesurés par Windows (administrateur). Tout est annulable |
+| **Confidentialité** *(v1.1)* | Quelles applications ont utilisé ta caméra, ton micro ou ta localisation, quand et combien de temps, avec indicateur « en cours » ; et **qui écoute sur ton PC** (ports ouverts et programme responsable) |
 | **Chez toi** | 15 critères détectés localement, verdict « utile / inutile ici », suggestions vie privée, comparaison avec les réglages d'usine |
 | **Mode Expert** | Neutralisation complète (service + tâches liées + déclencheurs + récupération, annulable à l'octet près), verrouillage ACL de la clé de registre |
 

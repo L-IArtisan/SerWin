@@ -752,4 +752,41 @@
   <data name="PrivacyFilter_Webcam" xml:space="preserve"><value>Camera</value></data>
   <data name="PrivacyFilter_Microphone" xml:space="preserve"><value>Microphone</value></data>
   <data name="PrivacyFilter_Location" xml:space="preserve"><value>Location</value></data>
+  <data name="Listen_Header" xml:space="preserve"><value>🚪 Who is listening on your PC: {0} port(s) reachable from the network, {1} in total</value></data>
+  <data name="Listen_Intro" xml:space="preserve"><value>Programs waiting for incoming connections. “Reachable from the network” means open on all interfaces: the Windows firewall may still block access. In red: remote access (SSH, Remote Desktop…).</value></data>
+  <data name="Listen_Network" xml:space="preserve"><value>reachable from the network</value></data>
+  <data name="Listen_Local" xml:space="preserve"><value>this PC only</value></data>
+  <data name="Port_Unknown" xml:space="preserve"><value>unlisted port</value></data>
+  <data name="Port_TCP_Dynamic" xml:space="preserve"><value>Windows dynamic RPC port (communication between services)</value></data>
+  <data name="Port_TCP_21" xml:space="preserve"><value>FTP (file transfer)</value></data>
+  <data name="Port_TCP_22" xml:space="preserve"><value>SSH (command-line remote access)</value></data>
+  <data name="Port_TCP_23" xml:space="preserve"><value>Telnet (unencrypted remote access, obsolete)</value></data>
+  <data name="Port_TCP_80" xml:space="preserve"><value>web server (HTTP)</value></data>
+  <data name="Port_TCP_135" xml:space="preserve"><value>RPC (Windows service locator)</value></data>
+  <data name="Port_TCP_139" xml:space="preserve"><value>NetBIOS (legacy file sharing)</value></data>
+  <data name="Port_TCP_443" xml:space="preserve"><value>secure web server (HTTPS)</value></data>
+  <data name="Port_TCP_445" xml:space="preserve"><value>file and printer sharing (SMB)</value></data>
+  <data name="Port_TCP_2869" xml:space="preserve"><value>UPnP discovery (network devices)</value></data>
+  <data name="Port_TCP_3389" xml:space="preserve"><value>Remote Desktop (RDP)</value></data>
+  <data name="Port_TCP_5040" xml:space="preserve"><value>Connected Devices Platform (Phone Link, Nearby sharing)</value></data>
+  <data name="Port_TCP_5357" xml:space="preserve"><value>device discovery (WSD)</value></data>
+  <data name="Port_TCP_5985" xml:space="preserve"><value>PowerShell remote management (WinRM, HTTP)</value></data>
+  <data name="Port_TCP_5986" xml:space="preserve"><value>PowerShell remote management (WinRM, HTTPS)</value></data>
+  <data name="Port_TCP_7680" xml:space="preserve"><value>Delivery Optimization (sharing updates between PCs)</value></data>
+  <data name="Port_TCP_8080" xml:space="preserve"><value>secondary web server (HTTP)</value></data>
+  <data name="Port_UDP_53" xml:space="preserve"><value>DNS (name resolution)</value></data>
+  <data name="Port_UDP_67" xml:space="preserve"><value>DHCP (server)</value></data>
+  <data name="Port_UDP_68" xml:space="preserve"><value>DHCP (client)</value></data>
+  <data name="Port_UDP_123" xml:space="preserve"><value>time synchronization (NTP)</value></data>
+  <data name="Port_UDP_137" xml:space="preserve"><value>NetBIOS (local network PC names)</value></data>
+  <data name="Port_UDP_138" xml:space="preserve"><value>NetBIOS (local network messages)</value></data>
+  <data name="Port_UDP_500" xml:space="preserve"><value>IPsec / VPN (IKE)</value></data>
+  <data name="Port_UDP_1900" xml:space="preserve"><value>UPnP discovery (SSDP)</value></data>
+  <data name="Port_UDP_2177" xml:space="preserve"><value>network audio-video quality (QWAVE)</value></data>
+  <data name="Port_UDP_3702" xml:space="preserve"><value>device discovery (WS-Discovery)</value></data>
+  <data name="Port_UDP_4500" xml:space="preserve"><value>IPsec / VPN (NAT traversal)</value></data>
+  <data name="Port_UDP_5050" xml:space="preserve"><value>Connected Devices Platform</value></data>
+  <data name="Port_UDP_5353" xml:space="preserve"><value>local discovery (mDNS)</value></data>
+  <data name="Port_UDP_5355" xml:space="preserve"><value>local name resolution (LLMNR)</value></data>
+  <data name="Port_UDP_7680" xml:space="preserve"><value>Delivery Optimization</value></data>
 </root>

@@ -84,6 +84,7 @@ public class LocalizationTests
         foreach (var v in new[] { "All", "Suggested", "Programs", "Tasks", "Services", "Disabled" }) keys.Add($"StartupFilter_{v}");
         foreach (var v in new[] { "All", "InUse", "Webcam", "Microphone", "Location" }) keys.Add($"PrivacyFilter_{v}");
         foreach (var c in SerWin.Core.Privacy.CapabilityUsage.Tracked) keys.Add($"Cap_{c}");
+        foreach (var k in SerWin.Core.Network.KnownPorts.AllKeys) keys.Add(k);
         foreach (var n in new[] { "FirstIpAddressArrival", "LastIpAddressRemoval", "DomainJoin", "DomainLeave", "FirewallPortOpen",
                      "FirewallPortClose", "MachinePolicyPresent", "UserPolicyPresent", "RpcInterfaceEvent", "NamedPipeEvent" })
             keys.Add($"TriggerSub_{n}");

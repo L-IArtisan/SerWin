@@ -45,6 +45,8 @@ Nothing is pre-checked: read each explanation and pick only what you want.
 | **Who restarts it** | Static analysis of 7 families of revival mechanisms + event-log timeline, "disabled then revived" alerts |
 | **Processes** | Parent → child tree, svchost groups expanded, CPU / RAM / disk per service, offline Authenticode signature check, suspicious locations |
 | **Network** *(v1.1)* | Who contacts what: live TCP connections with the exact program or Windows service, server names from the Windows DNS log (optional, undoable), 61 general entries describing what each destination is for (telemetry, updates, certificates, ads…), what breaks if blocked, and the official setting that reduces it. Observation only: nothing is blocked |
+| **Startup** *(v1.1)* | Programs launched at sign-in, startup scheduled tasks and automatic third-party services, with what each one is and optimization suggestions: disable at startup (same setting as Task Manager) or delayed start; startup slowdowns measured by Windows (admin). Everything undoable |
+| **Privacy** *(v1.1)* | Which apps used your camera, microphone or location, when and for how long, with a live “in use” indicator, plus **who is listening on your PC** (open ports and the program behind each) |
 | **Your PC** | 15 local detection criteria, "useful / useless here" verdict, privacy suggestions, comparison with factory settings |
 | **Expert mode** | Full neutralization (service + linked tasks + triggers + recovery, byte-exact undo), registry key ACL lock |
 

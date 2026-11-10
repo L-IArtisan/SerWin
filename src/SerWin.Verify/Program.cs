@@ -29,6 +29,7 @@ return command switch
     "ps" => Ps(),
     "context" => Context(),
     "net" => Net(),
+    "listen" => Listen(),
     _ => Usage(),
 };
 
@@ -53,6 +54,7 @@ static int Usage()
           ps                                 Arbre des processus, services hébergés, signatures
           context                            Contexte détecté (matériel, usages) et verdicts « Chez toi »
           net [--hours N] [--unknown]         Échanges réseau : journal DNS + connexions TCP, fiches destinations
+          listen                             Ports ouverts en écoute (TCP, UDP) et programme responsable
         """);
     return 1;
 }
@@ -209,5 +211,12 @@ int Net()
         var sender = r.Flow.Sender.Service ?? r.Flow.Sender.ProcessName ?? r.Flow.Sender.Key;
         Console.WriteLine($"{r.Entry?.Name ?? "(sans fiche)",-28} {r.Flow.Destination,-50} {sender,-28} dns={r.Flow.Queries} tcp={r.Flow.Connections}{(r.Flow.ActiveConnections > 0 ? " ●" : "")}");
     }
+    return 0;
+}
+
+static int Listen()
+{
+    foreach (var p in SerWin.Core.Network.ListeningPorts.Read())
+        Console.WriteLine($"{p.Protocol,-4} {p.Port,6}  {(p.ReachableFromNetwork ? "réseau" : "local "),-7} pid={p.ProcessId,-6} {p.OwnerModule ?? "?",-24} {SerWin.Core.Network.KnownPorts.LabelKey(p.Protocol, p.Port) ?? ""}");
     return 0;
 }

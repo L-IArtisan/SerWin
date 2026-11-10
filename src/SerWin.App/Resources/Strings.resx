@@ -752,4 +752,41 @@
   <data name="PrivacyFilter_Webcam" xml:space="preserve"><value>Caméra</value></data>
   <data name="PrivacyFilter_Microphone" xml:space="preserve"><value>Micro</value></data>
   <data name="PrivacyFilter_Location" xml:space="preserve"><value>Localisation</value></data>
+  <data name="Listen_Header" xml:space="preserve"><value>🚪 Qui écoute sur ton PC : {0} port(s) joignable(s) depuis le réseau, {1} au total</value></data>
+  <data name="Listen_Intro" xml:space="preserve"><value>Programmes qui attendent des connexions entrantes. « Joignable depuis le réseau » veut dire ouvert sur toutes les interfaces : le pare-feu de Windows peut tout de même bloquer l&apos;accès. En rouge : accès à distance (SSH, Bureau à distance…).</value></data>
+  <data name="Listen_Network" xml:space="preserve"><value>joignable depuis le réseau</value></data>
+  <data name="Listen_Local" xml:space="preserve"><value>sur ce PC uniquement</value></data>
+  <data name="Port_Unknown" xml:space="preserve"><value>port non répertorié</value></data>
+  <data name="Port_TCP_Dynamic" xml:space="preserve"><value>port RPC dynamique de Windows (communication entre services)</value></data>
+  <data name="Port_TCP_21" xml:space="preserve"><value>FTP (transfert de fichiers)</value></data>
+  <data name="Port_TCP_22" xml:space="preserve"><value>SSH (accès à distance en ligne de commande)</value></data>
+  <data name="Port_TCP_23" xml:space="preserve"><value>Telnet (accès à distance non chiffré, obsolète)</value></data>
+  <data name="Port_TCP_80" xml:space="preserve"><value>serveur web (HTTP)</value></data>
+  <data name="Port_TCP_135" xml:space="preserve"><value>RPC (localisateur de services Windows)</value></data>
+  <data name="Port_TCP_139" xml:space="preserve"><value>NetBIOS (ancien partage de fichiers)</value></data>
+  <data name="Port_TCP_443" xml:space="preserve"><value>serveur web sécurisé (HTTPS)</value></data>
+  <data name="Port_TCP_445" xml:space="preserve"><value>partage de fichiers et d&apos;imprimantes (SMB)</value></data>
+  <data name="Port_TCP_2869" xml:space="preserve"><value>découverte UPnP (périphériques réseau)</value></data>
+  <data name="Port_TCP_3389" xml:space="preserve"><value>Bureau à distance (RDP)</value></data>
+  <data name="Port_TCP_5040" xml:space="preserve"><value>plateforme des appareils connectés (Mobile connecté, partage de proximité)</value></data>
+  <data name="Port_TCP_5357" xml:space="preserve"><value>découverte de périphériques (WSD)</value></data>
+  <data name="Port_TCP_5985" xml:space="preserve"><value>gestion à distance PowerShell (WinRM, HTTP)</value></data>
+  <data name="Port_TCP_5986" xml:space="preserve"><value>gestion à distance PowerShell (WinRM, HTTPS)</value></data>
+  <data name="Port_TCP_7680" xml:space="preserve"><value>Optimisation de livraison (partage de mises à jour entre PC)</value></data>
+  <data name="Port_TCP_8080" xml:space="preserve"><value>serveur web secondaire (HTTP)</value></data>
+  <data name="Port_UDP_53" xml:space="preserve"><value>DNS (résolution de noms)</value></data>
+  <data name="Port_UDP_67" xml:space="preserve"><value>DHCP (serveur)</value></data>
+  <data name="Port_UDP_68" xml:space="preserve"><value>DHCP (client)</value></data>
+  <data name="Port_UDP_123" xml:space="preserve"><value>synchronisation de l&apos;heure (NTP)</value></data>
+  <data name="Port_UDP_137" xml:space="preserve"><value>NetBIOS (noms des PC du réseau local)</value></data>
+  <data name="Port_UDP_138" xml:space="preserve"><value>NetBIOS (messages du réseau local)</value></data>
+  <data name="Port_UDP_500" xml:space="preserve"><value>IPsec / VPN (IKE)</value></data>
+  <data name="Port_UDP_1900" xml:space="preserve"><value>découverte UPnP (SSDP)</value></data>
+  <data name="Port_UDP_2177" xml:space="preserve"><value>qualité audio-vidéo sur le réseau (QWAVE)</value></data>
+  <data name="Port_UDP_3702" xml:space="preserve"><value>découverte de périphériques (WS-Discovery)</value></data>
+  <data name="Port_UDP_4500" xml:space="preserve"><value>IPsec / VPN (traversée NAT)</value></data>
+  <data name="Port_UDP_5050" xml:space="preserve"><value>plateforme des appareils connectés</value></data>
+  <data name="Port_UDP_5353" xml:space="preserve"><value>découverte locale (mDNS)</value></data>
+  <data name="Port_UDP_5355" xml:space="preserve"><value>résolution de noms locale (LLMNR)</value></data>
+  <data name="Port_UDP_7680" xml:space="preserve"><value>Optimisation de livraison</value></data>
 </root>

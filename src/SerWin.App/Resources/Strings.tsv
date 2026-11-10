@@ -745,3 +745,40 @@ PrivacyFilter_InUse	En cours d'utilisation	In use right now
 PrivacyFilter_Webcam	Caméra	Camera
 PrivacyFilter_Microphone	Micro	Microphone
 PrivacyFilter_Location	Localisation	Location
+Listen_Header	🚪 Qui écoute sur ton PC : {0} port(s) joignable(s) depuis le réseau, {1} au total	🚪 Who is listening on your PC: {0} port(s) reachable from the network, {1} in total
+Listen_Intro	Programmes qui attendent des connexions entrantes. « Joignable depuis le réseau » veut dire ouvert sur toutes les interfaces : le pare-feu de Windows peut tout de même bloquer l'accès. En rouge : accès à distance (SSH, Bureau à distance…).	Programs waiting for incoming connections. “Reachable from the network” means open on all interfaces: the Windows firewall may still block access. In red: remote access (SSH, Remote Desktop…).
+Listen_Network	joignable depuis le réseau	reachable from the network
+Listen_Local	sur ce PC uniquement	this PC only
+Port_Unknown	port non répertorié	unlisted port
+Port_TCP_Dynamic	port RPC dynamique de Windows (communication entre services)	Windows dynamic RPC port (communication between services)
+Port_TCP_21	FTP (transfert de fichiers)	FTP (file transfer)
+Port_TCP_22	SSH (accès à distance en ligne de commande)	SSH (command-line remote access)
+Port_TCP_23	Telnet (accès à distance non chiffré, obsolète)	Telnet (unencrypted remote access, obsolete)
+Port_TCP_80	serveur web (HTTP)	web server (HTTP)
+Port_TCP_135	RPC (localisateur de services Windows)	RPC (Windows service locator)
+Port_TCP_139	NetBIOS (ancien partage de fichiers)	NetBIOS (legacy file sharing)
+Port_TCP_443	serveur web sécurisé (HTTPS)	secure web server (HTTPS)
+Port_TCP_445	partage de fichiers et d'imprimantes (SMB)	file and printer sharing (SMB)
+Port_TCP_2869	découverte UPnP (périphériques réseau)	UPnP discovery (network devices)
+Port_TCP_3389	Bureau à distance (RDP)	Remote Desktop (RDP)
+Port_TCP_5040	plateforme des appareils connectés (Mobile connecté, partage de proximité)	Connected Devices Platform (Phone Link, Nearby sharing)
+Port_TCP_5357	découverte de périphériques (WSD)	device discovery (WSD)
+Port_TCP_5985	gestion à distance PowerShell (WinRM, HTTP)	PowerShell remote management (WinRM, HTTP)
+Port_TCP_5986	gestion à distance PowerShell (WinRM, HTTPS)	PowerShell remote management (WinRM, HTTPS)
+Port_TCP_7680	Optimisation de livraison (partage de mises à jour entre PC)	Delivery Optimization (sharing updates between PCs)
+Port_TCP_8080	serveur web secondaire (HTTP)	secondary web server (HTTP)
+Port_UDP_53	DNS (résolution de noms)	DNS (name resolution)
+Port_UDP_67	DHCP (serveur)	DHCP (server)
+Port_UDP_68	DHCP (client)	DHCP (client)
+Port_UDP_123	synchronisation de l'heure (NTP)	time synchronization (NTP)
+Port_UDP_137	NetBIOS (noms des PC du réseau local)	NetBIOS (local network PC names)
+Port_UDP_138	NetBIOS (messages du réseau local)	NetBIOS (local network messages)
+Port_UDP_500	IPsec / VPN (IKE)	IPsec / VPN (IKE)
+Port_UDP_1900	découverte UPnP (SSDP)	UPnP discovery (SSDP)
+Port_UDP_2177	qualité audio-vidéo sur le réseau (QWAVE)	network audio-video quality (QWAVE)
+Port_UDP_3702	découverte de périphériques (WS-Discovery)	device discovery (WS-Discovery)
+Port_UDP_4500	IPsec / VPN (traversée NAT)	IPsec / VPN (NAT traversal)
+Port_UDP_5050	plateforme des appareils connectés	Connected Devices Platform
+Port_UDP_5353	découverte locale (mDNS)	local discovery (mDNS)
+Port_UDP_5355	résolution de noms locale (LLMNR)	local name resolution (LLMNR)
+Port_UDP_7680	Optimisation de livraison	Delivery Optimization

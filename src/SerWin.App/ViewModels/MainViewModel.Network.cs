@@ -135,7 +135,7 @@ public sealed partial class MainViewModel
             var readDns = forceDns || ++_networkTick % DnsEveryTicks == 0;
             var since = _dnsReadUntil;
             var now = DateTime.Now;
-            var dnsLog = await Task.Run(() =>
+            var (dnsLog, listening) = await Task.Run(() =>
             {
                 _senderResolver.Refresh(services);
                 EventLogSetting? setting = null;
@@ -149,7 +149,7 @@ public sealed partial class MainViewModel
                     observer.AddCache(DnsCache.Read(), now);
                 }
                 observer.AddConnections(TcpConnections.ReadEstablished(), now);
-                return setting;
+                return (setting, ListeningPorts.Read());
             });
             if (readDns)
             {
@@ -162,6 +162,7 @@ public sealed partial class MainViewModel
                 CommandManager.InvalidateRequerySuggested();
             }
             UpdateNetworkItems(observer);
+            UpdateListening(listening);
         }
         catch (Exception ex) when (ex is not OutOfMemoryException)
         {

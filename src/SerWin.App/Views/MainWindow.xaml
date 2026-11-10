@@ -1303,6 +1303,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0">
@@ -1370,14 +1371,46 @@
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
 
-                        <StackPanel Grid.Row="4" Margin="0,16,0,6">
+                        <!-- Qui écoute sur ton PC : ports ouverts en entrée -->
+                        <Expander Grid.Row="4" Margin="0,14,0,0" Header="{Binding ListeningHeader}">
+                            <StackPanel Margin="0,6,0,0">
+                                <TextBlock Style="{StaticResource Secondary}" TextWrapping="Wrap" Margin="0,0,0,6" Text="{loc:T Listen_Intro}" />
+                                <ScrollViewer MaxHeight="220" VerticalScrollBarVisibility="Auto">
+                                    <ItemsControl ItemsSource="{Binding ListeningItems}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate DataType="{x:Type vm:ListeningItem}">
+                                                <Grid Margin="0,2">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="96" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock FontFamily="Consolas" FontSize="12" VerticalAlignment="Center" Text="{Binding PortText}"
+                                                               Foreground="{Binding PortBrush}" />
+                                                    <StackPanel Grid.Column="1">
+                                                        <TextBlock FontSize="13" TextTrimming="CharacterEllipsis" Text="{Binding Program}" />
+                                                        <TextBlock Style="{StaticResource Secondary}" FontSize="11" TextWrapping="Wrap" Text="{Binding Description}" />
+                                                    </StackPanel>
+                                                    <ui:Button Grid.Column="2" Padding="8,2" Margin="6,0,0,0" VerticalAlignment="Center" Content="{loc:T Link_Service}"
+                                                               Command="{Binding DataContext.ShowServiceCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                                               CommandParameter="{Binding ServiceName}"
+                                                               Visibility="{Binding HasService, Converter={StaticResource BoolToVis}}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </Expander>
+
+                        <StackPanel Grid.Row="5" Margin="0,16,0,6">
                             <TextBlock Style="{StaticResource Body}" FontWeight="SemiBold" Text="{loc:T Net_LiveFeed}" />
                             <TextBlock Style="{StaticResource Secondary}" TextWrapping="Wrap" Text="{loc:T Net_LiveFeedHelp}" />
                         </StackPanel>
 
-                        <TextBlock Grid.Row="5" Style="{StaticResource Secondary}" Margin="0,8,0,0" TextWrapping="Wrap" Text="{loc:T Net_FeedEmpty}"
+                        <TextBlock Grid.Row="6" Style="{StaticResource Secondary}" Margin="0,8,0,0" TextWrapping="Wrap" Text="{loc:T Net_FeedEmpty}"
                                    Visibility="{Binding HasFeed, Converter={StaticResource BoolToVis}, ConverterParameter=invert}" />
-                        <ListBox Grid.Row="5" ItemsSource="{Binding NetworkFeed}" SelectedItem="{Binding SelectedFeedItem}"
+                        <ListBox Grid.Row="6" ItemsSource="{Binding NetworkFeed}" SelectedItem="{Binding SelectedFeedItem}"
                                  VirtualizingPanel.IsVirtualizing="True" VirtualizingPanel.VirtualizationMode="Recycling"
                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0"
                                  Visibility="{Binding HasFeed, Converter={StaticResource BoolToVis}}">
