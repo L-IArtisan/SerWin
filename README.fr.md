@@ -20,6 +20,7 @@ La plupart des « optimiseurs » Windows proposent un gros bouton qui désactive
 - **Il s'adapte à *ton* PC.** SerWin détecte ton matériel localement (imprimante, Bluetooth, Wi-Fi, portable ou fixe, applis Xbox, antivirus tiers…) et te dit quels services sont inutiles *sur cette machine*.
 - **Il montre qui relance un service.** Déclencheurs, tâches planifiées, services réparateurs (WaaSMedic…), actions de récupération, mises à jour : SerWin liste tout ce qui peut faire revenir un service, et t'alerte quand c'est arrivé.
 - **Il montre qui parle à Internet.** La page Réseau liste quel programme ou service contacte quel serveur, et explique à quoi sert chaque destination — sans que SerWin ne se connecte jamais lui-même.
+- **Il montre ce que ton PC fait tout seul.** Ce qui se lance au démarrage (et ce qui peut attendre), quelles applications ont utilisé ta caméra, ton micro ou ta localisation, et qui attend des connexions entrantes.
 - **Il ne coupe jamais les ponts.** Sauvegarde complète avant chaque modification, historique, annulation en un clic, *Tout restaurer*, point de restauration. Les services vitaux sont bloqués ; les services importants demandent une confirmation explicite.
 
 ### Qui le relance ?
@@ -36,6 +37,24 @@ Rien n'est coché d'office : lis chaque explication et choisis seulement ce que 
 
 ![Suggestions selon le matériel détecté](docs/images/fr-suggestions.png)
 
+### Réseau : qui contacte quoi
+
+Fil en direct, frise d'activité sur 24 h / 7 jours par utilité (télémétrie, mises à jour, publicité…) et explication de chaque destination.
+
+![Activité réseau, frise et fil en direct](docs/images/fr-network.png)
+
+### Qui écoute sur ton PC
+
+![Ports ouverts et programme responsable](docs/images/fr-listening.png)
+
+### Démarrage : ce qui peut attendre
+
+![Programmes, tâches et services au démarrage avec pistes d'optimisation](docs/images/fr-startup.png)
+
+### Confidentialité : caméra, micro, localisation
+
+![Applications ayant utilisé la caméra, le micro ou la localisation](docs/images/fr-privacy.png)
+
 ## Fonctionnalités
 
 | | |
@@ -44,9 +63,9 @@ Rien n'est coché d'office : lis chaque explication et choisis seulement ce que 
 | **Actions sûres** | Démarrer, arrêter, changer le type de démarrage, sauvegarde + historique + annulation, *Tout restaurer*, point de restauration, liste rouge (bloqué) et orange (confirmation) |
 | **Qui le relance** | Analyse de 7 familles de mécanismes de relance + chronologie des journaux d'événements, alertes « désactivé puis relancé » |
 | **Processus** | Arbre parent → enfant, svchost dépliés, CPU / RAM / disque par service, signatures Authenticode vérifiées hors ligne, emplacements suspects |
-| **Réseau** *(v1.1)* | Qui contacte quoi : connexions TCP en direct avec le programme ou le service Windows exact, nom des serveurs grâce au journal DNS de Windows (facultatif, annulable), 61 fiches générales qui expliquent à quoi sert chaque destination (télémétrie, mises à jour, certificats, publicité…), ce qui casse si on la bloque et le réglage officiel qui la réduit. Observation seulement : rien n'est bloqué |
-| **Démarrage** *(v1.1)* | Programmes lancés à l'ouverture de session, tâches au démarrage et services tiers automatiques, avec ce qu'est chacun et des pistes d'optimisation : désactiver au démarrage (même réglage que le Gestionnaire des tâches) ou démarrage différé ; ralentissements mesurés par Windows (administrateur). Tout est annulable |
-| **Confidentialité** *(v1.1)* | Quelles applications ont utilisé ta caméra, ton micro ou ta localisation, quand et combien de temps, avec indicateur « en cours » ; et **qui écoute sur ton PC** (ports ouverts et programme responsable) |
+| **Réseau** *(v2.0)* | Qui contacte quoi : connexions TCP en direct avec le programme ou le service Windows exact, nom des serveurs grâce au journal DNS de Windows (facultatif, annulable), 61 fiches générales qui expliquent à quoi sert chaque destination (télémétrie, mises à jour, certificats, publicité…), ce qui casse si on la bloque et le réglage officiel qui la réduit. Observation seulement : rien n'est bloqué |
+| **Démarrage** *(v2.0)* | Programmes lancés à l'ouverture de session, tâches au démarrage et services tiers automatiques, avec ce qu'est chacun et des pistes d'optimisation : désactiver au démarrage (même réglage que le Gestionnaire des tâches) ou démarrage différé ; ralentissements mesurés par Windows (administrateur). Tout est annulable |
+| **Confidentialité** *(v2.0)* | Quelles applications ont utilisé ta caméra, ton micro ou ta localisation, quand et combien de temps, avec indicateur « en cours » ; et **qui écoute sur ton PC** (ports ouverts et programme responsable) |
 | **Chez toi** | 15 critères détectés localement, verdict « utile / inutile ici », suggestions vie privée, comparaison avec les réglages d'usine |
 | **Mode Expert** | Neutralisation complète (service + tâches liées + déclencheurs + récupération, annulable à l'octet près), verrouillage ACL de la clé de registre |
 
@@ -76,7 +95,7 @@ Consulter ne demande aucun droit administrateur. Pour modifier, le bouton 🛡�
 
 ## État
 
-Version 1.1 — 347 fiches services, 38 fiches processus et 61 fiches destinations réseau, toutes au niveau 📝 **Brouillon** : rédigées à partir de la documentation publique et contrôlées sur une vraie configuration Windows 11, mais pas encore vérifiées sur une installation vierge de chaque édition. SerWin affiche toujours le niveau de vérification de chaque fiche.
+Version 2.0 — 347 fiches services, 38 fiches processus et 61 fiches destinations réseau, toutes au niveau 📝 **Brouillon** : rédigées à partir de la documentation publique et contrôlées sur une vraie configuration Windows 11, mais pas encore vérifiées sur une installation vierge de chaque édition. SerWin affiche toujours le niveau de vérification de chaque fiche.
 
 Une explication fausse, un service sans fiche ? [Ouvre un ticket](https://github.com/L-IArtisan/SerWin/issues/new/choose) : c'est la contribution la plus utile.
 

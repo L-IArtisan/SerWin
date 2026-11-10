@@ -20,6 +20,7 @@ Most "Windows optimizers" offer a big button that disables dozens of services at
 - **It adapts to *your* PC.** SerWin detects your hardware locally (printer, Bluetooth, Wi-Fi, laptop or desktop, Xbox apps, third-party antivirus…) and tells you which services are useless *on this machine*.
 - **It shows who restarts a service.** Triggers, scheduled tasks, repair services (WaaSMedic…), recovery actions, updates: SerWin lists every mechanism that can bring a service back, and alerts you when one actually did.
 - **It shows who talks to the Internet.** The Network page lists which program or service contacts which server, and explains what each destination is for — without SerWin itself ever connecting to anything.
+- **It shows what your PC does on its own.** What starts with Windows (and what can wait), which apps used your camera, microphone or location, and who is listening for incoming connections.
 - **It never burns bridges.** Full backup before every change, history, one-click undo, *Restore everything*, optional restore point. Critical services are hard-blocked; important ones need explicit confirmation.
 
 ### Who restarts it?
@@ -36,6 +37,24 @@ Nothing is pre-checked: read each explanation and pick only what you want.
 
 ![Suggestions based on detected hardware](docs/images/en-suggestions.png)
 
+### Network: who contacts what
+
+Live feed, 24-hour / 7-day activity timeline by usefulness (telemetry, updates, ads…), and an explanation for each destination.
+
+![Network activity, timeline and live feed](docs/images/en-network.png)
+
+### Who is listening on your PC
+
+![Open ports and the program behind each](docs/images/en-listening.png)
+
+### Startup: what can wait
+
+![Startup programs, tasks and services with optimization suggestions](docs/images/en-startup.png)
+
+### Privacy: camera, microphone, location
+
+![Apps that used the camera, microphone or location](docs/images/en-privacy.png)
+
 ## Features
 
 | | |
@@ -44,9 +63,9 @@ Nothing is pre-checked: read each explanation and pick only what you want.
 | **Safe actions** | Start, stop, change startup type, backup + history + undo, *Restore everything*, restore point, red list (blocked) and orange list (confirmation) |
 | **Who restarts it** | Static analysis of 7 families of revival mechanisms + event-log timeline, "disabled then revived" alerts |
 | **Processes** | Parent → child tree, svchost groups expanded, CPU / RAM / disk per service, offline Authenticode signature check, suspicious locations |
-| **Network** *(v1.1)* | Who contacts what: live TCP connections with the exact program or Windows service, server names from the Windows DNS log (optional, undoable), 61 general entries describing what each destination is for (telemetry, updates, certificates, ads…), what breaks if blocked, and the official setting that reduces it. Observation only: nothing is blocked |
-| **Startup** *(v1.1)* | Programs launched at sign-in, startup scheduled tasks and automatic third-party services, with what each one is and optimization suggestions: disable at startup (same setting as Task Manager) or delayed start; startup slowdowns measured by Windows (admin). Everything undoable |
-| **Privacy** *(v1.1)* | Which apps used your camera, microphone or location, when and for how long, with a live “in use” indicator, plus **who is listening on your PC** (open ports and the program behind each) |
+| **Network** *(v2.0)* | Who contacts what: live TCP connections with the exact program or Windows service, server names from the Windows DNS log (optional, undoable), 61 general entries describing what each destination is for (telemetry, updates, certificates, ads…), what breaks if blocked, and the official setting that reduces it. Observation only: nothing is blocked |
+| **Startup** *(v2.0)* | Programs launched at sign-in, startup scheduled tasks and automatic third-party services, with what each one is and optimization suggestions: disable at startup (same setting as Task Manager) or delayed start; startup slowdowns measured by Windows (admin). Everything undoable |
+| **Privacy** *(v2.0)* | Which apps used your camera, microphone or location, when and for how long, with a live “in use” indicator, plus **who is listening on your PC** (open ports and the program behind each) |
 | **Your PC** | 15 local detection criteria, "useful / useless here" verdict, privacy suggestions, comparison with factory settings |
 | **Expert mode** | Full neutralization (service + linked tasks + triggers + recovery, byte-exact undo), registry key ACL lock |
 
@@ -74,7 +93,7 @@ Browsing needs no admin rights. To make changes, the 🛡️ button restarts Ser
 
 ## Status
 
-Version 1.1 — 347 service entries, 38 process entries and 61 network destinations, all marked 📝 **Draft**: written from public documentation and checked against a real Windows 11 configuration, but not yet verified on a clean install of every edition. SerWin always shows the verification level of each entry.
+Version 2.0 — 347 service entries, 38 process entries and 61 network destinations, all marked 📝 **Draft**: written from public documentation and checked against a real Windows 11 configuration, but not yet verified on a clean install of every edition. SerWin always shows the verification level of each entry.
 
 Found a wrong explanation, or a service without an entry? [Open an issue](https://github.com/L-IArtisan/SerWin/issues/new/choose) — it is the most useful contribution.
 
